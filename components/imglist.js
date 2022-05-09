@@ -13,8 +13,9 @@ import Image6 from '../assets/img/seller_6.png';
 import Image7 from '../assets/img/seller_7.png';
 import Image8 from '../assets/img/seller_8.png';
 import Image9 from '../assets/img/seller_9.png';
-import { Grid, Link } from "@mui/material";
+import { Grid } from "@mui/material";
 import { display } from "@mui/system";
+import Link from "next/link";
 
 const useStyles = makeStyles({
   wrapperImage:{
@@ -121,7 +122,7 @@ export default function NewImageList() {
             <Box className={classes.box_1Image}>
               <Box>
                 <Link href="/shop">
-                <img src={Image1.src} className={classes.Image} />
+                <a><img src={Image1.src} className={classes.Image} /></a>
                 </Link>
               </Box>
           </Box>
@@ -129,25 +130,25 @@ export default function NewImageList() {
           <Box>
             <Box className={classes.box_2Image} >
                 <Box className={classes.box_2Image1}>
-                <Link href="/product/pny-micro-hc">
-                    <img src={Image2.src} className={classes.Image} />
+                <Link href="/product/pro-card-visit-a1">
+                    <a><img src={Image2.src} className={classes.Image} /></a>
                     </Link>
                 </Box>
                 <Box>
-                <Link href="/product/dz09-smart-watch">
-                    <img src={Image3.src} className={classes.Image} />
+                <Link href="/product/agency-books">
+                    <a><img src={Image3.src} className={classes.Image} /></a>
                     </Link>
                 </Box>
             </Box>
             <Box className={classes.box_2Image}>
                 <Box  className={classes.box_2Image2} >
-                <Link href="/product/fastfood-humburger-with-option">
-                    <img src={Image6.src} className={classes.Image} />
+                <Link href="/product/travel-agency-flyer">
+                    <a><img src={Image6.src} className={classes.Image} /></a>
                     </Link>
                 </Box>
                 <Box >
-                <Link href="/product/black-skirt-for-women/">
-                    <img src={Image7.src} className={classes.Image} />
+                <Link href="/product/business-card-with-print-option/">
+                    <a><img src={Image7.src} className={classes.Image} /></a>
                     </Link>
                 </Box>
             </Box>
@@ -159,26 +160,26 @@ export default function NewImageList() {
         <Box className={classes.rowImage}>
           <Box className={classes.box_3Image}>
               <Box className={classes.box_Image}>
-              <Link href="  /product/apple-swatch/">
-                  <img src={Image5.src} className={classes.Image}  />
+              <Link href="  /product/poster-with-print-option">
+                  <a><img src={Image5.src} className={classes.Image}  /></a>
                   </Link>
               </Box>
               <Box>
-              <Link href=" /product/apple-swatch/">
-                <img src={Image4.src} className={classes.Image}/>
+              <Link href=" /product/poster-with-print-option">
+                <a><img src={Image4.src} className={classes.Image}/></a>
                 </Link>
               </Box>
 
           </Box>
           <Box className={classes.box_4Image}>
               <Box className={classes.box_Image}>
-              <Link href=" /product/baby-hand-bell-rattlle/">
-                  <img src={Image8.src} className={classes.Image} />
+              <Link href=" /product/color-with-print-option">
+                  <a><img src={Image8.src} className={classes.Image} /></a>
                   </Link>
               </Box>
               <Box>
-              <Link href="/product/american-humburger-with-salad/">
-                  <img src={Image9.src} className={classes.Image} />
+              <Link href="/product/dot-luck">
+                  <a><img src={Image9.src} className={classes.Image} /></a>
                   </Link>
               </Box>
           </Box>

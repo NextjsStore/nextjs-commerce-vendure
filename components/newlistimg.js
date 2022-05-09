@@ -11,8 +11,10 @@ import Image4 from '../assets/img/image_4.png';
 import Image5 from '../assets/img/image_5.png';
 import Image6 from '../assets/img/image_6.png';
 import Image7 from '../assets/img/image_7.png';
-import { Grid, Link } from "@mui/material";
+import { Grid } from "@mui/material";
 import { display } from "@mui/system";
+import Link from "next/link";
+
 
 const useStyles = makeStyles({
   wrapperImage:{
@@ -98,21 +100,27 @@ export default function NewImageList() {
         <Box className={classes.rowImage}>
           <Box className={classes.box_1Image}>
               <Box className={classes.box_Image}>
-                <Link href="/product/apple-iphone-7-plus">
+                <Link href="/product/clean-business-card">
+                  <a>
                   <img src={Image1.src} className={classes.Image} />
+                  </a>
                 </Link>
               </Box>
               <Box>
-              <Link href="/product/ring-with-12-round-diamond/">
-                  <img src={Image2.src} className={classes.Image} />
-                  </Link>
+                <Link href="/product/softcover-trade-book">
+                  <a>
+                    <img src={Image2.src} className={classes.Image} />
+                  </a>
+                </Link>
               </Box>
 
           </Box>
           <Box className={classes.box_2Image}>
             <Box>
             <Link href=" /shop">
-              <img src={Image3.src} className={classes.Image} />
+              <a>
+                <img src={Image3.src} className={classes.Image} />
+              </a>
               </Link>
             </Box>
           </Box>
@@ -122,26 +130,26 @@ export default function NewImageList() {
         <Box className={classes.rowImage}>
           <Box className={classes.box_3Image}>
               <Box className={classes.box_Image}>
-              <Link href="/product/lenovo-15-e460-notebook">
-                  <img src={Image4.src} className={classes.Image}  />
+              <Link href="/product/dot-luck">
+                  <a><img src={Image4.src} className={classes.Image}  /></a>
                   </Link>
               </Box>
               <Box>
-              <Link href="/product/wireless-mouse-m187">
-                <img src={Image5.src} className={classes.Image}/>
+              <Link href="/product/sharp-contrast">
+                <a><img src={Image5.src} className={classes.Image}/></a>
                 </Link>
               </Box>
 
           </Box>
           <Box className={classes.box_4Image}>
               <Box className={classes.box_Image}>
-              <Link href="/product/dz09-smart-watch">
-                  <img src={Image6.src} className={classes.Image} />
+              <Link href="/product/web2print">
+                  <a><img src={Image6.src} className={classes.Image} /></a>
                   </Link>
               </Box>
               <Box>
-              <Link href="/product/lum-5d-mark-iv-dslr-camera">
-                  <img src={Image7.src} className={classes.Image} />
+              <Link href="/product/tiny-square-card">
+                  <a><img src={Image7.src} className={classes.Image} /></a>
                   </Link>
               </Box>
           </Box>

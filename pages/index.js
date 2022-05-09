@@ -49,7 +49,7 @@ const PRODUCT_QUERY = gql`query Product{
 }`;
 
 const PRODUCT_SELLER = gql`query Product {
-  products(options: {skip: 3, take: 8}) {
+  products(options: {skip: 4, take: 8}) {
     items {
       name
       slug

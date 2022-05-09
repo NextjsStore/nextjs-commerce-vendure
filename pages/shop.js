@@ -21,36 +21,25 @@ import Banner from '../assets/img/banner_page.png';
 
 
 
-const PRODUCT_QUERY = gql`query Product($cat:String! ){
-  first:products(first: 12,where: {category: $cat}) {
-    nodes {
-      id
-      databaseId
-      name
-      description
-      slug
-      image {
-        uri
-        srcSet
-        sourceUrl
-      }
-      ... on SimpleProduct {
-        price
-        regularPrice
-        salePrice
-      }
-      ... on VariableProduct {
-        price
-        regularPrice
-        salePrice
-        variations {
-          nodes {
-            price
-          }
+const PRODUCT_QUERY = gql`query Product{
+  products {
+      items {
+        name
+        slug
+        assets {
+          name
+          source
+        }
+        variants {
+          price
+        }
+        collections {
+          name
+          id
+          slug
         }
       }
     }
-  }
   }`;
 
 const colorHover = '#40c6ff';
@@ -210,8 +199,8 @@ export default function Shop(props) {
             <List>
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`Smartphone`)} >
-                    Beauty, Health
+                  <ListItemText  onClick={() => handleSubmit(`CustomPrints`)} >
+                  Custom Prints
                   </ListItemText>
 
                 </ListItemButton>
@@ -220,8 +209,8 @@ export default function Shop(props) {
               <Divider />
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`Books`)} >
-                  Book
+                  <ListItemText  onClick={() => handleSubmit(`Freefilecheck`)} >
+                  Free file check
                   </ListItemText>
 
                 </ListItemButton>
@@ -230,18 +219,8 @@ export default function Shop(props) {
               <Divider />
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`Computer`)} >
-                  Computer
-                  </ListItemText>
-
-                </ListItemButton>
-
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`Electronis`)} >
-                  Electricis
+                  <ListItemText  onClick={() => handleSubmit(`GraphicDesign`)} >
+                  Graphic Design
                   </ListItemText>
 
                 </ListItemButton>
@@ -250,46 +229,10 @@ export default function Shop(props) {
               <Divider />
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText} >
-                  <ListItemText  onClick={() => handleSubmit(`Fashion`)}>
-                  Fashion
+                  <ListItemText  onClick={() => handleSubmit(`Mailing`)}>
+                  Mailing
                   </ListItemText>
 
-                </ListItemButton>
-
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`Food`)} >
-                  Food
-                  </ListItemText>
-                </ListItemButton>
-
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`Jewelry`)} >
-                  Jewelry
-                  </ListItemText>
-                </ListItemButton>
-
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`Smartphone`)} >
-                  Smartphone
-                  </ListItemText>
-                </ListItemButton>
-
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText} >
-                  <ListItemText onClick={() => handleSubmit(`Sports`)} >
-                  Sport
-                  </ListItemText>
                 </ListItemButton>
 
               </ListItem>
@@ -332,7 +275,7 @@ export async function getServerSideProps({ query }) {
   });
   return {
     props: {
-      products: result.data.first.nodes,
+      products: result.data.products.items,
     },
   };
 }

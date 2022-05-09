@@ -4,11 +4,11 @@ import CountDown from "./Countdown";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Image_1 from '../assets/img/deals_of_day_1.png';
-import Image_2 from '../assets/img/deals_of_day_2.png';
+import Image_1 from '../assets/img/deals_of_day_1.jpg';
+import Image_2 from '../assets/img/deals_of_day_2.jpg';
 import { Container } from "@mui/material";
 import { makeStyles } from "@material-ui/core/styles";
-import Link from '@mui/material/Link';
+import Link from "next/link";
 
 const colorHover = '#40c6ff';
 const useStyles = makeStyles({
@@ -156,10 +156,12 @@ export default function DealsOfDay() {
               </Box>
             </Box>
             <Typography style={{ marginLeft: 30 }}>
-            <Link href="/product/Torchiere-Floor-Lamp" className={classes.buttonLink} >
+            <Link href="/product/softcover-trade-book" className={classes.buttonLink} >
+              <a>
               <Typography className={classes.nameProSales}>
-                Torchiere Floor Lamp
+                Softcover Trade Book
               </Typography>
+              </a>
               </Link>
               <Typography
                 style={{
@@ -175,9 +177,9 @@ export default function DealsOfDay() {
                     textDecoration: "line-through",
                   }}
                 >
-                  $90.00
+                  $5700
                 </Typography>
-                <Typography style={{ color: "rgb(64,198,255)", margin: 0 }}>$71.00</Typography>
+                <Typography style={{ color: "rgb(64,198,255)", margin: 0 }}>$2600</Typography>
               </Typography>
               <Typography style={{ color: "#666", margin: "18px 8px 27px 0px" }}>
                 Black finish thin profile metal pole and base. White polyresin
@@ -185,7 +187,7 @@ export default function DealsOfDay() {
               </Typography>
               <CountDown />
               <Box className={classes.button}>
-                <Link href="/product/Torchiere-Floor-Lamp" className={classes.buttonLink} >
+                <Link href="/product/softcover-trade-book" className={classes.buttonLink} >
                   <Typography sx={{ fontSize: "14px", fontWeight: "600", }}>SHOP NOW</Typography>
                 </Link>
               </Box>
@@ -211,10 +213,12 @@ export default function DealsOfDay() {
               </Box>
             </Box>
             <Box style={{ marginLeft: 30 }}>
-            <Link href="/product/small-condenser-microphone" className={classes.buttonLink}>
+            <Link href="/product/sharp-contrast" className={classes.buttonLink}>
+              <a>
               <Typography className={classes.nameProSales} >
-                Condenser Headphone
+              Sharp Contrast
               </Typography>
+              </a>
               </Link>
               <Typography style={{ fontSize: 20, fontWeight: "bold", display: "flex" }}>
                 <Typography
@@ -224,9 +228,9 @@ export default function DealsOfDay() {
                     textDecoration: "line-through",
                   }}
                 >
-                  $310.00
+                  $10000
                 </Typography>
-                <Typography style={{ color: "rgb(64,198,255)", margin: 0 }}>$190.00</Typography>
+                <Typography style={{ color: "rgb(64,198,255)", margin: 0 }}>$7800</Typography>
               </Typography>
               <Typography style={{ color: "#666", margin: "18px 8px 27px 0px" }}>
                 Caramel Ice Cream with a Swirl of Caramel & Fudge Covered Caramel
@@ -234,7 +238,7 @@ export default function DealsOfDay() {
               </Typography>
               <CountDown />
               <Box className={classes.button}>
-                <Link href="/product/small-condenser-microphone" className={classes.buttonLink}>
+                <Link href="/product/sharp-contrast" className={classes.buttonLink}>
                   <Typography sx={{ fontSize: "14px", fontWeight: "600", }}>SHOP NOW</Typography>
                 </Link>
               </Box>

@@ -109,25 +109,21 @@ export default function TabSeller() {
         <Box className={classes.tabsProduct}>
           <Typography className={classes.titleHome}><span>Best Seller</span></Typography>
           <Box className={classes.tabsTitle}>
+          <Box className={classes.tabs}>
+              <Button className={classes.tabText} onClick={() => handleSubmit(`SmartPhone`)}> All Product </Button>
+            </Box>
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmitseller(`Electronis`)}> All Product </Button>
+              <Button className={classes.tabText} onClick={() => handleSubmit(`custom-prints`)}>CustomPrints</Button>
+            </Box>
+            <Box className={classes.tabs}>
+              <Button className={classes.tabText} onClick={() => handleSubmit(`free-file-check`)}>Freefilecheck</Button>
             </Box>
 
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmitseller(`Computer`)}>Computer</Button>
-            </Box>
-
-            <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmitseller(`SmartPhone`)}>SmartPhone</Button>
+              <Button className={classes.tabText} onClick={() => handleSubmit(`graphic-design`)}>GraphicDesign</Button>
             </Box>
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmitseller(`Electronis`)}>Electronis</Button>
-            </Box>
-            <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmitseller(`Jewelry`)}>Jewelry</Button>
-            </Box>
-            <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmitseller(`Sports`)}>Sport</Button>
+              <Button className={classes.tabText} onClick={() => handleSubmit(`mailing`)}>Mailing</Button>
             </Box>
           </Box>
         </Box>
