@@ -207,71 +207,30 @@ export default function MenuListComposition() {
                     <ListItemIcon>
                       <PushPinIcon />
                     </ListItemIcon>
-                    Computer
+                    Custom Prints
                   </MenuItem>
                   <MenuItem onClick={handleClose}>
                     {" "}
                     <ListItemIcon>
                       <PhoneIphoneSharpIcon />
                     </ListItemIcon>
-                    Smartphone
+                    Free file check
                   </MenuItem>
                   <MenuItem onClick={handleClose}>
                     {" "}
                     <ListItemIcon>
                       <LanguageSharpIcon />
                     </ListItemIcon>
-                    Electronis
+                    Graphic Design
                   </MenuItem>
                   <MenuItem onClick={handleClose}>
                     {" "}
                     <ListItemIcon>
                       <TheatersIcon />
                     </ListItemIcon>
-                    Jewelry
+                    Mailing
                   </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    {" "}
-                    <ListItemIcon>
-                      <SportsBaseballIcon />
-                    </ListItemIcon>
-                    Sports
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    {" "}
-                    <ListItemIcon>
-                      <DiamondIcon />
-                    </ListItemIcon>
-                    Fashion
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    {" "}
-                    <ListItemIcon>
-                      <FitnessCenterIcon />
-                    </ListItemIcon>
-                    Beauty, Health
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    {" "}
-                    <ListItemIcon>
-                      <FastfoodIcon />
-                    </ListItemIcon>
-                    Food
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    {" "}
-                    <ListItemIcon>
-                      <ChairIcon />
-                    </ListItemIcon>
-                    Furniture
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    {" "}
-                    <ListItemIcon>
-                      <BookIcon />
-                    </ListItemIcon>
-                    Books
-                  </MenuItem>
+                 
                 </MenuList>
               </ClickAwayListener>
             </Paper>

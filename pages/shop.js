@@ -10,6 +10,7 @@ import { Box } from '@mui/system';
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { makeStyles } from "@material-ui/core/styles";
 import Product from '../components/product';
+import Collection from '../components/collection';
 import Divider from '@mui/material/Divider';
 import { useRouter } from "next/router";
 import List from '@mui/material/List';
@@ -22,32 +23,57 @@ import Banner from '../assets/img/banner_page.png';
 
 
 const PRODUCT_QUERY = gql`query Product{
-  products {
-      items {
+  products(options: {take:12}) {
+    items {
+      name
+      slug
+      assets {
         name
+        source
+      }
+      variants {
+        price
+      }
+      collections {
+        name
+        id
         slug
-        assets {
-          name
-          source
-        }
-        variants {
-          price
-        }
-        collections {
-          name
-          id
-          slug
+      }
+    }
+  }
+  }`;
+
+const COLLECTION_QUERY = gql`query Product($slug:String!) {
+    collection(slug: $slug) {
+      name
+      productVariants {
+        items {
+          product {
+            name
+            description
+            slug
+            assets {
+              source
+            }
+            variants {
+              price
+            }
+            collections{
+              name
+              slug
+            }
+          }
         }
       }
     }
-  }`;
+    }`;
 
 const colorHover = '#40c6ff';
 const useStyles_pageShop = makeStyles(theme => ({
   pageShop: {
     marginBottom: "60px",
     minHeight: "200px",
-    backgroundImage:`url(${Banner.src})`,
+    backgroundImage: `url(${Banner.src})`,
     backgroundSize: "cover"
   },
 
@@ -62,7 +88,7 @@ const useStyles_pageShop = makeStyles(theme => ({
 
   rightTextPage: {
     float: "right",
-    paddingTop:"12px",
+    paddingTop: "12px",
     "@media (max-width: 768px)": {
       float: "inherit"
     }
@@ -119,33 +145,34 @@ const useStyles_pageShop = makeStyles(theme => ({
       backgroundColor: `${colorHover}`,
     }
   },
-  categoryText:{
-    paddingLeft:"0px",
-    '&:hover':{
-      backgroundColor :"#fff !important",
+  categoryText: {
+    paddingLeft: "0px",
+    '&:hover': {
+      backgroundColor: "#fff !important",
     }
   },
-  textTile:{
+  textTile: {
     color: "white",
-    fontFamily:"Merriweather",
-    fontSize:"50px",
-    fontWeight:700
+    fontFamily: "Merriweather",
+    fontSize: "50px",
+    fontWeight: 700
   },
-  titleText:{
+  titleText: {
     color: "white",
-    fontFamily:"Muli",
-    fontWeight:400,
-    fontSize:"14px"
+    fontFamily: "Muli",
+    fontWeight: 400,
+    fontSize: "14px"
   },
 }))
 
 export default function Shop(props) {
   const classes = useStyles_pageShop();
-  const { products } = props;
+  const {collection } = props;
+  console.warn(collection);
   const router = useRouter();
   const handleSubmit = (value) => {
     //console.log(value);
-    router.push(`?cat=${value}`);
+    router.push(`?slug=${value}`);
   };
 
   return (
@@ -156,7 +183,7 @@ export default function Shop(props) {
           <Box className={classes.titlePage}>
             <Grid item lg={6}>
               <Box>
-                <Typography  className={classes.textTile} component="h3" variant="h3">
+                <Typography className={classes.textTile} component="h3" variant="h3">
                   Shop
                 </Typography>
               </Box>
@@ -184,6 +211,9 @@ export default function Shop(props) {
           </Box>
         </Container>
       </Box>
+
+      <div>
+            {collection ? (
       <Container>
         <Box className={classes.productCategory}>
           <Grid item lg={3} className={classes.productCategoryText}>
@@ -199,8 +229,8 @@ export default function Shop(props) {
             <List>
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`CustomPrints`)} >
-                  Custom Prints
+                  <ListItemText onClick={() => handleSubmit(`customprints`)} >
+                    Custom Prints
                   </ListItemText>
 
                 </ListItemButton>
@@ -209,8 +239,8 @@ export default function Shop(props) {
               <Divider />
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`Freefilecheck`)} >
-                  Free file check
+                  <ListItemText onClick={() => handleSubmit(`free-file-check`)} >
+                    Free file check
                   </ListItemText>
 
                 </ListItemButton>
@@ -219,8 +249,8 @@ export default function Shop(props) {
               <Divider />
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText}>
-                  <ListItemText  onClick={() => handleSubmit(`GraphicDesign`)} >
-                  Graphic Design
+                  <ListItemText onClick={() => handleSubmit(`graphicdesign`)} >
+                    Graphic Design
                   </ListItemText>
 
                 </ListItemButton>
@@ -229,8 +259,8 @@ export default function Shop(props) {
               <Divider />
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText} >
-                  <ListItemText  onClick={() => handleSubmit(`Mailing`)}>
-                  Mailing
+                  <ListItemText onClick={() => handleSubmit(`mailing`)}>
+                    Mailing
                   </ListItemText>
 
                 </ListItemButton>
@@ -240,42 +270,47 @@ export default function Shop(props) {
           </Grid>
 
           <Grid item lg={9}>
-            <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
+            {/* <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
               {products.length ? (
                 products.map(product => <Product key={product.id} product={product} />)
               ) : ''}
+            </Grid> */}
+            <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
+              {collection.length ? (
+                collection.map(product => <Collection key={product.id} product={product} />)
+              ) : ''}
             </Grid>
           </Grid>
-
         </Box>
       </Container>
+      ) : (
+        ''
+    )
+    }
+</div >
     </Box>
 
   );
 }
 
-
-
-// Shop.getInitialProps = async () => {
-//   const result = await client.query({
-//     query: PRODUCT_QUERY
-//   });
-
-//   return {
-//     products: result.data.products.nodes,
-//   }
-// }
 export async function getServerSideProps({ query }) {
-  const cat = query.cat ? query.cat : "";
-  const result = await client.query({
-    query: PRODUCT_QUERY,
-    variables: {
-      cat
-    },
+
+  const slug = query.slug ? query.slug : 'mailing';
+
+  // const result = await client.query({
+  //   query: PRODUCT_QUERY,
+  // });
+
+  const result2 = await client.query({
+    query: COLLECTION_QUERY,
+    variables: { slug },
   });
+
+  //console.log(result2.data);
   return {
     props: {
-      products: result.data.products.items,
+     // products: result.data.products.items,
+      collection: result2.data.collection.productVariants.items,
     },
   };
 }

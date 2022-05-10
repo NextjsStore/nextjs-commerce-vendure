@@ -182,17 +182,13 @@ const HeaderMid = (props) => {
                                 <Grid item xs={9} sm={10} md={8}>
                                     <form className={classes.SearchHeader} id="searchform" onSubmit={handleSubmit}>
                                         <select onChange={e => changeSearchQuery(e)} name="">
-                                            <option value="">Shop by category</option>
+                                            <option value="">Shop by collection</option>
                                             <option value="">Uncategorized</option>
-                                            <option value="Smartphone">---Beauty, Health</option>
-                                            <option value="Books">---Book---</option>
-                                            <option value="Computer">---Computer</option>
-                                            <option value="Electronis">---Electricis---</option>
-                                            <option value="Fashion">---Fashion</option>
-                                            <option value="Food">---Food---</option>
-                                            <option value="Jewelry">---Jewelry</option>
-                                            <option value="Smartphone">---Smartphone---</option>
-                                            <option value="Sports">---Sport</option>
+                                            <option value="customprints">---Custom Prints---</option>
+                                            <option value="free-file-check">---Free file check---</option>
+                                            <option value="graphicdesign">--- GraphicDesign---</option>
+                                            <option value="mailing">---Mailing---</option>
+                                            
 
                                         </select>
                                         <input

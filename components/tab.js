@@ -118,14 +118,14 @@ export default function Tab() {
               <Button className={classes.tabText} onClick={() => handleSubmit(`SmartPhone`)}> All Product </Button>
             </Box>
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmit(`custom-prints`)}>CustomPrints</Button>
+              <Button className={classes.tabText} onClick={() => handleSubmit(`custom-prints`)}>Custom Prints</Button>
             </Box>
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmit(`free-file-check`)}>Freefilecheck</Button>
+              <Button className={classes.tabText} onClick={() => handleSubmit(`free-file-check`)}>Free file check</Button>
             </Box>
 
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmit(`graphic-design`)}>GraphicDesign</Button>
+              <Button className={classes.tabText} onClick={() => handleSubmit(`graphic-design`)}>Graphic Design</Button>
             </Box>
             <Box className={classes.tabs}>
               <Button className={classes.tabText} onClick={() => handleSubmit(`mailing`)}>Mailing</Button>
