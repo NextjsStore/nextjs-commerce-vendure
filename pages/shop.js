@@ -168,11 +168,12 @@ const useStyles_pageShop = makeStyles(theme => ({
 export default function Shop(props) {
   const classes = useStyles_pageShop();
   const {collection } = props;
-  console.warn(collection);
+  //const router = useRouter();
+  // console.warn(collection);
   const router = useRouter();
-  const handleSubmit = (value) => {
+  const handleSubmit = (slug) => {
     //console.log(value);
-    router.push(`?slug=${value}`);
+    router.push(`collection/${slug}`);
   };
 
   return (
@@ -211,9 +212,6 @@ export default function Shop(props) {
           </Box>
         </Container>
       </Box>
-
-      <div>
-            {collection ? (
       <Container>
         <Box className={classes.productCategory}>
           <Grid item lg={3} className={classes.productCategoryText}>
@@ -283,11 +281,6 @@ export default function Shop(props) {
           </Grid>
         </Box>
       </Container>
-      ) : (
-        ''
-    )
-    }
-</div >
     </Box>
 
   );

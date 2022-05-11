@@ -3,6 +3,12 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Link from 'next/link';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import Rating from '@mui/material/Rating';
 import { makeStyles } from "@material-ui/core/styles";
 import { Box } from '@mui/system';
@@ -79,6 +85,7 @@ export default function Collection(props) {
     let imageURl = '';
     return (
         <>
+        
             <Grid item lg={1} md={1} sm={1}>
                 <Box className={classes.box_product}>
 
