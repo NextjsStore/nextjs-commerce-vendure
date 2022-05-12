@@ -15,11 +15,36 @@ import { useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import client from "../libs/apollo/ApolloClient";
 import { useRouter } from "next/router";
-
-
+import gql from "graphql-tag";
 
 export const PER_PAGE_FIRST = 9;
 export const PER_PAGE_REST = 12;
+
+
+const GET_SEARCH_RESULTS = gql`query Product($slug:String!) {
+    collection(slug: $slug) {
+      slug
+      productVariants {
+        items {
+          product {
+            name
+            description
+            slug
+            assets {
+              source
+            }
+            variants {
+              price
+            }
+            collections{
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+    }`;
 
 const Item = () => { };
 const useStyle_searchHeader = makeStyles({
@@ -152,12 +177,11 @@ const HeaderMid = (props) => {
 
         event.preventDefault();
         setShowResultInfo(false)
-        router.push(`/searchresult?cat=${searchQuery}`);
+        router.push(`/searchresult?slug=${searchQuery}`);
     };
 
     const changeSearchQuery = (e) => {
         setSearchQuery(e.target.value);
-        console.log(searchQuery);
     }
 
     const classes = useStyle_searchHeader();
@@ -237,7 +261,7 @@ export async function getStaticProps() {
     });
     const defaultProps = {
         props: {
-            data: { ...data, slug: 'search' }
+            data: { ...data, slug: 'slug' }
         },
         revalidate: 1,
     };

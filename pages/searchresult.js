@@ -1,112 +1,113 @@
-import React from 'react'
-import client from '../libs/apollo/ApolloClient';
-import gql from 'graphql-tag';
-import Grid from "@mui/material/Grid";
+import Link from "next/link";
 import Container from "@mui/material/Container";
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/system';
-import Breadcrumbs from "@mui/material/Breadcrumbs";
+import { useRouter } from 'next/router';
+import client from "../libs/apollo/ApolloClient";
+import { isEmpty } from 'lodash';
+import { ImageList } from '@mui/material';
+import { ImageListItem } from '@mui/material';
+import { Grid } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
-import Product from '../components/product';
-import Divider from '@mui/material/Divider';
-import { useRouter } from "next/router";
-
+import Rating from '@mui/material/Rating';
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Banner from '../assets/img/banner_page.png';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import gql from "graphql-tag";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import Collection from "../components/collection";
 
 
 
-const PRODUCT_QUERY = gql`query Product($cat:String! ){
-  first:products(first: 12,where: {category: $cat}) {
-    nodes {
-      id
-      databaseId
-      name
-      description
+const COLLECTION_QUERY = gql`query Product($slug:String!) {
+    collection(slug: $slug) {
       slug
-      image {
-        uri
-        srcSet
-        sourceUrl
-      }
-      ... on SimpleProduct {
-        price
-        regularPrice
-        salePrice
-      }
-      ... on VariableProduct {
-        price
-        regularPrice
-        salePrice
-        variations {
-          nodes {
-            price
+      productVariants {
+        items {
+          product {
+            name
+            description
+            slug
+            assets {
+              source
+            }
+            variants {
+              price
+            }
+            collections{
+              name
+              slug
+            }
           }
         }
       }
     }
-  }
-  }`;
+    }`;
 
-const colorHover = '#40c6ff';
-const useStyles_pageShop = makeStyles(theme => ({
-    pageShop: {
+    const colorHover = '#40c6ff';
+    const useStyles_pageShop = makeStyles(theme => ({
+      pageShop: {
         marginBottom: "60px",
         minHeight: "200px",
         backgroundImage: `url(${Banner.src})`,
         backgroundSize: "cover"
-    },
-
-    titlePage: {
+      },
+    
+      titlePage: {
         display: "flex",
         paddingTop: "75px",
         paddingBottom: "75px",
         "@media (max-width: 768px)": {
-            display: "block"
+          display: "block"
         }
-    },
-
-    rightTextPage: {
+      },
+    
+      rightTextPage: {
         float: "right",
+        paddingTop: "12px",
         "@media (max-width: 768px)": {
-            float: "inherit"
+          float: "inherit"
         }
-    },
-    productCategory: {
+      },
+      productCategory: {
         display: "flex",
         "@media (max-width: 768px)": {
-            display: "flex",
-            flexDirection: "column-reverse"
+          display: "flex",
+          flexDirection: "column-reverse"
         }
-    },
-    productCategoryText: {
+      },
+      productCategoryText: {
         marginRight: "25px"
-    },
-    textCartegory: {
+      },
+      textCartegory: {
         padding: '10px 0px',
         borderBottom: '1px solid #ccc',
         color: '#676c77',
         transition: '0.21s',
         '& div.MuiTreeItem-content': {
-            padding: '0px!important',
-            '&:hover': {
-                background: '#fff',
-            },
-            '&:focus': {
-                background: '#fff',
-            },
-            '& svg': {
-                color: '#676c77',
-            }
+          padding: '0px!important',
+          '&:hover': {
+            background: '#fff',
+          },
+          '&:focus': {
+            background: '#fff',
+          },
+          '& svg': {
+            color: '#676c77',
+          }
         },
         '&:hover': {
-            color: '#000',
+          color: '#000',
         }
-    },
-    titleCartegory: {
+      },
+      titleCartegory: {
         marginBottom: "10px",
         marginTop: "10px",
-    },
-    titleSideBarCategory: {
+      },
+      titleSideBarCategory: {
         position: 'relative',
         borderBottom: ' 1px solid #ccc',
         paddingBottom: '15px',
@@ -115,44 +116,55 @@ const useStyles_pageShop = makeStyles(theme => ({
         fontWeight: 'bold',
         fontSize: '24px',
         '&:before': {
-            position: 'absolute',
-            content: '""',
-            width: '60px',
-            height: '1px',
-            bottom: '-1px',
-            backgroundColor: `${colorHover}`,
+          position: 'absolute',
+          content: '""',
+          width: '60px',
+          height: '1px',
+          bottom: '-1px',
+          backgroundColor: `${colorHover}`,
         }
-    },
-    categoryText: {
-        marginLeft: "-15px",
-    },
-    textTile:{
-        color: "white",
-        fontFamily:"Merriweather",
-        fontSize:"50px",
-        fontWeight:700
       },
-      titleText:{
-        color: "white",
-        fontFamily:"Muli",
-        fontWeight:400,
-        fontSize:"14px"
+      categoryText: {
+        paddingLeft: "0px",
+        '&:hover': {
+          backgroundColor: "#fff !important",
+        }
       },
-}))
+      textTile: {
+        color: "white",
+        fontFamily: "Merriweather",
+        fontSize: "50px",
+        fontWeight: 700
+      },
+      titleText: {
+        color: "white",
+        fontFamily: "Muli",
+        fontWeight: 400,
+        fontSize: "14px"
+      },
+    }))
 
-export default function Shop(props) {
+
+
+export default function Product(props) {
     const classes = useStyles_pageShop();
-    const { products } = props;
-    const router = useRouter();
+
+    const {productrelate } = props;
+    //console.warn(productrelate);
+
+    const router = useRouter()
     const handleSubmit = (value) => {
-        //console.log(value);
-        router.push(`?cat=${value}`);
-    };
+        router.push(`?{slug}`);
+      };
+    // If the page is not yet generated, this will be displayed
+    // initially until getStaticProps() finishes running
+    if (router.isFallback) {
+        return <div>Loading...</div>
+    }
 
     return (
-
         <Box>
-            <Box className={classes.pageShop}>
+         <Box className={classes.pageShop}>
                 <Container>
                     <Box className={classes.titlePage}>
                         <Grid item lg={6}>
@@ -185,58 +197,41 @@ export default function Shop(props) {
                     </Box>
                 </Container>
             </Box>
-            <Container>
-                <Box className={classes.productCategory}>
-                    <Grid item lg={3} className={classes.productCategoryText}>
-                        <Box >
-                            <Typography className={classes.titleSideBarCategory} component="h4" variant="h4">Search Results </Typography>
-                        </Box>
-
-                        {/* <TreeView
-              aria-label="file system navigator"
-              defaultCollapseIcon={<ExpandMoreIcon />}
-              defaultExpandIcon={<ChevronRightIcon />}
-            > */}
-
-                    </Grid>
-
-                    <Grid item lg={9}>
-                        <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
-                            {products.length ? (
-                                products.map(product => <Product key={product.id} product={product} />)
-                            ) : ''}
-                        </Grid>
-                    </Grid>
-
-                </Box>
-            </Container>
-        </Box>
-
+        {/********************** */}
+        <Container>
+          <Box className={classes.productCategory}>
+            <Grid item lg={3} className={classes.productCategoryText}>
+                    <Box >
+                        <Typography className={classes.titleSideBarCategory} component="h4" variant="h4">Search Results :</Typography>
+                    </Box>
+            </Grid>
+            <Grid item lg={9}>
+              <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
+                {productrelate.length ? (
+                  productrelate.map(product => <Collection key={product.id} product={product} />)
+                ) : ''}
+              </Grid>
+            </Grid>
+          </Box>
+        </Container>
+      </Box>
     );
-}
+};
 
-
-
-// Shop.getInitialProps = async () => {
-//   const result = await client.query({
-//     query: PRODUCT_QUERY
-//   });
-
-//   return {
-//     products: result.data.products.nodes,
-//   }
-// }
 export async function getServerSideProps({ query }) {
-    const cat = query.cat ? query.cat : "";
-    const result = await client.query({
-        query: PRODUCT_QUERY,
-        variables: {
-            cat
-        },
+
+    const slug = query.slug ? query.slug : "";
+     //console.log(context);
+
+    const result= await client.query({
+        query: COLLECTION_QUERY,
+        variables: { slug }
     });
+
     return {
         props: {
-            products: result.data.first.nodes,
+            productrelate: result.data.collection.productVariants.items,
         },
+     
     };
 }
