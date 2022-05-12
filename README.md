@@ -3,6 +3,7 @@ Nextjs Commerce Vendure Storefront
 This is a storefront app built with Nextjs and powered by Vendure.
 
 Status
+
 This is a work in progress currently.
 
 Setup
