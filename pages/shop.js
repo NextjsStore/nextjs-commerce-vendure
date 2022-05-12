@@ -43,30 +43,30 @@ const PRODUCT_QUERY = gql`query Product{
   }
   }`;
 
-const COLLECTION_QUERY = gql`query Product($slug:String!) {
-    collection(slug: $slug) {
-      name
-      productVariants {
-        items {
-          product {
-            name
-            description
-            slug
-            assets {
-              source
-            }
-            variants {
-              price
-            }
-            collections{
-              name
-              slug
-            }
-          }
-        }
-      }
-    }
-    }`;
+// const COLLECTION_QUERY = gql`query Product($slug:String!) {
+//     collection(slug: $slug) {
+//       name
+//       productVariants {
+//         items {
+//           product {
+//             name
+//             description
+//             slug
+//             assets {
+//               source
+//             }
+//             variants {
+//               price
+//             }
+//             collections{
+//               name
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//     }`;
 
 const colorHover = '#40c6ff';
 const useStyles_pageShop = makeStyles(theme => ({
@@ -167,12 +167,10 @@ const useStyles_pageShop = makeStyles(theme => ({
 
 export default function Shop(props) {
   const classes = useStyles_pageShop();
-  const {collection } = props;
-  //const router = useRouter();
-  // console.warn(collection);
+  const {collection,products } = props;
+  
   const router = useRouter();
   const handleSubmit = (slug) => {
-    //console.log(value);
     router.push(`collection/${slug}`);
   };
 
@@ -218,12 +216,6 @@ export default function Shop(props) {
             <Box >
               <Typography className={classes.titleSideBarCategory} component="h4" variant="h4">Product Category</Typography>
             </Box>
-
-            {/* <TreeView
-              aria-label="file system navigator"
-              defaultCollapseIcon={<ExpandMoreIcon />}
-              defaultExpandIcon={<ChevronRightIcon />}
-            > */}
             <List>
               <ListItem disablePadding>
                 <ListItemButton className={classes.categoryText}>
@@ -268,14 +260,9 @@ export default function Shop(props) {
           </Grid>
 
           <Grid item lg={9}>
-            {/* <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
+            <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
               {products.length ? (
                 products.map(product => <Product key={product.id} product={product} />)
-              ) : ''}
-            </Grid> */}
-            <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
-              {collection.length ? (
-                collection.map(product => <Collection key={product.id} product={product} />)
               ) : ''}
             </Grid>
           </Grid>
@@ -288,22 +275,12 @@ export default function Shop(props) {
 
 export async function getServerSideProps({ query }) {
 
-  const slug = query.slug ? query.slug : 'mailing';
-
-  // const result = await client.query({
-  //   query: PRODUCT_QUERY,
-  // });
-
-  const result2 = await client.query({
-    query: COLLECTION_QUERY,
-    variables: { slug },
+  const result = await client.query({
+    query: PRODUCT_QUERY,
   });
-
-  //console.log(result2.data);
   return {
     props: {
-     // products: result.data.products.items,
-      collection: result2.data.collection.productVariants.items,
+      products: result.data.products.items,
     },
   };
 }

@@ -157,11 +157,10 @@ export default function Product(props) {
     const classes = useStyles_pageShop();
 
     const {productrelate } = props;
-    console.warn(productrelate);
+    //console.warn(productrelate);
 
     const router = useRouter()
     const handleSubmit = (slug) => {
-        //console.log(value);
         router.push(`${slug}`);
       };
     // If the page is not yet generated, this will be displayed
@@ -211,12 +210,6 @@ export default function Product(props) {
               <Box >
                 <Typography className={classes.titleSideBarCategory} component="h4" variant="h4">Product Category</Typography>
               </Box>
-  
-              {/* <TreeView
-                aria-label="file system navigator"
-                defaultCollapseIcon={<ExpandMoreIcon />}
-                defaultExpandIcon={<ChevronRightIcon />}
-              > */}
               <List>
                 <ListItem disablePadding>
                   <ListItemButton className={classes.categoryText}>
@@ -261,11 +254,6 @@ export default function Product(props) {
             </Grid>
   
             <Grid item lg={9}>
-              {/* <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
-                {products.length ? (
-                  products.map(product => <Product key={product.id} product={product} />)
-                ) : ''}
-              </Grid> */}
               <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
                 {productrelate.length ? (
                   productrelate.map(product => <Collection key={product.id} product={product} />)
@@ -278,47 +266,20 @@ export default function Product(props) {
     );
 };
 
-
-
 export async function getServerSideProps(context) {
 
      const { params: { slug } } = context
-     console.log(context);
-    // const slug =  query.slug ? query.slug : "";
+     //console.log(context);
 
     const result= await client.query({
         query: COLLECTION_QUERY,
         variables: { slug }
     });
-    // const result2= await client.query({
-    //     query: PRODUCT_SLUGS,
-        
-    // });
 
     return {
         props: {
-            //product: result2.data.product,
             productrelate: result.data.collection.productVariants.items,
         },
      
     };
 }
-
-// export async function getStaticPaths() {
-//     const { data } = await client.query({
-//         query: PRODUCT_SLUGS
-//     })
-
-//     const pathsData = []
-
-//     data?.products?.items && data?.products?.items.map((product) => {
-//         if (!isEmpty(product?.slug)) {
-//             pathsData.push({ params: { slug: product?.slug } })
-//         }
-//     })
-
-//     return {
-//         paths: pathsData,
-//         fallback: true
-//     }
-// }

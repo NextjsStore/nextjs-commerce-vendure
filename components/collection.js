@@ -109,13 +109,7 @@ export default function Collection(props) {
                         <h4 className={classes.cardPrice}>
                             ${product.product.variants[0].price}
                         </h4>
-                        {/* {
-                            product?.regularPrice === product?.price ? <h4 className={classes.cardPrice}><span className={classes.price_sales}>{product?.price}</span></h4>
-                                : <h4 className={classes.cardPrice}><span className={classes.regular_price}>{product?.regularPrice}</span>
-                                    {product?.price}</h4>
-                        } */}
                         <Box className={classes.cardButton}>
-                            {/* <AddToCartButton product={product} /> */}
                         </Box>
                     </Box>
                 </Box>
