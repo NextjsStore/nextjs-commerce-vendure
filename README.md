@@ -8,5 +8,6 @@ This is a work in progress currently.
 
 Setup
 1. Clone this repo
-2. run npm install
-3. run npm run develop
+2. Edit "graphQlUrl" in libs>config>clientConfig.js
+3. run npm install
+4. run npm run develop
