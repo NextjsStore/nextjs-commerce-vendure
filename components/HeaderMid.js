@@ -208,9 +208,9 @@ const HeaderMid = (props) => {
                                         <select onChange={e => changeSearchQuery(e)} name="">
                                             <option value="">Shop by collection</option>
                                             <option value="">Uncategorized</option>
-                                            <option value="customprints">---Custom Prints---</option>
+                                            <option value="custom-prints">---Custom Prints---</option>
                                             <option value="free-file-check">---Free file check---</option>
-                                            <option value="graphicdesign">--- GraphicDesign---</option>
+                                            <option value="graphic-design">--- GraphicDesign---</option>
                                             <option value="mailing">---Mailing---</option>
                                             
 

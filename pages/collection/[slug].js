@@ -213,7 +213,7 @@ export default function Product(props) {
               <List>
                 <ListItem disablePadding>
                   <ListItemButton className={classes.categoryText}>
-                    <ListItemText onClick={() => handleSubmit(`customprints`)} >
+                    <ListItemText onClick={() => handleSubmit(`custom-prints`)} >
                       Custom Prints
                     </ListItemText>
   
@@ -233,7 +233,7 @@ export default function Product(props) {
                 <Divider />
                 <ListItem disablePadding>
                   <ListItemButton className={classes.categoryText}>
-                    <ListItemText onClick={() => handleSubmit(`graphicdesign`)} >
+                    <ListItemText onClick={() => handleSubmit(`graphic-design`)} >
                       Graphic Design
                     </ListItemText>
   

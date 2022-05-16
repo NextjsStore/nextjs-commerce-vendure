@@ -41,6 +41,7 @@ const PRODUCT_QUERY = gql`query Product{
         source
       }
       variants {
+        currencyCode
         price
         name
       }
