@@ -87,7 +87,7 @@ const CartItem = ({
             </TableCell>
             {/* Total */}
             <TableCell className={classes.cartelementTotal}>
-                {item.totalPrice.toFixed(2)}
+                {item.totalPrice}
             </TableCell>
         </TableRow>
     )

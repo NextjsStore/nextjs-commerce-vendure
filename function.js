@@ -20,7 +20,7 @@ export const getFloatVal = (string) => {
  */
 export const addFirstProduct = (product) => {
 
-    let productPrice = getFloatVal(product.price);
+    let productPrice = product.variants[0].price;
     console.warn(productPrice);
 
     // let productPrice = getFloatVal(product.price);
@@ -28,10 +28,10 @@ export const addFirstProduct = (product) => {
     let newCart = {
         products: [],
         totalProductsCount: 1,
-        totalProductsPrice: parseFloat(productPrice.toFixed(2))
+        totalProductsPrice: productPrice.toFixed(2)
     };
 
-    const newProduct = createNewProduct(product, productPrice, 1);
+    const newProduct = createNewProduct(product, productPrice,1);
     newCart.products.push(newProduct);
 
     localStorage.setItem('woo-next-cart', JSON.stringify(newCart));
@@ -50,12 +50,12 @@ export const addFirstProduct = (product) => {
 export const createNewProduct = (product, productPrice, qty) => {
 
     return {
-        productId: product.productId,
-        image: product?.image?.sourceUrl,
+        productId: product.id,
+        image: product.assets[0].source,
         name: product.name,
         price: productPrice,
         qty,
-        totalPrice: parseFloat((productPrice * qty).toFixed(2))
+        totalPrice: (productPrice * qty).toFixed(2)
     };
 
 };
@@ -86,7 +86,7 @@ export const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) 
     const updatedCart = {
         products: updatedProducts,
         totalProductsCount: parseInt(total.qty),
-        totalProductsPrice: parseFloat(total.totalPrice)
+        totalProductsPrice: total.totalPrice
     };
 
     localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart));
@@ -117,13 +117,13 @@ export const getUpdatedProducts = (existingProductsInCart, product, qtyToBeAdded
 
         // If have new qty of the product available, set that else add the qtyToBeAdded
         updatedProduct.qty = (newQty) ? parseInt(newQty) : parseInt(updatedProduct.qty + qtyToBeAdded);
-        updatedProduct.totalPrice = parseFloat((updatedProduct.price * updatedProduct.qty).toFixed(2));
+        updatedProduct.totalPrice = (updatedProduct.price * updatedProduct.qty).toFixed(2);
 
         return updatedProducts;
     } else {
 
         // If product not found push the new product to the existing product array.
-        let productPrice = getFloatVal(product.price);
+        let productPrice = product.variants[0].price;
         const newProduct = createNewProduct(product, productPrice, qtyToBeAdded);
         existingProductsInCart.push(newProduct);
 
