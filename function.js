@@ -28,7 +28,7 @@ export const addFirstProduct = (product) => {
     let newCart = {
         products: [],
         totalProductsCount: 1,
-        totalProductsPrice: productPrice.toFixed(2)
+        totalProductsPrice: productPrice
     };
 
     const newProduct = createNewProduct(product, productPrice,1);
@@ -50,12 +50,12 @@ export const addFirstProduct = (product) => {
 export const createNewProduct = (product, productPrice, qty) => {
 
     return {
-        productId: product.id,
+        productId: parseInt(product.id),
         image: product.assets[0].source,
         name: product.name,
         price: productPrice,
         qty,
-        totalPrice: (productPrice * qty).toFixed(2)
+        totalPrice: parseInt((productPrice * qty).toFixed(2))
     };
 
 };
@@ -138,7 +138,7 @@ export const getUpdatedProducts = (existingProductsInCart, product, qtyToBeAdded
  * @param {Integer} productId Product id.
  * @return {number | *} Index Returns -1 if product does not exist in the array, index number otherwise
  */
-const isProductInCart = (existingProductsInCart, productId) => {
+export const isProductInCart = (existingProductsInCart, productId) => {
 
     const returnItemThatExits = (item, index) => {
         if (productId === item.productId) {

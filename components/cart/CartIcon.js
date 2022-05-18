@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 const CartIcon = () => {
 
     const classes = useStyles();
-    const [cart] = useContext(AppContext);
+    const [cart, setCart] = useContext(AppContext);
     const productsCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductsCount : '';
     const totalPrice = (null !== cart && Object.keys(cart).length) ? cart.totalProductsPrice : '';
 
@@ -41,10 +41,8 @@ const CartIcon = () => {
             <AppProvider>
                 <Link href="/cart" >
                     <div className={classes.containercart}>
-
                             <LocalMallOutlinedIcon />
-                            {productsCount ? <span>{productsCount}</span> : ''}
-
+                            {productsCount ? <span>{ productsCount }</span> : ''}
                     </div>
                 </Link>
             </AppProvider>
