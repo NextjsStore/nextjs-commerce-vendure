@@ -35,6 +35,9 @@ const CartIcon = () => {
     const productsCount = (null !== cart && Object.keys(cart).length) ? cart.totalProductsCount : '';
     const totalPrice = (null !== cart && Object.keys(cart).length) ? cart.totalProductsPrice : '';
 
+    //console.log('productsCount',productsCount);
+   // console.log('totalPrice', totalPrice);
+
     return (
         <React.Fragment>
 
@@ -42,7 +45,7 @@ const CartIcon = () => {
                 <Link href="/cart" >
                     <div className={classes.containercart}>
                             <LocalMallOutlinedIcon />
-                            {productsCount ? <span>{ productsCount }</span> : ''}
+                            {parseInt(productsCount) ? <span>{ parseInt(productsCount) }</span> : ''}
                     </div>
                 </Link>
             </AppProvider>

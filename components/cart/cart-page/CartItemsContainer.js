@@ -93,7 +93,7 @@ const CartItemsContainer = () => {
 
     // @TODO wil use it in future variations of the project.
     const [cart, setCart] = useContext(AppContext);
-    console.warn(cart);
+    //console.warn(cart);
     //const [requestError, setRequestError] = useState(null);
 
     // Get Cart Data.

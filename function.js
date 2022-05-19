@@ -4,13 +4,13 @@
  * @param {string} string String
  * @return {any}
  */
-export const getFloatVal = (string) => {
-    string = string.toString();
-    let floatValue = string.match(/[+-]?\d+(\.\d+)?/g)[0];
-    //console.warn(floatValue);
-    return (null !== floatValue) ? parseFloat(parseFloat(floatValue).toFixed(2)) : '';
+// export const getFloatVal = (string) => {
+//     string = string.toString();
+//     let floatValue = string.match(/[+-]?\d+(\.\d+)?/g)[0];
+//     //console.warn(floatValue);
+//     return (null !== floatValue) ? parseFloat(parseFloat(floatValue).toFixed(2)) : '';
 
-};
+// };
 
 /**
  * Add first product.
@@ -21,7 +21,7 @@ export const getFloatVal = (string) => {
 export const addFirstProduct = (product) => {
 
     let productPrice = product.variants[0].price;
-    console.warn(productPrice);
+    //console.warn(productPrice);
 
     // let productPrice = getFloatVal(product.price);
 
@@ -31,7 +31,9 @@ export const addFirstProduct = (product) => {
         totalProductsPrice: productPrice
     };
 
+    //console.log('newcart' ,newCart);
     const newProduct = createNewProduct(product, productPrice,1);
+    //console.log('newproduct', newProduct);
     newCart.products.push(newProduct);
 
     localStorage.setItem('woo-next-cart', JSON.stringify(newCart));
@@ -82,16 +84,89 @@ export const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) 
 
     // Loop through the updated product array and add the totalPrice of each item to get the totalPrice
     let total = updatedProducts.reduce(addPrice, { totalPrice: 0, qty: 0 });
+    console.log('total', total);
 
     const updatedCart = {
         products: updatedProducts,
-        totalProductsCount: parseInt(total.qty),
+        totalProductsCount: total.qty,
         totalProductsPrice: total.totalPrice
     };
+
+    console.warn('updatecart', updatedCart);
 
     localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart));
 
     return updatedCart;
+};
+/**
+ * 
+ * @param {*} existingCart 
+ * @param {*} products 
+ * @param {*} qtyToBeAdded 
+ * @param {*} newQty 
+ * @returns 
+ */
+export const updateCart2 = (existingCart, products, qtyToBeAdded, newQty = false) => {
+
+    const updatedProducts = getUpdatedProducts2(existingCart.products, products, qtyToBeAdded, newQty);
+
+    const addPrice = (total, item) => {
+        total.totalPrice += item.totalPrice;
+        total.qty += item.qty;
+
+        return total;
+    };
+
+    // Loop through the updated product array and add the totalPrice of each item to get the totalPrice
+    let total = updatedProducts.reduce(addPrice, { totalPrice: 0, qty: 0 });
+    console.log('total', total);
+
+    const updatedCart = {
+        products: updatedProducts,
+        totalProductsCount: total.qty,
+        totalProductsPrice: total.totalPrice
+    };
+
+    console.warn('updatecart', updatedCart);
+
+    localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart));
+
+    return updatedCart;
+};
+
+
+/**
+ * 
+ * @param {*} existingProductsInCart 
+ * @param {*} products 
+ * @param {*} qtyToBeAdded 
+ * @param {*} newQty 
+ * @returns 
+ */
+export const getUpdatedProducts2 = (existingProductsInCart, products, qtyToBeAdded, newQty = false) => {
+
+    // Check if the product already exits in the cart.
+    const productExitsIndex = isProductInCart2(existingProductsInCart, parseInt(products.productId));
+
+    // If product exits ( index of that product found in the array ), update the product quantity and totalPrice
+    if (-1 < productExitsIndex) {
+        let updatedProducts = existingProductsInCart;
+        let updatedProduct = updatedProducts[productExitsIndex];
+
+        // If have new qty of the product available, set that else add the qtyToBeAdded
+        updatedProduct.qty = newQty ? parseInt(newQty) : parseInt(parseInt(updatedProduct.qty) + qtyToBeAdded);
+        updatedProduct.totalPrice = updatedProduct.price * updatedProduct.qty;
+
+        return updatedProducts;
+    } else {
+
+        // If product not found push the new product to the existing product array.
+        let productPrice = products.price;
+        const newProduct = createNewProduct(products, productPrice, qtyToBeAdded);
+        existingProductsInCart.push(newProduct);
+
+        return existingProductsInCart;
+    }
 };
 
 /**
@@ -108,7 +183,7 @@ export const updateCart = (existingCart, product, qtyToBeAdded, newQty = false) 
 export const getUpdatedProducts = (existingProductsInCart, product, qtyToBeAdded, newQty = false) => {
 
     // Check if the product already exits in the cart.
-    const productExitsIndex = isProductInCart(existingProductsInCart, product.productId);
+    const productExitsIndex = isProductInCart(existingProductsInCart, parseInt(product.id));
 
     // If product exits ( index of that product found in the array ), update the product quantity and totalPrice
     if (-1 < productExitsIndex) {
@@ -116,8 +191,8 @@ export const getUpdatedProducts = (existingProductsInCart, product, qtyToBeAdded
         let updatedProduct = updatedProducts[productExitsIndex];
 
         // If have new qty of the product available, set that else add the qtyToBeAdded
-        updatedProduct.qty = (newQty) ? parseInt(newQty) : parseInt(updatedProduct.qty + qtyToBeAdded);
-        updatedProduct.totalPrice = (updatedProduct.price * updatedProduct.qty).toFixed(2);
+        updatedProduct.qty = newQty ? parseInt(newQty) : parseInt(parseInt(updatedProduct.qty) + qtyToBeAdded);
+        updatedProduct.totalPrice = updatedProduct.price * updatedProduct.qty;
 
         return updatedProducts;
     } else {
@@ -138,6 +213,21 @@ export const getUpdatedProducts = (existingProductsInCart, product, qtyToBeAdded
  * @param {Integer} productId Product id.
  * @return {number | *} Index Returns -1 if product does not exist in the array, index number otherwise
  */
+
+ export const isProductInCart2 = (existingProductsInCart, productId) => {
+
+    const returnItemThatExits = (item, index) => {
+        if (productId === item.productId) {
+            return item;
+        }
+    };
+
+    // This new array will only contain the product which is matched.
+    const newArray = existingProductsInCart.filter(returnItemThatExits);
+
+    return existingProductsInCart.indexOf(newArray[0]);
+};
+
 export const isProductInCart = (existingProductsInCart, productId) => {
 
     const returnItemThatExits = (item, index) => {

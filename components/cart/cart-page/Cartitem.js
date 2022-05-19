@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { updateCart } from "../../../function";
+import { updateCart2 } from "../../../function";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -47,7 +47,7 @@ const CartItem = ({
             let existingCart = localStorage.getItem('woo-next-cart');
             existingCart = JSON.parse(existingCart);
             //@TOTO Update the cart
-            const updatedCart = updateCart(existingCart, item, false, newQty);
+            const updatedCart = updateCart2(existingCart, item, false, newQty);
             setCart(updatedCart);
         }
 
@@ -80,7 +80,6 @@ const CartItem = ({
                     size='small'
                     type="number"
                     min="1"
-
                     value={productCount}
                     onChange={handleQtyChange}
                 />
