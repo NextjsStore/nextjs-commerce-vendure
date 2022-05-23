@@ -99,9 +99,9 @@ const useStyles = makeStyles({
 export default function TabSeller() {
   const classes = useStyles();
   const router = useRouter();
-  const handleSubmitseller = (value) => {
+  const handleSubmit = (value) => {
     //console.log(value);
-    router.push(`?cat1=${value}`);
+    router.push(`?slug1=${value}`);
   };
   return (
     <>

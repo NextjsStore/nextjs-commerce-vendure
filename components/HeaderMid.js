@@ -21,29 +21,22 @@ export const PER_PAGE_FIRST = 9;
 export const PER_PAGE_REST = 12;
 
 
-const GET_SEARCH_RESULTS = gql`query Product($slug:String!) {
-    collection(slug: $slug) {
-      slug
-      productVariants {
+const GET_SEARCH_RESULTS = gql`query Product($collectionSlug: String!) {
+    search(input: {collectionSlug: $collectionSlug , take: 12}) {
         items {
-          product {
-            name
-            description
-            slug
-            assets {
-              source
+          productName
+          price {
+            ... on SinglePrice {
+              __typename
+              value
             }
-            variants {
-              price
-            }
-            collections{
-              name
-              slug
-            }
+          }
+          slug
+          productAsset {
+            preview
           }
         }
       }
-    }
     }`;
 
 const Item = () => { };
@@ -177,7 +170,7 @@ const HeaderMid = (props) => {
 
         event.preventDefault();
         setShowResultInfo(false)
-        router.push(`/searchresult?slug=${searchQuery}`);
+        router.push(`/searchresult?collectionSlug=${searchQuery}`);
     };
 
     const changeSearchQuery = (e) => {

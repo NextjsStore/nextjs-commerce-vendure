@@ -106,7 +106,7 @@ export default function Tab() {
   const router = useRouter();
   const handleSubmit = (value) => {
     //console.log(value);
-    router.push(`?cat=${value}`);
+    router.push(`?slug=${value}`);
   };
   return (
     <>

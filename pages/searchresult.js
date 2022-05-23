@@ -12,33 +12,27 @@ import Box from '@mui/material/Box';
 import gql from "graphql-tag";
 import Collection from "../components/collection";
 import Product from "../components/product";
+import Search_Collection from "../components/searchcollection";
 
 
 
-const COLLECTION_QUERY = gql`query Product($slug:String!) {
-  collection(slug: $slug) {
-    slug
-    productVariants {
+const COLLECTION_QUERY = gql`query Product($collectionSlug: String!) {
+  search(input: {collectionSlug: $collectionSlug , take: 12}) {
       items {
-        product {
-          name
-          description
-          slug
-          assets {
-            source
+        productName
+        price {
+          ... on SinglePrice {
+            __typename
+            value
           }
-          variants {
-            price
-          }
-          collections{
-            name
-            slug
-          }
+        }
+        slug
+        productAsset {
+          preview
         }
       }
     }
-  }
-}`;
+  }`;
 
 const PRODUCT_QUERY = gql`query Product{
   products(options: {take:12}) {
@@ -222,7 +216,7 @@ export default function Search_Result(props) {
           <Grid item lg={9}>
             <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
               {productrelate.length ? (
-                productrelate.map(product => <Collection key={product} product={product} />)
+                productrelate.map(product => <Search_Collection key={product} product={product} />)
               ) : ''}
             </Grid>
             <Grid container spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }} columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}>
@@ -239,20 +233,20 @@ export default function Search_Result(props) {
 
 export async function getServerSideProps({ query }) {
 
-  const slug = query.slug ? query.slug : null;
+  const collectionSlug = query.collectionSlug ? query.collectionSlug : null;
   //console.log(context);
 
-  const result = !slug ? await client.query({
+  const result = !collectionSlug ? await client.query({
     query: PRODUCT_QUERY,
   }) :  await client.query({
     query: COLLECTION_QUERY,
-    variables: { slug },
+    variables: { collectionSlug },
   });
 
   return {
     props: {
-      productrelate: !slug ? result.data.products : result.data.collection.productVariants.items,
-      products: !slug ? result.data.products.items : '',
+      productrelate: !collectionSlug ? result.data.products : result.data.search.items,
+      products: !collectionSlug ? result.data.products.items : '',
     },
 
   };
