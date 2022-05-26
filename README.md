@@ -7,5 +7,5 @@ This is a work in progress currently.
 
 Setup
 1. Clone this repo
-2. run npm install
-3. run npm run develop
+2. run "npm install"
+3. run "npm run develop"
