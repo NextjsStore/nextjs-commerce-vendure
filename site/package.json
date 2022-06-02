@@ -34,6 +34,7 @@
     "@vercel/commerce-swell": "^0.0.1",
     "@vercel/commerce-vendure": "^0.0.1",
     "autoprefixer": "^10.4.2",
+    "axios": "^0.27.2",
     "body-scroll-lock": "^4.0.0-beta.0",
     "clsx": "^1.1.1",
     "email-validator": "^2.0.4",
