@@ -286,7 +286,6 @@ export async function getStaticProps({ params, locale, locales }) {
   })
 
   const getcollections = response.data.data.collection.productVariants.items
-  console.log('COllection: ', getcollections)
 
   if (!getcollections) {
     throw new Error(`Product with slug '${params.slug}' not found`)

@@ -57,6 +57,8 @@ export async function getStaticProps({ preview, locale, locales, params }) {
       }
   }
 }`,
+  }
+
   const response = await axios({
     url: endpoint,
     method: 'post',
@@ -69,7 +71,6 @@ export async function getStaticProps({ preview, locale, locales, params }) {
   return {
     props: {
       products,
-      collections,
       productsSeller,
       categories,
       brands,
