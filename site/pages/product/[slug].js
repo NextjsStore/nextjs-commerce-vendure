@@ -204,10 +204,6 @@ const useStyle_productDetail = makeStyles({
 export default function Product(props) {
   const classes = useStyle_productDetail()
   const { product, relatedProducts, getcollections } = props
-  // console.log('getcollections', getcollections)
-
-  // console.log('productsssssss', product);
-  //console.warn(productrelate);
 
   const router = useRouter()
 
@@ -409,7 +405,6 @@ export async function getStaticProps({ params, locale, locales, preview }) {
   })
 
   const getcollections = response.data
-  // console.warn('getcollections', getcollections) // data
 
   const allProductsPromise = commerce.getAllProducts({
     variables: { first: 4 },
@@ -420,9 +415,6 @@ export async function getStaticProps({ params, locale, locales, preview }) {
   const { categories } = await siteInfoPromise
   const { product } = await productPromise
   const { products: relatedProducts } = await allProductsPromise
-
-  //console.log('product', product);
-  //console.warn('Related Product:', relatedProducts);
 
   if (!product) {
     throw new Error(`Product with slug '${params.slug}' not found`)
@@ -456,46 +448,3 @@ export async function getStaticPaths({ locales }) {
     fallback: 'blocking',
   }
 }
-
-// export async function getServerSideProps(context) {
-
-//      const { params: { slug } } = context
-//     // console.log(context);
-//     // const slug =  query.slug ? query.slug : "";
-
-//     const result= await client.query({
-//         query: PRODUCT_BY_SLUG_QUERY,
-//         variables: { slug }
-//     });
-//     const result2= await client.query({
-//         query: PRODUCT_SLUGS,
-
-//     });
-
-//     return {
-//         props: {
-//             product: result.data.product,
-//             productrelate: result2.data.products.items,
-//         },
-
-//     };
-// }
-
-// export async function getStaticPaths() {
-//     const { data } = await client.query({
-//         query: PRODUCT_SLUGS
-//     })
-
-//     const pathsData = []
-
-//     data?.products?.items && data?.products?.items.map((product) => {
-//         if (!isEmpty(product?.slug)) {
-//             pathsData.push({ params: { slug: product?.slug } })
-//         }
-//     })
-
-//     return {
-//         paths: pathsData,
-//         fallback: true
-//     }
-// }
