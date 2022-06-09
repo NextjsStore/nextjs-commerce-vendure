@@ -3,6 +3,12 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Paper from '@mui/material/Paper'
 import Link from 'next/link'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import Divider from '@mui/material/Divider'
+
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
 import Rating from '@mui/material/Rating'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box } from '@mui/system'
@@ -71,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Product(props) {
+export default function ProdutcsSeller(props) {
   const classes = useStyles()
   const { product } = props
   //console.warn(product);
@@ -84,7 +90,7 @@ export default function Product(props) {
             <a>
               <img
                 className={classes.productImg}
-                src={product.images[0].url}
+                src={product.assets[0].source}
                 alt=""
               />
             </a>
@@ -93,13 +99,15 @@ export default function Product(props) {
           <Box className={classes.cardBody}>
             <h3>
               <Link href={`/product/${product?.slug}`}>
-                <a>{product?.name}</a>
+                <a>{product.name}</a>
               </Link>
             </h3>
             <Box className={classes.startRating}>
               <Rating name="read-only" value="0" readOnly />
             </Box>
-            <h4 className={classes.cardPrice}>${product.price.value}</h4>
+            <h4 className={classes.cardPrice}>
+              ${product.variants[0].price / 100}
+            </h4>
             <Box className={classes.cardButton}></Box>
           </Box>
         </Box>
