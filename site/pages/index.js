@@ -13,6 +13,7 @@ import Logo from 'components/tabsLogo'
 import Collection from 'components/collection'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
+import ProdutcsSeller from '@components/ProductsSeller'
 
 export async function getStaticProps({ preview, locale, locales, params }) {
   const config = { locale, locales }
@@ -56,50 +57,14 @@ export async function getStaticProps({ preview, locale, locales, params }) {
       }
   }
 }`,
-  }
-  const graphqlQuerycollection = {
-    operationName: 'fetchAuthor',
-    query: `query fetchAuthor{
-      collection(slug: "mailing") {
-        productVariants {
-          items {
-            product {
-              name
-              slug
-              id
-              assets {
-                source
-              }
-              variants{
-                price
-              }
-              collections {
-                name
-                slug
-              }
-            }
-          }
-        }
-      }
-}
-`,
-    //variables: { slug: params.slug },
-  }
-
   const response = await axios({
     url: endpoint,
     method: 'post',
     headers: headers,
     data: graphqlQuery,
   })
-  const responseCollections = await axios({
-    url: endpoint,
-    method: 'post',
-    headers: headers,
-    data: graphqlQuerycollection,
-  })
-  const productsSeller = response.data
-  const collections = responseCollections.data
+
+  const productsSeller = response.data.data.products.items
 
   return {
     props: {
@@ -115,8 +80,8 @@ export async function getStaticProps({ preview, locale, locales, params }) {
 }
 
 const Home = (props) => {
-  const { products, productsSeller, collections } = props
-  console.log('collections', collections)
+  const { products, productsSeller } = props
+  //console.log('collections', collections)
 
   return (
     <AppProvider>
@@ -151,9 +116,9 @@ const Home = (props) => {
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
             columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
           >
-            {productsSeller.data.products.items.length
-              ? productsSeller.data.products.items.map((product) => (
-                  <Collection key={product.id} product={product} />
+            {productsSeller.length
+              ? productsSeller.map((product) => (
+                  <ProdutcsSeller key={product.id} product={product} />
                 ))
               : ''}
           </Grid>
