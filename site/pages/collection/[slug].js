@@ -244,8 +244,7 @@ export default function Product(props) {
 
 export async function getStaticProps({ params, locale, locales }) {
   /*********AXIOS GRAPHQL */
-  const endpoint =
-    'http://localhost:3000/shop-api?vendure-token=xn5i72fr18t00v9ghbm'
+  const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
   const headers = {
     'content-type': 'application/json',
     Authorization: '<token>',
