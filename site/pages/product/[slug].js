@@ -204,6 +204,7 @@ const useStyle_productDetail = makeStyles({
 export default function Product(props) {
   const classes = useStyle_productDetail()
   const { product, relatedProducts, getcollections } = props
+  //console.log('Getcollection', getcollections)
 
   const router = useRouter()
 
@@ -293,13 +294,13 @@ export default function Product(props) {
                     {<AddToCartButton product={product} />}
                     <div className={classes.product_meta}>
                       <div className={classes.sku_title}>SKU: N/A</div>
-                      {!isEmpty(getcollections.data.product.collections) ? (
+                      {!isEmpty(getcollections.collections) ? (
                         <CategoriesCarousel
-                          gallery={getcollections.data.product.collections}
+                          gallery={getcollections.collections}
                         />
-                      ) : !isEmpty(getcollections.data.product.name) ? (
+                      ) : !isEmpty(getcollections.collections) ? (
                         <div className={classes.sku_name}>
-                          {getcollections?.data.product.collections?.name}
+                          {getcollections.collections}
                         </div>
                       ) : null}
                     </div>
@@ -373,8 +374,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     preview,
   })
 
-  const endpoint =
-    'http://localhost:3000/shop-api?vendure-token=xn5i72fr18t00v9ghbm'
+  const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
   const headers = {
     'content-type': 'application/json',
     Authorization: '<token>',
@@ -404,7 +404,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     data: graphqlQuery,
   })
 
-  const getcollections = response.data
+  const getcollections = response.data.data.product
 
   const allProductsPromise = commerce.getAllProducts({
     variables: { first: 4 },

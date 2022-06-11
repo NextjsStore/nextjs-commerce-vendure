@@ -31,8 +31,7 @@ export async function getStaticProps({ preview, locale, locales, params }) {
   const { categories, brands } = await siteInfoPromise
 
   /***ADD QUERY WITH AXIOS */
-  const endpoint =
-    'http://localhost:3000/shop-api?vendure-token=xn5i72fr18t00v9ghbm'
+  const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
   const headers = {
     'content-type': 'application/json',
     Authorization: '<token>',
@@ -65,7 +64,6 @@ export async function getStaticProps({ preview, locale, locales, params }) {
     headers: headers,
     data: graphqlQuery,
   })
-
   const productsSeller = response.data.data.products.items
 
   return {
