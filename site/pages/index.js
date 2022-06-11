@@ -61,6 +61,40 @@ export async function getStaticProps({ preview, locale, locales }) {
 
 const Home = (props) => {
   const { products, productseller, products2, productseller2 } = props
+
+  const brands = [
+    {
+      imageUrl: '/assets/logo1.png',
+    },
+    {
+      imageUrl: '/assets/logo2.png',
+    },
+    {
+      imageUrl: '/assets/logo3.png',
+    },
+    {
+      imageUrl: '/assets/logo4.png',
+    },
+    {
+      imageUrl: '/assets/logo5.png',
+    },
+    {
+      imageUrl: '/assets/logo6.png',
+    },
+    {
+      imageUrl: '/assets/logo5.png',
+    },
+    {
+      imageUrl: '/assets/logo6.png',
+    },
+    {
+      imageUrl: '/assets/logo5.png',
+    },
+    {
+      imageUrl: '/assets/logo6.png',
+    },
+  ]
+
   //  console.log('products',products);
   // console.log(productseller);
   return (
@@ -113,7 +147,7 @@ const Home = (props) => {
           </Grid> */}
         </Container>
         <SellerImageList />
-        <Logo />
+        <Logo brands={brands} />
         <NameForm />
         {/* <Footer />
         <Copyright /> */}

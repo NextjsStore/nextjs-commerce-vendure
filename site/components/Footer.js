@@ -5,15 +5,17 @@ import Link from 'next/link'
 import { AiFillHome, AiFillLinkedin, AiOutlineGoogle } from 'react-icons/ai'
 import { MdPhone, MdEmail, MdFavorite } from 'react-icons/md'
 import { GoGlobe, GoPrimitiveDot } from 'react-icons/go'
-import { BsFacebook, BsTwitter } from 'react-icons/bs'
+import { BsTwitter } from 'react-icons/bs'
+import { FaFacebookF } from 'react-icons/fa'
+
 import {
   Container,
   Flex,
   Center,
   Heading,
-  Image,
-  Text,
+  HStack,
   Box,
+  Circle,
 } from '@chakra-ui/react'
 // import { Box } from '@chakra-ui/core'
 // makestyle
@@ -146,7 +148,6 @@ const useStyle_footer = makeStyles({
 })
 const Footer = () => {
   const classes = useStyle_footer()
-  const isImage = require('../assets/imgWorking.png')
   return (
     <>
       <Center>
@@ -178,34 +179,62 @@ const Footer = () => {
                   </Link>
                 </Box>
                 <Flex>
-                  <Box>
-                    <Link href="facebook.com/">
-                      <a>
-                        <BsFacebook />
-                      </a>
-                    </Link>
-                  </Box>
-                  <Box>
-                    <Link href="#">
-                      <a>
-                        <BsTwitter />
-                      </a>
-                    </Link>
-                  </Box>
-                  <Box>
-                    <Link href="#">
-                      <a>
-                        <AiFillLinkedin />
-                      </a>
-                    </Link>
-                  </Box>
-                  <Box>
-                    <Link href="#">
-                      <a>
-                        <AiOutlineGoogle />
-                      </a>
-                    </Link>
-                  </Box>
+                  <HStack>
+                    <Circle
+                      size="40px"
+                      bg="#fff"
+                      color="#666"
+                      border="1px solid #666"
+                    >
+                      <Link href="facebook.com/">
+                        <a>
+                          <FaFacebookF />
+                        </a>
+                      </Link>
+                    </Circle>
+                  </HStack>
+                  <HStack>
+                    <Circle
+                      size="40px"
+                      bg="#fff"
+                      color="#666"
+                      border="1px solid #666"
+                    >
+                      <Link href="#">
+                        <a>
+                          <BsTwitter />
+                        </a>
+                      </Link>
+                    </Circle>
+                  </HStack>
+                  <HStack>
+                    <Circle
+                      size="40px"
+                      bg="#fff"
+                      color="#666"
+                      border="1px solid #666"
+                    >
+                      <Link href="#">
+                        <a>
+                          <AiFillLinkedin />
+                        </a>
+                      </Link>
+                    </Circle>
+                  </HStack>
+                  <HStack>
+                    <Circle
+                      size="40px"
+                      bg="#fff"
+                      color="#666"
+                      border="1px solid #666"
+                    >
+                      <Link href="#">
+                        <a>
+                          <AiOutlineGoogle />
+                        </a>
+                      </Link>
+                    </Circle>
+                  </HStack>
                 </Flex>
               </Box>
             </Box>
@@ -296,18 +325,10 @@ const Footer = () => {
                 p={4}
                 h="100"
                 color="#666"
-                // backgroundImage="url('https://vcdn-vnexpress.vnecdn.net/2016/01/29/29-B1-A1-6079-1454038033.png')"
-                // bg="tomato"
-                backgroundImage="/assets/ebaylogo.png" // đây là ảnh e muốn nó hiển thị ra nè.
+                backgroundImage="/assets/ebaylogo.png"
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
               >
-                {/* <Image
-                  boxSize="150px"
-                  objectFit="cover"
-                  src="/assets/imgWorking.png"
-                  alt="Dan Abramov"
-                /> */}
                 <MdFavorite w="200px" />
                 <span>wre Time In Works</span>
                 <span>8:30 am - 6:00 pm</span>
