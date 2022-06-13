@@ -116,7 +116,7 @@ const useStyles = makeStyles({
     },
   },
 })
-export default function DealsOfDay() {
+const DealsOfDay = () => {
   const classes = useStyles()
   return (
     <Container>
@@ -269,3 +269,4 @@ export default function DealsOfDay() {
     </Container>
   )
 }
+export default DealsOfDay

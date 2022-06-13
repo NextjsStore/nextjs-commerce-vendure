@@ -3,18 +3,13 @@ import Container from '@mui/material/Container'
 import { useRouter } from 'next/router'
 import AddToCartButton from '../../components/cart/AddToCartButton'
 import { isEmpty } from 'lodash'
-import GalleryCarousel from '@components/single-product/gallery-carousel'
-import CategoriesCarousel from '@components/single-product/categories-carousel'
-import RelatedProduct from '@components/single-product/related-product'
+import GalleryCarousel from '@components/single-product/Gallery-Carousel'
+import CategoriesCarousel from '@components/single-product/Categories-Carousel'
 import Price from '@components/single-product/price'
-import { ImageList } from '@mui/material'
-import { ImageListItem } from '@mui/material'
 import { Grid } from '@mui/material'
 import { makeStyles } from '@material-ui/core/styles'
-//import { makeStyles } from "@mui/material";
 import Rating from '@mui/material/Rating'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
-//import Banner from '../../assets/img/banner_page.png';
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import commerce from '@lib/api/commerce'
@@ -201,7 +196,7 @@ const useStyle_productDetail = makeStyles({
   },
 })
 
-export default function Product(props) {
+const Product = (props) => {
   const classes = useStyle_productDetail()
   const { product, relatedProducts, getcollections } = props
   //console.log('Getcollection', getcollections)
@@ -363,6 +358,7 @@ export default function Product(props) {
     </>
   )
 }
+export default Product
 
 export async function getStaticProps({ params, locale, locales, preview }) {
   const config = { locale, locales }

@@ -15,52 +15,6 @@ import ListItemText from '@mui/material/ListItemText'
 import Banner from '../assets/banner_page.png'
 import commerce from '@lib/api/commerce'
 
-// const PRODUCT_QUERY = gql`query Product{
-//   products(options: {take:12}) {
-//     items {
-//       name
-//       slug
-//       assets {
-//         name
-//         source
-//       }
-//       variants {
-//         price
-//       }
-//       collections {
-//         name
-//         id
-//         slug
-//       }
-//     }
-//   }
-//   }`;
-
-// const COLLECTION_QUERY = gql`query Product($slug:String!) {
-//     collection(slug: $slug) {
-//       name
-//       productVariants {
-//         items {
-//           product {
-//             name
-//             description
-//             slug
-//             assets {
-//               source
-//             }
-//             variants {
-//               price
-//             }
-//             collections{
-//               name
-//               slug
-//             }
-//           }
-//         }
-//       }
-//     }
-//     }`;
-
 const colorHover = '#40c6ff'
 const useStyles_pageShop = makeStyles((theme) => ({
   pageShop: {
@@ -158,7 +112,7 @@ const useStyles_pageShop = makeStyles((theme) => ({
   },
 }))
 
-export default function Shop(props) {
+const Shop = (props) => {
   const classes = useStyles_pageShop()
   const { products } = props
   // console.log('Shop Product', products);
@@ -272,6 +226,7 @@ export default function Shop(props) {
     </Box>
   )
 }
+export default Shop
 
 export async function getStaticProps({ preview, locale, locales }) {
   const config = { locale, locales }
@@ -291,16 +246,3 @@ export async function getStaticProps({ preview, locale, locales }) {
     revalidate: 60,
   }
 }
-
-// export async function getServerSideProps({ query }) {
-
-//   const result = await client.query({
-//     query: PRODUCT_QUERY,
-//   });
-
-//   return {
-//     props: {
-//       products: result.data.products.items,
-//     },
-//   };
-// }

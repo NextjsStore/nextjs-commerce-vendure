@@ -1,13 +1,9 @@
-import type { GetStaticPropsContext } from 'next'
+import { GetStaticPropsContext } from 'next'
 import commerce from '@lib/api/commerce'
 import { Text } from '@components/ui'
 import Layout from '@components/common/Layout/Layout'
 
-export async function getStaticProps({
-  preview,
-  locale,
-  locales,
-}: GetStaticPropsContext) {
+export async function getStaticProps({ preview, locale, locales }) {
   const config = { locale, locales }
   const { pages } = await commerce.getAllPages({ config, preview })
   const { categories, brands } = await commerce.getSiteInfo({ config, preview })
@@ -21,7 +17,7 @@ export async function getStaticProps({
   }
 }
 
-export default function NotFound() {
+const NotFound = () => {
   return (
     <div className="max-w-2xl mx-8 sm:mx-auto py-20 flex flex-col items-center justify-center fit">
       <Text variant="heading">Not Found</Text>
@@ -31,5 +27,6 @@ export default function NotFound() {
     </div>
   )
 }
+export default NotFound
 
 NotFound.Layout = Layout

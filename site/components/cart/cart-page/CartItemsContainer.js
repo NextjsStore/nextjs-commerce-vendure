@@ -2,9 +2,8 @@ import * as React from 'react'
 import Link from 'next/link'
 import { useContext, useState } from 'react'
 import { AppContext } from '../../../lib/context/AppContext'
-import CartItem from './Cartitem'
+import CartItem from './CartItem'
 import { Button, Grid } from '@mui/material'
-import { useMutation, useQuery } from '@apollo/client'
 import { removeItemFromCart } from '../../../function'
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@mui/material/Box'
@@ -30,10 +29,6 @@ import { useRouter } from 'next/router'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
-//import UPDATE_CART from "../../../mutations/update-cart";
-//import GET_CART from "../../../queries/get-cart";
-//import CLEAR_CART_MUTATION from "../../../mutations/clear-cart";
-// import { isEmpty } from 'lodash'
 const style = {
   position: 'absolute',
   top: '50%',
@@ -85,7 +80,6 @@ const validationSchema = yup.object({
     .required('Password is required'),
 })
 const CartItemsContainer = () => {
-  // @TODO wil use it in future variations of the project.
   const [cart, setCart] = useContext(AppContext)
   //console.warn(cart);
   //const [requestError, setRequestError] = useState(null);

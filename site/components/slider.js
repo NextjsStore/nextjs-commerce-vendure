@@ -1,17 +1,16 @@
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import MobileStepper from "@mui/material/MobileStepper";
-import Paper from "@mui/material/Paper";
-import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
-import Banner_1 from '../assets/banner1.png';
-import Banner_2 from '../assets/banner2.png';
-import Banner_3 from '../assets/banner3.png';
-
+import * as React from 'react'
+import { useTheme } from '@mui/material/styles'
+import Box from '@mui/material/Box'
+import MobileStepper from '@mui/material/MobileStepper'
+import Paper from '@mui/material/Paper'
+import SwipeableViews from 'react-swipeable-views'
+import { autoPlay } from 'react-swipeable-views-utils'
+import Banner_1 from '../assets/banner1.png'
+import Banner_2 from '../assets/banner2.png'
+import Banner_3 from '../assets/banner3.png'
 
 // makestyle
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyle_sliderHome = makeStyles({
   slider_images: {
@@ -64,44 +63,40 @@ const useStyle_sliderHome = makeStyles({
       '&.MuiMobileStepper-dotActive': {
         '&::after': {
           display: 'block',
-        }
-      }
-    }
-  }
-});
+        },
+      },
+    },
+  },
+})
 
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
 const images = [
   {
-    imgPath: Banner_1.src
+    imgPath: Banner_1.src,
   },
   {
-
-    imgPath: Banner_2.src
+    imgPath: Banner_2.src,
   },
   {
+    imgPath: Banner_3.src,
+  },
+]
 
-    imgPath: Banner_3.src
+const SwipeableTextMobileStepper = () => {
+  const classes = useStyle_sliderHome()
 
-  }
-];
-
-function SwipeableTextMobileStepper() {
-  const classes = useStyle_sliderHome();
-
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
+  const theme = useTheme()
+  const [activeStep, setActiveStep] = React.useState(0)
+  const maxSteps = images.length
   const handleStepChange = (step) => {
-    setActiveStep(step);
-  };
+    setActiveStep(step)
+  }
 
   return (
     <Box classes={classes.sliderBox}>
       <AutoPlaySwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
@@ -109,7 +104,8 @@ function SwipeableTextMobileStepper() {
         {images.map((step, index) => (
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
-              <Box className={classes.slider_images}
+              <Box
+                className={classes.slider_images}
                 component="img"
                 src={step.imgPath}
               />
@@ -117,13 +113,14 @@ function SwipeableTextMobileStepper() {
           </div>
         ))}
       </AutoPlaySwipeableViews>
-      <MobileStepper className={classes.dotSlider}
+      <MobileStepper
+        className={classes.dotSlider}
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
       />
     </Box>
-  );
+  )
 }
 
-export default SwipeableTextMobileStepper;
+export default SwipeableTextMobileStepper

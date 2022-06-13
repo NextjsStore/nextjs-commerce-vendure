@@ -105,7 +105,7 @@ const useStyles = makeStyles({
   },
 })
 
-export default function ContactUS() {
+const ContactUS = () => {
   const classes = useStyles()
   return (
     <>
@@ -246,3 +246,4 @@ export default function ContactUS() {
     </>
   )
 }
+export default ContactUS

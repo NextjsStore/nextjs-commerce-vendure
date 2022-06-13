@@ -1,22 +1,12 @@
-import React from "react";
-import { Container, Box, Grid, Hidden } from '@mui/material';
-import Link from "next/link";
+import React from 'react'
+import { Container, Box, Grid, Hidden } from '@mui/material'
+import LanguageIcon from '@mui/icons-material/Language'
+import { makeStyles } from '@material-ui/core/styles'
+import arrow_down from '../assets/arrow_down.png'
 
-
-// import icon
-
-import LanguageIcon from '@mui/icons-material/Language';
-import EditSharpIcon from '@mui/icons-material/EditSharp';
-import LoginSharpIcon from '@mui/icons-material/LoginSharp';
-// makestyle
-import { makeStyles } from "@material-ui/core/styles";
-
-// import images
-import arrow_down from '../assets/arrow_down.png';
-
-const colorHeading = '#323232';
-const colorHover = '#40c6ff';
-const colorDefaul = '#666';
+const colorHeading = '#323232'
+const colorHover = '#40c6ff'
+const colorDefaul = '#666'
 
 const useStyle_HeaderTop = makeStyles({
   headerTop: {
@@ -28,7 +18,7 @@ const useStyle_HeaderTop = makeStyles({
     padding: '0px',
     margin: '0px',
     '& li': {
-      color:"#999",
+      color: '#999',
       float: 'left',
       padding: '0px 10px',
       position: 'relative',
@@ -36,7 +26,7 @@ const useStyle_HeaderTop = makeStyles({
         paddingLeft: '0px',
         '&::before': {
           display: 'none',
-        }
+        },
       },
       '&::before': {
         position: 'absolute',
@@ -53,9 +43,9 @@ const useStyle_HeaderTop = makeStyles({
         fontFamily: "Mulish,'sans-serif'",
         '&:hover': {
           color: `${colorHover}`,
-        }
-      }
-    }
+        },
+      },
+    },
   },
   headerTopRight: {
     listStyle: 'none',
@@ -72,7 +62,7 @@ const useStyle_HeaderTop = makeStyles({
         paddingLeft: '0px',
         '&::before': {
           display: 'none',
-        }
+        },
       },
       '&::before': {
         position: 'absolute',
@@ -95,7 +85,7 @@ const useStyle_HeaderTop = makeStyles({
         '& svg': {
           fontSize: '14px',
           marginRight: '5px',
-        }
+        },
       },
       '& svg': {
         fontSize: '14px',
@@ -109,8 +99,8 @@ const useStyle_HeaderTop = makeStyles({
         fontFamily: "Mulish,'sans-serif'",
         '&:focus': {
           outline: 'none',
-        }
-      }
+        },
+      },
     },
     '@media (max-width: 899px)': {
       textAlign: 'center',
@@ -118,15 +108,15 @@ const useStyle_HeaderTop = makeStyles({
       '& li': {
         float: 'none',
         display: 'inline-block',
-      }
+      },
     },
     '@media (max-width: 425px)': {
       '& li': {
         '& span': {
           display: 'none',
-        }
-      }
-    }
+        },
+      },
+    },
   },
   curency: {
     '& select': {
@@ -136,7 +126,7 @@ const useStyle_HeaderTop = makeStyles({
       backgroundImage: `url(${arrow_down.src})`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right 1px top 6px;',
-    }
+    },
   },
   language: {
     '& select': {
@@ -145,24 +135,28 @@ const useStyle_HeaderTop = makeStyles({
       backgroundImage: `url(${arrow_down.src})`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right 1px top 7px;',
-    }
-  }
-});
+    },
+  },
+})
 
 const SideBarTop = () => {
   const classes = useStyle_HeaderTop()
   return (
     <div className={classes.headerTop}>
       <Container>
-        <Grid container spacing={2} >
-          <Grid item sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }} md={6}>
+        <Grid container spacing={2}>
+          <Grid
+            item
+            sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}
+            md={6}
+          >
             <Box>
               <ul className={classes.menuTop}>
-                <li >Call Support Free:1800123456</li>
+                <li>Call Support Free:1800123456</li>
               </ul>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={12} md={6} >
+          <Grid item xs={12} sm={12} md={6}>
             <Box>
               <ul className={classes.headerTopRight}>
                 <li className={classes.curency}>
@@ -183,7 +177,7 @@ const SideBarTop = () => {
           </Grid>
         </Grid>
       </Container>
-    </div >
-  );
+    </div>
+  )
 }
-export default SideBarTop;
+export default SideBarTop
