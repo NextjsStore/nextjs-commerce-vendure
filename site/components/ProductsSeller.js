@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Collection(props) {
+export default function ProdutcsSeller(props) {
   const classes = useStyles()
   const { product } = props
   //console.warn(product);
@@ -86,11 +86,11 @@ export default function Collection(props) {
     <>
       <Grid item lg={1} md={1} sm={1}>
         <Box className={classes.box_product}>
-          <Link href={`/product/${product.product?.slug}`}>
+          <Link href={`/product/${product?.slug}`}>
             <a>
               <img
                 className={classes.productImg}
-                src={product.product.assets[0].source}
+                src={product.assets[0].source}
                 alt=""
               />
             </a>
@@ -98,15 +98,15 @@ export default function Collection(props) {
 
           <Box className={classes.cardBody}>
             <h3>
-              <Link href={`/product/${product.product?.slug}`}>
-                <a>{product.product.name}</a>
+              <Link href={`/product/${product?.slug}`}>
+                <a>{product.name}</a>
               </Link>
             </h3>
             <Box className={classes.startRating}>
               <Rating name="read-only" value="0" readOnly />
             </Box>
             <h4 className={classes.cardPrice}>
-              ${product.product.variants[0].price / 100}
+              ${product.variants[0].price / 100}
             </h4>
             <Box className={classes.cardButton}></Box>
           </Box>
