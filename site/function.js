@@ -90,7 +90,7 @@ export const updateCart = (
 
   // Loop through the updated product array and add the totalPrice of each item to get the totalPrice
   let total = updatedProducts.reduce(addPrice, { totalPrice: 0, qty: 0 })
-  console.log('total', total)
+  // console.log('total', total)
 
   const updatedCart = {
     products: updatedProducts,
@@ -98,7 +98,7 @@ export const updateCart = (
     totalProductsPrice: total.totalPrice,
   }
 
-  console.warn('updatecart', updatedCart)
+  // console.warn('updatecart', updatedCart)
 
   localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart))
 

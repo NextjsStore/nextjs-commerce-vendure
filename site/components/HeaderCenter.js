@@ -6,7 +6,7 @@ const HeaderCenter = () => {
   return (
     <>
       <Container maxWidth="lg">
-        <Grid container direction="row" lg={12}>
+        <Grid container direction="row">
           <Grid item xs={9} sm={5} md={3} lg={3}>
             <MenuListComposition />
           </Grid>

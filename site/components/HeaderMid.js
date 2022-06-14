@@ -192,7 +192,6 @@ const HeaderMid = (props) => {
                           setSearchQuery(event?.target?.value)
                         }
                       />
-
                       <button type="submit" onClick={handleSubmit}>
                         <SearchOutlinedIcon />
                       </button>
@@ -215,7 +214,7 @@ const HeaderMid = (props) => {
   )
 }
 
-HeaderMid.PropTypes = {
+HeaderMid.propTypes = {
   searchQuery: PropTypes.string,
   setSearchQuery: PropTypes.func,
   handleSearchForm: PropTypes.func,
