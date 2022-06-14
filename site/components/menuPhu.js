@@ -1,15 +1,10 @@
-import * as React from 'react';
-import Link from 'next/link';
-import { useState } from 'react';
-
-
-
-
+import * as React from 'react'
+import Link from 'next/link'
+import { useState } from 'react'
 // makestyle
-import { makeStyles } from "@material-ui/core/styles";
-const colorHover = '#40c6ff';
-const colorDefaul = '#666';
-
+import { makeStyles } from '@material-ui/core/styles'
+const colorHover = '#40c6ff'
+const colorDefaul = '#666'
 
 const useStyle_menuMain = makeStyles({
   navmenu: {
@@ -31,14 +26,14 @@ const useStyle_menuMain = makeStyles({
         textTransform: 'uppercase',
         '&:hover': {
           color: `${colorHover}`,
-        }
+        },
       },
       '&:first-child': {
         '& a': {
           paddingLeft: '0px',
-        }
+        },
       },
-    }
+    },
   },
   hamburger: {
     display: 'none',
@@ -83,8 +78,8 @@ const useStyle_menuMain = makeStyles({
         '& a': {
           padding: '0px',
           fontSize: '14px',
-        }
-      }
+        },
+      },
     },
     hamburger: {
       position: 'absolute',
@@ -105,21 +100,26 @@ const useStyle_menuMain = makeStyles({
         },
         '& span:nth-child(3)': {
           transform: 'translateY(-8px) rotate(-45deg)',
-        }
-      }
-    }
-  }
-});
+        },
+      },
+    },
+  },
+})
 
 const ResponsiveAppBar = () => {
   const classes = useStyle_menuMain()
-  const [isOpen, setIsOpen] = useState(false);
-  const openMenu = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState(false)
+  const openMenu = () => setIsOpen(!isOpen)
   return (
     <>
       <nav className={classes.navbar}>
-        <ul className={isOpen === false ?
-          `${classes.navmenu}` : `${classes.navmenu}` + ' ' + `active`}>
+        <ul
+          className={
+            isOpen === false
+              ? `${classes.navmenu}`
+              : `${classes.navmenu}` + ' ' + `active`
+          }
+        >
           <li className={classes.navitem}>
             <Link href="/">
               <a className={classes.navlink}>Home</a>
@@ -146,8 +146,14 @@ const ResponsiveAppBar = () => {
             </Link>
           </li>
         </ul>
-        <button className={isOpen === false ?
-          `${classes.hamburger}` : `${classes.hamburger}` + ' ' + `active`} onClick={openMenu}>
+        <button
+          className={
+            isOpen === false
+              ? `${classes.hamburger}`
+              : `${classes.hamburger}` + ' ' + `active`
+          }
+          onClick={openMenu}
+        >
           <span className={classes.bar}></span>
           <span className={classes.bar}></span>
           <span className={classes.bar}></span>
@@ -155,5 +161,5 @@ const ResponsiveAppBar = () => {
       </nav>
     </>
   )
-};
-export default ResponsiveAppBar;
+}
+export default ResponsiveAppBar
