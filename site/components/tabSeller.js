@@ -1,69 +1,64 @@
-import * as React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
-import Link from "@mui/material/Link";
-import { useRouter } from "next/router";
-import { Button } from "@mui/material";
+import * as React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Box from '@mui/material/Box'
+import { Typography } from '@mui/material'
+import Link from '@mui/material/Link'
+import { useRouter } from 'next/router'
+import { Button } from '@mui/material'
 
-
-const colorHover = '#40c6ff';
+const colorHover = '#40c6ff'
 const useStyles = makeStyles({
   product: {
-    marginTop: "50px",
-    textAlign: "center",
-    marginBottom: "30px"
+    marginTop: '50px',
+    textAlign: 'center',
+    marginBottom: '30px',
   },
   tabsProduct: {
     paddingBottom: 25,
-    textAlign: "center"
+    textAlign: 'center',
   },
   title: {
-    color: "#444444",
+    color: '#444444',
     fontSize: 24,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 20
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
   },
   tabsTitle: {
-    display: "inline-flex",
+    display: 'inline-flex',
     '@media  (max-width: 767px)': {
-
-      display: "inline-block ",
-      width: "100%"
-
-    }
+      display: 'inline-block ',
+      width: '100%',
+    },
   },
 
   tabs: {
     marginRight: 12,
     '@media  (max-width: 767px)': {
-      display: "block",
-      margin: "0px 0px 20px 0px",
-      width: "100%"
-
-    }
+      display: 'block',
+      margin: '0px 0px 20px 0px',
+      width: '100%',
+    },
   },
   tabText: {
-    textTransform: "capitalize",
-    textDecoration: "none",
-    color: "#444",
+    textTransform: 'capitalize',
+    textDecoration: 'none',
+    color: '#444',
     fontSize: 16,
-    padding: "6px 20px",
-    border: "solid 1px#e3e3e3",
+    padding: '6px 20px',
+    border: 'solid 1px#e3e3e3',
     WebkitBorderRadius: 32,
     borderRadius: 32,
-    cursor: "pointer",
+    cursor: 'pointer',
     '@media  (max-width: 750px)': {
-      width: "100%",
-      display: "block"
+      width: '100%',
+      display: 'block',
     },
-    "&:hover": {
-      backgroundColor: "rgb(64,198,255)",
-      color: "#fff",
-      transition: "width 2s"
+    '&:hover': {
+      backgroundColor: 'rgb(64,198,255)',
+      color: '#fff',
+      transition: 'width 2s',
     },
-
   },
   titleHome: {
     fontFamily: 'Merriweather,sans-serif',
@@ -91,43 +86,72 @@ const useStyles = makeStyles({
         right: '-30px',
         top: '18px',
         backgroundColor: `${colorHover}`,
-      }
-    }
+      },
+    },
   },
-});
+})
 
-export default function TabSeller() {
-  const classes = useStyles();
-  const router = useRouter();
+const TabSeller = () => {
+  const classes = useStyles()
+  const router = useRouter()
   const handleSubmit = (value) => {
     //console.log(value);
-    router.push(`?slug1=${value}`);
-  };
+    router.push(`?slug1=${value}`)
+  }
   return (
     <>
       <Box className={classes.product}>
         <Box className={classes.tabsProduct}>
-          <Typography className={classes.titleHome}><span>Best Seller</span></Typography>
+          <Typography className={classes.titleHome}>
+            <span>Best Seller</span>
+          </Typography>
           <Box className={classes.tabsTitle}>
-          <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmit(`SmartPhone`)}> All Product </Button>
+            <Box className={classes.tabs}>
+              <Button
+                className={classes.tabText}
+                onClick={() => handleSubmit(`SmartPhone`)}
+              >
+                {' '}
+                All Product{' '}
+              </Button>
             </Box>
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmit(`custom-prints`)}>Custom Prints</Button>
+              <Button
+                className={classes.tabText}
+                onClick={() => handleSubmit(`custom-prints`)}
+              >
+                Custom Prints
+              </Button>
             </Box>
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmit(`free-file-check`)}>Free file check</Button>
+              <Button
+                className={classes.tabText}
+                onClick={() => handleSubmit(`free-file-check`)}
+              >
+                Free file check
+              </Button>
             </Box>
 
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmit(`graphic-design`)}>Graphic Design</Button>
+              <Button
+                className={classes.tabText}
+                onClick={() => handleSubmit(`graphic-design`)}
+              >
+                Graphic Design
+              </Button>
             </Box>
             <Box className={classes.tabs}>
-              <Button className={classes.tabText} onClick={() => handleSubmit(`mailing`)}>Mailing</Button>
+              <Button
+                className={classes.tabText}
+                onClick={() => handleSubmit(`mailing`)}
+              >
+                Mailing
+              </Button>
             </Box>
           </Box>
         </Box>
       </Box>
     </>
-  );
+  )
 }
+export default TabSeller

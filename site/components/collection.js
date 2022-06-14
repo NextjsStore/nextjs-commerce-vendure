@@ -1,14 +1,6 @@
 import React, { Component, useState } from 'react'
 import Grid from '@mui/material/Grid'
-import Container from '@mui/material/Container'
-import Paper from '@mui/material/Paper'
 import Link from 'next/link'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import Divider from '@mui/material/Divider'
-
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemText from '@mui/material/ListItemText'
 import Rating from '@mui/material/Rating'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box } from '@mui/system'
@@ -77,11 +69,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Collection(props) {
+const Collection = (props) => {
   const classes = useStyles()
   const { product } = props
-  //console.warn(product);
-  let imageURl = ''
   return (
     <>
       <Grid item lg={1} md={1} sm={1}>
@@ -115,3 +105,4 @@ export default function Collection(props) {
     </>
   )
 }
+export default Collection

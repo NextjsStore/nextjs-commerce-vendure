@@ -5,8 +5,6 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import Typography from '@mui/material/Typography'
-import FormControl from '@mui/material/FormControl'
-import Button from '@mui/material/Button'
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import PublicIcon from '@mui/icons-material/Public'
@@ -159,7 +157,7 @@ const useStyles = makeStyles({
   },
 })
 
-export default function About() {
+const About = () => {
   const classes = useStyles()
   return (
     <>
@@ -459,3 +457,4 @@ export default function About() {
     </>
   )
 }
+export default About

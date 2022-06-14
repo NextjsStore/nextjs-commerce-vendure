@@ -107,7 +107,7 @@ const useStyles = makeStyles({
 const Input = styled('input')({
   display: 'none',
 })
-export default function Profile() {
+const Profile = () => {
   const classes = useStyles()
   return (
     <>
@@ -333,3 +333,4 @@ export default function Profile() {
     </>
   )
 }
+export default Profile

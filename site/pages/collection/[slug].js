@@ -1,17 +1,8 @@
 import Link from 'next/link'
 import Container from '@mui/material/Container'
 import { useRouter } from 'next/router'
-import AddToCartButton from '../../components/cart/AddToCartButton'
-import { isEmpty } from 'lodash'
-import GalleryCarousel from '../../components/single-product/gallery-carousel'
-import CategoriesCarousel from '../../components/single-product/categories-carousel'
-import RelatedProduct from '../../components/single-product/related-product'
-import Price from '../../components/single-product/price'
-import { ImageList } from '@mui/material'
-import { ImageListItem } from '@mui/material'
 import { Grid } from '@mui/material'
 import { makeStyles } from '@material-ui/core/styles'
-import Rating from '@mui/material/Rating'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import Banner from '../../assets/banner_page.png'
 import Typography from '@mui/material/Typography'
@@ -21,7 +12,7 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import Divider from '@mui/material/Divider'
-import Collection from '../../components/collection'
+import Collection from '@components/Collection'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
 
@@ -122,7 +113,7 @@ const useStyles_pageShop = makeStyles((theme) => ({
   },
 }))
 
-export default function Product(props) {
+const CollectionShop = (props) => {
   const classes = useStyles_pageShop()
 
   const { getcollections } = props
@@ -241,11 +232,11 @@ export default function Product(props) {
     </Box>
   )
 }
+export default CollectionShop
 
 export async function getStaticProps({ params, locale, locales }) {
   /*********AXIOS GRAPHQL */
-  const endpoint =
-    'http://localhost:3000/shop-api?vendure-token=xn5i72fr18t00v9ghbm'
+  const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
   const headers = {
     'content-type': 'application/json',
     Authorization: '<token>',

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FC, useState } from 'react'
-import CartItem from '@components/cart/CartItem'
+import CartItem from '@components/cart/CartItem__'
 import { Button, Text } from '@components/ui'
 import { useUI } from '@components/ui/context'
 import SidebarLayout from '@components/common/SidebarLayout'

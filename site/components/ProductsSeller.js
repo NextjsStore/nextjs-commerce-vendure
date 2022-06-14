@@ -1,14 +1,6 @@
 import React, { Component, useState } from 'react'
 import Grid from '@mui/material/Grid'
-import Container from '@mui/material/Container'
-import Paper from '@mui/material/Paper'
 import Link from 'next/link'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import Divider from '@mui/material/Divider'
-
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemText from '@mui/material/ListItemText'
 import Rating from '@mui/material/Rating'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box } from '@mui/system'
@@ -77,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function ProdutcsSeller(props) {
+const ProdutcsSeller = (props) => {
   const classes = useStyles()
   const { product } = props
   //console.warn(product);
@@ -115,3 +107,4 @@ export default function ProdutcsSeller(props) {
     </>
   )
 }
+export default ProdutcsSeller

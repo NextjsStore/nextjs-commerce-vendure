@@ -8,7 +8,6 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import Typography from '@mui/material/Typography'
-import FormControl from '@mui/material/FormControl'
 import Button from '@mui/material/Button'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox'
@@ -101,7 +100,7 @@ const validationSchema = yup.object({
     .required('Password is required'),
 })
 
-export default function MyAccout() {
+const MyAccount = () => {
   const router = useRouter()
   const [checked, setChecked] = React.useState(false)
   const [isChecked, setStatusChecked] = React.useState(false)
@@ -322,3 +321,4 @@ export default function MyAccout() {
     </>
   )
 }
+export default MyAccount

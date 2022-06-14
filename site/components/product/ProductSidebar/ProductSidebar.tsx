@@ -1,7 +1,8 @@
 import s from './ProductSidebar.module.css'
 import { useAddItem } from '@framework/cart'
 import { FC, useEffect, useState } from 'react'
-import { ProductOptions } from '@components/product__'
+// import { ProductOptions } from '@components/product__'
+import ProductOptions from '../ProductOptions'
 import type { Product } from '@commerce/types/product'
 import { Button, Text, Rating, Collapse, useUI } from '@components/ui'
 import {

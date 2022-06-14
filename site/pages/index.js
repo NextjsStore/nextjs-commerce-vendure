@@ -1,16 +1,15 @@
 import React from 'react'
 import { Container, Grid } from '@mui/material'
-import SwipeableTextMobileStepper from '../components/slider'
-import Product from '../components/product'
-import NewImageList from '../components/newlistimg'
-import SellerImageList from '../components/imglist'
-import NameForm from '../components/formEmail'
+import SwipeableTextMobileStepper from '../components/Slider'
+import Product from '@components/product'
+import ListImages from '@components/ListImages'
+import ListImgSeller from '../components/ImgList'
+import NameForm from '@components/FormEmail'
 import { AppProvider } from '../lib/context/AppContext'
 import DealsOfDay from 'components/DealsOfDay'
-import Tab from 'components/tab'
-import TabSeller from 'components/tabSeller'
-import Logo from 'components/tabsLogo'
-import Collection from 'components/collection'
+import Tab from '@components/Tab'
+import TabSeller from '@components/TabSeller'
+import Logo from '@components/ListLogo'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
 import ProdutcsSeller from '@components/ProductsSeller'
@@ -31,8 +30,7 @@ export async function getStaticProps({ preview, locale, locales, params }) {
   const { categories, brands } = await siteInfoPromise
 
   /***ADD QUERY WITH AXIOS */
-  const endpoint =
-    'http://localhost:3000/shop-api?vendure-token=xn5i72fr18t00v9ghbm'
+  const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
   const headers = {
     'content-type': 'application/json',
     Authorization: '<token>',
@@ -65,7 +63,6 @@ export async function getStaticProps({ preview, locale, locales, params }) {
     headers: headers,
     data: graphqlQuery,
   })
-
   const productsSeller = response.data.data.products.items
 
   return {
@@ -109,7 +106,7 @@ const Home = (props) => {
           </Grid> */}
         </Container>
 
-        <NewImageList />
+        <ListImages />
         <Container>
           <TabSeller />
           <Grid
@@ -129,11 +126,9 @@ const Home = (props) => {
             ) : ''}
           </Grid> */}
         </Container>
-        <SellerImageList />
+        <ListImgSeller />
         <Logo />
         <NameForm />
-        {/* <Footer />
-        <Copyright /> */}
       </div>
     </AppProvider>
   )
