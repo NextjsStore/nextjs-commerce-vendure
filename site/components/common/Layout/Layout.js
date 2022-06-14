@@ -1,5 +1,4 @@
 import React from 'react'
-import AddHead from '../../AddHead'
 import SideBarTop from '../../Sidebar'
 import HeaderMid from '../../HeaderMid'
 import HeaderCenter from '../../HeaderCenter'
@@ -9,7 +8,6 @@ import Copyright from '../../Copyright'
 const Layout = ({ children }) => {
   return (
     <div>
-      <AddHead />
       <SideBarTop />
       <HeaderMid />
       <HeaderCenter />
