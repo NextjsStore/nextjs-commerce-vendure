@@ -82,26 +82,26 @@ const Logo = () => {
           <Box className={classes.listLogo}>
             <Box className={classes.logoGroup}>
               <Box className={classes.imgLogo}>
-                <img src={Logo1.src} />
+                <img src={Logo1.src} alt="List-Logo" />
               </Box>
               <Box className={classes.imgLogo}>
-                <img src={Logo2.src} />
-              </Box>
-            </Box>
-            <Box className={classes.logoGroup}>
-              <Box className={classes.imgLogo}>
-                <img src={Logo3.src} />
-              </Box>
-              <Box className={classes.imgLogo}>
-                <img src={Logo4.src} />
+                <img src={Logo2.src} alt="List-Logo" />
               </Box>
             </Box>
             <Box className={classes.logoGroup}>
               <Box className={classes.imgLogo}>
-                <img src={Logo5.src} />
+                <img src={Logo3.src} alt="List-Logo" />
               </Box>
               <Box className={classes.imgLogo}>
-                <img src={Logo6.src} />
+                <img src={Logo4.src} alt="List-Logo" />
+              </Box>
+            </Box>
+            <Box className={classes.logoGroup}>
+              <Box className={classes.imgLogo}>
+                <img src={Logo5.src} alt="List-Logo" />
+              </Box>
+              <Box className={classes.imgLogo}>
+                <img src={Logo6.src} alt="List-Logo" />
               </Box>
             </Box>
           </Box>

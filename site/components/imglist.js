@@ -110,7 +110,11 @@ const ListImgSeller = () => {
           <Box>
             <Link href="/shop">
               <a>
-                <img src={Image1.src} className={classes.Image} />
+                <img
+                  src={Image1.src}
+                  className={classes.Image}
+                  alt="List-Product-Seller"
+                />
               </a>
             </Link>
           </Box>
@@ -121,14 +125,22 @@ const ListImgSeller = () => {
               <Box className={classes.box_2Image1}>
                 <Link href="/product/pro-card-visit-a1">
                   <a>
-                    <img src={Image2.src} className={classes.Image} />
+                    <img
+                      src={Image2.src}
+                      className={classes.Image}
+                      alt="List-Product-Seller"
+                    />
                   </a>
                 </Link>
               </Box>
               <Box>
                 <Link href="/product/agency-books">
                   <a>
-                    <img src={Image3.src} className={classes.Image} />
+                    <img
+                      src={Image3.src}
+                      className={classes.Image}
+                      alt="List-Product-Seller"
+                    />
                   </a>
                 </Link>
               </Box>
@@ -137,14 +149,22 @@ const ListImgSeller = () => {
               <Box className={classes.box_2Image2}>
                 <Link href="/product/travel-agency-flyer">
                   <a>
-                    <img src={Image6.src} className={classes.Image} />
+                    <img
+                      src={Image6.src}
+                      className={classes.Image}
+                      alt="List-Product-Seller"
+                    />
                   </a>
                 </Link>
               </Box>
               <Box>
                 <Link href="/product/business-card-with-print-option/">
                   <a>
-                    <img src={Image7.src} className={classes.Image} />
+                    <img
+                      src={Image7.src}
+                      className={classes.Image}
+                      alt="List-Product-Seller"
+                    />
                   </a>
                 </Link>
               </Box>
@@ -157,14 +177,22 @@ const ListImgSeller = () => {
             <Box className={classes.box_Image}>
               <Link href="  /product/poster-with-print-option">
                 <a>
-                  <img src={Image5.src} className={classes.Image} />
+                  <img
+                    src={Image5.src}
+                    className={classes.Image}
+                    alt="List-Product-Seller"
+                  />
                 </a>
               </Link>
             </Box>
             <Box>
               <Link href=" /product/poster-with-print-option">
                 <a>
-                  <img src={Image4.src} className={classes.Image} />
+                  <img
+                    src={Image4.src}
+                    className={classes.Image}
+                    alt="List-Product-Seller"
+                  />
                 </a>
               </Link>
             </Box>
@@ -173,14 +201,22 @@ const ListImgSeller = () => {
             <Box className={classes.box_Image}>
               <Link href=" /product/color-with-print-option">
                 <a>
-                  <img src={Image8.src} className={classes.Image} />
+                  <img
+                    src={Image8.src}
+                    className={classes.Image}
+                    alt="List-Product-Seller"
+                  />
                 </a>
               </Link>
             </Box>
             <Box>
               <Link href="/product/dot-luck">
                 <a>
-                  <img src={Image9.src} className={classes.Image} />
+                  <img
+                    src={Image9.src}
+                    className={classes.Image}
+                    alt="List-Product-Seller"
+                  />
                 </a>
               </Link>
             </Box>

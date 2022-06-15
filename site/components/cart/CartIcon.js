@@ -41,7 +41,7 @@ const CartIcon = () => {
   return (
     <React.Fragment>
       <AppProvider>
-        <Link href="/cart">
+        <Link href="/cart" passHref>
           <div className={classes.containercart}>
             <LocalMallOutlinedIcon />
             {parseInt(productsCount) ? (

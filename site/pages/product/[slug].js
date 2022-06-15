@@ -198,8 +198,8 @@ const useStyle_productDetail = makeStyles({
 
 const Product = (props) => {
   const classes = useStyle_productDetail()
-  const { product, relatedProducts, getcollections } = props
-  //console.log('Getcollection', getcollections)
+  const { product, relatedProducts, collections } = props
+  //console.log('Getcollection', collections)
 
   const router = useRouter()
 
@@ -251,7 +251,7 @@ const Product = (props) => {
       </Box>
 
       <div>
-        {product && getcollections ? (
+        {product && collections ? (
           <div className={classes.singleProduct}>
             <Container maxWidth="lg">
               <Grid container direction="row" lg={12}>
@@ -289,13 +289,11 @@ const Product = (props) => {
                     {<AddToCartButton product={product} />}
                     <div className={classes.product_meta}>
                       <div className={classes.sku_title}>SKU: N/A</div>
-                      {!isEmpty(getcollections.collections) ? (
-                        <CategoriesCarousel
-                          gallery={getcollections.collections}
-                        />
-                      ) : !isEmpty(getcollections.collections) ? (
+                      {!isEmpty(collections.collections) ? (
+                        <CategoriesCarousel gallery={collections.collections} />
+                      ) : !isEmpty(collections.collections) ? (
                         <div className={classes.sku_name}>
-                          {getcollections.collections}
+                          {collections.collections}
                         </div>
                       ) : null}
                     </div>
@@ -400,7 +398,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     data: graphqlQuery,
   })
 
-  const getcollections = response.data.data.product
+  const collections = response.data.data.product
 
   const allProductsPromise = commerce.getAllProducts({
     variables: { first: 4 },
@@ -420,7 +418,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     props: {
       pages,
       product,
-      getcollections,
+      collections,
       relatedProducts,
       categories,
     },

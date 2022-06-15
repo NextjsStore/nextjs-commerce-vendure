@@ -50,7 +50,7 @@ const Copyright = () => {
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
                 <div className={classes.payment}>
-                  <img src={paymentImages.src} />
+                  <img src={paymentImages.src} alt="payment" />
                 </div>
               </Grid>
             </Grid>

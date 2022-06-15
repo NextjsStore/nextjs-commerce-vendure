@@ -27,10 +27,6 @@ const countdown = (secondsTime) => {
     }
   }
   return {
-    // days,
-    // hours: h,
-    // minutes: m,
-    // seconds: s,
     seconds: secondsTime % 60,
     minutes: parseInt(secondsTime / 60, 10) % 60,
     hours: parseInt(secondsTime / (60 * 60), 10) % 24,

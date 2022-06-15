@@ -159,7 +159,7 @@ const HeaderMid = (props) => {
                     <div className={classes.logo}>
                       <Link href="/">
                         <a>
-                          <img src={LogoeBay.src} />
+                          <img src={LogoeBay.src} alt="Logo" />
                         </a>
                       </Link>
                     </div>

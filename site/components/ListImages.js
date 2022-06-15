@@ -89,14 +89,22 @@ const ListImages = () => {
             <Box className={classes.box_Image}>
               <Link href="/product/clean-business-card">
                 <a>
-                  <img src={Image1.src} className={classes.Image} />
+                  <img
+                    src={Image1.src}
+                    className={classes.Image}
+                    alt="List-Product"
+                  />
                 </a>
               </Link>
             </Box>
             <Box>
               <Link href="/product/softcover-trade-book">
                 <a>
-                  <img src={Image2.src} className={classes.Image} />
+                  <img
+                    src={Image2.src}
+                    className={classes.Image}
+                    alt="List-Product"
+                  />
                 </a>
               </Link>
             </Box>
@@ -105,7 +113,11 @@ const ListImages = () => {
             <Box>
               <Link href=" /shop">
                 <a>
-                  <img src={Image3.src} className={classes.Image} />
+                  <img
+                    src={Image3.src}
+                    className={classes.Image}
+                    alt="List-Product"
+                  />
                 </a>
               </Link>
             </Box>
@@ -117,14 +129,22 @@ const ListImages = () => {
             <Box className={classes.box_Image}>
               <Link href="/product/dot-luck">
                 <a>
-                  <img src={Image4.src} className={classes.Image} />
+                  <img
+                    src={Image4.src}
+                    className={classes.Image}
+                    alt="List-Product"
+                  />
                 </a>
               </Link>
             </Box>
             <Box>
               <Link href="/product/sharp-contrast">
                 <a>
-                  <img src={Image5.src} className={classes.Image} />
+                  <img
+                    src={Image5.src}
+                    className={classes.Image}
+                    alt="List-Product"
+                  />
                 </a>
               </Link>
             </Box>
@@ -133,14 +153,22 @@ const ListImages = () => {
             <Box className={classes.box_Image}>
               <Link href="/product/web2print">
                 <a>
-                  <img src={Image6.src} className={classes.Image} />
+                  <img
+                    src={Image6.src}
+                    className={classes.Image}
+                    alt="List-Product"
+                  />
                 </a>
               </Link>
             </Box>
             <Box>
               <Link href="/product/tiny-square-card">
                 <a>
-                  <img src={Image7.src} className={classes.Image} />
+                  <img
+                    src={Image7.src}
+                    className={classes.Image}
+                    alt="List-Product"
+                  />
                 </a>
               </Link>
             </Box>

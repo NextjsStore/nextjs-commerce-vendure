@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Grid } from '@mui/material'
-import SwipeableTextMobileStepper from '../components/Slider'
+import SwipeableTextMobileStepper from '@components/slider'
 import Product from '@components/product'
 import ListImages from '@components/ListImages'
 import ListImgSeller from '../components/ImgList'

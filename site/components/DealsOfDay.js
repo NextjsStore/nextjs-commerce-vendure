@@ -147,6 +147,7 @@ const DealsOfDay = () => {
                 style={{
                   width: 264,
                 }}
+                alt="Image-DealsOfDay"
               />
               <Box className={classes.circle}>
                 <Typography style={{ fontSize: 14 }}>-22%</Typography>
@@ -194,6 +195,7 @@ const DealsOfDay = () => {
                 <Link
                   href="/product/softcover-trade-book"
                   className={classes.buttonLink}
+                  passHref
                 >
                   <Typography sx={{ fontSize: '14px', fontWeight: '600' }}>
                     SHOP NOW
@@ -216,6 +218,7 @@ const DealsOfDay = () => {
                 style={{
                   width: 264,
                 }}
+                alt="ImageProduct2"
               />
               <Box className={classes.circle}>
                 <Typography style={{ fontSize: 14 }}>-39%</Typography>
@@ -256,6 +259,7 @@ const DealsOfDay = () => {
                 <Link
                   href="/product/agency-books"
                   className={classes.buttonLink}
+                  passHref
                 >
                   <Typography sx={{ fontSize: '14px', fontWeight: '600' }}>
                     SHOP NOW

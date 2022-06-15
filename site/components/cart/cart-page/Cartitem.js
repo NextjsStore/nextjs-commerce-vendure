@@ -55,7 +55,7 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
       </TableCell>
       {/* image */}
       <TableCell className={classes.cartelementImg}>
-        <img width="150" src={item.image} />
+        <img width="150" src={item.image} alt="Cart" />
       </TableCell>
       {/* image */}
       <TableCell className={classes.cartelementName}>{item?.name}</TableCell>
