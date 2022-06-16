@@ -11,7 +11,7 @@ import Image9 from '../assets/seller_9.png'
 import Link from 'next/link'
 import { Flex, Spacer, Image, Box } from '@chakra-ui/react'
 
-export default function NewImageList() {
+const NewImageList = () => {
   return (
     <>
       <Flex>
@@ -96,3 +96,4 @@ export default function NewImageList() {
     </>
   )
 }
+export default NewImageList

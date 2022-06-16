@@ -1,7 +1,5 @@
 import * as React from 'react'
 import { Box, Image, useTheme } from '@chakra-ui/react'
-
-import MobileStepper from '@mui/material/MobileStepper'
 import SwipeableViews from 'react-swipeable-views'
 import { autoPlay } from 'react-swipeable-views-utils'
 
@@ -21,7 +19,7 @@ const images = [
   },
 ]
 
-function SwipeableTextMobileStepper() {
+const SwipeableTextMobileStepper = () => {
   const theme = useTheme()
   const [activeStep, setActiveStep] = React.useState(0)
   const maxSteps = images.length
@@ -45,11 +43,6 @@ function SwipeableTextMobileStepper() {
           </div>
         ))}
       </AutoPlaySwipeableViews>
-      <MobileStepper
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-      />
     </Box>
   )
 }

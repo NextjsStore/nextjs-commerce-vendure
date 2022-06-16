@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Box, Center, Flex } from '@chakra-ui/react'
 import MenuListComposition from '../components/menu'
-import ResponsiveAppBar from '../components/menuPhu'
+import ResponsiveAppBar from '../components/ListPages'
 
 const HeaderCenter = () => {
   return (
