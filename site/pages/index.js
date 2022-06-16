@@ -125,8 +125,6 @@ const Home = (props) => {
     },
   ]
 
-  //console.log('collections', collections)
-
   return (
     <AppProvider>
       <div>

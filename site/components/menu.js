@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, Grid, useOutsideClick } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 // icon import
 import {
