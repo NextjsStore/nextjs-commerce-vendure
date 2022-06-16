@@ -11,6 +11,7 @@ import Image7 from '../assets/seller_7.png'
 import Image8 from '../assets/seller_8.png'
 import Image9 from '../assets/seller_9.png'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const useStyles = makeStyles({
   wrapperImage: {
@@ -110,9 +111,10 @@ const ListImgSeller = () => {
           <Box>
             <Link href="/shop">
               <a>
-                <img
+                <Image
+                  width={453}
+                  height={524}
                   src={Image1.src}
-                  className={classes.Image}
                   alt="List-Product-Seller"
                 />
               </a>
@@ -125,7 +127,9 @@ const ListImgSeller = () => {
               <Box className={classes.box_2Image1}>
                 <Link href="/product/pro-card-visit-a1">
                   <a>
-                    <img
+                    <Image
+                      width={467}
+                      height={255}
                       src={Image2.src}
                       className={classes.Image}
                       alt="List-Product-Seller"
@@ -136,7 +140,9 @@ const ListImgSeller = () => {
               <Box>
                 <Link href="/product/agency-books">
                   <a>
-                    <img
+                    <Image
+                      width={310}
+                      height={262}
                       src={Image3.src}
                       className={classes.Image}
                       alt="List-Product-Seller"
@@ -149,7 +155,9 @@ const ListImgSeller = () => {
               <Box className={classes.box_2Image2}>
                 <Link href="/product/travel-agency-flyer">
                   <a>
-                    <img
+                    <Image
+                      width={292}
+                      height={247}
                       src={Image6.src}
                       className={classes.Image}
                       alt="List-Product-Seller"
@@ -160,7 +168,9 @@ const ListImgSeller = () => {
               <Box>
                 <Link href="/product/business-card-with-print-option/">
                   <a>
-                    <img
+                    <Image
+                      width={450}
+                      height={245}
                       src={Image7.src}
                       className={classes.Image}
                       alt="List-Product-Seller"
@@ -177,7 +187,9 @@ const ListImgSeller = () => {
             <Box className={classes.box_Image}>
               <Link href="  /product/poster-with-print-option">
                 <a>
-                  <img
+                  <Image
+                    width={292}
+                    height={247}
                     src={Image5.src}
                     className={classes.Image}
                     alt="List-Product-Seller"
@@ -188,7 +200,9 @@ const ListImgSeller = () => {
             <Box>
               <Link href=" /product/poster-with-print-option">
                 <a>
-                  <img
+                  <Image
+                    width={292}
+                    height={247}
                     src={Image4.src}
                     className={classes.Image}
                     alt="List-Product-Seller"
@@ -201,7 +215,9 @@ const ListImgSeller = () => {
             <Box className={classes.box_Image}>
               <Link href=" /product/color-with-print-option">
                 <a>
-                  <img
+                  <Image
+                    width={292}
+                    height={247}
                     src={Image8.src}
                     className={classes.Image}
                     alt="List-Product-Seller"
@@ -212,7 +228,9 @@ const ListImgSeller = () => {
             <Box>
               <Link href="/product/dot-luck">
                 <a>
-                  <img
+                  <Image
+                    width={292}
+                    height={247}
                     src={Image9.src}
                     className={classes.Image}
                     alt="List-Product-Seller"

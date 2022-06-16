@@ -10,6 +10,7 @@ import CartIcon from './cart/CartIcon'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 export const PER_PAGE_FIRST = 9
 export const PER_PAGE_REST = 12
@@ -159,7 +160,13 @@ const HeaderMid = (props) => {
                     <div className={classes.logo}>
                       <Link href="/">
                         <a>
-                          <img src={LogoeBay.src} alt="Logo" />
+                          <Image
+                            width={102}
+                            height={40}
+                            layout="fixed"
+                            src={LogoeBay.src}
+                            alt="Logo"
+                          />
                         </a>
                       </Link>
                     </div>

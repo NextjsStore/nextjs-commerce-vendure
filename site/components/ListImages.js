@@ -9,6 +9,7 @@ import Image5 from '../assets/image_5.png'
 import Image6 from '../assets/image_6.png'
 import Image7 from '../assets/image_7.png'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const useStyles = makeStyles({
   wrapperImage: {
@@ -89,7 +90,9 @@ const ListImages = () => {
             <Box className={classes.box_Image}>
               <Link href="/product/clean-business-card">
                 <a>
-                  <img
+                  <Image
+                    width={614}
+                    height={292}
                     src={Image1.src}
                     className={classes.Image}
                     alt="List-Product"
@@ -100,7 +103,9 @@ const ListImages = () => {
             <Box>
               <Link href="/product/softcover-trade-book">
                 <a>
-                  <img
+                  <Image
+                    width={614}
+                    height={292}
                     src={Image2.src}
                     className={classes.Image}
                     alt="List-Product"
@@ -113,7 +118,9 @@ const ListImages = () => {
             <Box>
               <Link href=" /shop">
                 <a>
-                  <img
+                  <Image
+                    width={620}
+                    height={620}
                     src={Image3.src}
                     className={classes.Image}
                     alt="List-Product"
@@ -129,7 +136,9 @@ const ListImages = () => {
             <Box className={classes.box_Image}>
               <Link href="/product/dot-luck">
                 <a>
-                  <img
+                  <Image
+                    width={295}
+                    height={295}
                     src={Image4.src}
                     className={classes.Image}
                     alt="List-Product"
@@ -140,7 +149,9 @@ const ListImages = () => {
             <Box>
               <Link href="/product/sharp-contrast">
                 <a>
-                  <img
+                  <Image
+                    width={295}
+                    height={295}
                     src={Image5.src}
                     className={classes.Image}
                     alt="List-Product"
@@ -153,7 +164,9 @@ const ListImages = () => {
             <Box className={classes.box_Image}>
               <Link href="/product/web2print">
                 <a>
-                  <img
+                  <Image
+                    width={295}
+                    height={295}
                     src={Image6.src}
                     className={classes.Image}
                     alt="List-Product"
@@ -164,7 +177,9 @@ const ListImages = () => {
             <Box>
               <Link href="/product/tiny-square-card">
                 <a>
-                  <img
+                  <Image
+                    width={295}
+                    height={295}
                     src={Image7.src}
                     className={classes.Image}
                     alt="List-Product"

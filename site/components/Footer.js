@@ -1,8 +1,6 @@
 import React from 'react'
 import { Container, Box, Grid } from '@mui/material'
 import Link from 'next/link'
-
-// add font
 import HomeIcon from '@mui/icons-material/Home'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 import MailIcon from '@mui/icons-material/Mail'
@@ -14,15 +12,11 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import imgWorking from '../assets/imgWorking.jpg'
-
-// makestyle
 import { makeStyles } from '@material-ui/core/styles'
 
 const colorHeading = '#323232'
 const colorHover = '#40c6ff'
 const colorDefaul = '#666'
-
-// import images
 
 const useStyle_footer = makeStyles({
   box_f: {

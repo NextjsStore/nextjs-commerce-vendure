@@ -9,7 +9,7 @@ import Logo3 from '../assets/logo3.png'
 import Logo4 from '../assets/logo4.png'
 import Logo5 from '../assets/logo5.png'
 import Logo6 from '../assets/logo6.png'
-import { ClassNames } from '@emotion/react'
+import Image from 'next/image'
 
 const colorHover = '#40c6ff'
 const useStyles = makeStyles({
@@ -82,26 +82,56 @@ const Logo = () => {
           <Box className={classes.listLogo}>
             <Box className={classes.logoGroup}>
               <Box className={classes.imgLogo}>
-                <img src={Logo1.src} alt="List-Logo" />
+                <Image
+                  width={150}
+                  height={150}
+                  src={Logo1.src}
+                  alt="List-Logo"
+                />
               </Box>
               <Box className={classes.imgLogo}>
-                <img src={Logo2.src} alt="List-Logo" />
+                <Image
+                  width={150}
+                  height={150}
+                  src={Logo2.src}
+                  alt="List-Logo"
+                />
               </Box>
             </Box>
             <Box className={classes.logoGroup}>
               <Box className={classes.imgLogo}>
-                <img src={Logo3.src} alt="List-Logo" />
+                <Image
+                  width={150}
+                  height={150}
+                  src={Logo3.src}
+                  alt="List-Logo"
+                />
               </Box>
               <Box className={classes.imgLogo}>
-                <img src={Logo4.src} alt="List-Logo" />
+                <Image
+                  width={150}
+                  height={150}
+                  src={Logo4.src}
+                  alt="List-Logo"
+                />
               </Box>
             </Box>
             <Box className={classes.logoGroup}>
               <Box className={classes.imgLogo}>
-                <img src={Logo5.src} alt="List-Logo" />
+                <Image
+                  width={150}
+                  height={150}
+                  src={Logo5.src}
+                  alt="List-Logo"
+                />
               </Box>
               <Box className={classes.imgLogo}>
-                <img src={Logo6.src} alt="List-Logo" />
+                <Image
+                  width={150}
+                  height={150}
+                  src={Logo6.src}
+                  alt="List-Logo"
+                />
               </Box>
             </Box>
           </Box>

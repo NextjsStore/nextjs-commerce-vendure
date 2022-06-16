@@ -4,22 +4,15 @@ import Link from 'next/link'
 import Rating from '@mui/material/Rating'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box } from '@mui/system'
+import Image from 'next/image'
 
-const colorHeading = '#323232'
 const colorHover = '#40c6ff'
-const colorDefaul = '#666'
 const useStyles = makeStyles((theme) => ({
   itemProduct: {
     marginBottom: 20,
   },
   cardButton: {
     paddingBottom: 15,
-  },
-  productImg: {
-    width: '100%',
-    height: 'auto',
-    display: 'inline-block',
-    textAlign: 'center',
   },
   cardBody: {
     textAlign: 'center',
@@ -62,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
   box_product: {
     border: '1px solid #efefef',
     padding: '15px 15px 22px 15px',
+    textAlign: 'center',
     transition: '0.35s',
     '&:hover': {
       boxShadow: '0 10px 6px -6px #ccc',
@@ -73,14 +67,16 @@ const Product = (props) => {
   const classes = useStyles()
   const { product } = props
   //console.warn(product);
-  let imageURl = ''
   return (
     <>
       <Grid item lg={1} md={1} sm={1}>
         <Box className={classes.box_product}>
           <Link href={`/product/${product?.slug}`}>
             <a>
-              <img
+              <Image
+                width={238}
+                height={238}
+                layout="fixed"
                 className={classes.productImg}
                 src={product.images[0].url}
                 alt=""

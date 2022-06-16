@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Rating from '@mui/material/Rating'
 import { makeStyles } from '@material-ui/core/styles'
 import { Box } from '@mui/system'
+import Image from 'next/image'
 
 const colorHeading = '#323232'
 const colorHover = '#40c6ff'
@@ -80,7 +81,10 @@ const ProdutcsSeller = (props) => {
         <Box className={classes.box_product}>
           <Link href={`/product/${product?.slug}`}>
             <a>
-              <img
+              <Image
+                width={238}
+                height={238}
+                layout="fixed"
                 className={classes.productImg}
                 src={product.assets[0].source}
                 alt=""

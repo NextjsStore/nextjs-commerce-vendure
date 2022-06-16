@@ -15,6 +15,7 @@ import Box from '@mui/material/Box'
 import commerce from '@lib/api/commerce'
 import Banner from '../../assets/banner_page.png'
 import axios from 'axios'
+import Image from 'next/image'
 
 const colorHeading = '#323232'
 const colorHover = '#40c6ff'
@@ -257,18 +258,15 @@ const Product = (props) => {
               <Grid container direction="row" lg={12}>
                 <Grid item xs={12} sm={12} md={6} lg={6}>
                   <div className={classes.imgagesDetail}>
-                    <img src={product.images[0].url} alt="" />
+                    <Image
+                      width={518}
+                      height={518}
+                      layout="fixed"
+                      src={product.images[0].url}
+                      alt=""
+                    />
                     <div className={classes.galleryImages}>
-                      {!isEmpty(product?.images[0]) ? (
-                        <GalleryCarousel gallery={product?.images} />
-                      ) : !isEmpty(product?.images) ? (
-                        <img
-                          src={product?.images?.url}
-                          alt="Product Image"
-                          height="auto"
-                          srcSet={product?.images?.url}
-                        />
-                      ) : null}
+                      <GalleryCarousel gallery={product?.images} />
                     </div>
                   </div>
                 </Grid>
@@ -316,9 +314,11 @@ const Product = (props) => {
                           <div className={classes.box_product}>
                             <Link href={`/product/${item?.slug}`}>
                               <a>
-                                <img
-                                  src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
-                                  //srcSet={`${item?.image?.srcSet}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                <Image
+                                  width={226}
+                                  height={226}
+                                  layout="fixed"
+                                  src={item?.images[0].url}
                                   alt={item?.name}
                                   loading="lazy"
                                 />

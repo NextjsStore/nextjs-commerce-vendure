@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
 import { updateCart2 } from '../../../function'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
 import { makeStyles } from '@material-ui/core/styles'
+import Image from 'next/image'
 
 const useStyles_cartItem = makeStyles((theme) => ({
   cartelementPrice: {
@@ -55,7 +54,13 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
       </TableCell>
       {/* image */}
       <TableCell className={classes.cartelementImg}>
-        <img width="150" src={item.image} alt="Cart" />
+        <Image
+          width={150}
+          height={150}
+          src={item.image}
+          alt="Cart"
+          layout="fixed"
+        />
       </TableCell>
       {/* image */}
       <TableCell className={classes.cartelementName}>{item?.name}</TableCell>

@@ -9,6 +9,7 @@ import Image_2 from '../assets/deals_of_day_2.jpg'
 import { Container } from '@mui/material'
 import { makeStyles } from '@material-ui/core/styles'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const colorHover = '#40c6ff'
 const useStyles = makeStyles({
@@ -142,11 +143,11 @@ const DealsOfDay = () => {
                 border: '1px solid #f1f1f1',
               }}
             >
-              <img
+              <Image
                 src={Image_1.src}
-                style={{
-                  width: 264,
-                }}
+                width={266}
+                height={270}
+                layout="fixed"
                 alt="Image-DealsOfDay"
               />
               <Box className={classes.circle}>
@@ -213,11 +214,11 @@ const DealsOfDay = () => {
                 color: '#fff',
               }}
             >
-              <img
+              <Image
+                width={266}
+                height={270}
+                layout="fixed"
                 src={Image_2.src}
-                style={{
-                  width: 264,
-                }}
                 alt="ImageProduct2"
               />
               <Box className={classes.circle}>
