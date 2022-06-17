@@ -287,13 +287,7 @@ const Product = (props) => {
                     {<AddToCartButton product={product} />}
                     <div className={classes.product_meta}>
                       <div className={classes.sku_title}>SKU: N/A</div>
-                      {!isEmpty(collections.collections) ? (
-                        <CategoriesCarousel gallery={collections.collections} />
-                      ) : !isEmpty(collections.collections) ? (
-                        <div className={classes.sku_name}>
-                          {collections.collections}
-                        </div>
-                      ) : null}
+                      <CategoriesCarousel gallery={collections.collections} />
                     </div>
                   </div>
                 </Grid>
