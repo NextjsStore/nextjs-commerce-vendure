@@ -1,14 +1,14 @@
 import React from 'react'
 import { Container, Grid } from '@mui/material'
-import SwipeableTextMobileStepper from '@components/slider'
+import SwipeableTextMobileStepper from '../components/slider'
 import Product from '@components/product'
 import ListImages from '@components/ListImages'
-import ListImgSeller from '../components/ImgList'
+import ListImgSeller from '../components/imgList'
 import NameForm from '@components/FormEmail'
 import { AppProvider } from '../lib/context/AppContext'
 import DealsOfDay from 'components/DealsOfDay'
-import Tab from '@components/Tab'
-import TabSeller from '@components/TabSeller'
+import Tab from '@components/tab'
+import TabSeller from '@components/tabSeller'
 import Logo from '@components/ListLogo'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
@@ -78,8 +78,52 @@ export async function getStaticProps({ preview, locale, locales, params }) {
 }
 
 const Home = (props) => {
-  const { products, productsSeller } = props
-  //console.log('collections', collections)
+  const { products, productsSeller, products2, productseller2 } = props
+
+  const brands = [
+    {
+      imageUrl: '/assets/logo1.png',
+    },
+    {
+      imageUrl: '/assets/logo2.png',
+    },
+    {
+      imageUrl: '/assets/logo3.png',
+    },
+    {
+      imageUrl: '/assets/logo4.png',
+    },
+    {
+      imageUrl: '/assets/logo5.png',
+    },
+    {
+      imageUrl: '/assets/logo6.png',
+    },
+    {
+      imageUrl: '/assets/logo5.png',
+    },
+    {
+      imageUrl: '/assets/logo6.png',
+    },
+    {
+      imageUrl: '/assets/logo5.png',
+    },
+    {
+      imageUrl: '/assets/logo6.png',
+    },
+    {
+      imageUrl: '/assets/logo5.png',
+    },
+    {
+      imageUrl: '/assets/logo6.png',
+    },
+    {
+      imageUrl: '/assets/logo5.png',
+    },
+    {
+      imageUrl: '/assets/logo6.png',
+    },
+  ]
 
   return (
     <AppProvider>
@@ -127,7 +171,7 @@ const Home = (props) => {
           </Grid> */}
         </Container>
         <ListImgSeller />
-        <Logo />
+        <Logo brands={brands} />
         <NameForm />
       </div>
     </AppProvider>
