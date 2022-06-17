@@ -1,93 +1,19 @@
 import * as React from 'react'
-import ReactDOM from 'react-dom'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import { makeStyles } from '@material-ui/core/styles'
-import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
-import Container from '@mui/material/Container'
-import Breadcrumbs from '@mui/material/Breadcrumbs'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
-import TextField from '@material-ui/core/TextField'
-import Banner from '../assets/banner_page.png'
 import { useRouter } from 'next/router'
-
-const useStyles = makeStyles({
-  pageAccout: {
-    marginBottom: '60px',
-    minHeight: '200px',
-    background: `url(${Banner.src})`,
-    backgroundSize: 'cover',
-  },
-
-  titlePage: {
-    display: 'flex',
-    paddingTop: '75px',
-    paddingBottom: '75px',
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
-  },
-
-  textTile: {
-    color: 'white',
-    fontFamily: 'Merriweather',
-    fontSize: '50px',
-    fontWeight: 700,
-  },
-  titleText: {
-    color: 'white',
-    fontFamily: 'Muli',
-    fontWeight: 400,
-    fontSize: '14px',
-  },
-  rightTextPage: {
-    paddingTop: '12px',
-    float: 'right',
-    '@media (max-width: 768px)': {
-      float: 'inherit',
-    },
-  },
-  inputAccout: {
-    width: '100%',
-    minHeight: '55px',
-    paddingLeft: '10px',
-    marginTop: '10px',
-  },
-  formPage: {
-    display: 'flex',
-    border: '1px solid #ccc',
-    padding: '30px',
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
-  },
-  loginPage: {
-    '@media (max-width: 768px)': {
-      marginBottom: '40px',
-    },
-  },
-  formLogin: {
-    width: '100%',
-    paddingRight: '25px',
-  },
-
-  regisPage: {
-    '@media (max-width: 768px)': {
-      marginTop: '40px',
-    },
-  },
-  textFormPage: {
-    marginBottom: '30px',
-    textAlign: 'left',
-    fontFamily: 'Merriweather',
-    fontWeight: 700,
-    fontStyle: 'normal',
-  },
-})
+import {
+  Center,
+  Button,
+  Container,
+  Box,
+  Flex,
+  Spacer,
+  Text,
+  Heading,
+  Checkbox,
+  Input,
+} from '@chakra-ui/react'
 
 const validationSchema = yup.object({
   email: yup
@@ -114,7 +40,6 @@ const MyAccount = () => {
   const handleOnclickHidden = () => {
     setStatusChecked((item) => false)
   }
-  const classes = useStyles()
   const handleSubmit = (e) => {
     e.preventDefault()
   }
@@ -148,157 +73,74 @@ const MyAccount = () => {
   })
 
   return (
-    <>
-      <Box className={classes.pageAccout}>
-        <Container>
-          <Box className={classes.titlePage}>
-            <Grid item lg={6}>
+    <Box>
+      <Box h="240px">
+        <Box>
+          <Box
+            color="#fff"
+            backgroundImage="/assets/banner_page.png"
+            h="200px"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+            mb="60px"
+          >
+            <Flex>
               <Box>
-                <Typography
-                  className={classes.textTile}
-                  component="h3"
-                  variant="h3"
-                >
+                <Heading component="h3" variant="h3">
                   My account
-                </Typography>
+                </Heading>
               </Box>
-            </Grid>
-            <Grid item lg={6}>
-              <Box className={classes.rightTextPage}>
-                <Breadcrumbs sx={{ color: 'white' }} aria-label="breadcrumb">
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Home
-                  </Typography>
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    My account
-                  </Typography>
-                </Breadcrumbs>
-              </Box>
-            </Grid>
-          </Box>
-        </Container>
-      </Box>
-      <Container>
-        <Box className={classes.formPage}>
-          <Grid item lg={6}>
-            <Typography
-              className={classes.textFormPage}
-              component="h4"
-              variant="h4"
-            >
-              Login
-            </Typography>
-            <form onSubmit={formik.handleSubmit} className={classes.formLogin}>
-              <Typography sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                Username or email address *
-              </Typography>
-              <TextField
-                variant="outlined"
-                fullWidth
-                id="email"
-                name="email"
-                label="Email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-              />
-              <Typography sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                Password *
-              </Typography>
-              <TextField
-                variant="outlined"
-                fullWidth
-                id="password"
-                name="password"
-                label="Password"
-                type="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.password && Boolean(formik.errors.password)
-                }
-                helperText={formik.touched.password && formik.errors.password}
-              />
-
-              <Button
-                color="primary"
-                variant="contained"
-                type="submit"
-                sx={{
-                  marginTop: '20px',
-                  borderRadius: '25px',
-                  width: '100px',
-                }}
-              >
-                Login
-              </Button>
+              <Spacer />
               <Box>
-                <FormControlLabel
-                  control={<Checkbox defaultChecked />}
-                  label="Remember me"
-                />
-                <Box>
-                  <Typography component="span" variant="span">
-                    <a href="#"> Lost your password?</a>
-                  </Typography>
-                </Box>
+                <Heading component="h6" variant="h6">
+                  Home
+                </Heading>
+                <Heading component="h6" variant="h6">
+                  My account
+                </Heading>
               </Box>
-            </form>
-          </Grid>
-          <Grid item lg={6}>
-            <Box className={classes.regisPage}>
-              <Typography
-                className={classes.textFormPage}
-                component="h4"
-                variant="h4"
-              >
-                Register
-              </Typography>
-              <form
-                onSubmit={formik2.handleSubmit}
-                className={classes.formLogin}
-              >
-                <Typography sx={{ marginBottom: '15px', marginTop: '20px' }}>
+            </Flex>
+          </Box>
+        </Box>
+      </Box>
+      <Center>
+        <Container w="50%">
+          <Flex>
+            <Box>
+              <Heading component="h4" variant="h4">
+                Login
+              </Heading>
+              <form onSubmit={formik.handleSubmit}>
+                <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
                   Username or email address *
-                </Typography>
-                <TextField
+                </Text>
+                <Input
                   variant="outlined"
                   fullWidth
                   id="email"
                   name="email"
                   label="Email"
-                  value={formik2.values.email}
-                  onChange={formik2.handleChange}
-                  error={formik2.touched.email && Boolean(formik2.errors.email)}
-                  helperText={formik2.touched.email && formik2.errors.email}
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  error={formik.touched.email && Boolean(formik.errors.email)}
+                  helperText={formik.touched.email && formik.errors.email}
                 />
-                <Typography sx={{ marginBottom: '15px', marginTop: '20px' }}>
+                <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
                   Password *
-                </Typography>
-                <TextField
+                </Text>
+                <Input
                   variant="outlined"
                   fullWidth
                   id="password"
                   name="password"
                   label="Password"
                   type="password"
-                  value={formik2.values.password}
-                  onChange={formik2.handleChange}
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
                   error={
-                    formik2.touched.password && Boolean(formik2.errors.password)
+                    formik.touched.password && Boolean(formik.errors.password)
                   }
-                  helperText={
-                    formik2.touched.password && formik2.errors.password
-                  }
+                  helperText={formik.touched.password && formik.errors.password}
                 />
 
                 <Button
@@ -311,14 +153,83 @@ const MyAccount = () => {
                     width: '100px',
                   }}
                 >
-                  Register
+                  Login
                 </Button>
+                <Box>
+                  <Checkbox control={<Checkbox defaultChecked />}>
+                    Remember me
+                  </Checkbox>
+                  <Box>
+                    <Text component="span" variant="span">
+                      <a href="#"> Lost your password?</a>
+                    </Text>
+                  </Box>
+                </Box>
               </form>
             </Box>
-          </Grid>
-        </Box>
-      </Container>
-    </>
+            <Spacer />
+            <Box>
+              <Box>
+                <Heading component="h4" variant="h4">
+                  Register
+                </Heading>
+                <form onSubmit={formik2.handleSubmit}>
+                  <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
+                    Username or email address *
+                  </Text>
+                  <Input
+                    variant="outlined"
+                    fullWidth
+                    id="email"
+                    name="email"
+                    label="Email"
+                    value={formik2.values.email}
+                    onChange={formik2.handleChange}
+                    error={
+                      formik2.touched.email && Boolean(formik2.errors.email)
+                    }
+                    helperText={formik2.touched.email && formik2.errors.email}
+                  />
+                  <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
+                    Password *
+                  </Text>
+                  <Input
+                    variant="outlined"
+                    fullWidth
+                    id="password"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    value={formik2.values.password}
+                    onChange={formik2.handleChange}
+                    error={
+                      formik2.touched.password &&
+                      Boolean(formik2.errors.password)
+                    }
+                    helperText={
+                      formik2.touched.password && formik2.errors.password
+                    }
+                  />
+
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    type="submit"
+                    sx={{
+                      marginTop: '20px',
+                      borderRadius: '25px',
+                      width: '100px',
+                    }}
+                  >
+                    Register
+                  </Button>
+                </form>
+              </Box>
+            </Box>
+          </Flex>
+        </Container>
+      </Center>
+    </Box>
   )
 }
 export default MyAccount
