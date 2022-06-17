@@ -14,6 +14,7 @@ import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import Banner from '../assets/banner_page.png'
 import commerce from '@lib/api/commerce'
+import axios from 'axios'
 
 const colorHover = '#40c6ff'
 const useStyles_pageShop = makeStyles((theme) => ({
@@ -114,8 +115,9 @@ const useStyles_pageShop = makeStyles((theme) => ({
 
 const Shop = (props) => {
   const classes = useStyles_pageShop()
-  const { products } = props
-  // console.log('Shop Product', products);
+  const { products, collections } = props
+  console.log('Shop Product', products)
+  console.log('Shop Collections', collections)
 
   const router = useRouter()
   const handleSubmit = (slug) => {
@@ -127,7 +129,7 @@ const Shop = (props) => {
       <Box className={classes.pageShop}>
         <Container>
           <Box className={classes.titlePage}>
-            <Grid item lg={6}>
+            <Grid item lg={3}>
               <Box>
                 <Typography
                   className={classes.textTile}
@@ -138,7 +140,7 @@ const Shop = (props) => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item lg={6}>
+            <Grid item lg={9}>
               <Box className={classes.rightTextPage}>
                 <Breadcrumbs sx={{ color: 'white' }} aria-label="breadcrumb">
                   <Typography
@@ -173,44 +175,29 @@ const Shop = (props) => {
                 Product Category
               </Typography>
             </Box>
-            <List>
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText onClick={() => handleSubmit(`custom-prints`)}>
-                    Custom Prints
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText onClick={() => handleSubmit(`free-file-check`)}>
-                    Free file check
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText onClick={() => handleSubmit(`graphic-design`)}>
-                    Graphic Design
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText onClick={() => handleSubmit(`mailing`)}>
-                    Mailing
-                  </ListItemText>
-                </ListItemButton>
-              </ListItem>
-            </List>
+            <div>
+              {collections.length
+                ? collections.map((item) => (
+                    <List key={item}>
+                      <ListItem disablePadding>
+                        <ListItemButton className={classes.categoryText}>
+                          <ListItemText
+                            onClick={() => handleSubmit(`${item.slug}`)}
+                          >
+                            {item.name}
+                          </ListItemText>
+                        </ListItemButton>
+                      </ListItem>
+                      <Divider />
+                    </List>
+                  ))
+                : ''}
+            </div>
           </Grid>
 
           <Grid
             container
-            spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
+            spacing={{ sm: 3, md: 2, xs: 3, lg: 3 }}
             columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
           >
             {products.length
@@ -237,8 +224,38 @@ export async function getStaticProps({ preview, locale, locales }) {
   })
   const { products } = await productsPromise
 
+  const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
+  const headers = {
+    'content-type': 'application/json',
+    Authorization: '<token>',
+  }
+  const graphqlQuery = {
+    operationName: 'fetchAuthor',
+    query: `
+      query fetchAuthor {
+        collections{
+          items{
+            id
+            name
+            slug
+          }
+        }
+      }
+    `,
+  }
+
+  const response = await axios({
+    url: endpoint,
+    method: 'post',
+    headers: headers,
+    data: graphqlQuery,
+  })
+
+  const collections = response.data.data.collections.items
+
   return {
     props: {
+      collections,
       products,
     },
     revalidate: 60,
