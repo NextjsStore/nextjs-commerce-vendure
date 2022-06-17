@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Box, Text, Circle, Flex, Spacer } from '@chakra-ui/react'
+import { style } from '@mui/system'
 
 const countdown = (secondsTime) => {
   const days = Math.floor(secondsTime / 86400)
@@ -48,23 +49,66 @@ const CountDown = () => {
 
   return (
     <Box style={{ display: 'flex', alignItems: 'center' }}>
-      <Circle size="50px" bg="#fff" color="#666" border="1px solid #666">
-        <Text>{days}</Text>
-        <Text> days</Text>
+      <Circle
+        style={styles.circle}
+        size="50px"
+        bg="#fff"
+        color="#666"
+        border="1px solid #666"
+      >
+        <Text style={styles.value}>{days}</Text>
+        <Text style={styles.label}> days</Text>
       </Circle>
-      <Circle size="50px" bg="#fff" color="#666" border="1px solid #666">
-        <Text>{hours}</Text>
-        <Text>hours</Text>
+      <Circle
+        style={styles.circle}
+        size="50px"
+        bg="#fff"
+        color="#666"
+        border="1px solid #666"
+      >
+        <Text style={styles.value}>{hours}</Text>
+        <Text style={styles.label}>hours</Text>
       </Circle>
-      <Circle size="50px" bg="#fff" color="#666" border="1px solid #666">
-        <Text>{minutes}</Text>
-        <Text>mins</Text>
+      <Circle
+        style={styles.circle}
+        size="50px"
+        bg="#fff"
+        color="#666"
+        border="1px solid #666"
+      >
+        <Text style={styles.value}>{minutes}</Text>
+        <Text style={styles.label}>mins</Text>
       </Circle>
-      <Circle size="50px" bg="#fff" color="#666" border="1px solid #666">
-        <Text>{seconds}</Text>
-        <Text>secs</Text>
+      <Circle
+        style={styles.circle}
+        size="50px"
+        bg="#fff"
+        color="#666"
+        border="1px solid #666"
+      >
+        <Text style={styles.value}>{seconds}</Text>
+        <Text style={styles.label}>secs</Text>
       </Circle>
     </Box>
   )
 }
 export default CountDown
+const styles = {
+  circle: {
+    width: 51,
+    height: 51,
+    backgroundColor: '#eee',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    marginRight: 15,
+  },
+  value: { margin: 0, fontSize: 20, fontWeight: 'bold', color: '#666' },
+  label: {
+    margin: 0,
+    fontSize: 12,
+    color: '#444',
+    fontWeight: 'bold',
+  },
+}

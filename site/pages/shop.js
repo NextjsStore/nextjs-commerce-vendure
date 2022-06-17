@@ -1,52 +1,25 @@
 import React from 'react'
-import Grid from '@mui/material/Grid'
-import Container from '@mui/material/Container'
-import Typography from '@mui/material/Typography'
-import { Box } from '@mui/system'
-import Breadcrumbs from '@mui/material/Breadcrumbs'
 import { makeStyles } from '@material-ui/core/styles'
 import Product from '../components/product'
-import Divider from '@mui/material/Divider'
 import { useRouter } from 'next/router'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemText from '@mui/material/ListItemText'
 import Banner from '../assets/banner_page.png'
 import commerce from '@lib/api/commerce'
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Spacer,
+  Text,
+  Grid,
+  Divider,
+  Center,
+  List,
+  ListItem,
+} from '@chakra-ui/react'
 
 const colorHover = '#40c6ff'
-const useStyles_pageShop = makeStyles((theme) => ({
-  pageShop: {
-    marginBottom: '60px',
-    minHeight: '200px',
-    backgroundImage: `url(${Banner.src})`,
-    backgroundSize: 'cover',
-  },
-
-  titlePage: {
-    display: 'flex',
-    paddingTop: '75px',
-    paddingBottom: '75px',
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
-  },
-
-  rightTextPage: {
-    float: 'right',
-    paddingTop: '12px',
-    '@media (max-width: 768px)': {
-      float: 'inherit',
-    },
-  },
-  productCategory: {
-    display: 'flex',
-    '@media (max-width: 768px)': {
-      display: 'flex',
-      flexDirection: 'column-reverse',
-    },
-  },
+const styles = {
   productCategoryText: {
     marginRight: '25px',
   },
@@ -110,10 +83,9 @@ const useStyles_pageShop = makeStyles((theme) => ({
     fontWeight: 400,
     fontSize: '14px',
   },
-}))
+}
 
 const Shop = (props) => {
-  const classes = useStyles_pageShop()
   const { products } = props
   // console.log('Shop Product', products);
 
@@ -124,93 +96,84 @@ const Shop = (props) => {
 
   return (
     <Box>
-      <Box className={classes.pageShop}>
-        <Container>
-          <Box className={classes.titlePage}>
-            <Grid item lg={6}>
+      <Box h="240px">
+        <Box>
+          <Box
+            color="#fff"
+            backgroundImage="/assets/banner_page.png"
+            h="200px"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+            mb="60px"
+          >
+            <Flex>
               <Box>
-                <Typography
-                  className={classes.textTile}
-                  component="h3"
-                  variant="h3"
-                >
-                  Shop
-                </Typography>
+                <Heading component="h3" variant="h3">
+                  My account
+                </Heading>
               </Box>
-            </Grid>
-            <Grid item lg={6}>
-              <Box className={classes.rightTextPage}>
-                <Breadcrumbs sx={{ color: 'white' }} aria-label="breadcrumb">
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Home
-                  </Typography>
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Shop
-                  </Typography>
-                </Breadcrumbs>
+              <Spacer />
+              <Box>
+                <Heading component="h6" variant="h6">
+                  Home
+                </Heading>
+                <Heading component="h6" variant="h6">
+                  My account
+                </Heading>
               </Box>
-            </Grid>
+            </Flex>
           </Box>
-        </Container>
+        </Box>
       </Box>
       <Container>
-        <Box className={classes.productCategory}>
-          <Grid item lg={6} className={classes.productCategoryText}>
+        <Flex style={styles.productCategory}>
+          <Grid item lg={6} style={styles.productCategoryText}>
             <Box>
-              <Typography
-                className={classes.titleSideBarCategory}
+              <Text
+                style={styles.titleSideBarCategory}
                 component="h4"
                 variant="h4"
               >
                 Product Category
-              </Typography>
+              </Text>
             </Box>
             <List>
               <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText onClick={() => handleSubmit(`custom-prints`)}>
+                <List style={styles.categoryText}>
+                  <ListItem onClick={() => handleSubmit(`custom-prints`)}>
                     Custom Prints
-                  </ListItemText>
-                </ListItemButton>
+                  </ListItem>
+                </List>
               </ListItem>
               <Divider />
               <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText onClick={() => handleSubmit(`free-file-check`)}>
+                <List style={styles.categoryText}>
+                  <ListItem onClick={() => handleSubmit(`free-file-check`)}>
                     Free file check
-                  </ListItemText>
-                </ListItemButton>
+                  </ListItem>
+                </List>
               </ListItem>
               <Divider />
               <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText onClick={() => handleSubmit(`graphic-design`)}>
+                <List style={styles.categoryText}>
+                  <ListItem onClick={() => handleSubmit(`graphic-design`)}>
                     Graphic Design
-                  </ListItemText>
-                </ListItemButton>
+                  </ListItem>
+                </List>
               </ListItem>
               <Divider />
               <ListItem disablePadding>
-                <ListItemButton className={classes.categoryText}>
-                  <ListItemText onClick={() => handleSubmit(`mailing`)}>
+                <List style={styles.categoryText}>
+                  <ListItem onClick={() => handleSubmit(`mailing`)}>
                     Mailing
-                  </ListItemText>
-                </ListItemButton>
+                  </ListItem>
+                </List>
               </ListItem>
             </List>
           </Grid>
 
-          <Grid item lg={8}>
-            <Grid
-              container
+          <Box item lg={8}>
+            <Box
               spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
               columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
             >
@@ -219,9 +182,9 @@ const Shop = (props) => {
                     <Product key={product.id} product={product} />
                   ))
                 : ''}
-            </Grid>
-          </Grid>
-        </Box>
+            </Box>
+          </Box>
+        </Flex>
       </Container>
     </Box>
   )

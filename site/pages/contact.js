@@ -22,7 +22,7 @@ const ContactUS = () => {
           <Box>
             <Box
               color="#fff"
-              backgroundImage="/assets/imgWorking.jpg"
+              backgroundImage="/assets/banner_page.png"
               h="200px"
               backgroundRepeat="no-repeat"
               backgroundSize="cover"
