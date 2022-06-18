@@ -3,8 +3,8 @@ import { Container, Grid } from '@mui/material'
 import SwipeableTextMobileStepper from '../components/slider'
 import Product from '@components/product'
 import ListImages from '@components/ListImages'
-import ListImgSeller from '../components/imgList'
-import NameForm from '@components/FormEmail'
+import ListImgSeller from '../components/imglist'
+import NameForm from '@components/formEmail'
 import { AppProvider } from '../lib/context/AppContext'
 import DealsOfDay from 'components/DealsOfDay'
 import Tab from '@components/tab'
@@ -78,7 +78,8 @@ export async function getStaticProps({ preview, locale, locales, params }) {
 }
 
 const Home = (props) => {
-  const { products, productsSeller, products2, productseller2 } = props
+  const { products, productsSeller, categories, productseller2 } = props
+  // console.log('categories:', categories)
 
   const brands = [
     {
@@ -131,7 +132,7 @@ const Home = (props) => {
         <SwipeableTextMobileStepper />
         <DealsOfDay />
         <Container>
-          <Tab />
+          <Tab key={categories.id} collections={categories} />
           <Grid
             container
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
@@ -152,7 +153,7 @@ const Home = (props) => {
 
         <ListImages />
         <Container>
-          <TabSeller />
+          <TabSeller key={categories.id} collections={categories} />
           <Grid
             container
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}

@@ -2,7 +2,9 @@ import * as React from 'react'
 import { useRouter } from 'next/router'
 import { Container, Box, Button, Heading, Center } from '@chakra-ui/react'
 
-const Tab = () => {
+const Tab = (props) => {
+  const { collections } = props
+  // console.log('categories:', collections)
   const router = useRouter()
   const handleSubmit = (value) => {
     //console.log(value);
@@ -21,24 +23,19 @@ const Tab = () => {
             All Product
           </Button>
         </Box>
-        <Box>
-          <Button onClick={() => handleSubmit(`custom-prints`)}>
-            Custom Prints
-          </Button>
-        </Box>
-        <Box>
-          <Button onClick={() => handleSubmit(`free-file-check`)}>
-            Free file check
-          </Button>
-        </Box>
-        <Box>
-          <Button onClick={() => handleSubmit(`graphic-design`)}>
-            Graphic Design
-          </Button>
-        </Box>
-        <Box>
-          <Button onClick={() => handleSubmit(`mailing`)}>Mailing</Button>
-        </Box>
+        <div>
+          {collections.length
+            ? collections.map((item) => (
+                <Box key={item}>
+                  <a>
+                    <Button onClick={() => handleSubmit(`${item.slug}`)}>
+                      {item.name}
+                    </Button>
+                  </a>
+                </Box>
+              ))
+            : ''}
+        </div>
       </Box>
     </Box>
   )
