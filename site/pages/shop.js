@@ -1,8 +1,8 @@
 import React from 'react'
 import Product from '../components/product'
 import { useRouter } from 'next/router'
-import Banner from '../assets/banner_page.png'
 import commerce from '@lib/api/commerce'
+import axios from 'axios'
 import {
   Box,
   Container,
@@ -13,8 +13,6 @@ import {
   Grid,
   Divider,
   Center,
-  List,
-  ListItem,
 } from '@chakra-ui/react'
 
 const colorHover = '#40c6ff'
@@ -85,8 +83,7 @@ const styles = {
 }
 
 const Shop = (props) => {
-  const { products } = props
-  // console.log('Shop Product', products);
+  const { products, collections } = props
 
   const router = useRouter()
   const handleSubmit = (slug) => {
@@ -125,8 +122,8 @@ const Shop = (props) => {
         </Box>
       </Box>
       <Container>
-        <Box className={classes.productCategory}>
-          <Grid item lg={3} className={classes.productCategoryText}>
+        <Flex>
+          <Grid item lg={3} >
             <Box>
               <Text
                 style={styles.titleSideBarCategory}
@@ -136,39 +133,24 @@ const Shop = (props) => {
                 Product Category
               </Text>
             </Box>
-            <List>
-              <ListItem disablePadding>
-                <List style={styles.categoryText}>
-                  <ListItem onClick={() => handleSubmit(`custom-prints`)}>
-                    Custom Prints
-                  </ListItem>
-                </List>
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <List style={styles.categoryText}>
-                  <ListItem onClick={() => handleSubmit(`free-file-check`)}>
-                    Free file check
-                  </ListItem>
-                </List>
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <List style={styles.categoryText}>
-                  <ListItem onClick={() => handleSubmit(`graphic-design`)}>
-                    Graphic Design
-                  </ListItem>
-                </List>
-              </ListItem>
-              <Divider />
-              <ListItem disablePadding>
-                <List style={styles.categoryText}>
-                  <ListItem onClick={() => handleSubmit(`mailing`)}>
-                    Mailing
-                  </ListItem>
-                </List>
-              </ListItem>
-            </List>
+            <div>
+              {collections.length
+                ? collections.map((item) => (
+                    <Box key={item}>
+                      <Box disablePadding>
+                        <Box style={styles.categoryText}>
+                          <BoxText
+                            onClick={() => handleSubmit(`${item.slug}`)}
+                          >
+                            {item.name}
+                          </BoxText>
+                        </Box>
+                      </Box>
+                      <Divider />
+                    </Box>
+                  ))
+                : ''}
+            </div>
           </Grid>
 
           <Box item lg={8}>
@@ -202,8 +184,38 @@ export async function getStaticProps({ preview, locale, locales }) {
   })
   const { products } = await productsPromise
 
+  const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
+  const headers = {
+    'content-type': 'application/json',
+    Authorization: '<token>',
+  }
+  const graphqlQuery = {
+    operationName: 'fetchAuthor',
+    query: `
+      query fetchAuthor {
+        collections{
+          items{
+            id
+            name
+            slug
+          }
+        }
+      }
+    `,
+  }
+
+  const response = await axios({
+    url: endpoint,
+    method: 'post',
+    headers: headers,
+    data: graphqlQuery,
+  })
+
+  const collections = response.data.data.collections.items
+
   return {
     props: {
+      collections,
       products,
     },
     revalidate: 60,
