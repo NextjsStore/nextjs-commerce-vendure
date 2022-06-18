@@ -7,6 +7,7 @@ import Image5 from '../assets/image_5.png'
 import Image6 from '../assets/image_6.png'
 import Image7 from '../assets/image_7.png'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { Flex, Spacer, Box, Image } from '@chakra-ui/react'
 

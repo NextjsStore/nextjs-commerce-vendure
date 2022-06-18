@@ -13,6 +13,7 @@ import AboutTeam from '../assets/aboutpng.png'
 import AboutTeam_1 from '../assets/aboutteam01.png'
 import AboutTeam_2 from '../assets/aboutteam02.png'
 import AboutTeam_3 from '../assets/aboutteam03.png'
+import Image from 'next/image'
 
 const useStyles = makeStyles({
   pageAbout: {
@@ -317,7 +318,10 @@ const About = () => {
               <Box className={classes.profileItem}>
                 <Grid className={classes.author}>
                   <Box className={classes.logo}>
-                    <img
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
                       className={classes.avartar}
                       src={AboutTeam.src}
                       alt="Philip Demarco"
@@ -351,7 +355,10 @@ const About = () => {
               <Box className={classes.profileItem}>
                 <Grid className={classes.author}>
                   <Box className={classes.logo}>
-                    <img
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
                       className={classes.avartar}
                       src={AboutTeam_1.src}
                       alt="Philip Demarco"
@@ -387,7 +394,10 @@ const About = () => {
               <Box className={classes.profileItem}>
                 <Grid className={classes.author}>
                   <Box className={classes.logo}>
-                    <img
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
                       className={classes.avartar}
                       src={AboutTeam_2.src}
                       alt="Philip Demarco"
@@ -421,7 +431,10 @@ const About = () => {
               <Box className={classes.profileItem}>
                 <Grid className={classes.author}>
                   <Box className={classes.logo}>
-                    <img
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
                       className={classes.avartar}
                       src={AboutTeam_3.src}
                       alt="Philip Demarco"

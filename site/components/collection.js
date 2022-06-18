@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+
 import { Box, Rating, Grid } from '@chakra-ui/react'
 
 const Collection = (props) => {

@@ -249,7 +249,7 @@ const CartItemsContainer = () => {
               </TableContainer>
               <Divider />
               <Box className={classes.buttonContinue}>
-                <Link href="/shop">
+                <Link href="/shop" passHref>
                   <Button variant="contained">CONTINUE SHOPPING</Button>
                 </Link>
               </Box>
@@ -381,20 +381,14 @@ const CartItemsContainer = () => {
                     </Box>
                   </Modal>
                 </Box>
-
-                {/* <Link href="/checkout">
-                                    <Button variant="contained">UPDATE CART</Button>
-                                </Link> */}
               </Paper>
             </Box>
           </Grid>
-          {/* Display Errors if any */}
-          {/* {requestError ? <div className="row woo-next-cart-total-container mt-5"> {requestError} </div> : ''} */}
         </div>
       ) : (
         <div className="container mx-auto my-32 px-4 xl:px-0">
           <h2 className="text-2xl mb-5">No items in the cart</h2>
-          <Link href="/">
+          <Link href="/" passHref>
             <Button variant="contained">Add New Products</Button>
           </Link>
         </div>

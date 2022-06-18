@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography'
 import { Box } from '@mui/system'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import { makeStyles } from '@material-ui/core/styles'
-import Product from '../components/product'
+import Product from '@components/Product'
 import Divider from '@mui/material/Divider'
 import { useRouter } from 'next/router'
 import List from '@mui/material/List'
@@ -163,7 +163,7 @@ const Shop = (props) => {
       </Box>
       <Container>
         <Box className={classes.productCategory}>
-          <Grid item lg={6} className={classes.productCategoryText}>
+          <Grid item lg={3} className={classes.productCategoryText}>
             <Box>
               <Typography
                 className={classes.titleSideBarCategory}
@@ -208,18 +208,16 @@ const Shop = (props) => {
             </List>
           </Grid>
 
-          <Grid item lg={8}>
-            <Grid
-              container
-              spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
-              columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
-            >
-              {products.length
-                ? products.map((product) => (
-                    <Product key={product.id} product={product} />
-                  ))
-                : ''}
-            </Grid>
+          <Grid
+            container
+            spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
+            columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
+          >
+            {products.length
+              ? products.map((product) => (
+                  <Product key={product.id} product={product} />
+                ))
+              : ''}
           </Grid>
         </Box>
       </Container>
