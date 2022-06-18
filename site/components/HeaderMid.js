@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Container, Box, Center, Flex, Spacer } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 export const PER_PAGE_FIRST = 9
 export const PER_PAGE_REST = 12

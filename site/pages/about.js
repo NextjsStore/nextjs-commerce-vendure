@@ -15,12 +15,12 @@ import {
   Text,
   Heading,
   Grid,
-  Image,
 } from '@chakra-ui/react'
+import Image from 'next/image'
 
-const About = () => {
+const About = () =>{
   return (
-    <Container>
+  <Container>
       <Box align="center">
         <Box>
           <Box h="240px">
@@ -50,10 +50,10 @@ const About = () => {
                   </Box>
                 </Flex>
               </Box>
-            </Box>
+     </Box>
           </Box>
-        </Box>
-        <Box>
+    </Box>
+    <Box>
           <Box>
             <Heading
               as="h1"
@@ -161,9 +161,16 @@ const About = () => {
               <Box w="20%">
                 <Box>
                   <Box>
-                    <Image src={AboutTeam.src} alt="Philip Demarco" w="100%" />
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
+                      className={classes.avartar}
+                      src={AboutTeam.src}
+                      alt="Philip Demarco"
+                    />
                   </Box>
-                  <Box>
+<Box>
                     <h3>Philip Demarco</h3>
                     <p>Business Analyst</p>
                   </Box>
@@ -172,10 +179,10 @@ const About = () => {
                   <Text>
                     By testing and launching new partners and internal tech
                     solutions, he increases both efficiency and performance
-                  </Text>
+                    </Text>
                   <Box>
                     <a href="https://facebook.com/">
-                      <i className="fa fa-facebook"></i>
+                       <i className="fa fa-facebook"></i>
                     </a>
                     <a href="https://twitter.com/">
                       <i className="fa fa-twitter"></i>
@@ -183,18 +190,21 @@ const About = () => {
                     <a href="https://google.com/">
                       <i className="fa fa-google"></i>
                     </a>
-                  </Box>
+</Box>
                 </Box>
               </Box>
-              <Box w="20%">
+ <Box w="20%">
                 <Box>
                   <Box>
                     <Box>
-                      <Image
-                        src={AboutTeam_1.src}
-                        alt="Philip Demarco"
-                        w="100%"
-                      />
+                       <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
+                      className={classes.avartar}
+                      src={AboutTeam_1.src}
+                      alt="Philip Demarco"
+                    />
                     </Box>
                     <Box>
                       <h3>Philip Demarco</h3>
@@ -218,17 +228,20 @@ const About = () => {
                       </a>
                     </Box>
                   </Box>
-                </Box>
+</Box>
               </Box>
-              <Box w="20%">
+<Box w="20%">
                 <Box>
                   <Box>
                     <Box>
-                      <Image
-                        src={AboutTeam_2.src}
-                        alt="Philip Demarco"
-                        w="100%"
-                      />
+                       <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
+                      className={classes.avartar}
+                      src={AboutTeam_2.src}
+                      alt="Philip Demarco"
+                    />
                     </Box>
                     <Box>
                       <h3>Philip Demarco</h3>
@@ -252,17 +265,20 @@ const About = () => {
                       </a>
                     </Box>
                   </Box>
-                </Box>
+ </Box>
               </Box>
-              <Box w="20%">
+ <Box w="20%">
                 <Box>
                   <Box>
                     <Box>
                       <Image
-                        src={AboutTeam_3.src}
-                        alt="Philip Demarco"
-                        w="100%"
-                      />
+                      width={258}
+                      height={298}
+                      layout="fixed"
+                      className={classes.avartar}
+                      src={AboutTeam_3.src}
+                      alt="Philip Demarco"
+                    />
                     </Box>
                     <Box>
                       <h3>Philip Demarco</h3>
@@ -286,9 +302,9 @@ const About = () => {
                       </a>
                     </Box>
                   </Box>
-                </Box>
+</Box>
               </Box>
-            </Flex>
+  </Flex>
           </Container>
         </Box>
       </Box>

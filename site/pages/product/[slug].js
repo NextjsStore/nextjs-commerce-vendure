@@ -15,6 +15,7 @@ import Box from '@mui/material/Box'
 import commerce from '@lib/api/commerce'
 import Banner from '../../assets/banner_page.png'
 import axios from 'axios'
+import Image from 'next/image'
 
 const colorHeading = '#323232'
 const colorHover = '#40c6ff'
@@ -198,8 +199,8 @@ const useStyle_productDetail = makeStyles({
 
 const Product = (props) => {
   const classes = useStyle_productDetail()
-  const { product, relatedProducts, getcollections } = props
-  //console.log('Getcollection', getcollections)
+  const { product, relatedProducts, collections } = props
+  //console.log('Getcollection', collections)
 
   const router = useRouter()
 
@@ -251,24 +252,21 @@ const Product = (props) => {
       </Box>
 
       <div>
-        {product && getcollections ? (
+        {product && collections ? (
           <div className={classes.singleProduct}>
             <Container maxWidth="lg">
               <Grid container direction="row" lg={12}>
                 <Grid item xs={12} sm={12} md={6} lg={6}>
                   <div className={classes.imgagesDetail}>
-                    <img src={product.images[0].url} alt="" />
+                    <Image
+                      width={518}
+                      height={518}
+                      layout="fixed"
+                      src={product.images[0].url}
+                      alt=""
+                    />
                     <div className={classes.galleryImages}>
-                      {!isEmpty(product?.images[0]) ? (
-                        <GalleryCarousel gallery={product?.images} />
-                      ) : !isEmpty(product?.images) ? (
-                        <img
-                          src={product?.images?.url}
-                          alt="Product Image"
-                          height="auto"
-                          srcSet={product?.images?.url}
-                        />
-                      ) : null}
+                      <GalleryCarousel gallery={product?.images} />
                     </div>
                   </div>
                 </Grid>
@@ -289,15 +287,7 @@ const Product = (props) => {
                     {<AddToCartButton product={product} />}
                     <div className={classes.product_meta}>
                       <div className={classes.sku_title}>SKU: N/A</div>
-                      {!isEmpty(getcollections.collections) ? (
-                        <CategoriesCarousel
-                          gallery={getcollections.collections}
-                        />
-                      ) : !isEmpty(getcollections.collections) ? (
-                        <div className={classes.sku_name}>
-                          {getcollections.collections}
-                        </div>
-                      ) : null}
+                      <CategoriesCarousel gallery={collections.collections} />
                     </div>
                   </div>
                 </Grid>
@@ -318,9 +308,11 @@ const Product = (props) => {
                           <div className={classes.box_product}>
                             <Link href={`/product/${item?.slug}`}>
                               <a>
-                                <img
-                                  src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
-                                  //srcSet={`${item?.image?.srcSet}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                <Image
+                                  width={226}
+                                  height={226}
+                                  layout="fixed"
+                                  src={item?.images[0].url}
                                   alt={item?.name}
                                   loading="lazy"
                                 />
@@ -400,7 +392,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     data: graphqlQuery,
   })
 
-  const getcollections = response.data.data.product
+  const collections = response.data.data.product
 
   const allProductsPromise = commerce.getAllProducts({
     variables: { first: 4 },
@@ -420,7 +412,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     props: {
       pages,
       product,
-      getcollections,
+      collections,
       relatedProducts,
       categories,
     },

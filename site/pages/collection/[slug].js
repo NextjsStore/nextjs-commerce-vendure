@@ -116,7 +116,7 @@ const useStyles_pageShop = makeStyles((theme) => ({
 const CollectionShop = (props) => {
   const classes = useStyles_pageShop()
 
-  const { getcollections } = props
+  const { collections } = props
 
   const router = useRouter()
   const handleSubmit = (slug) => {
@@ -220,8 +220,8 @@ const CollectionShop = (props) => {
               spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
               columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
             >
-              {getcollections.length
-                ? getcollections.map((product) => (
+              {collections.length
+                ? collections.map((product) => (
                     <Collection key={product.id} product={product} />
                   ))
                 : ''}
@@ -276,15 +276,15 @@ export async function getStaticProps({ params, locale, locales }) {
     data: graphqlQuery,
   })
 
-  const getcollections = response.data.data.collection.productVariants.items
+  const collections = response.data.data.collection.productVariants.items
 
-  if (!getcollections) {
+  if (!collections) {
     throw new Error(`Product with slug '${params.slug}' not found`)
   }
 
   return {
     props: {
-      getcollections,
+      collections,
     },
     revalidate: 200,
   }
@@ -306,21 +306,3 @@ export async function getStaticPaths({ locales }) {
     fallback: 'blocking',
   }
 }
-
-// export async function getServerSideProps(context) {
-
-//      const { params: { slug } } = context
-//      //console.log(context);
-
-//     const result= await client.query({
-//         query: COLLECTION_QUERY,
-//         variables: { slug }
-//     });
-
-//     return {
-//         props: {
-//             productrelate: result.data.collection.productVariants.items,
-//         },
-
-//     };
-// }

@@ -39,9 +39,9 @@ const CartIcon = () => {
   // console.log('totalPrice', totalPrice);
 
   return (
-    <React.Fragment>
-      <AppProvider>
-        <Link href="/cart">
+    <AppProvider>
+      <Link href="/cart">
+        <a>
           <div className={classes.containercart}>
             <LocalMallOutlinedIcon />
             {parseInt(productsCount) ? (
@@ -50,9 +50,9 @@ const CartIcon = () => {
               ''
             )}
           </div>
-        </Link>
-      </AppProvider>
-    </React.Fragment>
+        </a>
+      </Link>
+    </AppProvider>
   )
 }
 

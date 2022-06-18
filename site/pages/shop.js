@@ -1,5 +1,4 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import Product from '../components/product'
 import { useRouter } from 'next/router'
 import Banner from '../assets/banner_page.png'
@@ -126,8 +125,8 @@ const Shop = (props) => {
         </Box>
       </Box>
       <Container>
-        <Flex style={styles.productCategory}>
-          <Grid item lg={6} style={styles.productCategoryText}>
+        <Box className={classes.productCategory}>
+          <Grid item lg={3} className={classes.productCategoryText}>
             <Box>
               <Text
                 style={styles.titleSideBarCategory}
@@ -185,6 +184,7 @@ const Shop = (props) => {
             </Box>
           </Box>
         </Flex>
+          
       </Container>
     </Box>
   )

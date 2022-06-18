@@ -15,6 +15,7 @@ import CountDown from './Countdown'
 import Image_1 from '../assets/deals_of_day_1.jpg'
 import Image_2 from '../assets/deals_of_day_2.jpg'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const DealsOfDay = () => {
   return (
