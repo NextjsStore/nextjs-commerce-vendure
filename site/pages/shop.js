@@ -193,11 +193,44 @@ const Shop = (props) => {
                   ))
                 : ''}
             </div>
+            <List>
+              <ListItem disablePadding>
+                <ListItemButton className={classes.categoryText}>
+                  <ListItemText onClick={() => handleSubmit(`custom-prints`)}>
+                    Custom Prints
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+              <Divider />
+              <ListItem disablePadding>
+                <ListItemButton className={classes.categoryText}>
+                  <ListItemText onClick={() => handleSubmit(`free-file-check`)}>
+                    Free file check
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+              <Divider />
+              <ListItem disablePadding>
+                <ListItemButton className={classes.categoryText}>
+                  <ListItemText onClick={() => handleSubmit(`graphic-design`)}>
+                    Graphic Design
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+              <Divider />
+              <ListItem disablePadding>
+                <ListItemButton className={classes.categoryText}>
+                  <ListItemText onClick={() => handleSubmit(`mailing`)}>
+                    Mailing
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            </List>
           </Grid>
 
           <Grid
             container
-            spacing={{ sm: 3, md: 2, xs: 3, lg: 3 }}
+            spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
             columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
           >
             {products.length
