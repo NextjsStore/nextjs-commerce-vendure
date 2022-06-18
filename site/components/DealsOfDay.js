@@ -6,7 +6,6 @@ import {
   Heading,
   Circle,
   Box,
-  Image,
   Text,
   Button,
 } from '@chakra-ui/react'
@@ -38,7 +37,7 @@ const DealsOfDay = () => {
           <Flex>
             <Flex>
               <Box>
-                <Image src={Image_1.src} w="264px" />
+                <Image width={266} height={270} layout="fixed" src={Image_1.src} />
                 <Box position="absolute" mt="-250" ml="10">
                   <Circle size="40px" bg="#40c6ff" color="#fff">
                     -22%
@@ -95,7 +94,7 @@ const DealsOfDay = () => {
             </Flex>
             <Flex>
               <Box>
-                <Image src={Image_2.src} w="264px" />
+                <Image width={266} height={270} layout="fixed" src={Image_2.src}  />
                 <Box position="absolute" mt="-250" ml="10">
                   <Circle size="40px" bg="#40c6ff" color="#fff">
                     -39%

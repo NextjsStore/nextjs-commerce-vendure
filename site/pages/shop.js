@@ -139,11 +139,11 @@ const Shop = (props) => {
                     <Box key={item}>
                       <Box disablePadding>
                         <Box style={styles.categoryText}>
-                          <BoxText
+                          <Box
                             onClick={() => handleSubmit(`${item.slug}`)}
                           >
                             {item.name}
-                          </BoxText>
+                          </Box>
                         </Box>
                       </Box>
                       <Divider />
