@@ -12,7 +12,7 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import Divider from '@mui/material/Divider'
-import Collection from '@components/Collection'
+import Collection from '@components/collection'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
 

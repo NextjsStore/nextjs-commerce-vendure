@@ -165,7 +165,7 @@ const About = () =>{
                       width={258}
                       height={298}
                       layout="fixed"
-                      className={classes.avartar}
+                      
                       src={AboutTeam.src}
                       alt="Philip Demarco"
                     />
@@ -201,7 +201,7 @@ const About = () =>{
                       width={258}
                       height={298}
                       layout="fixed"
-                      className={classes.avartar}
+                      
                       src={AboutTeam_1.src}
                       alt="Philip Demarco"
                     />
@@ -238,7 +238,7 @@ const About = () =>{
                       width={258}
                       height={298}
                       layout="fixed"
-                      className={classes.avartar}
+                      
                       src={AboutTeam_2.src}
                       alt="Philip Demarco"
                     />
@@ -275,7 +275,7 @@ const About = () =>{
                       width={258}
                       height={298}
                       layout="fixed"
-                      className={classes.avartar}
+                      
                       src={AboutTeam_3.src}
                       alt="Philip Demarco"
                     />

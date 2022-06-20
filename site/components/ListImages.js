@@ -9,7 +9,7 @@ import Image7 from '../assets/image_7.png'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { Flex, Spacer, Box, Image } from '@chakra-ui/react'
+import { Flex, Spacer, Box } from '@chakra-ui/react'
 
 const ListImages = () => {
   return (
@@ -19,14 +19,14 @@ const ListImages = () => {
           <Box>
             <Link href="/product/clean-business-card">
               <a>
-                <Image src={Image1.src} w="100%" />
+                <Image width={426} height={203} layout="fixed" src={Image1.src} />
               </a>
             </Link>
           </Box>
           <Box>
             <Link href="/product/softcover-trade-book">
               <a>
-                <Image src={Image2.src} w="100%" />
+                <Image width={426} height={203} layout="fixed" src={Image2.src} />
               </a>
             </Link>
           </Box>
@@ -35,7 +35,7 @@ const ListImages = () => {
         <Box w="33%">
           <Link href=" /shop">
             <a>
-              <Image src={Image3.src} w="100%" />
+              <Image width={430} height={430} layout="fixed" src={Image3.src} />
             </a>
           </Link>
         </Box>
@@ -48,7 +48,7 @@ const ListImages = () => {
                   <Box p="4" bg="red.400">
                     <Link href="/product/dot-luck">
                       <a>
-                        <Image src={Image4.src} w="100%" />
+                        <Image  width={201} height={201} layout="fixed" src={Image4.src} />
                       </a>
                     </Link>
                   </Box>
@@ -56,7 +56,7 @@ const ListImages = () => {
                   <Box p="4" bg="green.400">
                     <Link href="/product/sharp-contrast">
                       <a>
-                        <Image src={Image5.src} w="100%" />
+                        <Image width={201} height={201} layout="fixed" src={Image5.src} />
                       </a>
                     </Link>
                   </Box>
@@ -71,7 +71,7 @@ const ListImages = () => {
                   <Box p="4" bg="red.400">
                     <Link href="/product/web2print">
                       <a>
-                        <Image src={Image6.src} w="100%" />
+                        <Image width={201} height={201} layout="fixed" src={Image6.src} />
                       </a>
                     </Link>
                   </Box>
@@ -79,7 +79,7 @@ const ListImages = () => {
                   <Box p="4" bg="green.400">
                     <Link href="/product/tiny-square-card">
                       <a>
-                        <Image src={Image7.src} w="100%" />
+                        <Image width={201} height={201} layout="fixed" src={Image7.src} />
                       </a>
                     </Link>
                   </Box>
