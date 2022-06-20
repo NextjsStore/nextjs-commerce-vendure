@@ -1,13 +1,10 @@
 import { useState } from 'react'
-import CloseIcon from '@mui/icons-material/Close'
 import { updateCart2 } from '../../../function'
-import TableCell from '@mui/material/TableCell'
-import TableRow from '@mui/material/TableRow'
-import Typography from '@mui/material/Typography'
-import { makeStyles } from '@material-ui/core/styles'
-import Image from 'next/image'
+import { Container, Box, Text, Table } from '@chakra-ui/react'
+import { AiOutlineClose } from 'react-icons/ai'
 
-const useStyles_cartItem = makeStyles((theme) => ({
+
+const styles = {
   cartelementPrice: {
     color: 'rgb(64,198,255)',
   },
@@ -15,11 +12,11 @@ const useStyles_cartItem = makeStyles((theme) => ({
     color: 'rgb(64,198,255)',
   },
   cartqtyinput: {
-    width: '50%',
+    width: '100%',
     height: '40px',
     paddingLeft: '10px',
   },
-}))
+}
 
 const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
   const [productCount, setProductCount] = useState(item.qty)
@@ -40,50 +37,39 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
     }
   }
 
-  const classes = useStyles_cartItem()
   return (
-    <TableRow className={classes.cartitem} key={item.productId}>
+    <Box styles={styles.cartitem} key={item.productId}>
       {/*Icon close */}
-      <TableCell className={classes.cartelement}>
-        <Typography
-          className={classes.cartcloseicon}
+      <th styles={styles.cartelement}>
+        <Text
+          styles={styles.cartcloseicon}
           onClick={(event) => handleRemoveProductClick(event, item?.productId)}
         >
-          <CloseIcon />
-        </Typography>
-      </TableCell>
+          <AiOutlineClose />
+        </Text>
+      </th>
       {/* image */}
-      <TableCell className={classes.cartelementImg}>
-        <Image
-          width={150}
-          height={150}
-          src={item.image}
-          alt="Cart"
-          layout="fixed"
-        />
-      </TableCell>
+      <th styles={styles.cartelementImg}>
+        <img width="150" src={item.image} />
+      </th>
       {/* image */}
-      <TableCell className={classes.cartelementName}>{item?.name}</TableCell>
+      <th styles={styles.cartelementName}>{item?.name}</th>
       {/* PRICE */}
-      <TableCell className={classes.cartelementPrice}>
-        {'$ ' + item?.price}
-      </TableCell>
+      <th styles={styles.cartelementPrice}>{'$ ' + item?.price}</th>
       {/* QUANTITY */}
-      <TableCell className={classes.cartelementInput}>
+      <th styles={styles.cartelementInput}>
         <input
-          className={classes.cartqtyinput}
+          styles={styles.cartqtyinput}
           size="small"
           type="number"
           min="1"
           value={productCount}
           onChange={handleQtyChange}
         />
-      </TableCell>
+      </th>
       {/* Total */}
-      <TableCell className={classes.cartelementTotal}>
-        {item.totalPrice}
-      </TableCell>
-    </TableRow>
+      <th styles={styles.cartelementTotal}>{item.totalPrice}</th>
+    </Box>
   )
 }
 

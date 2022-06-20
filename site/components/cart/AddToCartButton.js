@@ -3,13 +3,11 @@ import React from 'react'
 import { useState, useContext } from 'react'
 import { AppContext } from '../../lib/context/AppContext'
 import { addFirstProduct, updateCart } from '../../function'
-
-import { makeStyles } from '@material-ui/core/styles'
 import { AppProvider } from '../../lib/context/AppContext'
 
 const colorHover = '#40c6ff'
 
-const useStyles = makeStyles({
+const styles = {
   btnviewcart: {
     margin: '25px',
   },
@@ -31,10 +29,9 @@ const useStyles = makeStyles({
       marginLeft: '20px',
     },
   },
-})
+}
 
 const AddToCartButton = (props) => {
-  const classes = useStyles()
   const { product } = props
   //console.log('ADDTO CART-PRODUCT', product)
   const [cart, setCart] = useContext(AppContext)
@@ -66,7 +63,7 @@ const AddToCartButton = (props) => {
     <AppProvider>
       <React.Fragment>
         <button
-          className={classes.AddToCartButton}
+          styles={styles.AddToCartButton}
           variant="contained"
           onClick={handleAddToCartClick}
         >
@@ -75,7 +72,7 @@ const AddToCartButton = (props) => {
         {showViewCart ? (
           <Link href="/cart">
             <a>
-              <button variant="contained" className={classes.AddToCartButton}>
+              <button variant="contained" styles={styles.AddToCartButton}>
                 View Cart
               </button>
             </a>
