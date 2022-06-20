@@ -1,5 +1,5 @@
 import React from 'react'
-import SideBarTop from '../../Sidebar'
+import SideBarTop from '../../sidebar'
 import HeaderMid from '../../HeaderMid'
 import HeaderCenter from '../../HeaderCenter'
 import Footer from '../../Footer'

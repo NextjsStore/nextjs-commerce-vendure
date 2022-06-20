@@ -7,7 +7,7 @@ const SideBarTop = () => {
     <Container bg="rgb(243,243,243)" p="10" color="rgb(153,153,153)">
       <Flex>
         <Box w="50%">
-          <Grid>
+          <Grid maxW="400px" mx="auto">
             <Box>Call Support Free:1800123456</Box>
           </Grid>
         </Box>
