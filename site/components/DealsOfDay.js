@@ -6,7 +6,6 @@ import {
   Heading,
   Circle,
   Box,
-  Image,
   Text,
   Button,
 } from '@chakra-ui/react'
@@ -15,6 +14,7 @@ import CountDown from './Countdown'
 import Image_1 from '../assets/deals_of_day_1.jpg'
 import Image_2 from '../assets/deals_of_day_2.jpg'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const DealsOfDay = () => {
   return (
@@ -37,7 +37,7 @@ const DealsOfDay = () => {
           <Flex>
             <Flex>
               <Box>
-                <Image src={Image_1.src} w="264px" />
+                <Image width={266} height={270} layout="fixed" src={Image_1.src} />
                 <Box position="absolute" mt="-250" ml="10">
                   <Circle size="40px" bg="#40c6ff" color="#fff">
                     -22%
@@ -94,7 +94,7 @@ const DealsOfDay = () => {
             </Flex>
             <Flex>
               <Box>
-                <Image src={Image_2.src} w="264px" />
+                <Image width={266} height={270} layout="fixed" src={Image_2.src}  />
                 <Box position="absolute" mt="-250" ml="10">
                   <Circle size="40px" bg="#40c6ff" color="#fff">
                     -39%

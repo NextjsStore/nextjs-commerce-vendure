@@ -233,7 +233,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     data: graphqlQuery,
   })
 
-  const getcollections = response.data.data.product
+  const collections = response.data.data.product
 
   const allProductsPromise = commerce.getAllProducts({
     variables: { first: 4 },
@@ -253,7 +253,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     props: {
       pages,
       product,
-      getcollections,
+      collections,
       relatedProducts,
       categories,
     },

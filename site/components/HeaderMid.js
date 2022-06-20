@@ -8,29 +8,14 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Container, Box, Center, Flex, Spacer } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 export const PER_PAGE_FIRST = 9
 export const PER_PAGE_REST = 12
 
-const GET_SEARCH_RESULTS = `query Product($collectionSlug: String!) {
-    search(input: {collectionSlug: $collectionSlug , take: 12}) {
-        items {
-          productName
-          price {
-            ... on SinglePrice {
-              __typename
-              value
-            }
-          }
-          slug
-          productAsset {
-            preview
-          }
-        }
-      }
-    }`
-
 const HeaderMid = (props) => {
+  const { collections } = props
+  console.log('header mid:', collections)
   const router = useRouter()
 
   const [searchQuery, setSearchQuery] = useState('')
@@ -106,17 +91,6 @@ HeaderMid.defaultProps = {
   searchQuery: '',
   setSearchQuery: () => null,
   handleSearchForm: () => null,
-}
-export async function getStaticProps() {
-  const { data, errors } = await client.query({
-    query: GET_SEARCH_RESULTS,
-  })
-  const defaultProps = {
-    props: {
-      data: { ...data, slug: 'slug' },
-    },
-    revalidate: 1,
-  }
 }
 
 export default HeaderMid

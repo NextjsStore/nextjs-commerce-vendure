@@ -3,6 +3,7 @@ import { updateCart2 } from '../../../function'
 import { Container, Box, Text, Table } from '@chakra-ui/react'
 import { AiOutlineClose } from 'react-icons/ai'
 
+
 const styles = {
   cartelementPrice: {
     color: 'rgb(64,198,255)',
