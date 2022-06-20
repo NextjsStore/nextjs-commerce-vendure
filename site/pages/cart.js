@@ -1,98 +1,45 @@
-import Container from '@mui/material/Container'
 import CartItemsContainer from '../components/cart/Cart-Page/CartItemsContainer'
 import { AppProvider } from '../lib/context/AppContext'
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
-import Banner from '../assets/banner_page.png'
-import Breadcrumbs from '@mui/material/Breadcrumbs'
-import Grid from '@mui/material/Grid'
-import { makeStyles } from '@material-ui/core/styles'
-
-const useStyles = makeStyles({
-  page: {
-    marginBottom: '60px',
-    minHeight: '200px',
-    backgroundImage: `url(${Banner.src})`,
-    backgroundSize: 'cover',
-  },
-
-  titlePage: {
-    display: 'flex',
-    paddingTop: '75px',
-    paddingBottom: '75px',
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
-  },
-
-  rightTextPage: {
-    paddingTop: '12px',
-    float: 'right',
-    '@media (max-width: 768px)': {
-      float: 'inherit',
-    },
-  },
-  textTile: {
-    color: 'white',
-    fontFamily: 'Merriweather',
-    fontSize: '50px',
-    fontWeight: 700,
-  },
-  titleText: {
-    color: 'white',
-    fontFamily: 'Muli',
-    fontWeight: 400,
-    fontSize: '14px',
-  },
-})
+import { Flex, Heading, Spacer, Box, Container, Center } from '@chakra-ui/react'
 
 const Cart = (props) => {
-  const classes = useStyles()
-
   return (
     <AppProvider>
-      <Box className={classes.page}>
-        <Container>
-          <Box className={classes.titlePage}>
-            <Grid item lg={6}>
+      <Box h="240px">
+        <Box>
+          <Box
+            color="#fff"
+            backgroundImage="/assets/banner_page.png"
+            h="200px"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+            mb="60px"
+          >
+            <Flex>
               <Box>
-                <Typography
-                  className={classes.textTile}
-                  component="h3"
-                  variant="h3"
-                >
-                  Cart
-                </Typography>
+                <Heading component="h3" variant="h3">
+                  About
+                </Heading>
               </Box>
-            </Grid>
-            <Grid item lg={6}>
-              <Box className={classes.rightTextPage}>
-                <Breadcrumbs sx={{ color: 'white' }} aria-label="breadcrumb">
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Home
-                  </Typography>
-
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Cart
-                  </Typography>
-                </Breadcrumbs>
+              <Spacer />
+              <Box>
+                <Heading component="h6" variant="h6">
+                  About
+                </Heading>
+                <Heading component="h6" variant="h6">
+                  My account
+                </Heading>
               </Box>
-            </Grid>
+            </Flex>
           </Box>
-        </Container>
+        </Box>
       </Box>
-      <Container>
-        <CartItemsContainer />
-        {props.children}
-      </Container>
+      <Center>
+        <Container>
+          <CartItemsContainer />
+          {props.children}
+        </Container>
+      </Center>
     </AppProvider>
   )
 }

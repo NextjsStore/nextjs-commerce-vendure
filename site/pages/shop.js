@@ -123,7 +123,7 @@ const Shop = (props) => {
       </Box>
       <Container>
         <Flex>
-          <Grid item lg={3} >
+          <Grid item lg={3}>
             <Box>
               <Text
                 style={styles.titleSideBarCategory}
@@ -139,9 +139,7 @@ const Shop = (props) => {
                     <Box key={item}>
                       <Box disablePadding>
                         <Box style={styles.categoryText}>
-                          <Box
-                            onClick={() => handleSubmit(`${item.slug}`)}
-                          >
+                          <Box onClick={() => handleSubmit(`${item.slug}`)}>
                             {item.name}
                           </Box>
                         </Box>
@@ -166,7 +164,6 @@ const Shop = (props) => {
             </Box>
           </Box>
         </Flex>
-          
       </Container>
     </Box>
   )

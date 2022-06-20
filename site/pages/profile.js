@@ -1,19 +1,7 @@
 import * as React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Paper from '@mui/material/Paper'
-import Divider from '@mui/material/Divider'
-import MenuList from '@mui/material/MenuList'
-import MenuItem from '@mui/material/MenuItem'
 import ListItemText from '@mui/material/ListItemText'
-import IconButton from '@mui/material/IconButton'
-import PhotoCamera from '@mui/icons-material/PhotoCamera'
-import Stack from '@mui/material/Stack'
-import { styled } from '@mui/material/styles'
-import TextareaAutosize from '@mui/material/TextareaAutosize'
-import AddIcon from '@mui/icons-material/Add'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import Accordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
+import { FaCamera } from 'react-icons/fa'
+import { AiOutlinePlus } from 'react-icons/ai'
 import {
   Center,
   Button,
@@ -23,8 +11,9 @@ import {
   Spacer,
   Text,
   Heading,
-  Checkbox,
+  Textarea,
   Input,
+  Accordion,
 } from '@chakra-ui/react'
 
 const Profile = () => {
@@ -65,65 +54,65 @@ const Profile = () => {
         <Container w="50%">
           <Flex>
             <Box>
-              <Paper>
-                <MenuList>
-                  <MenuItem>
+              <Box>
+                <Box>
+                  <Box>
                     <Text variant="h5" component="div">
                       Wallet
                     </Text>
-                  </MenuItem>
-                  <Divider />
-                  <MenuItem>
+                  </Box>
+                  <Box />
+                  <Box>
                     <ListItemText>Total Points</ListItemText>
                     <Text variant="body2" color="text.secondary">
                       0
                     </Text>
-                  </MenuItem>
-                  <MenuItem>
+                  </Box>
+                  <Box>
                     <ListItemText>Points Used</ListItemText>
                     <Text variant="body2" color="text.secondary">
                       0
                     </Text>
-                  </MenuItem>
-                  <MenuItem>
+                  </Box>
+                  <Box>
                     <ListItemText>Available Points</ListItemText>
                     <Text variant="body2" color="text.secondary">
                       0
                     </Text>
-                  </MenuItem>
-                </MenuList>
-              </Paper>
-              <Paper elevation={3}>
-                <MenuList>
-                  <MenuItem>
+                  </Box>
+                </Box>
+              </Box>
+              <Box elevation={3}>
+                <Box>
+                  <Box>
                     <Text variant="h5" component="div">
                       Profile
                     </Text>
-                  </MenuItem>
-                  <MenuItem>
+                  </Box>
+                  <Box>
                     <ListItemText>Change Password</ListItemText>
-                  </MenuItem>
-                  <MenuItem>
+                  </Box>
+                  <Box>
                     <ListItemText>My orders</ListItemText>
-                  </MenuItem>
-                  <MenuItem>
+                  </Box>
+                  <Box>
                     <ListItemText>My Refunds</ListItemText>
-                  </MenuItem>
-                  <MenuItem>
+                  </Box>
+                  <Box>
                     <ListItemText>Need Help</ListItemText>
-                  </MenuItem>
-                  <Divider />
-                  <MenuItem>
+                  </Box>
+                  <Box />
+                  <Box>
                     <ListItemText>Log Out</ListItemText>
-                  </MenuItem>
-                </MenuList>
-              </Paper>
+                  </Box>
+                </Box>
+              </Box>
             </Box>
             <Spacer />
             <Box item lg={8}>
-              <Box sx={{ marginLeft: '80px' }}>
-                <Paper elevation={3}>
-                  <Stack
+              <Box>
+                <Box elevation={3} border="1px solid #cccccc" p="30">
+                  <Box
                     direction="row"
                     alignItems="center"
                     spacing={2}
@@ -149,15 +138,9 @@ const Profile = () => {
                         id="icon-button-file"
                         type="file"
                       />
-                      <IconButton
-                        color="primary"
-                        aria-label="upload picture"
-                        component="span"
-                      >
-                        <PhotoCamera />
-                      </IconButton>
+                      <FaCamera />
                     </label>
-                  </Stack>
+                  </Box>
                   <Box sx={{ paddingTop: '25px' }}>
                     <Text variant="H5" component="H5">
                       Name
@@ -168,79 +151,63 @@ const Profile = () => {
                     <Text variant="H5" component="H5">
                       Bio
                     </Text>
-                    <TextareaAutosize
-                      aria-label="minimum height"
-                      minRows={3}
-                      style={{ width: '100%' }}
-                    />
+                    <Textarea placeholder="Here is a sample placeholder" />
                   </Box>
-                </Paper>
-                <Paper elevation={3}>
-                  <MenuList sx={{ marginBottom: '10px' }}>
-                    <MenuItem>
+                </Box>
+                <Box elevation={3} border="1px solid #cccccc" p="30" mt="10">
+                  <Box sx={{ marginBottom: '10px' }}>
+                    <Box>
                       <ListItemText>Contact Number</ListItemText>
-                      <ListItemIcon>
-                        <AddIcon
+                      <Box>
+                        <AiOutlinePlus
                           label="add"
                           fontSize="small"
                           sx={{ color: '#1976d2' }}
                         />
                         add
-                      </ListItemIcon>
-                    </MenuItem>
-                  </MenuList>
+                      </Box>
+                    </Box>
+                  </Box>
                   <Box sx={{ display: 'flex' }}>
-                    <Accordion disabled>
-                      <AccordionSummary
-                        aria-controls="panel3a-content"
-                        id="panel3a-header"
-                      >
+                    <Accordion disabled bg="#ccc" mr="10">
+                      <Box aria-controls="panel3a-content" id="panel3a-header">
                         <Text>0362788997</Text>
-                      </AccordionSummary>
+                      </Box>
                     </Accordion>
-                    <Accordion disabled>
-                      <AccordionSummary
-                        aria-controls="panel3a-content"
-                        id="panel3a-header"
-                      >
+                    <Accordion disabled bg="#ccc" mr="10">
+                      <Box aria-controls="panel3a-content" id="panel3a-header">
                         <Text>0362788997</Text>
-                      </AccordionSummary>
+                      </Box>
                     </Accordion>
                   </Box>
-                </Paper>
-                <Paper elevation={3}>
-                  <MenuList sx={{ marginBottom: '10px' }}>
-                    <MenuItem>
+                </Box>
+                <Box elevation={3} border="1px solid #cccccc" p="30" mt="10">
+                  <Box sx={{ marginBottom: '10px' }}>
+                    <Box>
                       <ListItemText>Address</ListItemText>
-                      <ListItemIcon>
-                        <AddIcon
+                      <Box>
+                        <AiOutlinePlus
                           label="add"
                           fontSize="small"
                           sx={{ color: '#1976d2' }}
                         />
                         add
-                      </ListItemIcon>
-                    </MenuItem>
-                  </MenuList>
+                      </Box>
+                    </Box>
+                  </Box>
                   <Box sx={{ display: 'flex' }}>
-                    <Accordion disabled>
-                      <AccordionSummary
-                        aria-controls="panel3a-content"
-                        id="panel3a-header"
-                      >
+                    <Accordion disabled bg="#ccc" mr="10">
+                      <Box aria-controls="panel3a-content" id="panel3a-header">
                         <Text>0362788997</Text>
-                      </AccordionSummary>
+                      </Box>
                     </Accordion>
-                    <Accordion disabled>
-                      <AccordionSummary
-                        aria-controls="panel3a-content"
-                        id="panel3a-header"
-                      >
+                    <Accordion disabled bg="#ccc" mr="10">
+                      <Box aria-controls="panel3a-content" id="panel3a-header">
                         <Text>0362788997</Text>
-                      </AccordionSummary>
+                      </Box>
                     </Accordion>
                   </Box>
-                </Paper>
+                </Box>
               </Box>
             </Box>
           </Flex>

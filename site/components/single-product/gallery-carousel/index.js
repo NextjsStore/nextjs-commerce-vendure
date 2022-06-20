@@ -2,10 +2,9 @@ import { isEmpty, isArray } from 'lodash'
 import { useState, useRef } from 'react'
 
 // makestyle
-import { makeStyles } from '@material-ui/core/styles'
 import Image from 'next/image'
 
-const useStyle_ImagesThumbnail = makeStyles({
+const styles = {
   thumbnail_detail: {
     width: '90%',
     display: 'flex',
@@ -23,7 +22,7 @@ const useStyle_ImagesThumbnail = makeStyles({
       },
     },
   },
-})
+}
 
 const GalleryCarousel = ({ gallery }) => {
   const activeIndexRef = useRef({ activeIndex: 0 })
@@ -31,7 +30,6 @@ const GalleryCarousel = ({ gallery }) => {
   const [slide, setSlide] = useState(0)
   const [restartSlide, setRestartSlide] = useState(0)
   const { activeIndex } = activeIndexRef.current
-  const classes = useStyle_ImagesThumbnail()
   if (isEmpty(gallery) || !isArray(gallery)) {
     return null
   }
@@ -63,14 +61,14 @@ const GalleryCarousel = ({ gallery }) => {
   }
 
   return (
-    <div className={classes.thumbnail_detail}>
+    <div styles={styles.thumbnail_detail}>
       {gallery.map((item, index) => {
         const opacity =
           activeIndex === index || 1 === gallery.length
             ? 'opacity-10'
             : 'opacity-1'
         return (
-          <div key={item?.id} className={`${opacity - 1} img-item`}>
+          <div key={item?.id} styles={`${opacity - 1} img-item`}>
             <Image
               width={113}
               height={113}
