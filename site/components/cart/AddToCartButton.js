@@ -67,7 +67,7 @@ const AddToCartButton = (props) => {
           variant="contained"
           onClick={handleAddToCartClick}
         >
-          Add To Cart
+          Add To Cart ddd
         </button>
         {showViewCart ? (
           <Link href="/cart">
