@@ -1,206 +1,26 @@
 import Link from 'next/link'
-import Container from '@mui/material/Container'
 import { useRouter } from 'next/router'
 import AddToCartButton from '../../components/cart/AddToCartButton'
 import { isEmpty } from 'lodash'
 import GalleryCarousel from '@components/single-product/Gallery-Carousel'
 import CategoriesCarousel from '@components/single-product/Categories-Carousel'
-import Price from '@components/single-product/price'
-import { Grid } from '@mui/material'
-import { makeStyles } from '@material-ui/core/styles'
-import Rating from '@mui/material/Rating'
-import Breadcrumbs from '@mui/material/Breadcrumbs'
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
+import { StarIcon } from '@chakra-ui/icons'
 import commerce from '@lib/api/commerce'
-import Banner from '../../assets/banner_page.png'
 import axios from 'axios'
-import Image from 'next/image'
-
-const colorHeading = '#323232'
-const colorHover = '#40c6ff'
-const colorDefaul = '#666'
-
-const useStyle_productDetail = makeStyles({
-  page: {
-    marginBottom: '60px',
-    minHeight: '200px',
-    backgroundImage: `url(${Banner.src})`,
-    backgroundSize: 'cover',
-  },
-
-  titlePage: {
-    display: 'flex',
-    paddingTop: '75px',
-    paddingBottom: '75px',
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
-  },
-
-  rightTextPage: {
-    paddingTop: '12px',
-    float: 'right',
-    '@media (max-width: 768px)': {
-      float: 'inherit',
-    },
-  },
-
-  imgagesDetail: {
-    '& img': {
-      width: '90%',
-    },
-  },
-  galleryImages: {
-    '& img': {
-      width: '25%',
-      border: '1px solid #ccc',
-    },
-  },
-  name_product_detail: {
-    fontSize: '30px',
-    color: `${colorHeading}`,
-    fontFamily: 'Merriweather',
-  },
-  priceproduct: {
-    color: '#40c6ff',
-    display: 'inline',
-    fontSize: '20px',
-    fontWeight: '700',
-    margin: '0px 15p',
-  },
-
-  description_shot: {
-    overflow: 'hidden',
-    whiteSpace: 'normal',
-    textOverflow: 'ellipsis',
-    height: '60px',
-    fontSize: '14px',
-    color: '#000',
-    textAlign: 'justify',
-    lineHeight: '23px',
-  },
-  product_meta: {
-    marginTop: '30px',
-    padding: '30px 0px',
-    float: 'left',
-    width: '100%',
-    marginBottom: '15px',
-    borderTop: '1px solid #e4e4e4',
-    borderBottom: '1px solid #e4e4e4',
-    fontSize: '16px',
-    color: '#676c77',
-  },
-  sku_title: {
-    marginBottom: '15px',
-  },
-  description_detail: {
-    marginTop: '70px',
-    paddingTop: '50px',
-    borderTop: '1px solid #e4e4e4',
-    width: '100%',
-    '& h4': {
-      marginTop: '0px',
-      fontSize: '20px',
-      textTransform: 'uppercase',
-      fontFamily: 'Merriweather',
-    },
-  },
-  description_item: {
-    fontSize: '16px',
-    lineHeight: '23px',
-    color: '#000',
-    '& span': {
-      fontSize: '16px',
-      lineHeight: '23px',
-      color: '#000',
-    },
-  },
-  box_related_products: {
-    width: '100%',
-    marginTop: '30px',
-    float: 'left',
-    margin: '0px -15px',
-    '& h4': {
-      fontSize: '20px',
-      textTransform: 'uppercase',
-      textAlign: 'center',
-    },
-  },
-  related_products: {
-    display: 'inline-block',
-    width: '25%',
-    padding: '0px 15px',
-    marginBottom: '30px',
-    '& img': {
-      width: '100%',
-    },
-    '@media (max-width:899px)': {
-      width: '50%',
-    },
-    '@media (max-width:767px)': {
-      width: '100%',
-    },
-  },
-  box_product: {
-    border: '1px solid #efefef',
-    padding: '15px 15px 22px 15px',
-    transition: '0.35s',
-    '&:hover': {
-      boxShadow: '0 10px 6px -6px #ccc',
-    },
-  },
-  cardBody: {
-    textAlign: 'center',
-    '& h3': {
-      fontSize: '19px',
-      fontWeight: 'bold',
-      color: '#444',
-      marginTop: '12px',
-      marginBottom: '10px',
-      fontFamily: 'Mulish,sans-serif',
-      lineHeight: '24px',
-      overflow: 'hidden',
-      display: '-webkit-box',
-      '-webkit-box-orient': 'vertical',
-      '-webkit-line-clamp': '1',
-    },
-    '& h4': {
-      marginTop: '6px',
-      marginBottom: '0px',
-    },
-  },
-  startRating: {
-    textAlign: 'center',
-    '& span': {
-      color: '#ffcc35',
-      fontSize: '18px',
-    },
-  },
-  cardPrice: {
-    color: `${colorHover}`,
-    fontSize: '22px',
-    fontWeight: '500',
-    fontFamily: 'Mulish,sans-serif',
-  },
-  textTile: {
-    color: 'white',
-    fontFamily: 'Merriweather',
-    fontSize: '50px',
-    fontWeight: 700,
-  },
-  titleText: {
-    color: 'white',
-    fontFamily: 'Muli',
-    fontWeight: 400,
-    fontSize: '14px',
-  },
-})
+import {
+  Center,
+  Container,
+  Box,
+  Flex,
+  Spacer,
+  Heading,
+  Grid,
+  Image,
+} from '@chakra-ui/react'
 
 const Product = (props) => {
-  const classes = useStyle_productDetail()
-  const { product, relatedProducts, collections } = props
-  //console.log('Getcollection', collections)
+  const { product, relatedProducts, getcollections } = props
+  //console.log('Getcollection', getcollections)
 
   const router = useRouter()
 
@@ -212,134 +32,155 @@ const Product = (props) => {
 
   return (
     <>
-      <Box className={classes.page}>
-        <Container>
-          <Box className={classes.titlePage}>
-            <Grid item lg={6}>
-              <Box>
-                <Typography
-                  className={classes.textTile}
-                  component="h3"
-                  variant="h3"
-                >
-                  Product Detail
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item lg={6}>
-              <Box className={classes.rightTextPage}>
-                <Breadcrumbs sx={{ color: 'white' }} aria-label="breadcrumb">
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Home
-                  </Typography>
-
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Product Detail
-                  </Typography>
-                </Breadcrumbs>
-              </Box>
-            </Grid>
+      <Box>
+        <Box h="240px">
+          <Box>
+            <Box
+              color="#fff"
+              backgroundImage="/assets/banner_page.png"
+              h="200px"
+              backgroundRepeat="no-repeat"
+              backgroundSize="cover"
+              mb="60px"
+            >
+              <Flex>
+                <Box>
+                  <Heading component="h3" variant="h3">
+                    About
+                  </Heading>
+                </Box>
+                <Spacer />
+                <Box>
+                  <Heading component="h6" variant="h6">
+                    About
+                  </Heading>
+                  <Heading component="h6" variant="h6">
+                    My account
+                  </Heading>
+                </Box>
+              </Flex>
+            </Box>
           </Box>
-        </Container>
+        </Box>
       </Box>
-
       <div>
-        {product && collections ? (
-          <div className={classes.singleProduct}>
+        {product && getcollections ? (
+          <div>
             <Container maxWidth="lg">
-              <Grid container direction="row" lg={12}>
-                <Grid item xs={12} sm={12} md={6} lg={6}>
-                  <div className={classes.imgagesDetail}>
-                    <Image
-                      width={518}
-                      height={518}
-                      layout="fixed"
-                      src={product.images[0].url}
-                      alt=""
-                    />
-                    <div className={classes.galleryImages}>
-                      <GalleryCarousel gallery={product?.images} />
-                    </div>
-                  </div>
-                </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={6}>
-                  <div className="descDetail">
-                    <h1 className={classes.name_product_detail}>
-                      {product.name}
-                    </h1>
-                    <h3 className={classes.priceproduct}>
-                      ${product.price.value}
-                    </h3>
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: product.description,
-                      }}
-                      className={classes.description_shot}
-                    />
-                    {<AddToCartButton product={product} />}
-                    <div className={classes.product_meta}>
-                      <div className={classes.sku_title}>SKU: N/A</div>
-                      <CategoriesCarousel gallery={collections.collections} />
-                    </div>
-                  </div>
-                </Grid>
-                <div className={classes.description_detail}>
-                  <h4>Detail</h4>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: product.description,
-                    }}
-                    className={classes.description_item}
-                  ></div>
-                </div>
-                <div className={classes.box_related_products}>
-                  <h4>Related products</h4>
-                  {relatedProducts.length
-                    ? relatedProducts.map((item) => (
-                        <div className={classes.related_products} key={item}>
-                          <div className={classes.box_product}>
-                            <Link href={`/product/${item?.slug}`}>
-                              <a>
-                                <Image
-                                  width={226}
-                                  height={226}
-                                  layout="fixed"
-                                  src={item?.images[0].url}
-                                  alt={item?.name}
-                                  loading="lazy"
-                                />
-                              </a>
-                            </Link>
-                            <div className={classes.cardBody}>
-                              <h3>
-                                <Link href={`/product/${item?.slug}`}>
-                                  <a className={classes.cardTitle}>
-                                    {item.name}
-                                  </a>
-                                </Link>
-                              </h3>
-                              <div className={classes.startRating}>
-                                <Rating name="read-only" value="0" readOnly />
-                              </div>
-                              <h4 className={classes.cardPrice}>
-                                <span className={classes.price_sales}>
-                                  ${item.price.value}
-                                </span>
-                              </h4>
-                            </div>
+              <Grid>
+                <Center>
+                  <Container w="60%" borderBottom="1px solid #ccc" pb="30px">
+                    <Flex>
+                      <Box pr="30">
+                        <div>
+                          <Image src={product.images[0].url} alt="" w="100%" />
+                          <div>
+                            {!isEmpty(product?.images[0]) ? (
+                              <GalleryCarousel gallery={product?.images} />
+                            ) : !isEmpty(product?.images) ? (
+                              <Image
+                                src={product?.images?.url}
+                                alt="Product Image"
+                                height="auto"
+                                srcSet={product?.images?.url}
+                              />
+                            ) : null}
                           </div>
                         </div>
-                      ))
-                    : ''}
-                </div>
+                      </Box>
+                      <Box>
+                        <Box>
+                          <h1>{product.name}</h1>
+                          <h3>${product.price.value}</h3>
+                          <Box
+                            dangerouslySetInnerHTML={{
+                              __html: product.description,
+                            }}
+                          />
+                          {<AddToCartButton product={product} />}
+                          <Box>
+                            <Box>SKU: N/A</Box>
+                            {!isEmpty(getcollections.collections) ? (
+                              <CategoriesCarousel
+                                gallery={getcollections.collections}
+                              />
+                            ) : !isEmpty(getcollections.collections) ? (
+                              <Box>{getcollections.collections}</Box>
+                            ) : null}
+                          </Box>
+                        </Box>
+                      </Box>
+                    </Flex>
+                  </Container>
+                </Center>
+                <Center>
+                  <Container w="60%">
+                    <Box>
+                      <h2>Detail</h2>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: product.description,
+                        }}
+                      ></div>
+                    </Box>
+                    <Container h="100%" m="5" pb="10">
+                      <Container centerContent>
+                        <h2>Related products</h2>
+                      </Container>
+                      <Flex>
+                        {relatedProducts.length
+                          ? relatedProducts.map((item) => (
+                              <Box key={item} m="20" border="1px solid #efefef">
+                                <Box>
+                                  <Link href={`/product/${item?.slug}`}>
+                                    <a>
+                                      <Image
+                                        src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
+                                        //srcSet={`${item?.image?.srcSet}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                        alt={item?.name}
+                                        loading="lazy"
+                                        w="100%"
+                                        p="5"
+                                      />
+                                    </a>
+                                  </Link>
+                                  <Container centerContent>
+                                    <h3>
+                                      <Link href={`/product/${item?.slug}`}>
+                                        <a>{item.name}</a>
+                                      </Link>
+                                    </h3>
+                                    <Box>
+                                      {product.rating && (
+                                        <Box mb="10" alignItems="center">
+                                          {Array(5)
+                                            .fill('')
+                                            .map((_, i) => (
+                                              <StarIcon
+                                                key={i}
+                                                color={
+                                                  i < product.rating
+                                                    ? '#81E6D9'
+                                                    : 'gray.200'
+                                                }
+                                              />
+                                            ))}
+                                        </Box>
+                                      )}
+                                    </Box>
+                                    <h4>
+                                      <span>${item.price.value}</span>
+                                    </h4>
+                                  </Container>
+                                </Box>
+                              </Box>
+                            ))
+                          : ''}
+                      </Flex>
+                    </Container>
+                    <div></div>
+                  </Container>
+                </Center>
               </Grid>
             </Container>
           </div>

@@ -2,6 +2,7 @@ import CartItemsContainer from '../components/cart/Cart-Page/CartItemsContainer'
 import { AppProvider } from '../lib/context/AppContext'
 import { Flex, Heading, Spacer, Box, Container, Center } from '@chakra-ui/react'
 
+
 const Cart = (props) => {
   return (
     <AppProvider>

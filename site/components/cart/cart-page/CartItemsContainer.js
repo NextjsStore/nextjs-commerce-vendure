@@ -2,46 +2,28 @@ import * as React from 'react'
 import Link from 'next/link'
 import { useContext, useState } from 'react'
 import { AppContext } from '../../../lib/context/AppContext'
-import CartItem from './CartItem'
-import { Button, Grid } from '@mui/material'
+import CartItem from './Cartitem'
 import { removeItemFromCart } from '../../../function'
-import { makeStyles } from '@material-ui/core/styles'
-import Box from '@mui/material/Box'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
-import Typography from '@mui/material/Typography'
-import Paper from '@mui/material/Paper'
-import Radio from '@mui/material/Radio'
-import RadioGroup from '@mui/material/RadioGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import FormControl from '@mui/material/FormControl'
-import Divider from '@mui/material/Divider'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
-import Modal from '@mui/material/Modal'
-import TextField from '@material-ui/core/TextField'
+// import Modal from '@mui/material/Modal'
+// import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import {
+  Container,
+  Box,
+  Button,
+  Table,
+  Flex,
+  Center,
+  Grid,
+  Text,
+  List,
+  ListItem,
+  TableContainer,
+} from '@chakra-ui/react'
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-}
-
-const useStyles_cart = makeStyles((theme) => ({
+const styles = {
   wooNextCartWrapper: {
     display: 'flex',
     '@media (max-width: 768px)': {
@@ -67,7 +49,7 @@ const useStyles_cart = makeStyles((theme) => ({
   cartTotalLeft: {
     paddingTop: '16px',
   },
-}))
+}
 
 const validationSchema = yup.object({
   email: yup
@@ -156,7 +138,6 @@ const CartItemsContainer = () => {
   //     });
   // }
   const router = useRouter()
-  const classes = useStyles_cart()
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
@@ -178,222 +159,193 @@ const CartItemsContainer = () => {
     },
   })
   return (
-    <div className={classes.cartMain}>
-      {cart ? (
-        <div className={classes.wooNextCartWrapper}>
-          <Grid item lg={8}>
-            <Box className={classes.tableCart}>
-              <TableContainer className="table table-hover">
-                <Table>
-                  <TableHead>
-                    <TableRow className={classes.cartheadercontainer}>
-                      <TableCell
-                        className={classes.woo_next_cart_heading}
-                        scope="col"
-                      >
-                        <Typography component="h6" variant="h6">
-                          {' '}
+    <Container styles={styles.cartMain}>
+      <Center>
+        {cart ? (
+          <div styles={styles.wooNextCartWrapper}>
+            <Box styles={styles.tableCart}>
+              <Flex styles="table table-hover">
+                <Grid>
+                  <Table>
+                    <tr styles={styles.cartheadercontainer}>
+                      <th styles={styles.woo_next_cart_heading}>
+                        <Text component="h6" variant="h6">
                           Delete
-                        </Typography>
-                      </TableCell>
-                      <TableCell
-                        className={classes.woo_next_cart_heading}
-                        scope="col"
-                      >
-                        <Typography component="h6" variant="h6">
-                          Product{' '}
-                        </Typography>
-                      </TableCell>
-                      <TableCell
-                        className={classes.woo_next_cart_heading}
-                        scope="col"
-                      />
-                      <TableCell
-                        className={classes.woo_next_cart_heading}
-                        scope="col"
-                      >
-                        <Typography component="h6" variant="h6">
+                        </Text>
+                      </th>
+                      <th styles={styles.woo_next_cart_heading}>
+                        <Text component="h6" variant="h6">
+                          Product
+                        </Text>
+                      </th>
+                      <th styles={styles.woo_next_cart_heading} />
+                      <th styles={styles.woo_next_cart_heading}>
+                        <Text component="h6" variant="h6">
                           Price
-                        </Typography>
-                      </TableCell>
-                      <TableCell
-                        className={classes.woo_next_cart_heading}
-                        scope="col"
-                      >
-                        <Typography component="h6" variant="h6">
+                        </Text>
+                      </th>
+                      <th styles={styles.woo_next_cart_heading}>
+                        <Text component="h6" variant="h6">
                           Quantity
-                        </Typography>
-                      </TableCell>
-                      <TableCell
-                        className={classes.woo_next_cart_heading}
-                        scope="col"
-                      >
-                        <Typography component="h6" variant="h6">
+                        </Text>
+                      </th>
+                      <th styles={styles.woo_next_cart_heading}>
+                        <Text component="h6" variant="h6">
                           Total
-                        </Typography>
-                      </TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {cart?.products?.length &&
-                      cart.products.map((item) => (
-                        <CartItem
-                          key={item.productId}
-                          item={item}
-                          handleRemoveProductClick={handleRemoveProductClick}
-                          setCart={setCart}
-                        />
-                      ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-              <Divider />
-              <Box className={classes.buttonContinue}>
-                <Link href="/shop" passHref>
-                  <Button variant="contained">CONTINUE SHOPPING</Button>
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
-          <Grid item lg={4}>
-            <Box className={classes.cartTotalLeft}>
-              <Typography component="h5" variant="h5">
-                Cart Total
-              </Typography>
-              <Paper className={classes.cartTotal}>
-                <List>
-                  <ListItem>
-                    <ListItemText>Subtotal:</ListItemText>
-                    <Typography>${cart.totalProductsPrice}</Typography>
-                  </ListItem>
-                  <Divider />
-                  <ListItem>
-                    <ListItemText>Shipping:</ListItemText>
-                    <FormControl component="fieldset">
-                      <RadioGroup
-                        row
-                        aria-label="gender"
-                        name="row-radio-buttons-group"
-                      >
-                        <FormControlLabel
-                          value="female"
-                          control={<Radio />}
-                          label="FreeShipping"
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemText>Clock Shop:</ListItemText>
-                    <FormControl component="fieldset">
-                      <RadioGroup
-                        row
-                        aria-label="gender"
-                        name="row-radio-buttons-group"
-                      >
-                        <FormControlLabel
-                          value="female"
-                          control={<Radio />}
-                          label="Flat Rate"
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  </ListItem>
-                  <Divider />
-                  <ListItem>
-                    <ListItemText>Total:</ListItemText>
-                    <Typography>${cart.totalProductsPrice}</Typography>
-                  </ListItem>
-                </List>
-                <Box className={classes.buttonCheckout}>
-                  {/*Proceeed to checkout */}
-
-                  <Button variant="contained" onClick={handleOpen}>
-                    Proceeed to checkout
-                  </Button>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <Box sx={style}>
-                      <Typography component="h4" variant="h4">
-                        Login
-                      </Typography>
-                      <form onSubmit={formik.handleSubmit}>
-                        <Typography
-                          sx={{ marginBottom: '15px', marginTop: '20px' }}
-                        >
-                          Username or email address *
-                        </Typography>
-                        <TextField
-                          variant="outlined"
-                          fullWidth
-                          id="email"
-                          name="email"
-                          label="Email"
-                          value={formik.values.email}
-                          onChange={formik.handleChange}
-                          error={
-                            formik.touched.email && Boolean(formik.errors.email)
-                          }
-                          helperText={
-                            formik.touched.email && formik.errors.email
-                          }
-                        />
-                        <Typography
-                          sx={{ marginBottom: '15px', marginTop: '20px' }}
-                        >
-                          Password *
-                        </Typography>
-                        <TextField
-                          variant="outlined"
-                          fullWidth
-                          id="password"
-                          name="password"
-                          label="Password"
-                          type="password"
-                          value={formik.values.password}
-                          onChange={formik.handleChange}
-                          error={
-                            formik.touched.password &&
-                            Boolean(formik.errors.password)
-                          }
-                          helperText={
-                            formik.touched.password && formik.errors.password
-                          }
-                        />
-
-                        <Button
-                          color="primary"
-                          variant="contained"
-                          type="submit"
-                          sx={{
-                            marginTop: '20px',
-                            borderRadius: '25px',
-                            width: '100px',
-                          }}
-                        >
-                          Login
-                        </Button>
-                      </form>
+                        </Text>
+                      </th>
+                    </tr>
+                    <Table>
+                      {cart?.products?.length &&
+                        cart.products.map((item) => (
+                          <CartItem
+                            key={item.productId}
+                            item={item}
+                            handleRemoveProductClick={handleRemoveProductClick}
+                            setCart={setCart}
+                          />
+                        ))}
+                    </Table>
+                    <Box styles={styles.buttonContinue}>
+                      <Link href="/shop">
+                        <Button variant="contained">CONTINUE SHOPPING</Button>
+                      </Link>
                     </Box>
-                  </Modal>
-                </Box>
-              </Paper>
+                  </Table>
+                </Grid>
+                <Grid>
+                  <Box styles={styles.cartTotalLeft}>
+                    <Text component="h5" variant="h5">
+                      Cart Total
+                    </Text>
+                    <Box styles={styles.cartTotal}>
+                      <List>
+                        <Box>
+                          <Text>Subtotal:</Text>
+                          <Text>${cart.totalProductsPrice}</Text>
+                        </Box>
+                        <Box>
+                          <Text>Shipping:</Text>
+                          <Box>nut Radio: FreeShipping</Box>
+                        </Box>
+                        <ListItem>
+                          <Text>Clock Shop:</Text>
+                          <Box>nut Radio: Flat Rate</Box>
+                        </ListItem>
+                        <ListItem>
+                          <Text>Total:</Text>
+                          <Text>${cart.totalProductsPrice}</Text>
+                        </ListItem>
+                      </List>
+                      <Box styles={styles.buttonCheckout}>
+                        {/*Proceeed to checkout */}
+
+                        <Button variant="contained" onClick={handleOpen}>
+                          Proceeed to checkout
+                        </Button>
+                        {/* <Modal
+                          open={open}
+                          onClose={handleClose}
+                          aria-labelledby="modal-modal-title"
+                          aria-describedby="modal-modal-description"
+                        >
+                          <Center h="100%">
+                            <Box bg="#fff" w="400px" mx="auto" p="50px">
+                              <Text component="h4" variant="h4">
+                                Login
+                              </Text>
+                              <form onSubmit={formik.handleSubmit}>
+                                <Text
+                                  sx={{
+                                    marginBottom: '15px',
+                                    marginTop: '20px',
+                                  }}
+                                >
+                                  Username or email address *
+                                </Text>
+                                <TextField
+                                  variant="outlined"
+                                  fullWidth
+                                  id="email"
+                                  name="email"
+                                  label="Email"
+                                  value={formik.values.email}
+                                  onChange={formik.handleChange}
+                                  error={
+                                    formik.touched.email &&
+                                    Boolean(formik.errors.email)
+                                  }
+                                  helperText={
+                                    formik.touched.email && formik.errors.email
+                                  }
+                                />
+                                <Text
+                                  sx={{
+                                    marginBottom: '15px',
+                                    marginTop: '20px',
+                                  }}
+                                >
+                                  Password *
+                                </Text>
+                                <TextField
+                                  variant="outlined"
+                                  fullWidth
+                                  id="password"
+                                  name="password"
+                                  label="Password"
+                                  type="password"
+                                  value={formik.values.password}
+                                  onChange={formik.handleChange}
+                                  error={
+                                    formik.touched.password &&
+                                    Boolean(formik.errors.password)
+                                  }
+                                  helperText={
+                                    formik.touched.password &&
+                                    formik.errors.password
+                                  }
+                                />
+
+                                <Button
+                                  color="primary"
+                                  variant="contained"
+                                  type="submit"
+                                  sx={{
+                                    marginTop: '20px',
+                                    borderRadius: '25px',
+                                    width: '100px',
+                                  }}
+                                >
+                                  Login
+                                </Button>
+                              </form>
+                            </Box>
+                          </Center>
+                        </Modal> */}
+                      </Box>
+
+                      {/* <Link href="/checkout">
+                                    <Button variant="contained">UPDATE CART</Button>
+                                </Link> */}
+                    </Box>
+                  </Box>
+                </Grid>
+              </Flex>
             </Box>
-          </Grid>
-        </div>
-      ) : (
-        <div className="container mx-auto my-32 px-4 xl:px-0">
-          <h2 className="text-2xl mb-5">No items in the cart</h2>
-          <Link href="/" passHref>
-            <Button variant="contained">Add New Products</Button>
-          </Link>
-        </div>
-      )}
-    </div>
+
+            {/* Display Errors if any */}
+            {/* {requestError ? <div style="row woo-next-cart-total-container mt-5"> {requestError} </div> : ''} */}
+          </div>
+        ) : (
+          <div styles="container mx-auto my-32 px-4 xl:px-0">
+            <h2 styles="text-2xl mb-5">No items in the cart</h2>
+            <Link href="/">
+              <Button variant="contained">Add New Products</Button>
+            </Link>
+          </div>
+        )}
+      </Center>
+    </Container>
   )
 }
 

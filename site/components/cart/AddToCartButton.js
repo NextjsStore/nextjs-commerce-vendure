@@ -3,7 +3,6 @@ import React from 'react'
 import { useState, useContext } from 'react'
 import { AppContext } from '../../lib/context/AppContext'
 import { addFirstProduct, updateCart } from '../../function'
-
 import { AppProvider } from '../../lib/context/AppContext'
 
 const colorHover = '#40c6ff'
