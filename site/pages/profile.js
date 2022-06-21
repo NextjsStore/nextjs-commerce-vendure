@@ -1,5 +1,4 @@
 import * as React from 'react'
-import ListItemText from '@mui/material/ListItemText'
 import { FaCamera } from 'react-icons/fa'
 import { AiOutlinePlus } from 'react-icons/ai'
 import {
@@ -63,19 +62,19 @@ const Profile = () => {
                   </Box>
                   <Box />
                   <Box>
-                    <ListItemText>Total Points</ListItemText>
+                    <Text>Total Points</Text>
                     <Text variant="body2" color="text.secondary">
                       0
                     </Text>
                   </Box>
                   <Box>
-                    <ListItemText>Points Used</ListItemText>
+                    <Text>Points Used</Text>
                     <Text variant="body2" color="text.secondary">
                       0
                     </Text>
                   </Box>
                   <Box>
-                    <ListItemText>Available Points</ListItemText>
+                    <Text>Available Points</Text>
                     <Text variant="body2" color="text.secondary">
                       0
                     </Text>
@@ -90,20 +89,20 @@ const Profile = () => {
                     </Text>
                   </Box>
                   <Box>
-                    <ListItemText>Change Password</ListItemText>
+                    <Text>Change Password</Text>
                   </Box>
                   <Box>
-                    <ListItemText>My orders</ListItemText>
+                    <Text>My orders</Text>
                   </Box>
                   <Box>
-                    <ListItemText>My Refunds</ListItemText>
+                    <Text>My Refunds</Text>
                   </Box>
                   <Box>
-                    <ListItemText>Need Help</ListItemText>
+                    <Text>Need Help</Text>
                   </Box>
                   <Box />
                   <Box>
-                    <ListItemText>Log Out</ListItemText>
+                    <Text>Log Out</Text>
                   </Box>
                 </Box>
               </Box>
@@ -157,7 +156,7 @@ const Profile = () => {
                 <Box elevation={3} border="1px solid #cccccc" p="30" mt="10">
                   <Box sx={{ marginBottom: '10px' }}>
                     <Box>
-                      <ListItemText>Contact Number</ListItemText>
+                      <Text>Contact Number</Text>
                       <Box>
                         <AiOutlinePlus
                           label="add"
@@ -184,7 +183,7 @@ const Profile = () => {
                 <Box elevation={3} border="1px solid #cccccc" p="30" mt="10">
                   <Box sx={{ marginBottom: '10px' }}>
                     <Box>
-                      <ListItemText>Address</ListItemText>
+                      <Text>Address</Text>
                       <Box>
                         <AiOutlinePlus
                           label="add"

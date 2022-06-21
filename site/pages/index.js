@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid } from '@mui/material'
+import { Container, Grid } from '@chakra-ui/react'
 import SwipeableTextMobileStepper from '../components/slider'
 import Product from '@components/product'
 import ListImages from '@components/ListImages'
