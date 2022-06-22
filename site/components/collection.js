@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component, useState } from 'react'
 import Link from 'next/link'
-
-import { Box, Rating, Grid } from '@chakra-ui/react'
+import { Rating } from './ui'
+import { Box, Grid, Image } from '@chakra-ui/react'
 
 const Collection = (props) => {
   const { product } = props
@@ -11,7 +11,7 @@ const Collection = (props) => {
         <Box>
           <Link href={`/product/${product.product?.slug}`}>
             <a>
-              <img src={product.product.assets[0].source} alt="" />
+              <Image src={product.product.assets[0].source} alt="" />
             </a>
           </Link>
 
