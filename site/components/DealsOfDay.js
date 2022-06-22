@@ -37,7 +37,12 @@ const DealsOfDay = () => {
           <Flex>
             <Flex>
               <Box>
-                <Image width={266} height={270} layout="fixed" src={Image_1.src} />
+                <Image
+                  width={266}
+                  height={270}
+                  layout="fixed"
+                  src={Image_1.src}
+                />
                 <Box position="absolute" mt="-250" ml="10">
                   <Circle size="40px" bg="#40c6ff" color="#fff">
                     -22%
@@ -46,19 +51,11 @@ const DealsOfDay = () => {
               </Box>
               <Box style={{ marginLeft: 30 }}>
                 <Link href="/product/softcover-trade-book">
-                  <a>
-                    <Heading
-                      as="h3"
-                      size="2xl"
-                      noOfLines={1}
-                      color="#323232"
-                      raphy
-                    >
-                      Softcover Trade Book
-                    </Heading>
-                  </a>
+                  <Heading as="h3" size="2xl" noOfLines={1} color="#323232">
+                    Softcover Trade Book
+                  </Heading>
                 </Link>
-                <Text
+                <Box
                   style={{
                     fontSize: 20,
                     fontWeight: 'bold',
@@ -77,7 +74,7 @@ const DealsOfDay = () => {
                   <Text style={{ color: 'rgb(64,198,255)', margin: 0 }}>
                     $2600
                   </Text>
-                </Text>
+                </Box>
                 <Text style={{ color: '#666', margin: '18px 8px 27px 0px' }}>
                   Black finish thin profile metal pole and base. White polyresin
                   torchiere shade.
@@ -94,7 +91,12 @@ const DealsOfDay = () => {
             </Flex>
             <Flex>
               <Box>
-                <Image width={266} height={270} layout="fixed" src={Image_2.src}  />
+                <Image
+                  width={266}
+                  height={270}
+                  layout="fixed"
+                  src={Image_2.src}
+                />
                 <Box position="absolute" mt="-250" ml="10">
                   <Circle size="40px" bg="#40c6ff" color="#fff">
                     -39%
@@ -103,19 +105,11 @@ const DealsOfDay = () => {
               </Box>
               <Box style={{ marginLeft: 30 }}>
                 <Link href="/product/agency-books">
-                  <a>
-                    <Heading
-                      as="h3"
-                      size="2xl"
-                      noOfLines={1}
-                      color="#323232"
-                      raphy
-                    >
-                      Agency Books
-                    </Heading>
-                  </a>
+                  <Heading as="h3" size="2xl" noOfLines={1} color="#323232">
+                    Agency Books
+                  </Heading>
                 </Link>
-                <Text
+                <Box
                   style={{ fontSize: 20, fontWeight: 'bold', display: 'flex' }}
                 >
                   <Text
@@ -130,7 +124,7 @@ const DealsOfDay = () => {
                   <Text style={{ color: 'rgb(64,198,255)', margin: 0 }}>
                     $7800
                   </Text>
-                </Text>
+                </Box>
                 <Text style={{ color: '#666', margin: '18px 8px 27px 0px' }}>
                   Caramel Ice Cream with a Swirl of Caramel & Fudge Covered
                   Caramel Chunks. Caramel lovers wont want to...

@@ -17,14 +17,12 @@ const CartIcon = () => {
     <AppProvider>
       <Link href="/cart">
         <a>
-          <div>
-            <HiOutlineShoppingBag />
-            {parseInt(productsCount) ? (
-              <span>{parseInt(productsCount)}</span>
-            ) : (
-              ''
-            )}
-          </div>
+          <HiOutlineShoppingBag />
+          {parseInt(productsCount) ? (
+            <span>{parseInt(productsCount)}</span>
+          ) : (
+            ''
+          )}
         </a>
       </Link>
     </AppProvider>

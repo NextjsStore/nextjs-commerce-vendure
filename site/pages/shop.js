@@ -2,7 +2,6 @@ import React from 'react'
 import Product from '../components/product'
 import { useRouter } from 'next/router'
 import commerce from '@lib/api/commerce'
-import axios from 'axios'
 import {
   Box,
   Container,
@@ -12,7 +11,7 @@ import {
   Text,
   Grid,
   Divider,
-  Center,
+  Button,
 } from '@chakra-ui/react'
 
 const colorHover = '#40c6ff'
@@ -83,7 +82,7 @@ const styles = {
 }
 
 const Shop = (props) => {
-  const { products, collections } = props
+  const { products, categories } = props
 
   const router = useRouter()
   const handleSubmit = (slug) => {
@@ -134,14 +133,14 @@ const Shop = (props) => {
               </Text>
             </Box>
             <div>
-              {collections.length
-                ? collections.map((item) => (
+              {categories.length
+                ? categories.map((item) => (
                     <Box key={item}>
                       <Box disablePadding>
                         <Box style={styles.categoryText}>
-                          <Box onClick={() => handleSubmit(`${item.slug}`)}>
+                          <Button onClick={() => handleSubmit(`${item.slug}`)}>
                             {item.name}
-                          </Box>
+                          </Button>
                         </Box>
                       </Box>
                       <Divider />
@@ -179,40 +178,14 @@ export async function getStaticProps({ preview, locale, locales }) {
     // Saleor provider only
     ...{ featured: true },
   })
+  const siteInfoPromise = commerce.getSiteInfo({ config, preview })
+
+  const { categories } = await siteInfoPromise
   const { products } = await productsPromise
-
-  const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
-  const headers = {
-    'content-type': 'application/json',
-    Authorization: '<token>',
-  }
-  const graphqlQuery = {
-    operationName: 'fetchAuthor',
-    query: `
-      query fetchAuthor {
-        collections{
-          items{
-            id
-            name
-            slug
-          }
-        }
-      }
-    `,
-  }
-
-  const response = await axios({
-    url: endpoint,
-    method: 'post',
-    headers: headers,
-    data: graphqlQuery,
-  })
-
-  const collections = response.data.data.collections.items
 
   return {
     props: {
-      collections,
+      categories,
       products,
     },
     revalidate: 60,

@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import AddToCartButton from '../../components/cart/AddToCartButton'
 import { isEmpty } from 'lodash'
-import GalleryCarousel from '@components/single-product/Gallery-Carousel'
-import CategoriesCarousel from '@components/single-product/Categories-Carousel'
+import GalleryCarousel from '@components/single-product/gallery-carousel'
+import CategoriesCarousel from '@components/single-product/categories-carousel'
 import { StarIcon } from '@chakra-ui/icons'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
@@ -19,15 +19,15 @@ import {
 } from '@chakra-ui/react'
 
 const Product = (props) => {
-  const { product, relatedProducts, getcollections } = props
-  //console.log('Getcollection', getcollections)
+  const { product, relatedProducts, collections } = props
+  //console.log('Getcollection', collections)
 
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
-    return <div>Loading...</div>
+    return <Box>Loading...</Box>
   }
 
   return (
@@ -63,30 +63,21 @@ const Product = (props) => {
           </Box>
         </Box>
       </Box>
-      <div>
-        {product && getcollections ? (
-          <div>
+      <Box>
+        {product && collections ? (
+          <Box>
             <Container maxWidth="lg">
               <Grid>
                 <Center>
                   <Container w="60%" borderBottom="1px solid #ccc" pb="30px">
                     <Flex>
                       <Box pr="30">
-                        <div>
+                        <Box>
                           <Image src={product.images[0].url} alt="" w="100%" />
-                          <div>
-                            {!isEmpty(product?.images[0]) ? (
-                              <GalleryCarousel gallery={product?.images} />
-                            ) : !isEmpty(product?.images) ? (
-                              <Image
-                                src={product?.images?.url}
-                                alt="Product Image"
-                                height="auto"
-                                srcSet={product?.images?.url}
-                              />
-                            ) : null}
-                          </div>
-                        </div>
+                          <Box>
+                            <GalleryCarousel gallery={product?.images} />
+                          </Box>
+                        </Box>
                       </Box>
                       <Box>
                         <Box>
@@ -100,13 +91,9 @@ const Product = (props) => {
                           {<AddToCartButton product={product} />}
                           <Box>
                             <Box>SKU: N/A</Box>
-                            {!isEmpty(getcollections.collections) ? (
-                              <CategoriesCarousel
-                                gallery={getcollections.collections}
-                              />
-                            ) : !isEmpty(getcollections.collections) ? (
-                              <Box>{getcollections.collections}</Box>
-                            ) : null}
+                            <CategoriesCarousel
+                              gallery={collections.collections}
+                            />
                           </Box>
                         </Box>
                       </Box>
@@ -117,11 +104,11 @@ const Product = (props) => {
                   <Container w="60%">
                     <Box>
                       <h2>Detail</h2>
-                      <div
+                      <Box
                         dangerouslySetInnerHTML={{
                           __html: product.description,
                         }}
-                      ></div>
+                      ></Box>
                     </Box>
                     <Container h="100%" m="5" pb="10">
                       <Container centerContent>
@@ -178,16 +165,16 @@ const Product = (props) => {
                           : ''}
                       </Flex>
                     </Container>
-                    <div></div>
+                    <Box></Box>
                   </Container>
                 </Center>
               </Grid>
             </Container>
-          </div>
+          </Box>
         ) : (
           ''
         )}
-      </div>
+      </Box>
     </>
   )
 }

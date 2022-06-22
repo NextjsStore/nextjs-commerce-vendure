@@ -23,7 +23,7 @@ const CollectionShop = (props) => {
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
-    return <div>Loading...</div>
+    return <Box>Loading...</Box>
   }
 
   return (
@@ -97,7 +97,6 @@ const CollectionShop = (props) => {
 
           <Grid item lg={9}>
             <Grid
-              container
               spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
               columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
             >
@@ -157,7 +156,7 @@ export async function getStaticProps({ params, locale, locales }) {
     data: graphqlQuery,
   })
 
-  const collections = response.data.data.collection.productVariants.items
+  const collections = response.data.data.collection?.productVariants.items
 
   if (!collections) {
     throw new Error(`Product with slug '${params.slug}' not found`)

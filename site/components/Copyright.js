@@ -9,17 +9,15 @@ const Copyright = () => {
       <Container maxWidth="lg">
         <Flex sx={{ flexGrow: 1 }}>
           <Box item xs={12} sm={6} md={6}>
-            <p>
-              Estore - Designed LogoeBay
-              <a href="http://netbasejsc.com/">Netbase JSC</a> . Copyright ©
-              2006 - 2017. All Rights Reserved.
-            </p>
+            Estore - Designed LogoeBay
+            <a href="http://netbasejsc.com/">Netbase JSC</a> . Copyright © 2006
+            - 2017. All Rights Reserved.
           </Box>
           <Spacer />
           <Box item xs={12} sm={6} md={6}>
-            <div>
+            <Box>
               <img src={paymentImages.src} />
-            </div>
+            </Box>
           </Box>
         </Flex>
       </Container>

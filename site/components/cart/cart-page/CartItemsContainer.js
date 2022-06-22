@@ -20,7 +20,6 @@ import {
   Text,
   List,
   ListItem,
-  TableContainer,
 } from '@chakra-ui/react'
 
 const styles = {
@@ -200,7 +199,7 @@ const CartItemsContainer = () => {
                         cart.products.map((item) => (
                           <CartItem
                             key={item.productId}
-                            item={item}
+                            // item={item}
                             handleRemoveProductClick={handleRemoveProductClick}
                             setCart={setCart}
                           />
@@ -337,7 +336,7 @@ const CartItemsContainer = () => {
             {/* {requestError ? <div style="row woo-next-cart-total-container mt-5"> {requestError} </div> : ''} */}
           </div>
         ) : (
-          <div styles="container mx-auto my-32 px-4 xl:px-0">
+          <div styles=" mx-auto my-32 px-4 xl:px-0">
             <h2 styles="text-2xl mb-5">No items in the cart</h2>
             <Link href="/">
               <Button variant="contained">Add New Products</Button>

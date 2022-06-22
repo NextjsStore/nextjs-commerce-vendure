@@ -1,5 +1,6 @@
 import { isEmpty, isArray } from 'lodash'
 import { useState, useRef } from 'react'
+import { Box } from '@chakra-ui/react'
 
 const colorHover = '#40c6ff'
 const styles = {
@@ -42,8 +43,8 @@ const CategoriesCarousel = ({ gallery }) => {
   }
 
   return (
-    <div styles={styles.category_meta}>
-      <div>
+    <Box styles={styles.category_meta}>
+      <Box>
         <span className={styles.category_meta_title}>Categories:</span>
         {gallery.map((item, index) => {
           const opacity =
@@ -57,8 +58,8 @@ const CategoriesCarousel = ({ gallery }) => {
             </span>
           )
         })}
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 
