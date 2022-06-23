@@ -33,7 +33,7 @@ const HeaderMid = () => {
   }
 
   return (
-    <Container w="1200px" m="12px auto">
+    <Container w="1200px" m="15px auto">
       <Flex w="100%" display="flex">
         <Box w="30%" display="flex">
           <Link href="/">
@@ -41,8 +41,12 @@ const HeaderMid = () => {
           </Link>
         </Box>
         <Box w="60%" display="flex">
-          <form id="searchform" onSubmit={handleSubmit}>
-            <select onChange={(e) => changeSearchQuery(e)} name="">
+          <form id="searchform" onSubmit={handleSubmit} style={styles.from}>
+            <select
+              onChange={(e) => changeSearchQuery(e)}
+              name=""
+              style={styles.select}
+            >
               <option value="">Shop by collection</option>
               <option value="">Uncategorized</option>
               <option value="custom-prints">---Custom Prints---</option>
@@ -55,40 +59,72 @@ const HeaderMid = () => {
               placeholder="What are you looking for..."
               value={searchQuery}
               onChange={(event) => setSearchQuery(event?.target?.value)}
+              style={styles.input}
             />
-            <button type="submit" onClick={handleSubmit}>
+            <button type="submit" onClick={handleSubmit} style={styles.button}>
               <BiSearch />
             </button>
           </form>
         </Box>
-        <Box w="10%" display="flex">
+        <Box
+          w="10%"
+          display="flex"
+          justifyContent="flex-end"
+          alignContent="center"
+          flexWrap="wrap"
+        >
           <CartIcon />
         </Box>
       </Flex>
     </Container>
-
-    // <Container maxW="2xl" bg="blue.600" centerContent w="700px">
-    //   <Box padding="4" bg="blue.400" color="black" maxW="md">
-    //     There are many benefits to a joint design and development system. Not
-    //     only does it bring benefits to the design team, but it also brings
-    //     benefits to engineering teams. It makes sure that our experiences have a
-    //     consistent look and feel, not just in our design specs, but in
-    //     production.
-    //   </Box>
-    // </Container>
   )
 }
 
-HeaderMid.propTypes = {
-  searchQuery: PropTypes.string,
-  setSearchQuery: PropTypes.func,
-  handleSearchForm: PropTypes.func,
-}
-
-HeaderMid.defaultProps = {
-  searchQuery: '',
-  setSearchQuery: () => null,
-  handleSearchForm: () => null,
-}
-
 export default HeaderMid
+
+const styles = {
+  select: {
+    color: '#666',
+    float: 'left',
+    width: '25%',
+    height: '36px',
+    fontSize: '15px',
+    minWidth: '187px',
+    fontFamily: "Mulish,'sans-serif",
+    fontWeight: '400',
+    borderRight: ' none',
+    paddingLeft: '15px',
+    borderTopLeftRadius: '50px',
+    borderBottomLeftRadius: '50px',
+    border: '1px solid #d1d3d4',
+  },
+  input: {
+    color: '#666',
+    width: '100%',
+    border: '1px solid #d1d3d4',
+    height: '36px',
+    padding: ' 0px 95px 0px 15px',
+    fontSize: '15px',
+    fontFamily: ' Mulish,sans-serif',
+    fontWeight: ' 400',
+    borderRadius: ' 0px 50px 50px 0px',
+  },
+  from: {
+    width: ' 100%',
+    display: 'flex',
+    position: 'relative',
+  },
+  button: {
+    top: ' 0px',
+    right: '10px',
+    width: ' 60px',
+    border: 'none',
+    height: '36px',
+    padding: '0',
+    zIndex: '10',
+    overflow: 'hidden',
+    position: 'absolute',
+    borderLeft: ' 1px solid #d1d3d4',
+    backgroundColor: 'transparent',
+  },
+}
