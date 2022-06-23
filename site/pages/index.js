@@ -23,6 +23,7 @@ export async function getStaticProps({ preview, locale, locales, params }) {
     // Saleor provider only
     ...{ featured: true },
   })
+
   const pagesPromise = commerce.getAllPages({ config, preview })
   const siteInfoPromise = commerce.getSiteInfo({ config, preview })
   const { products } = await productsPromise
@@ -56,7 +57,34 @@ export async function getStaticProps({ preview, locale, locales, params }) {
   }
 }`,
   }
-
+  const QueryproductsDeal = {
+    operationName: 'fetchAuthor',
+    query: `query fetchAuthor{
+      products(options: {take:2}){
+      items {
+        id
+        name
+        description
+        slug
+        assets {
+          source
+        }
+        variants {
+          currencyCode
+          price
+          name
+        }
+      }
+  }
+}`,
+  }
+  const productsdof = await axios({
+    url: endpoint,
+    method: 'post',
+    headers: headers,
+    data: QueryproductsDeal,
+  })
+  const productDeal = productsdof.data.data.products.items
   const response = await axios({
     url: endpoint,
     method: 'post',
@@ -68,6 +96,7 @@ export async function getStaticProps({ preview, locale, locales, params }) {
   return {
     props: {
       products,
+      productDeal,
       productsSeller,
       categories,
       brands,
@@ -78,8 +107,7 @@ export async function getStaticProps({ preview, locale, locales, params }) {
 }
 
 const Home = (props) => {
-  const { products, productsSeller, categories, productseller2 } = props
-  // console.log('categories:', categories)
+  const { products, productsSeller, categories, productDeal } = props
 
   const brands = [
     {
@@ -130,7 +158,9 @@ const Home = (props) => {
     <AppProvider>
       <div>
         <SwipeableTextMobileStepper />
-        <DealsOfDay />
+
+        <DealsOfDay key={productDeal.id} productsdeal={productDeal} />
+
         <Container>
           <Tab key={categories.id} collections={categories} />
           <Grid

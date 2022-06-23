@@ -19,9 +19,7 @@ const Tab = (props) => {
       </Center>
       <Box>
         <Box>
-          <Button onClick={() => handleSubmit(`SmartPhone`)}>
-            All Product
-          </Button>
+          <Button onClick={() => handleSubmit('')}>All Product</Button>
         </Box>
         <div>
           {collections.length
