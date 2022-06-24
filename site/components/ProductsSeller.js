@@ -7,45 +7,41 @@ const ProdutcsSeller = (props) => {
   const { product } = props
 
   return (
-    <Container h="100%" w="24%" border="1px solid #efefef" m="5" pb="10">
-      <Box maxW="100%" p="4">
-        <Box align="center">
-          <Link href={`/product/${product?.slug}`}>
-            <a>
-              <Image src={product.assets[0].source} alt="" w="100%" />
-            </a>
-          </Link>
+    <Box align="center" m="10px" p="10px" border="1px solid #efefef">
+      <Link href={`/product/${product?.slug}`}>
+        <a>
+          <Image src={product.assets[0].source} alt="" w="100%" />
+        </a>
+      </Link>
 
-          <Box>
-            <Heading
-              as="h3"
-              size="2xl"
-              noOfLines={1}
-              align="center"
-              color="#323232"
-            >
-              <Link href={`/product/${product?.slug}`}>
-                <a>{product.name}</a>
-              </Link>
-            </Heading>
-            {product.rating && (
-              <Box mb="10" alignItems="center">
-                {Array(5)
-                  .fill('')
-                  .map((_, i) => (
-                    <StarIcon
-                      key={i}
-                      color={i < product.rating ? '#81E6D9' : 'gray.200'}
-                    />
-                  ))}
-              </Box>
-            )}
-            <h4>${product.variants[0].price / 100}</h4>
-            <Box></Box>
+      <Box>
+        <Heading
+          as="h3"
+          size="2xl"
+          noOfLines={1}
+          align="center"
+          color="#323232"
+        >
+          <Link href={`/product/${product?.slug}`}>
+            <a>{product.name}</a>
+          </Link>
+        </Heading>
+        {product.rating && (
+          <Box mb="10" alignItems="center">
+            {Array(5)
+              .fill('')
+              .map((_, i) => (
+                <StarIcon
+                  key={i}
+                  color={i < product.rating ? '#81E6D9' : 'gray.200'}
+                />
+              ))}
           </Box>
-        </Box>
+        )}
+        <h4>${product.variants[0].price / 100}</h4>
+        <Box></Box>
       </Box>
-    </Container>
+    </Box>
   )
 }
 export default ProdutcsSeller

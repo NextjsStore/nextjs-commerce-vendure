@@ -33,50 +33,56 @@ const HeaderMid = () => {
   }
 
   return (
-    <Container w="1200px" m="15px auto">
-      <Flex w="100%" display="flex">
-        <Box w="30%" display="flex">
-          <Link href="/">
-            <Image src={LogoeBay.src} />
-          </Link>
-        </Box>
-        <Box w="60%" display="flex">
-          <form id="searchform" onSubmit={handleSubmit} style={styles.from}>
-            <select
-              onChange={(e) => changeSearchQuery(e)}
-              name=""
-              style={styles.select}
-            >
-              <option value="">Shop by collection</option>
-              <option value="">Uncategorized</option>
-              <option value="custom-prints">---Custom Prints---</option>
-              <option value="free-file-check">---Free file check---</option>
-              <option value="graphic-design">--- GraphicDesign---</option>
-              <option value="mailing">---Mailing---</option>
-            </select>
-            <input
-              type="text"
-              placeholder="What are you looking for..."
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event?.target?.value)}
-              style={styles.input}
-            />
-            <button type="submit" onClick={handleSubmit} style={styles.button}>
-              <BiSearch />
-            </button>
-          </form>
-        </Box>
-        <Box
-          w="10%"
-          display="flex"
-          justifyContent="flex-end"
-          alignContent="center"
-          flexWrap="wrap"
-        >
-          <CartIcon />
-        </Box>
-      </Flex>
-    </Container>
+    <Box borderBottom="1px solid #eee">
+      <Container w="1200px" m="15px auto">
+        <Flex w="100%" display="flex">
+          <Box w="30%" display="flex">
+            <Link href="/">
+              <Image src={LogoeBay.src} />
+            </Link>
+          </Box>
+          <Box w="60%" display="flex">
+            <form id="searchform" onSubmit={handleSubmit} style={styles.from}>
+              <select
+                onChange={(e) => changeSearchQuery(e)}
+                name=""
+                style={styles.select}
+              >
+                <option value="">Shop by collection</option>
+                <option value="">Uncategorized</option>
+                <option value="custom-prints">---Custom Prints---</option>
+                <option value="free-file-check">---Free file check---</option>
+                <option value="graphic-design">--- GraphicDesign---</option>
+                <option value="mailing">---Mailing---</option>
+              </select>
+              <input
+                type="text"
+                placeholder="What are you looking for..."
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event?.target?.value)}
+                style={styles.input}
+              />
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                style={styles.button}
+              >
+                <BiSearch />
+              </button>
+            </form>
+          </Box>
+          <Box
+            w="10%"
+            display="flex"
+            justifyContent="flex-end"
+            alignContent="center"
+            flexWrap="wrap"
+          >
+            <CartIcon />
+          </Box>
+        </Flex>
+      </Container>
+    </Box>
   )
 }
 
@@ -89,14 +95,11 @@ const styles = {
     width: '25%',
     height: '36px',
     fontSize: '15px',
-    minWidth: '187px',
-    fontFamily: "Mulish,'sans-serif",
-    fontWeight: '400',
-    borderRight: ' none',
+    width: '187px',
     paddingLeft: '15px',
-    borderTopLeftRadius: '50px',
-    borderBottomLeftRadius: '50px',
+    borderRadius: '50px 0px 0px 50px',
     border: '1px solid #d1d3d4',
+    borderRight: 'none',
   },
   input: {
     color: '#666',

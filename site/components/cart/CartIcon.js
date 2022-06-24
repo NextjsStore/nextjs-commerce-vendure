@@ -17,7 +17,7 @@ const CartIcon = () => {
     <AppProvider>
       <Link href="/cart">
         <a>
-          <HiOutlineShoppingBag />
+          <HiOutlineShoppingBag fontSize="25px" />
           {parseInt(productsCount) ? (
             <span>{parseInt(productsCount)}</span>
           ) : (

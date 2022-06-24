@@ -6,6 +6,7 @@ import {
   Box,
   Input,
   Button,
+  StylesProvider,
 } from '@chakra-ui/react'
 
 const NameForm = () => {
@@ -21,28 +22,55 @@ const NameForm = () => {
         backgroundSize="100%"
         borderRadius="10"
       >
-        <Center item lg={3} md={4} pt="80" mb="80">
-          <Box>
-            <Heading
-              as="h3"
-              size="2xl"
-              noOfLines={1}
-              align="center"
-              color="#323232"
-            >
-              Subscribe to our newsletter
-            </Heading>
-          </Box>
-          <form>
-            <Input id="first-name" placeholder="First name" />
-            <Button type="submit" color="primary">
-              Subscribe
-            </Button>
-          </form>
-        </Center>
+        <Container w="1200px" m="12px auto">
+          <Center item lg={3} md={4} pt="80" mb="80">
+            <Box w="25%">
+              <Heading
+                color="#323232"
+                fontSize="30px"
+                fontFamily="Merriweather,sans-serif"
+                fontWeight="700"
+                lineHeight="35px"
+              >
+                Subscribe to our newsletter
+              </Heading>
+            </Box>
+            <Box w="75%">
+              <form>
+                <Input
+                  id="first-name"
+                  placeholder="First name"
+                  style={styles.input}
+                  w="70%"
+                />
+                <Button type="submit" w="30%" style={styles.button}>
+                  Subscribe
+                </Button>
+              </form>
+            </Box>
+          </Center>
+        </Container>
       </Box>
     </Container>
   )
 }
 
 export default NameForm
+const styles = {
+  input: {
+    border: 'none',
+    height: '45px',
+    paddingLeft: '30px',
+    borderRadius: '0',
+    marginRight: '50px',
+  },
+  button: {
+    background: '#38acdd',
+    color: '#fff',
+    width: '20%',
+    border: 'none',
+    height: '45px',
+    background: ' #59ccfc',
+    borderRadius: '24px',
+  },
+}

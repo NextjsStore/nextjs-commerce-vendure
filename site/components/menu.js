@@ -56,23 +56,45 @@ const MenuListComposition = () => {
         bg="#fff"
         _hover={{ bg: '#40c6ff', color: ' #fff' }}
       >
-        <FaListUl style={styles.list} />
-        ALL CATEGORY
+        <Box>
+          <FaListUl style={styles.list} />
+          ALL CATEGORY
+        </Box>
       </MenuButton>
       <MenuList zIndex={15} style={styles.listCategoryHome}>
-        <MenuItem style={styles.MenuItem} icon={<AiFillHome />}>
+        <MenuItem
+          style={styles.MenuItem}
+          icon={<AiFillHome />}
+          _hover={{ bg: 'rgba(64,198,255,1)', color: ' #fff' }}
+        >
           Homepage
         </MenuItem>
-        <MenuItem style={styles.MenuItem} icon={<AiFillPushpin />}>
+        <MenuItem
+          style={styles.MenuItem}
+          icon={<AiFillPushpin />}
+          _hover={{ bg: 'rgba(64,198,255,1)', color: ' #fff' }}
+        >
           Custom Prints
         </MenuItem>
-        <MenuItem style={styles.MenuItem} icon={<BsPhone />}>
+        <MenuItem
+          style={styles.MenuItem}
+          icon={<BsPhone />}
+          _hover={{ bg: 'rgba(64,198,255,1)', color: ' #fff' }}
+        >
           Free file check
         </MenuItem>
-        <MenuItem style={styles.MenuItem} icon={<GrLanguage />}>
+        <MenuItem
+          style={styles.MenuItem}
+          icon={<GrLanguage />}
+          _hover={{ bg: 'rgba(64,198,255,1)', color: '#fff' }}
+        >
           Graphic Design
         </MenuItem>
-        <MenuItem style={styles.MenuItem} icon={<GoCalendar />}>
+        <MenuItem
+          style={styles.MenuItem}
+          icon={<GoCalendar />}
+          _hover={{ bg: 'rgba(64,198,255,1)', color: '#fff' }}
+        >
           Mailing
         </MenuItem>
       </MenuList>
@@ -161,21 +183,23 @@ const styles = {
     fontSize: '16px',
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    height: '43px',
+    height: '45px',
     border: '0px',
     borderTopLeftRadius: '2px',
     borderTopRightRadius: '2px',
-    minWidth: '270px',
-    marginTop: 5,
+    marginTop: 10,
+    paddingRight: '100px',
+    lineHeight: 45,
   },
   list: {
     fontSize: '16px',
-    marginRight: '5px',
     marginTop: 5,
+    marginRight: 20,
+    marginLeft: 5,
   },
   listCategoryHome: {
-    minWidth: '270px',
     border: 'none',
+    width: '270px',
   },
   MenuItem: {
     fontSize: '14px',
@@ -183,5 +207,6 @@ const styles = {
     lineHeight: ' 45px',
     height: '45px',
     border: 'none',
+    paddingLeft: 20,
   },
 }

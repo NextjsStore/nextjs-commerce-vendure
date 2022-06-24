@@ -8,7 +8,7 @@ const ListPages = () => {
   return (
     <Flex
       color="#666"
-      m="20px"
+      m="20px 0"
       fontSize="16px"
       fonts=" Mulish,sans-serif"
       textTransform=" uppercase"
