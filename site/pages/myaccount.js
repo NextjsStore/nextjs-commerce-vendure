@@ -84,33 +84,115 @@ const MyAccount = () => {
             backgroundSize="cover"
             mb="60px"
           >
-            <Flex>
-              <Box>
-                <Heading component="h3" variant="h3">
+            <Flex w="1200px" m="0px auto">
+              <Box lineHeight="3">
+                <Heading fontSize="40" variant="h1">
                   My account
                 </Heading>
               </Box>
               <Spacer />
-              <Box>
-                <Heading component="h6" variant="h6">
-                  Home
-                </Heading>
-                <Heading component="h6" variant="h6">
-                  My account
-                </Heading>
+              <Box lineHeight="10">
+                <Flex>
+                  <Text component="h6" variant="h6">
+                    Home
+                  </Text>
+                  <Text p="0px 10px"> / </Text>
+                  <Text component="h6" variant="h6">
+                    My account
+                  </Text>
+                </Flex>
               </Box>
             </Flex>
           </Box>
         </Box>
       </Box>
-      <Center>
-        <Container w="50%">
-          <Flex>
+      <Container w="1200px" m="0px auto" border="1px solid #ccc">
+        <Flex m="20">
+          <Box w="50%">
+            <Heading
+              fontSize="36"
+              fontStyle="normal"
+              textAlign="left"
+              fontFamily="Merriweather"
+              fontWeight="700"
+              marginBottom="30px"
+            >
+              Login
+            </Heading>
+            <form onSubmit={formik.handleSubmit}>
+              <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
+                Username or email address *
+              </Text>
+              <Input
+                variant="outlined"
+                fullWidth
+                id="email"
+                name="email"
+                label="Email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+                style={styles.input}
+              />
+              <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
+                Password *
+              </Text>
+              <Input
+                variant="outlined"
+                fullWidth
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.password && Boolean(formik.errors.password)
+                }
+                helperText={formik.touched.password && formik.errors.password}
+                style={styles.input}
+              />
+              <Box>
+                <Button
+                  bg="#1565c0"
+                  type="submit"
+                  color="#fff"
+                  border="none"
+                  sx={{
+                    marginTop: '20px',
+                    borderRadius: '25px',
+                    width: '100px',
+                    padding: '10px 0',
+                  }}
+                >
+                  Login
+                </Button>
+              </Box>
+              <Box>
+                <Checkbox defaultChecked>Remember me</Checkbox>
+                <Box>
+                  <Text component="span" variant="span">
+                    <a href="#"> Lost your password?</a>
+                  </Text>
+                </Box>
+              </Box>
+            </form>
+          </Box>
+          <Spacer />
+          <Box w="50%">
             <Box>
-              <Heading component="h4" variant="h4">
-                Login
+              <Heading
+                fontSize="36"
+                fontStyle="normal"
+                textAlign="left"
+                fontFamily="Merriweather"
+                fontWeight="700"
+                marginBottom="30px"
+              >
+                Register
               </Heading>
-              <form onSubmit={formik.handleSubmit}>
+              <form onSubmit={formik2.handleSubmit}>
                 <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
                   Username or email address *
                 </Text>
@@ -120,10 +202,11 @@ const MyAccount = () => {
                   id="email"
                   name="email"
                   label="Email"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  error={formik.touched.email && Boolean(formik.errors.email)}
-                  helperText={formik.touched.email && formik.errors.email}
+                  value={formik2.values.email}
+                  onChange={formik2.handleChange}
+                  error={formik2.touched.email && Boolean(formik2.errors.email)}
+                  helperText={formik2.touched.email && formik2.errors.email}
+                  style={styles.input}
                 />
                 <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
                   Password *
@@ -135,101 +218,47 @@ const MyAccount = () => {
                   name="password"
                   label="Password"
                   type="password"
-                  value={formik.values.password}
-                  onChange={formik.handleChange}
+                  value={formik2.values.password}
+                  onChange={formik2.handleChange}
                   error={
-                    formik.touched.password && Boolean(formik.errors.password)
+                    formik2.touched.password && Boolean(formik2.errors.password)
                   }
-                  helperText={formik.touched.password && formik.errors.password}
+                  helperText={
+                    formik2.touched.password && formik2.errors.password
+                  }
+                  style={styles.input}
                 />
-
-                <Button
-                  color="primary"
-                  variant="contained"
-                  type="submit"
-                  sx={{
-                    marginTop: '20px',
-                    borderRadius: '25px',
-                    width: '100px',
-                  }}
-                >
-                  Login
-                </Button>
                 <Box>
-                  <Checkbox control={<Checkbox defaultChecked />}>
-                    Remember me
-                  </Checkbox>
-                  <Box>
-                    <Text component="span" variant="span">
-                      <a href="#"> Lost your password?</a>
-                    </Text>
-                  </Box>
-                </Box>
-              </form>
-            </Box>
-            <Spacer />
-            <Box>
-              <Box>
-                <Heading component="h4" variant="h4">
-                  Register
-                </Heading>
-                <form onSubmit={formik2.handleSubmit}>
-                  <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                    Username or email address *
-                  </Text>
-                  <Input
-                    variant="outlined"
-                    fullWidth
-                    id="email"
-                    name="email"
-                    label="Email"
-                    value={formik2.values.email}
-                    onChange={formik2.handleChange}
-                    error={
-                      formik2.touched.email && Boolean(formik2.errors.email)
-                    }
-                    helperText={formik2.touched.email && formik2.errors.email}
-                  />
-                  <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                    Password *
-                  </Text>
-                  <Input
-                    variant="outlined"
-                    fullWidth
-                    id="password"
-                    name="password"
-                    label="Password"
-                    type="password"
-                    value={formik2.values.password}
-                    onChange={formik2.handleChange}
-                    error={
-                      formik2.touched.password &&
-                      Boolean(formik2.errors.password)
-                    }
-                    helperText={
-                      formik2.touched.password && formik2.errors.password
-                    }
-                  />
-
                   <Button
-                    color="primary"
-                    variant="contained"
+                    bg="#1565c0"
                     type="submit"
+                    color="#fff"
+                    border="none"
                     sx={{
                       marginTop: '20px',
                       borderRadius: '25px',
                       width: '100px',
+                      padding: '10px 0',
                     }}
                   >
                     Register
                   </Button>
-                </form>
-              </Box>
+                </Box>
+              </form>
             </Box>
-          </Flex>
-        </Container>
-      </Center>
+          </Box>
+        </Flex>
+      </Container>
     </Box>
   )
 }
 export default MyAccount
+
+const styles = {
+  input: {
+    width: '90%',
+    padding: '18.5px 14px',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+  },
+}

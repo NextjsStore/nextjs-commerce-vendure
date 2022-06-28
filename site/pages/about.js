@@ -14,7 +14,7 @@ import {
   Spacer,
   Text,
   Heading,
-  Grid,
+  Circle,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 
@@ -22,43 +22,45 @@ const About = () => {
   return (
     <Container>
       <Box align="center">
-        <Box>
-          <Box h="240px">
-            <Box>
-              <Box
-                color="#fff"
-                backgroundImage="/assets/banner_page.png"
-                h="200px"
-                backgroundRepeat="no-repeat"
-                backgroundSize="cover"
-                mb="60px"
-              >
+        <Box h="240px">
+          <Box
+            color="#fff"
+            backgroundImage="/assets/banner_page.png"
+            h="200px"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+            mb="60px"
+          >
+            <Flex w="1200px" m="0px auto">
+              <Box lineHeight="3">
+                <Heading fontSize="40" variant="h1">
+                  About
+                </Heading>
+              </Box>
+              <Spacer />
+              <Box lineHeight="10">
                 <Flex>
-                  <Box>
-                    <Heading component="h3" variant="h3">
-                      About
-                    </Heading>
-                  </Box>
-                  <Spacer />
-                  <Box>
-                    <Heading component="h6" variant="h6">
-                      About
-                    </Heading>
-                    <Heading component="h6" variant="h6">
-                      My account
-                    </Heading>
-                  </Box>
+                  <Text component="h6" variant="h6">
+                    Home
+                  </Text>
+                  <Text p="0px 10px"> / </Text>
+                  <Text component="h6" variant="h6">
+                    About
+                  </Text>
                 </Flex>
               </Box>
-            </Box>
+            </Flex>
           </Box>
         </Box>
-        <Box>
+        <Container w="1200px" m="12px auto">
           <Box>
             <Heading
               as="h1"
               sx={{
                 textAlign: 'center',
+                fontWeight: '700',
+                fontSize: '36',
+                color: '#293544',
               }}
             >
               Get to know Multistore
@@ -76,23 +78,29 @@ const About = () => {
               experiences for buyers and sellers.
             </Text>
           </Box>
-          <Center w="100%">
-            <Box>
-              <MdOutlineInventory2 />
+          <Center pt="30">
+            <Box w="30%">
+              <Circle size="80px" bg="#40c6ff" color="white">
+                <MdOutlineInventory2 fontSize="40" />
+              </Circle>
               <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
                 35 Million+
               </Text>
               <Text sx={{ fontWeight: '700', color: '#676c77' }}>Products</Text>
             </Box>
-            <Box>
-              <IoMdCart />
+            <Box w="30%">
+              <Circle size="80px" bg="#40c6ff" color="white">
+                <IoMdCart fontSize="40" />
+              </Circle>
               <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
                 250,000
               </Text>
               <Text sx={{ fontWeight: '700', color: '#676c77' }}>Sellers</Text>
             </Box>
-            <Box>
-              <GoGlobe />
+            <Box w="30%">
+              <Circle size="80px" bg="#40c6ff" color="white">
+                <GoGlobe fontSize="40" />
+              </Circle>
               <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
                 6000+
               </Text>
@@ -141,6 +149,8 @@ const About = () => {
               sx={{
                 textAlign: 'center',
               }}
+              color="#293544"
+              fontSize="36"
             >
               Our Team
             </Heading>
@@ -156,26 +166,75 @@ const About = () => {
               while building loyalty across every touchpoint.
             </Text>
           </Box>
-          <Container sx={{ textAlign: 'center' }}>
-            <Flex>
-              <Box w="20%">
+          <Flex pb="400">
+            <Box w="25%" alignItems="center">
+              <Box position="absolute">
+                <Box>
+                  <Image
+                    width={258}
+                    height={298}
+                    src={AboutTeam.src}
+                    alt="Philip Demarco"
+                  />
+                </Box>
+                <Box
+                  bg="rgb(64,198,255)"
+                  w="80%"
+                  position="absolute"
+                  left="50%"
+                  transform="translate(-50%, -50%)"
+                  color="#fff"
+                  lineHeight="1"
+                >
+                  <Heading fontSize="16">Philip Demarco</Heading>
+                  <Text fontSize="14">Business Analyst</Text>
+                </Box>
+              </Box>
+              <Box>
+                <Text display="none">
+                  By testing and launching new partners and internal tech
+                  solutions, he increases both efficiency and performance
+                </Text>
+                <Box>
+                  <a href="https://facebook.com/">
+                    <i className="fa fa-facebook"></i>
+                  </a>
+                  <a href="https://twitter.com/">
+                    <i className="fa fa-twitter"></i>
+                  </a>
+                  <a href="https://google.com/">
+                    <i className="fa fa-google"></i>
+                  </a>
+                </Box>
+              </Box>
+            </Box>
+            <Box w="25%">
+              <Box position="absolute">
                 <Box>
                   <Box>
                     <Image
                       width={258}
                       height={298}
                       layout="fixed"
-                      src={AboutTeam.src}
+                      src={AboutTeam_1.src}
                       alt="Philip Demarco"
                     />
                   </Box>
-                  <Box>
-                    <h3>Philip Demarco</h3>
-                    Business Analyst
+                  <Box
+                    bg="rgb(64,198,255)"
+                    w="80%"
+                    position="absolute"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    color="#fff"
+                    lineHeight="1"
+                  >
+                    <Heading fontSize="16">Philip Demarco</Heading>
+                    <Text fontSize="14">Business Analyst</Text>
                   </Box>
                 </Box>
                 <Box>
-                  <Text>
+                  <Text display="none">
                     By testing and launching new partners and internal tech
                     solutions, he increases both efficiency and performance
                   </Text>
@@ -192,117 +251,97 @@ const About = () => {
                   </Box>
                 </Box>
               </Box>
-              <Box w="20%">
+            </Box>
+            <Box w="25%">
+              <Box position="absolute">
                 <Box>
                   <Box>
-                    <Box>
-                      <Image
-                        width={258}
-                        height={298}
-                        layout="fixed"
-                        src={AboutTeam_1.src}
-                        alt="Philip Demarco"
-                      />
-                    </Box>
-                    <Box>
-                      <h3>Philip Demarco</h3>
-                      Business Analyst
-                    </Box>
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
+                      src={AboutTeam_2.src}
+                      alt="Philip Demarco"
+                    />
                   </Box>
+                  <Box
+                    bg="rgb(64,198,255)"
+                    w="80%"
+                    position="absolute"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    color="#fff"
+                    lineHeight="1"
+                  >
+                    <Heading fontSize="16">Philip Demarco</Heading>
+                    <Text fontSize="14">Business Analyst</Text>
+                  </Box>
+                </Box>
+                <Box>
+                  <Text display="none">
+                    By testing and launching new partners and internal tech
+                    solutions, he increases both efficiency and performance
+                  </Text>
                   <Box>
-                    <Text>
-                      By testing and launching new partners and internal tech
-                      solutions, he increases both efficiency and performance
-                    </Text>
-                    <Box>
-                      <a href="https://facebook.com/">
-                        <i className="fa fa-facebook"></i>
-                      </a>
-                      <a href="https://twitter.com/">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                      <a href="https://google.com/">
-                        <i className="fa fa-google"></i>
-                      </a>
-                    </Box>
+                    <a href="https://facebook.com/">
+                      <i className="fa fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/">
+                      <i className="fa fa-twitter"></i>
+                    </a>
+                    <a href="https://google.com/">
+                      <i className="fa fa-google"></i>
+                    </a>
                   </Box>
                 </Box>
               </Box>
-              <Box w="20%">
+            </Box>
+            <Box w="25%">
+              <Box position="absolute">
                 <Box>
                   <Box>
-                    <Box>
-                      <Image
-                        width={258}
-                        height={298}
-                        layout="fixed"
-                        src={AboutTeam_2.src}
-                        alt="Philip Demarco"
-                      />
-                    </Box>
-                    <Box>
-                      <h3>Philip Demarco</h3>
-                      Business Analyst
-                    </Box>
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
+                      src={AboutTeam_3.src}
+                      alt="Philip Demarco"
+                    />
                   </Box>
+                  <Box
+                    bg="rgb(64,198,255)"
+                    w="80%"
+                    position="absolute"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    color="#fff"
+                    lineHeight="1"
+                  >
+                    <Heading fontSize="16">Philip Demarco</Heading>
+                    <Text fontSize="14">Business Analyst</Text>
+                  </Box>
+                </Box>
+                <Box>
+                  <Text display="none">
+                    By testing and launching new partners and internal tech
+                    solutions, he increases both efficiency and performance
+                  </Text>
                   <Box>
-                    <Text>
-                      By testing and launching new partners and internal tech
-                      solutions, he increases both efficiency and performance
-                    </Text>
-                    <Box>
-                      <a href="https://facebook.com/">
-                        <i className="fa fa-facebook"></i>
-                      </a>
-                      <a href="https://twitter.com/">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                      <a href="https://google.com/">
-                        <i className="fa fa-google"></i>
-                      </a>
-                    </Box>
+                    <a href="https://facebook.com/">
+                      <i className="fa fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/">
+                      <i className="fa fa-twitter"></i>
+                    </a>
+                    <a href="https://google.com/">
+                      <i className="fa fa-google"></i>
+                    </a>
                   </Box>
                 </Box>
               </Box>
-              <Box w="20%">
-                <Box>
-                  <Box>
-                    <Box>
-                      <Image
-                        width={258}
-                        height={298}
-                        layout="fixed"
-                        src={AboutTeam_3.src}
-                        alt="Philip Demarco"
-                      />
-                    </Box>
-                    <Box>
-                      <h3>Philip Demarco</h3>
-                      Business Analyst
-                    </Box>
-                  </Box>
-                  <Box>
-                    <Text>
-                      By testing and launching new partners and internal tech
-                      solutions, he increases both efficiency and performance
-                    </Text>
-                    <Box>
-                      <a href="https://facebook.com/">
-                        <i className="fa fa-facebook"></i>
-                      </a>
-                      <a href="https://twitter.com/">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                      <a href="https://google.com/">
-                        <i className="fa fa-google"></i>
-                      </a>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
-            </Flex>
-          </Container>
-        </Box>
+            </Box>
+          </Flex>
+        </Container>
       </Box>
     </Container>
   )

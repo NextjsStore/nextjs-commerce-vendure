@@ -102,20 +102,23 @@ const Shop = (props) => {
             backgroundSize="cover"
             mb="60px"
           >
-            <Flex>
-              <Box>
-                <Heading component="h3" variant="h3">
-                  My account
+            <Flex w="1200px" m="0px auto">
+              <Box lineHeight="3">
+                <Heading fontSize="40" variant="h1">
+                  Shop
                 </Heading>
               </Box>
               <Spacer />
-              <Box>
-                <Heading component="h6" variant="h6">
-                  Home
-                </Heading>
-                <Heading component="h6" variant="h6">
-                  My account
-                </Heading>
+              <Box lineHeight="10">
+                <Flex>
+                  <Text component="h6" variant="h6">
+                    Home
+                  </Text>
+                  <Text p="0px 10px"> / </Text>
+                  <Text component="h6" variant="h6">
+                    My account
+                  </Text>
+                </Flex>
               </Box>
             </Flex>
           </Box>
@@ -124,7 +127,12 @@ const Shop = (props) => {
       <Container w="1200px" m="12px auto">
         <Flex>
           <Box w="20%">
-            <Heading component="h4" variant="h4">
+            <Heading
+              component="h4"
+              variant="h4"
+              borderBottom="1px solid #ccc"
+              pb="20"
+            >
               Product Category
             </Heading>
             {categories.length
@@ -132,7 +140,11 @@ const Shop = (props) => {
                   <Box key={item}>
                     <Box disablePadding>
                       <Box>
-                        <Text onClick={() => handleSubmit(`${item.slug}`)}>
+                        <Text
+                          onClick={() => handleSubmit(`${item.slug}`)}
+                          borderBottom="1px solid #ccc"
+                          pb="10"
+                        >
                           {item.name}
                         </Text>
                       </Box>
@@ -142,9 +154,9 @@ const Shop = (props) => {
                 ))
               : ''}
           </Box>
-          <Box item lg={8} w="80%">
+          <Box item lg={8} w="80%" pl="20">
             <Box>
-              <SimpleGrid columns={4}>
+              <SimpleGrid columns={3}>
                 {products.length
                   ? products.map((product) => (
                       <Product key={product.id} product={product} />

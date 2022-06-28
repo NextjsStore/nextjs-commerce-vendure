@@ -10,6 +10,7 @@ import {
   Spacer,
   Text,
   Center,
+  FormControl,
 } from '@chakra-ui/react'
 
 const ContactUS = () => {
@@ -55,7 +56,7 @@ const ContactUS = () => {
                   Contact us
                 </Heading>
                 <Box>
-                  <from sx={{ width: '100%', paddingRight: '40px' }}>
+                  <FormControl sx={{ width: '100%', paddingRight: '40px' }}>
                     <input type="text" name="name" placeholder="Name*" />
 
                     <input type="text" name="email" placeholder="Your Email*" />
@@ -64,7 +65,7 @@ const ContactUS = () => {
                       name="your-message"
                       placeholder="Message"
                     ></textarea>
-                  </from>
+                  </FormControl>
                   <Box>
                     <Button
                       variant="contained"
@@ -88,19 +89,16 @@ const ContactUS = () => {
                   Location
                 </Heading>
                 <Box sx={{ display: 'flex' }}>
-                  <BsFillTelephoneFill color="primary" />
                   <Text component="h6" variant="h6">
                     0-800-12-345-6 880
                   </Text>
                 </Box>
                 <Box sx={{ display: 'flex' }}>
-                  <MdAddLocation color="primary" />
                   <Text component="h6" variant="h6">
                     257 Charlington Gates Road Morrison, Nr. 568
                   </Text>
                 </Box>
                 <Box sx={{ display: 'flex' }}>
-                  <MdEmail color="primary" />
                   <Text component="h6" variant="h6">
                     info@jruitstemplate.com
                   </Text>
