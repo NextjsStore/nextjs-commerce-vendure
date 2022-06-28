@@ -14,6 +14,7 @@ import {
   Checkbox,
   Input,
 } from '@chakra-ui/react'
+import commerce from '@lib/api/commerce'
 
 const validationSchema = yup.object({
   email: yup
@@ -26,7 +27,8 @@ const validationSchema = yup.object({
     .required('Password is required'),
 })
 
-const MyAccount = () => {
+const MyAccount = (props) => {
+  const { categories } = props
   const router = useRouter()
   const [checked, setChecked] = React.useState(false)
   const [isChecked, setStatusChecked] = React.useState(false)
@@ -233,3 +235,18 @@ const MyAccount = () => {
   )
 }
 export default MyAccount
+
+export async function getStaticProps({ preview, locale, locales }) {
+  const config = { locale, locales }
+
+  const siteInfoPromise = commerce.getSiteInfo({ config, preview })
+
+  const { categories } = await siteInfoPromise
+
+  return {
+    props: {
+      categories,
+    },
+    revalidate: 60,
+  }
+}

@@ -44,9 +44,13 @@ const Logo = (props) => {
       <Center>
         <SimpleGrid columns={7}>
           {brands.map((element) => (
-            <div>
-              <Image src={element.imageUrl} border="1px solid #efefef" m="10" />
-            </div>
+            <Image
+              key={element}
+              src={element.imageUrl}
+              border="1px solid #efefef"
+              m="10"
+              alt=""
+            />
           ))}
         </SimpleGrid>
       </Center>

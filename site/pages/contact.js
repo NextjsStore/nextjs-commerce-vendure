@@ -13,8 +13,10 @@ import {
   Text,
   Center,
 } from '@chakra-ui/react'
+import commerce from '@lib/api/commerce'
 
-const ContactUS = () => {
+const ContactUS = (props) => {
+  const { categories } = props
   return (
     <>
       <Box>
@@ -116,3 +118,18 @@ const ContactUS = () => {
   )
 }
 export default ContactUS
+
+export async function getStaticProps({ preview, locale, locales }) {
+  const config = { locale, locales }
+
+  const siteInfoPromise = commerce.getSiteInfo({ config, preview })
+
+  const { categories } = await siteInfoPromise
+
+  return {
+    props: {
+      categories,
+    },
+    revalidate: 60,
+  }
+}

@@ -13,7 +13,9 @@ export const PER_PAGE_FIRST = 9
 export const PER_PAGE_REST = 12
 
 const HeaderMid = (props) => {
+  // console.log('propssssss', props)
   const { categories } = props
+  // console.log('categories-header mid', categories)
   const router = useRouter()
 
   const [searchQuery, setSearchQuery] = useState('')
@@ -24,7 +26,7 @@ const HeaderMid = (props) => {
   const handleSubmit = (event, value) => {
     event.preventDefault()
     setShowResultInfo(false)
-    router.push(`/searchresult?collectionSlug=${searchQuery}`)
+    router.push(`/searchresult?slug=${searchQuery}`)
   }
 
   const changeSearchQuery = (e) => {

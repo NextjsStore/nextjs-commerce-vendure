@@ -18,8 +18,8 @@ import {
   Image,
 } from '@chakra-ui/react'
 
-const Product = (props) => {
-  const { product, relatedProducts, getcollections } = props
+const ProductSlug = (props) => {
+  const { product, relatedProducts, collections } = props
   //console.log('Getcollection', getcollections)
 
   const router = useRouter()
@@ -64,7 +64,7 @@ const Product = (props) => {
         </Box>
       </Box>
       <div>
-        {product && getcollections ? (
+        {product && collections ? (
           <div>
             <Container maxWidth="lg">
               <Grid>
@@ -75,16 +75,7 @@ const Product = (props) => {
                         <div>
                           <Image src={product.images[0].url} alt="" w="100%" />
                           <div>
-                            {!isEmpty(product?.images[0]) ? (
-                              <GalleryCarousel gallery={product?.images} />
-                            ) : !isEmpty(product?.images) ? (
-                              <Image
-                                src={product?.images?.url}
-                                alt="Product Image"
-                                height="auto"
-                                srcSet={product?.images?.url}
-                              />
-                            ) : null}
+                            <GalleryCarousel gallery={product?.images} />
                           </div>
                         </div>
                       </Box>
@@ -100,13 +91,9 @@ const Product = (props) => {
                           {<AddToCartButton product={product} />}
                           <Box>
                             <Box>SKU: N/A</Box>
-                            {!isEmpty(getcollections.collections) ? (
-                              <CategoriesCarousel
-                                gallery={getcollections.collections}
-                              />
-                            ) : !isEmpty(getcollections.collections) ? (
-                              <Box>{getcollections.collections}</Box>
-                            ) : null}
+                            <CategoriesCarousel
+                              gallery={collections.collections}
+                            />
                           </Box>
                         </Box>
                       </Box>
@@ -178,7 +165,6 @@ const Product = (props) => {
                           : ''}
                       </Flex>
                     </Container>
-                    <div></div>
                   </Container>
                 </Center>
               </Grid>
@@ -191,7 +177,7 @@ const Product = (props) => {
     </>
   )
 }
-export default Product
+export default ProductSlug
 
 export async function getStaticProps({ params, locale, locales, preview }) {
   const config = { locale, locales }
