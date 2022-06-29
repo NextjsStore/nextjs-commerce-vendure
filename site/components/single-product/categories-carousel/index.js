@@ -1,9 +1,9 @@
 import { isEmpty, isArray } from 'lodash'
 import { useState, useRef } from 'react'
-import { makeStyles } from '@mui/styles'
+import { Box } from '@chakra-ui/react'
 
 const colorHover = '#40c6ff'
-const useStyles_category_meta = makeStyles({
+const styles = {
   category_meta: {
     marginBottom: '15px',
   },
@@ -14,7 +14,7 @@ const useStyles_category_meta = makeStyles({
   category_meta_name: {
     color: '#676c77',
   },
-})
+}
 
 const CategoriesCarousel = ({ gallery }) => {
   const activeIndexRef = useRef({ activeIndex: 0 })
@@ -22,7 +22,6 @@ const CategoriesCarousel = ({ gallery }) => {
   const [slide, setSlide] = useState(0)
   const [restartSlide, setRestartSlide] = useState(0)
   const { activeIndex } = activeIndexRef.current
-  const classes = useStyles_category_meta()
 
   if (isEmpty(gallery) || !isArray(gallery)) {
     return null
@@ -44,23 +43,23 @@ const CategoriesCarousel = ({ gallery }) => {
   }
 
   return (
-    <div className={classes.category_meta}>
-      <div>
-        <span className={classes.category_meta_title}>Categories:</span>
+    <Box styles={styles.category_meta}>
+      <Box>
+        <span className={styles.category_meta_title}>Categories:</span>
         {gallery.map((item, index) => {
           const opacity =
             activeIndex === index || 1 === gallery.length
               ? 'opacity-10'
               : 'opacity-0'
           return (
-            <span className={classes.category_meta_name} key={item}>
+            <span className={styles.category_meta_name} key={item}>
               {' '}
               {item.name}.
             </span>
           )
         })}
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 

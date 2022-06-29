@@ -10,7 +10,7 @@ import {
 
 const NameForm = () => {
   return (
-    <Container maxWidth="lg" container spacing={2}>
+    <Container maxWidth="lg" spacing={2}>
       <Box
         p={4}
         w="100%"
@@ -19,7 +19,6 @@ const NameForm = () => {
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize="100%"
-        centerContent
         borderRadius="10"
       >
         <Center item lg={3} md={4} pt="80" mb="80">

@@ -23,7 +23,7 @@ const Tab = (props) => {
             All Product
           </Button>
         </Box>
-        <div>
+        <Box>
           {collections.length
             ? collections.map((item) => (
                 <Box key={item}>
@@ -35,7 +35,7 @@ const Tab = (props) => {
                 </Box>
               ))
             : ''}
-        </div>
+        </Box>
       </Box>
     </Box>
   )

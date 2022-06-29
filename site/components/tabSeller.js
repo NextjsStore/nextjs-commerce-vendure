@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Link from '@mui/material/Link'
 import { useRouter } from 'next/router'
 import { Container, Box, Button, Heading, Center } from '@chakra-ui/react'
 
@@ -23,7 +22,7 @@ const TabSeller = (props) => {
             All Product
           </Button>
         </Box>
-        <div>
+        <Box>
           {collections.length
             ? collections.map((item) => (
                 <Box key={item}>
@@ -33,7 +32,7 @@ const TabSeller = (props) => {
                 </Box>
               ))
             : ''}
-        </div>
+        </Box>
       </Box>
     </Box>
   )

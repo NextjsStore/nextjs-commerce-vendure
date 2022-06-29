@@ -1,34 +1,53 @@
 import React from 'react'
 import { Container, Box, Grid, Flex, Spacer, Select } from '@chakra-ui/react'
-import { GoGlobe } from 'react-icons/go'
+import { MdOutlineLanguage } from 'react-icons/md'
 
 const SideBarTop = () => {
   return (
-    <Container bg="rgb(243,243,243)" p="10" color="rgb(153,153,153)">
-      <Flex>
-        <Box w="50%">
-          <Grid maxW="400px" mx="auto">
-            <Box>Call Support Free:1800123456</Box>
-          </Grid>
-        </Box>
-        <Spacer />
-        <Box w="50%">
+    <Container w="1200px" m="0px auto">
+      <Flex
+        display="flex"
+        flexDirection="row-reverse"
+        justifyContent="center"
+        alignContent="center"
+        flexWrap="nowrap"
+      >
+        <Box maxW="40%">
           <Flex>
-            <Select bg="rgb(243,243,243)" borderColor="rgb(243,243,243)">
+            <select style={styles.select}>
               <option value="option1">USD, $</option>
               <option value="option2">EUR, €</option>
-            </Select>
-            <Box>
-              <GoGlobe />
+            </select>
+            <Box
+              ml="10px"
+              color="rgb(153,153,153)"
+              borderLeft="1px solid rgb(153,153,153)"
+              pl="5px"
+            >
+              <MdOutlineLanguage color="rgb(153,153,153)" />
             </Box>
-            <Select bg="rgb(243,243,243)" borderColor="rgb(243,243,243)">
+            <select style={styles.select}>
               <option value="">English</option>
               <option value="">Viet Nam</option>
-            </Select>
+            </select>
           </Flex>
+        </Box>
+        <Box w="60%" alignItems="flex-start">
+          <Box>Call Support Free:1800123456</Box>
         </Box>
       </Flex>
     </Container>
   )
 }
 export default SideBarTop
+
+const styles = {
+  select: {
+    border: 'none',
+    background: 'rgb(243,243,243)',
+    color: 'rgb(153,153,153)',
+  },
+  right: {
+    align: 'right',
+  },
+}
