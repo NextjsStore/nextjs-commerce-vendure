@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FC, useState } from 'react'
-import CartItem from '@components/cart/CartItem__'
+// import CartItem from '@components/cart/CartItem'
 import { Button, Text } from '@components/ui'
 import { useUI } from '@components/ui/context'
 import SidebarLayout from '@components/common/SidebarLayout'
@@ -69,7 +69,7 @@ const CheckoutSidebarView: FC = () => {
           onClick={() => setSidebarView('SHIPPING_VIEW')}
         />
 
-        <ul className={s.lineItemsList}>
+        {/* <ul className={s.lineItemsList}>
           {cartData!.lineItems.map((item: any) => (
             <CartItem
               key={item.id}
@@ -78,7 +78,7 @@ const CheckoutSidebarView: FC = () => {
               variant="display"
             />
           ))}
-        </ul>
+        </ul> */}
       </div>
 
       <form

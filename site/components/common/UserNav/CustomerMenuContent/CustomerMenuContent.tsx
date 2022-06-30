@@ -61,16 +61,12 @@ export default function CustomerMenuContent() {
             setTheme(theme === 'dark' ? 'light' : 'dark')
           }}
         >
-          <div>
-            Theme: <strong>{theme}</strong>{' '}
-          </div>
-          <div className="ml-3">
-            {theme == 'dark' ? (
-              <Moon width={20} height={20} />
-            ) : (
-              <Sun width={20} height={20} />
-            )}
-          </div>
+          Theme: <strong>{theme}</strong>{' '}
+          {theme == 'dark' ? (
+            <Moon width={20} height={20} />
+          ) : (
+            <Sun width={20} height={20} />
+          )}
         </a>
       </DropdownMenuItem>
       <DropdownMenuItem>

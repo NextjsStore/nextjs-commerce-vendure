@@ -18,9 +18,9 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 
-const About = () =>{
+const About = () => {
   return (
-  <Container>
+    <Container>
       <Box align="center">
         <Box>
           <Box h="240px">
@@ -50,10 +50,10 @@ const About = () =>{
                   </Box>
                 </Flex>
               </Box>
-     </Box>
+            </Box>
           </Box>
-    </Box>
-    <Box>
+        </Box>
+        <Box>
           <Box>
             <Heading
               as="h1"
@@ -165,24 +165,23 @@ const About = () =>{
                       width={258}
                       height={298}
                       layout="fixed"
-                      
                       src={AboutTeam.src}
                       alt="Philip Demarco"
                     />
                   </Box>
-<Box>
+                  <Box>
                     <h3>Philip Demarco</h3>
-                    <p>Business Analyst</p>
+                    Business Analyst
                   </Box>
                 </Box>
                 <Box>
                   <Text>
                     By testing and launching new partners and internal tech
                     solutions, he increases both efficiency and performance
-                    </Text>
+                  </Text>
                   <Box>
                     <a href="https://facebook.com/">
-                       <i className="fa fa-facebook"></i>
+                      <i className="fa fa-facebook"></i>
                     </a>
                     <a href="https://twitter.com/">
                       <i className="fa fa-twitter"></i>
@@ -190,99 +189,24 @@ const About = () =>{
                     <a href="https://google.com/">
                       <i className="fa fa-google"></i>
                     </a>
-</Box>
+                  </Box>
                 </Box>
               </Box>
- <Box w="20%">
-                <Box>
-                  <Box>
-                    <Box>
-                       <Image
-                      width={258}
-                      height={298}
-                      layout="fixed"
-                      
-                      src={AboutTeam_1.src}
-                      alt="Philip Demarco"
-                    />
-                    </Box>
-                    <Box>
-                      <h3>Philip Demarco</h3>
-                      <p>Business Analyst</p>
-                    </Box>
-                  </Box>
-                  <Box>
-                    <Text>
-                      By testing and launching new partners and internal tech
-                      solutions, he increases both efficiency and performance
-                    </Text>
-                    <Box>
-                      <a href="https://facebook.com/">
-                        <i className="fa fa-facebook"></i>
-                      </a>
-                      <a href="https://twitter.com/">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                      <a href="https://google.com/">
-                        <i className="fa fa-google"></i>
-                      </a>
-                    </Box>
-                  </Box>
-</Box>
-              </Box>
-<Box w="20%">
-                <Box>
-                  <Box>
-                    <Box>
-                       <Image
-                      width={258}
-                      height={298}
-                      layout="fixed"
-                      
-                      src={AboutTeam_2.src}
-                      alt="Philip Demarco"
-                    />
-                    </Box>
-                    <Box>
-                      <h3>Philip Demarco</h3>
-                      <p>Business Analyst</p>
-                    </Box>
-                  </Box>
-                  <Box>
-                    <Text>
-                      By testing and launching new partners and internal tech
-                      solutions, he increases both efficiency and performance
-                    </Text>
-                    <Box>
-                      <a href="https://facebook.com/">
-                        <i className="fa fa-facebook"></i>
-                      </a>
-                      <a href="https://twitter.com/">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                      <a href="https://google.com/">
-                        <i className="fa fa-google"></i>
-                      </a>
-                    </Box>
-                  </Box>
- </Box>
-              </Box>
- <Box w="20%">
+              <Box w="20%">
                 <Box>
                   <Box>
                     <Box>
                       <Image
-                      width={258}
-                      height={298}
-                      layout="fixed"
-                      
-                      src={AboutTeam_3.src}
-                      alt="Philip Demarco"
-                    />
+                        width={258}
+                        height={298}
+                        layout="fixed"
+                        src={AboutTeam_1.src}
+                        alt="Philip Demarco"
+                      />
                     </Box>
                     <Box>
                       <h3>Philip Demarco</h3>
-                      <p>Business Analyst</p>
+                      Business Analyst
                     </Box>
                   </Box>
                   <Box>
@@ -302,9 +226,81 @@ const About = () =>{
                       </a>
                     </Box>
                   </Box>
-</Box>
+                </Box>
               </Box>
-  </Flex>
+              <Box w="20%">
+                <Box>
+                  <Box>
+                    <Box>
+                      <Image
+                        width={258}
+                        height={298}
+                        layout="fixed"
+                        src={AboutTeam_2.src}
+                        alt="Philip Demarco"
+                      />
+                    </Box>
+                    <Box>
+                      <h3>Philip Demarco</h3>
+                      Business Analyst
+                    </Box>
+                  </Box>
+                  <Box>
+                    <Text>
+                      By testing and launching new partners and internal tech
+                      solutions, he increases both efficiency and performance
+                    </Text>
+                    <Box>
+                      <a href="https://facebook.com/">
+                        <i className="fa fa-facebook"></i>
+                      </a>
+                      <a href="https://twitter.com/">
+                        <i className="fa fa-twitter"></i>
+                      </a>
+                      <a href="https://google.com/">
+                        <i className="fa fa-google"></i>
+                      </a>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+              <Box w="20%">
+                <Box>
+                  <Box>
+                    <Box>
+                      <Image
+                        width={258}
+                        height={298}
+                        layout="fixed"
+                        src={AboutTeam_3.src}
+                        alt="Philip Demarco"
+                      />
+                    </Box>
+                    <Box>
+                      <h3>Philip Demarco</h3>
+                      Business Analyst
+                    </Box>
+                  </Box>
+                  <Box>
+                    <Text>
+                      By testing and launching new partners and internal tech
+                      solutions, he increases both efficiency and performance
+                    </Text>
+                    <Box>
+                      <a href="https://facebook.com/">
+                        <i className="fa fa-facebook"></i>
+                      </a>
+                      <a href="https://twitter.com/">
+                        <i className="fa fa-twitter"></i>
+                      </a>
+                      <a href="https://google.com/">
+                        <i className="fa fa-google"></i>
+                      </a>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </Flex>
           </Container>
         </Box>
       </Box>

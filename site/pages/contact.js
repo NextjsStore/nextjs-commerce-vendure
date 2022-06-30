@@ -1,8 +1,6 @@
 import * as React from 'react'
-import FormControl from '@mui/material/FormControl'
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
-import AddLocationIcon from '@mui/icons-material/AddLocation'
-import EmailIcon from '@mui/icons-material/Email'
+import BsFillTelephoneFill from 'react-icons/bs'
+import { MdAddLocation, MdEmail } from 'react-icons/md'
 import {
   Box,
   Container,
@@ -57,7 +55,7 @@ const ContactUS = () => {
                   Contact us
                 </Heading>
                 <Box>
-                  <FormControl sx={{ width: '100%', paddingRight: '40px' }}>
+                  <from sx={{ width: '100%', paddingRight: '40px' }}>
                     <input type="text" name="name" placeholder="Name*" />
 
                     <input type="text" name="email" placeholder="Your Email*" />
@@ -66,7 +64,7 @@ const ContactUS = () => {
                       name="your-message"
                       placeholder="Message"
                     ></textarea>
-                  </FormControl>
+                  </from>
                   <Box>
                     <Button
                       variant="contained"
@@ -90,19 +88,19 @@ const ContactUS = () => {
                   Location
                 </Heading>
                 <Box sx={{ display: 'flex' }}>
-                  <LocalPhoneIcon color="primary" />
+                  <BsFillTelephoneFill color="primary" />
                   <Text component="h6" variant="h6">
                     0-800-12-345-6 880
                   </Text>
                 </Box>
                 <Box sx={{ display: 'flex' }}>
-                  <AddLocationIcon color="primary" />
+                  <MdAddLocation color="primary" />
                   <Text component="h6" variant="h6">
                     257 Charlington Gates Road Morrison, Nr. 568
                   </Text>
                 </Box>
                 <Box sx={{ display: 'flex' }}>
-                  <EmailIcon color="primary" />
+                  <MdEmail color="primary" />
                   <Text component="h6" variant="h6">
                     info@jruitstemplate.com
                   </Text>

@@ -36,15 +36,11 @@ const Footer = () => {
                 </Box>
                 <Box pb="10">
                   <MdEmail />
-                  <Link href="#">
-                    <a>contact@yourdomain.com</a>
-                  </Link>
+                  <Link href="#">contact@yourdomain.com</Link>
                 </Box>
                 <Box pb="10">
                   <GoGlobe />
-                  <Link href="#">
-                    <a>http://yourdomain.com</a>
-                  </Link>
+                  <Link href="#">http://yourdomain.com</Link>
                 </Box>
                 <Flex>
                   <HStack>
@@ -55,9 +51,7 @@ const Footer = () => {
                       border="1px solid #666"
                     >
                       <Link href="facebook.com/">
-                        <a>
-                          <FaFacebookF />
-                        </a>
+                        <FaFacebookF />
                       </Link>
                     </Circle>
                   </HStack>
@@ -70,9 +64,7 @@ const Footer = () => {
                       m="10"
                     >
                       <Link href="#">
-                        <a>
-                          <BsTwitter />
-                        </a>
+                        <BsTwitter />
                       </Link>
                     </Circle>
                   </HStack>
@@ -84,9 +76,7 @@ const Footer = () => {
                       border="1px solid #666"
                     >
                       <Link href="#">
-                        <a>
-                          <AiFillLinkedin />
-                        </a>
+                        <AiFillLinkedin />
                       </Link>
                     </Circle>
                   </HStack>
@@ -99,9 +89,7 @@ const Footer = () => {
                       m="10"
                     >
                       <Link href="#">
-                        <a>
-                          <AiOutlineGoogle />
-                        </a>
+                        <AiOutlineGoogle />
                       </Link>
                     </Circle>
                   </HStack>
@@ -115,45 +103,31 @@ const Footer = () => {
               <Box color="#666">
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="#">
-                    <a>New Product</a>
-                  </Link>
+                  <Link href="#">New Product</Link>
                 </Box>
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="#">
-                    <a>Best Seller</a>
-                  </Link>
+                  <Link href="#">Best Seller</Link>
                 </Box>
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="#">
-                    <a>Feature Product</a>
-                  </Link>
+                  <Link href="#">Feature Product</Link>
                 </Box>
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="#">
-                    <a>Deal off day</a>
-                  </Link>
+                  <Link href="#">Deal off day</Link>
                 </Box>
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="#">
-                    <a>Handcrafted, Artisan Jewelry</a>
-                  </Link>
+                  <Link href="#">Handcrafted, Artisan Jewelry</Link>
                 </Box>
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="#">
-                    <a>Jewelry Boxes & Organizers</a>
-                  </Link>
+                  <Link href="#">Jewelry Boxes & Organizers</Link>
                 </Box>
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="#">
-                    <a>Jewelry Design & Repair</a>
-                  </Link>
+                  <Link href="#">Jewelry Design & Repair</Link>
                 </Box>
               </Box>
             </Box>
@@ -164,21 +138,15 @@ const Footer = () => {
               <Box color="#666">
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="/myaccount">
-                    <a>My account</a>
-                  </Link>
+                  <Link href="/myaccount">My account</Link>
                 </Box>
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="/orders">
-                    <a>Order History</a>
-                  </Link>
+                  <Link href="/orders">Order History</Link>
                 </Box>
                 <Box pb="10">
                   <GoPrimitiveDot />
-                  <Link href="#">
-                    <a>Other</a>
-                  </Link>
+                  <Link href="#">Other</Link>
                 </Box>
               </Box>
             </Box>
@@ -187,10 +155,8 @@ const Footer = () => {
                 Working Time
               </Heading>
               <Box color="#666">
-                <p>Mon to Fri:8:30 am - 6:00 pm</p>
-                <p>Sat and Sun:10:00 am – 5:00 pm</p>
+                Mon to Fri:8:30 am - 6:00 payment Sat and Sun:10:00 am – 5:00 pm
               </Box>
-
               <Box
                 p={4}
                 w="100%"
@@ -199,7 +165,6 @@ const Footer = () => {
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
                 backgroundSize="100%"
-                centerContent
                 borderRadius="10"
               >
                 <Container centerContent color="#fff" pt="30" pb="30">

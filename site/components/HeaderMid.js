@@ -17,17 +17,14 @@ const HeaderMid = (props) => {
   const [searchError, setSearchError] = useState('')
   const [queryResultPosts, setQueryResultPosts] = useState({})
   const [showResultInfo, setShowResultInfo] = useState(false)
-
   const handleSubmit = (event, value) => {
     event.preventDefault()
     setShowResultInfo(false)
     router.push(`/searchresult?collectionSlug=${searchQuery}`)
   }
-
   const changeSearchQuery = (e) => {
     setSearchQuery(e.target.value)
   }
-
   return (
     <Center>
       <Container maxWidth="lg">
@@ -71,10 +68,13 @@ const HeaderMid = (props) => {
               </a>
             </Box>
           </Flex>
+
         </Box>
-      </Container>
-    </Center>
+        <Box w="10%" display="flex">
+          <CartIcon />
+        </Box>
+      </Flex>
+    </Container>
   )
 }
-
 export default HeaderMid

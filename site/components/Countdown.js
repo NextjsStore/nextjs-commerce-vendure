@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Box, Text, Circle, Flex, Spacer } from '@chakra-ui/react'
-import { style } from '@mui/system'
 
 const countdown = (secondsTime) => {
   const days = Math.floor(secondsTime / 86400)

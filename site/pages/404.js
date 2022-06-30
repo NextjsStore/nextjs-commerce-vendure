@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next'
 import commerce from '@lib/api/commerce'
 import { Text } from '@components/ui'
 import Layout from '@components/common/Layout/Layout'

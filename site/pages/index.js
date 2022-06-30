@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid } from '@mui/material'
+import { Container, Grid, Box } from '@chakra-ui/react'
 import SwipeableTextMobileStepper from '../components/slider'
 import Product from '@components/product'
 import ListImages from '@components/ListImages'
@@ -111,52 +111,58 @@ const Home = (props) => {
 
   const brands = [
     {
+      id: 1,
       imageUrl: '/assets/logo1.png',
     },
     {
+      id: 2,
       imageUrl: '/assets/logo2.png',
     },
     {
+      id: 3,
       imageUrl: '/assets/logo3.png',
     },
     {
+      id: 4,
       imageUrl: '/assets/logo4.png',
     },
     {
+      id: 5,
       imageUrl: '/assets/logo5.png',
     },
     {
+      id: 6,
       imageUrl: '/assets/logo6.png',
     },
     {
+      id: 7,
       imageUrl: '/assets/logo5.png',
     },
     {
+      id: 8,
       imageUrl: '/assets/logo6.png',
     },
     {
+      id: 9,
       imageUrl: '/assets/logo5.png',
     },
     {
+      id: 10,
       imageUrl: '/assets/logo6.png',
     },
     {
+      id: 11,
       imageUrl: '/assets/logo5.png',
     },
     {
-      imageUrl: '/assets/logo6.png',
-    },
-    {
-      imageUrl: '/assets/logo5.png',
-    },
-    {
+      id: 12,
       imageUrl: '/assets/logo6.png',
     },
   ]
 
   return (
     <AppProvider>
-      <div>
+      <Box>
         <SwipeableTextMobileStepper />
 
         <DealsOfDay key={productDeal.id} productsdeal={productDeal} />
@@ -164,7 +170,6 @@ const Home = (props) => {
         <Container>
           <Tab key={categories.id} collections={categories} />
           <Grid
-            container
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
             columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
           >
@@ -184,7 +189,6 @@ const Home = (props) => {
         <Container>
           <TabSeller key={categories.id} collections={categories} />
           <Grid
-            container
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
             columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
           >
@@ -202,7 +206,7 @@ const Home = (props) => {
         <ListImgSeller />
         <Logo brands={brands} />
         <NameForm />
-      </div>
+      </Box>
     </AppProvider>
   )
 }
