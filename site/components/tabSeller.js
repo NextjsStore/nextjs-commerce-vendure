@@ -24,15 +24,14 @@ const TabSeller = (props) => {
           </Button>
         </Box>
         <div>
-          {collections.length
-            ? collections.map((item) => (
-                <Box key={item}>
-                  <Button onClick={() => handleSubmit(`${item.slug}`)}>
-                    {item.name}
-                  </Button>
-                </Box>
-              ))
-            : ''}
+          {collections.length > 0 &&
+            collections.map((item) => (
+              <Box key={item}>
+                <Button onClick={() => handleSubmit(item.slug)}>
+                  {item.name}
+                </Button>
+              </Box>
+            ))}
         </div>
       </Box>
     </Box>

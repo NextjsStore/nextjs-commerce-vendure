@@ -168,11 +168,10 @@ const Home = (props) => {
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
             columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
           >
-            {products.length
-              ? products.map((product) => (
-                  <Product key={product.id} product={product} />
-                ))
-              : ''}
+            {products.length > 0 &&
+              products.map((product) => (
+                <Product key={product.id} product={product} />
+              ))}
           </Grid>
           {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
             {products.length ? (
@@ -189,11 +188,10 @@ const Home = (props) => {
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
             columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
           >
-            {productsSeller.length
-              ? productsSeller.map((product) => (
-                  <ProdutcsSeller key={product.id} product={product} />
-                ))
-              : ''}
+            {productsSeller.length > 0 &&
+              productsSeller.map((product) => (
+                <ProdutcsSeller key={product.id} product={product} />
+              ))}
           </Grid>
           {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
             {products.length ? (
