@@ -23,6 +23,7 @@ export async function getStaticProps({ preview, locale, locales, params }) {
     // Saleor provider only
     ...{ featured: true },
   })
+
   const pagesPromise = commerce.getAllPages({ config, preview })
   const siteInfoPromise = commerce.getSiteInfo({ config, preview })
   const { products } = await productsPromise
@@ -56,7 +57,34 @@ export async function getStaticProps({ preview, locale, locales, params }) {
   }
 }`,
   }
-
+  const QueryproductsDeal = {
+    operationName: 'fetchAuthor',
+    query: `query fetchAuthor{
+      products(options: {take:2}){
+      items {
+        id
+        name
+        description
+        slug
+        assets {
+          source
+        }
+        variants {
+          currencyCode
+          price
+          name
+        }
+      }
+  }
+}`,
+  }
+  const productsdof = await axios({
+    url: endpoint,
+    method: 'post',
+    headers: headers,
+    data: QueryproductsDeal,
+  })
+  const productDeal = productsdof.data.data.products.items
   const response = await axios({
     url: endpoint,
     method: 'post',
@@ -68,6 +96,7 @@ export async function getStaticProps({ preview, locale, locales, params }) {
   return {
     props: {
       products,
+      productDeal,
       productsSeller,
       categories,
       brands,
@@ -78,7 +107,8 @@ export async function getStaticProps({ preview, locale, locales, params }) {
 }
 
 const Home = (props) => {
-  const { products, productsSeller, categories } = props
+  const { products, productsSeller, categories, productDeal } = props
+
   const brands = [
     {
       id: 1,
@@ -134,18 +164,19 @@ const Home = (props) => {
     <AppProvider>
       <Box>
         <SwipeableTextMobileStepper />
-        <DealsOfDay />
+
+        <DealsOfDay key={productDeal.id} productsdeal={productDeal} />
+
         <Container>
           <Tab key={categories.id} collections={categories} />
           <Grid
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
             columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
           >
-            {products.length
-              ? products.map((product) => (
-                  <Product key={product.id} product={product} />
-                ))
-              : ''}
+            {products.length > 0 &&
+              products.map((product) => (
+                <Product key={product.id} product={product} />
+              ))}
           </Grid>
           {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
             {products.length ? (
@@ -161,11 +192,10 @@ const Home = (props) => {
             spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
             columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
           >
-            {productsSeller.length
-              ? productsSeller.map((product) => (
-                  <ProdutcsSeller key={product.id} product={product} />
-                ))
-              : ''}
+            {productsSeller.length > 0 &&
+              productsSeller.map((product) => (
+                <ProdutcsSeller key={product.id} product={product} />
+              ))}
           </Grid>
           {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
             {products.length ? (

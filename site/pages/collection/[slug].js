@@ -68,19 +68,18 @@ const CollectionShop = (props) => {
               </Text>
             </Box>
             <div>
-              {categories.length
-                ? categories.map((item) => (
-                    <Box key={item}>
-                      <Box disablePadding>
-                        <Box>
-                          <Button onClick={() => handleSubmit(`${item.slug}`)}>
-                            {item.name}
-                          </Button>
-                        </Box>
+              {categories.length > 0 &&
+                categories.map((item) => (
+                  <Box key={item}>
+                    <Box disablePadding>
+                      <Box>
+                        <Button onClick={() => handleSubmit(`${item.slug}`)}>
+                          {item.name}
+                        </Button>
                       </Box>
                     </Box>
-                  ))
-                : ''}
+                  </Box>
+                ))}
             </div>
           </Grid>
 
@@ -89,11 +88,10 @@ const CollectionShop = (props) => {
               spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
               columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
             >
-              {collections.length
-                ? collections.map((product) => (
-                    <Collection key={product.id} product={product} />
-                  ))
-                : ''}
+              {collections.length > 0 &&
+                collections.map((product) => (
+                  <Collection key={product.id} product={product} />
+                ))}
             </Grid>
           </Grid>
         </Box>
