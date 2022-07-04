@@ -45,7 +45,7 @@ const Tab = (props) => {
           <Flex>
             <Box>
               <Button
-                onClick={() => handleSubmit(`SmartPhone`)}
+                onClick={() => handleSubmit('')}
                 border="1px solid #ccc"
                 bg="#fff"
                 p="10px 20px"
@@ -58,8 +58,8 @@ const Tab = (props) => {
               </Button>
             </Box>
             <Box display="flex">
-              {collections.length
-                ? collections.map((item) => (
+              {collections.length > 0 &&
+                 collections.map((item) => (
                     <Box key={item}>
                       <a>
                         <Button
@@ -76,8 +76,7 @@ const Tab = (props) => {
                         </Button>
                       </a>
                     </Box>
-                  ))
-                : ''}
+                  ))}
             </Box>
           </Flex>
         </Center>

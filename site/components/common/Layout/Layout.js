@@ -7,10 +7,14 @@ import Copyright from '../../Copyright'
 import { Container } from '@components/ui'
 
 const Layout = ({ children }) => {
+  // console.log('children', children)
   return (
     <>
       <SideBarTop />
-      <HeaderMid />
+      <HeaderMid
+        key={children.props.categories}
+        categories={children.props.categories}
+      />
       <HeaderCenter />
       {children}
       <Footer />

@@ -8,15 +8,13 @@ import {
   Box,
   Text,
   Button,
+  Image,
 } from '@chakra-ui/react'
-
 import CountDown from './Countdown'
-import Image_1 from '../assets/deals_of_day_1.jpg'
-import Image_2 from '../assets/deals_of_day_2.jpg'
 import Link from 'next/link'
-import Image from 'next/image'
 
-const DealsOfDay = () => {
+const DealsOfDay = (props) => {
+  const { productsdeal } = props
   return (
     <Container pt="10" maxW="1200px" pb="10">
       <Box>
@@ -51,9 +49,11 @@ const DealsOfDay = () => {
         </Center>
       </Box>
       <Center>
-        <Flex>
+        {productsdeal.length > 1 &&
+           productsdeal.map((item) => (
+        <Flex key={item}>
           <Box>
-            <Image width={266} height={270} layout="fixed" src={Image_1.src} />
+            <Image width={266} height={270} layout="fixed" src={Image_1.src} alt=""/>
             <Box position="absolute" mt="-250" ml="10">
               <Circle size="40px" bg="brand.primary" color="#fff">
                 -22%
@@ -61,8 +61,8 @@ const DealsOfDay = () => {
             </Box>
           </Box>
           <Box ml="6">
-            <Link href="/product/softcover-trade-book">
-              <Text fontSize="2xl">Softcover Trade Book</Text>
+            <Link href={`/product/${item.slug}`}>
+              <Text fontSize="2xl">{item.name}</Text>
             </Link>
             <Box fontSize="20" fontWeight="bold" display="flex">
               <Text
@@ -70,66 +70,16 @@ const DealsOfDay = () => {
                 m="0px 20px 0px 0px"
                 textDecoration="line-through"
               >
-                $5700
-              </Text>
-              <Text m="0" color="brand.primary">
-                $2600
+                ${item.variants[0].price / 100}
               </Text>
             </Box>
-            <Text color="#666" m="18px 8px 27px 0px">
-              Black finish thin profile metal pole and base. White polyresin
-              torchiere shade.
-            </Text>
+            <Box color="#666" m="18px 8px 27px 0px" 
+              dangerouslySetInnerHTML={{
+                      __html: item.description,
+                    }} />
             <CountDown />
             <Box>
-              <Link href="/product/softcover-trade-book">
-                <Button
-                  fontSize="14px"
-                  fontWeight="600"
-                  bg="#fff"
-                  border="2px solid #40c6ff"
-                  borderRadius="50px"
-                  mt="6"
-                  color="brand.primary"
-                >
-                  SHOP NOW
-                </Button>
-              </Link>
-            </Box>
-          </Box>
-          <Box>
-            <Image width={266} height={270} layout="fixed" src={Image_2.src} />
-            <Box position="absolute" mt="-250" ml="10">
-              <Circle size="40px" bg="brand.primary" color="#fff">
-                -39%
-              </Circle>
-            </Box>
-          </Box>
-          <Box ml="6">
-            <Link href="/product/agency-books">
-              <Text fontSize="2xl" noOfLines={1} color="#323232">
-                Agency Books
-              </Text>
-            </Link>
-            <Box fontSize="20" fontWeight="bold" display="flex">
-              <Text
-                color="#999"
-                m="0px 20px 0px 0px"
-                textDecoration="line-through"
-              >
-                $10000
-              </Text>
-              <Text color="brand.primary" m=" 0">
-                $7800
-              </Text>
-            </Box>
-            <Text color="#666" m="18px 8px 27px 0px">
-              Caramel Ice Cream with a Swirl of Caramel & Fudge Covered Caramel
-              Chunks. Caramel lovers wont want to...
-            </Text>
-            <CountDown />
-            <Box>
-              <Link href="/product/agency-books">
+              <Link  href={`/product/${item.slug}`}>
                 <Button
                   fontSize="14px"
                   fontWeight="600"
@@ -145,6 +95,7 @@ const DealsOfDay = () => {
             </Box>
           </Box>
         </Flex>
+         ))}
       </Center>
     </Container>
   )

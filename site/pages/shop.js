@@ -63,8 +63,8 @@ const Shop = (props) => {
             >
               Product Category
             </Heading>
-            {categories.length
-              ? categories.map((item) => (
+            {categories.length > 0 &&
+                categories.map((item) => (
                   <Box key={item}>
                     <Box disablePadding>
                       <Box>
@@ -79,17 +79,15 @@ const Shop = (props) => {
                     </Box>
                     <Divider />
                   </Box>
-                ))
-              : ''}
+                ))}
           </Box>
           <Box item lg={8} w="80%" pl="20">
             <Box>
               <SimpleGrid columns={3}>
-                {products.length
-                  ? products.map((product) => (
+                {products.length > 0 &&
+                 products.map((product) => (
                       <Product key={product.id} product={product} />
-                    ))
-                  : ''}
+                    ))}
               </SimpleGrid>
             </Box>
           </Box>

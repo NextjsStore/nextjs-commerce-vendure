@@ -10,10 +10,12 @@ import {
   Text,
   Spacer,
   SimpleGrid,
+  Button,
 } from '@chakra-ui/react'
 
 const CollectionShop = (props) => {
-  const { collections } = props
+  const { collections, categories } = props
+  console.log('categories', categories)
 
   const router = useRouter()
   const handleSubmit = (slug) => {
@@ -73,25 +75,17 @@ const CollectionShop = (props) => {
                 Product Category
               </Heading>
             </Box>
-            <Box>
-              <Box disablePadding>
-                <Box>
-                  <Box onClick={() => handleSubmit(`custom-prints`)}>
-                    Custom Prints
-                  </Box>
-                </Box>
-              </Box>
-              <Box disablePadding>
-                <Box>
-                  <Box onClick={() => handleSubmit(`free-file-check`)}>
-                    Free file check
-                  </Box>
-                </Box>
-              </Box>
-              <Box disablePadding>
-                <Box>
-                  <Box onClick={() => handleSubmit(`graphic-design`)}>
-                    Graphic Design
+            <div>
+              {categories.length > 0 &&
+                categories.map((item) => (
+                  <Box key={item}>
+                    <Box disablePadding>
+                      <Box>
+                        <Button onClick={() => handleSubmit(`${item.slug}`)}>
+                          {item.name}
+                        </Button>
+                      </Box>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
@@ -104,11 +98,10 @@ const CollectionShop = (props) => {
           </Box>
           <Box item lg={8} w="80%" pl="20">
             <SimpleGrid columns={3}>
-              {collections.length
-                ? collections.map((product) => (
+              {collections.length > 0 &&
+                collections.map((product) => (
                     <Collection key={product.id} product={product} />
-                  ))
-                : ''}
+                  ))}
             </SimpleGrid>
           </Box>
         </Flex>
@@ -118,7 +111,11 @@ const CollectionShop = (props) => {
 }
 export default CollectionShop
 
-export async function getStaticProps({ params, locale, locales }) {
+export async function getStaticProps({ params, locale, locales, preview }) {
+  const config = { locale, locales }
+  const siteInfoPromise = commerce.getSiteInfo({ config, preview })
+
+  const { categories } = await siteInfoPromise
   /*********AXIOS GRAPHQL */
   const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
   const headers = {
@@ -169,6 +166,7 @@ export async function getStaticProps({ params, locale, locales }) {
   return {
     props: {
       collections,
+      categories,
     },
     revalidate: 200,
   }

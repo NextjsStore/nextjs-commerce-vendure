@@ -57,8 +57,8 @@ const TabSeller = (props) => {
               </Button>
             </Box>
             <Box display="flex">
-              {collections.length
-                ? collections.map((item) => (
+              {collections.length > 0 &&
+                 collections.map((item) => (
                     <Box key={item}>
                       <Button
                         onClick={() => handleSubmit(`${item.slug}`)}
@@ -73,8 +73,7 @@ const TabSeller = (props) => {
                         {item.name}
                       </Button>
                     </Box>
-                  ))
-                : ''}
+                  ))}
             </Box>
           </Flex>
         </Center>

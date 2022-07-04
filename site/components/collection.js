@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Component, useState } from 'react'
 import Link from 'next/link'
+import { Rating } from './ui'
 import { Box, Image } from '@chakra-ui/react'
+
 
 const Collection = (props) => {
   const { product } = props
@@ -12,12 +14,15 @@ const Collection = (props) => {
             <Image src={product.product.assets[0].source} alt="" w="100%" />
           </a>
         </Link>
-        <Box item lg={8} w="80%" pl="5">
+        <Box item w="80%" pl="5">
           <h3>
             <Link href={`/product/${product.product?.slug}`}>
               <a>{product.product.name}</a>
             </Link>
           </h3>
+           <Box>
+              <Rating name="read-only" value="0" readOnly />
+           </Box>
           <h4>${product.product.variants[0].price / 100}</h4>
           <Box></Box>
         </Box>
