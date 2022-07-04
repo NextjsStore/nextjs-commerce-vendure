@@ -1,12 +1,19 @@
 import React from 'react'
-import { AppProvider } from '@lib/context/AppContext'
 import { BiSearch } from 'react-icons/bi'
 import LogoeBay from '../assets/ebaylogo.png'
 import Link from 'next/link'
 import CartIcon from './cart/CartIcon'
-import PropTypes from 'prop-types'
 import { useState } from 'react'
-import { Container, Box, Center, Flex, Spacer, Image } from '@chakra-ui/react'
+import {
+  Container,
+  Box,
+  Select,
+  Flex,
+  FormControl,
+  Image,
+  Input,
+  Button,
+} from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
 export const PER_PAGE_FIRST = 9
@@ -34,19 +41,31 @@ const HeaderMid = () => {
 
   return (
     <Box borderBottom="1px solid #eee">
-      <Container w="1200px" m="15px auto">
-        <Flex w="100%" display="flex">
-          <Box w="30%" display="flex">
+      <Container maxW="1200px" p="20px 0">
+        <Flex>
+          <Box w="30%">
             <Link href="/">
               <Image src={LogoeBay.src} />
             </Link>
           </Box>
-          <Box w="60%" display="flex">
-            <form id="searchform" onSubmit={handleSubmit} style={styles.from}>
-              <select
+          <Box w="60%">
+            <FormControl
+              id="searchform"
+              onSubmit={handleSubmit}
+              width="100%"
+              display="flex"
+              position="relative"
+            >
+              <Select
                 onChange={(e) => changeSearchQuery(e)}
                 name=""
-                style={styles.select}
+                float="left"
+                h="36px"
+                fontSize="15px"
+                w="45%"
+                borderRadius="50px 0px 0px 50px"
+                border="1px solid #d1d3d4"
+                borderRight="none"
               >
                 <option value="">Shop by collection</option>
                 <option value="">Uncategorized</option>
@@ -54,22 +73,41 @@ const HeaderMid = () => {
                 <option value="free-file-check">---Free file check---</option>
                 <option value="graphic-design">--- GraphicDesign---</option>
                 <option value="mailing">---Mailing---</option>
-              </select>
-              <input
+              </Select>
+              <Input
                 type="text"
                 placeholder="What are you looking for..."
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event?.target?.value)}
-                style={styles.input}
+                outline="none"
+                color="#666"
+                w="100%"
+                border="1px solid #d1d3d4"
+                height="36px"
+                padding=" 0px 95px 0px 15px"
+                fontSize="15px"
+                fontFamily=" Mulish,sans-serif"
+                fontWeight=" 400"
+                borderRadius=" 0px 50px 50px 0px"
               />
-              <button
+              <Button
                 type="submit"
                 onClick={handleSubmit}
-                style={styles.button}
+                top=" 0px"
+                right="10px"
+                w=" 60px"
+                h="36px"
+                p="0"
+                zIndex="10"
+                overflow="hidden"
+                position="absolute"
+                borderLeft=" 1px solid #d1d3d4"
+                backgroundColor="transparent"
+                borderRadius=" 0px 50px 50px 0px"
               >
                 <BiSearch />
-              </button>
-            </form>
+              </Button>
+            </FormControl>
           </Box>
           <Box
             w="10%"
@@ -87,47 +125,3 @@ const HeaderMid = () => {
 }
 
 export default HeaderMid
-
-const styles = {
-  select: {
-    color: '#666',
-    float: 'left',
-    width: '25%',
-    height: '36px',
-    fontSize: '15px',
-    width: '187px',
-    paddingLeft: '15px',
-    borderRadius: '50px 0px 0px 50px',
-    border: '1px solid #d1d3d4',
-    borderRight: 'none',
-  },
-  input: {
-    color: '#666',
-    width: '100%',
-    border: '1px solid #d1d3d4',
-    height: '36px',
-    padding: ' 0px 95px 0px 15px',
-    fontSize: '15px',
-    fontFamily: ' Mulish,sans-serif',
-    fontWeight: ' 400',
-    borderRadius: ' 0px 50px 50px 0px',
-  },
-  from: {
-    width: ' 100%',
-    display: 'flex',
-    position: 'relative',
-  },
-  button: {
-    top: ' 0px',
-    right: '10px',
-    width: ' 60px',
-    border: 'none',
-    height: '36px',
-    padding: '0',
-    zIndex: '10',
-    overflow: 'hidden',
-    position: 'absolute',
-    borderLeft: ' 1px solid #d1d3d4',
-    backgroundColor: 'transparent',
-  },
-}

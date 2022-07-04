@@ -135,38 +135,34 @@ const Home = (props) => {
       <Box>
         <SwipeableTextMobileStepper />
         <DealsOfDay />
-        <Container>
-          <Tab key={categories.id} collections={categories} />
-          <SimpleGrid columns={4} w="1200px" m="12px auto">
-            {products.length
-              ? products.map((product) => (
-                  <Product key={product.id} product={product} />
-                ))
-              : ''}
-          </SimpleGrid>
-          {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
+        <Tab key={categories.id} collections={categories} />
+        <SimpleGrid columns={4} w="1200px" m="12px auto">
+          {products.length
+            ? products.map((product) => (
+                <Product key={product.id} product={product} />
+              ))
+            : ''}
+        </SimpleGrid>
+        {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
             {products.length ? (
               products.map(product => <Product key={product.id} product={product} />)
             ) : ''}
           </Grid> */}
-        </Container>
 
         <ListImages />
-        <Container>
-          <TabSeller key={categories.id} collections={categories} />
-          <SimpleGrid columns={4} w="1200px" m="12px auto">
-            {productsSeller.length
-              ? productsSeller.map((product) => (
-                  <ProdutcsSeller key={product.id} product={product} />
-                ))
-              : ''}
-          </SimpleGrid>
-          {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
+        <TabSeller key={categories.id} collections={categories} />
+        <SimpleGrid columns={4} w="1200px" m="12px auto">
+          {productsSeller.length
+            ? productsSeller.map((product) => (
+                <ProdutcsSeller key={product.id} product={product} />
+              ))
+            : ''}
+        </SimpleGrid>
+        {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
             {products.length ? (
               products.map(product => <Product key={product.id} product={product} />)
             ) : ''}
           </Grid> */}
-        </Container>
         <ListImgSeller />
         <Logo brands={brands} />
         <NameForm />

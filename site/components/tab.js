@@ -1,13 +1,6 @@
 import * as React from 'react'
 import { useRouter } from 'next/router'
-import {
-  Box,
-  Button,
-  Heading,
-  Center,
-  Flex,
-  extendTheme,
-} from '@chakra-ui/react'
+import { Box, Button, Heading, Center, Flex } from '@chakra-ui/react'
 
 const Tab = (props) => {
   const { collections } = props
@@ -18,10 +11,33 @@ const Tab = (props) => {
     router.push(`?slug=${value}`)
   }
   return (
-    <Box pt="40">
+    <Box pt="6">
       <Center>
-        <Heading>
-          <span style={styles.span}>NEW PRODUCT</span>
+        <Heading
+          as="h3"
+          size="lg"
+          color="brand.title"
+          fontFamily="Merriweather"
+          _before={{
+            w: '15px',
+            h: '1px',
+            ml: '-6',
+            mt: '5',
+            content: `""`,
+            position: 'absolute',
+            backgroundColor: '#40c6ff',
+          }}
+          _after={{
+            mt: '5',
+            ml: '2',
+            w: '15px',
+            h: '1px',
+            content: `""`,
+            position: 'absolute',
+            backgroundColor: '#40c6ff',
+          }}
+        >
+          NEW PRODUCT
         </Heading>
       </Center>
       <Box w="1200px" m="12px auto">
@@ -30,7 +46,13 @@ const Tab = (props) => {
             <Box>
               <Button
                 onClick={() => handleSubmit(`SmartPhone`)}
-                style={styles.button}
+                border="1px solid #ccc"
+                bg="#fff"
+                p="10px 20px"
+                mr="5"
+                color="#666"
+                _hover={{ bg: 'brand.primary', color: ' white' }}
+                borderRadius="50px"
               >
                 All Product
               </Button>
@@ -42,7 +64,13 @@ const Tab = (props) => {
                       <a>
                         <Button
                           onClick={() => handleSubmit(`${item.slug}`)}
-                          style={styles.button}
+                          border="1px solid #ccc"
+                          bg="#fff"
+                          p="10px 20px"
+                          mr="5"
+                          color="#666"
+                          _hover={{ bg: 'brand.primary', color: ' white' }}
+                          borderRadius="50px"
                         >
                           {item.name}
                         </Button>
@@ -58,20 +86,3 @@ const Tab = (props) => {
   )
 }
 export default Tab
-
-const styles = {
-  button: {
-    border: '1px solid #ccc',
-    background: '#fff',
-    padding: '10px 20px',
-    borderRadius: '50px',
-    marginRight: '20px',
-    fontSize: '16px',
-    color: '#666',
-  },
-  span: {
-    '*, *::before, &::after': {
-      backgroundColor: '#fff',
-    },
-  },
-}

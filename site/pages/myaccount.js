@@ -3,7 +3,6 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useRouter } from 'next/router'
 import {
-  Center,
   Button,
   Container,
   Box,
@@ -74,53 +73,43 @@ const MyAccount = () => {
 
   return (
     <Box>
-      <Box h="240px">
-        <Box>
-          <Box
-            color="#fff"
-            backgroundImage="/assets/banner_page.png"
-            h="200px"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            mb="60px"
-          >
-            <Flex w="1200px" m="0px auto">
-              <Box lineHeight="3">
-                <Heading fontSize="40" variant="h1">
+      <Box>
+        <Box color="#fff" backgroundImage="/assets/banner_page.png" h="200px">
+          <Flex w="1200px" m="0px auto">
+            <Box>
+              <Heading fontSize="40" variant="h1" lineHeight="200px">
+                My account
+              </Heading>
+            </Box>
+            <Spacer />
+            <Box lineHeight="200px">
+              <Flex>
+                <Text component="h6" variant="h6">
+                  Home
+                </Text>
+                <Text p="0px 10px"> / </Text>
+                <Text component="h6" variant="h6">
                   My account
-                </Heading>
-              </Box>
-              <Spacer />
-              <Box lineHeight="10">
-                <Flex>
-                  <Text component="h6" variant="h6">
-                    Home
-                  </Text>
-                  <Text p="0px 10px"> / </Text>
-                  <Text component="h6" variant="h6">
-                    My account
-                  </Text>
-                </Flex>
-              </Box>
-            </Flex>
-          </Box>
+                </Text>
+              </Flex>
+            </Box>
+          </Flex>
         </Box>
       </Box>
-      <Container w="1200px" m="0px auto" border="1px solid #ccc">
+      <Box w="1200px" m="60px auto" border="1px solid #ccc">
         <Flex m="20">
           <Box w="50%">
             <Heading
-              fontSize="36"
-              fontStyle="normal"
-              textAlign="left"
               fontFamily="Merriweather"
-              fontWeight="700"
-              marginBottom="30px"
+              as="h2"
+              size="xl"
+              color="brand.title"
+              pb="4"
             >
               Login
             </Heading>
             <form onSubmit={formik.handleSubmit}>
-              <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
+              <Text mt="4" mb="4">
                 Username or email address *
               </Text>
               <Input
@@ -133,9 +122,10 @@ const MyAccount = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
-                style={styles.input}
+                w="90%"
+                border="1px solid #ccc"
               />
-              <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
+              <Text mt="4" mb="4">
                 Password *
               </Text>
               <Input
@@ -151,20 +141,17 @@ const MyAccount = () => {
                   formik.touched.password && Boolean(formik.errors.password)
                 }
                 helperText={formik.touched.password && formik.errors.password}
-                style={styles.input}
+                w="90%"
+                border="1px solid #ccc"
               />
               <Box>
                 <Button
-                  bg="#1565c0"
+                  bg="brand.blue"
                   type="submit"
                   color="#fff"
-                  border="none"
-                  sx={{
-                    marginTop: '20px',
-                    borderRadius: '25px',
-                    width: '100px',
-                    padding: '10px 0',
-                  }}
+                  mt="5"
+                  borderRadius="25px"
+                  w="100px"
                 >
                   Login
                 </Button>
@@ -181,84 +168,68 @@ const MyAccount = () => {
           </Box>
           <Spacer />
           <Box w="50%">
-            <Box>
-              <Heading
-                fontSize="36"
-                fontStyle="normal"
-                textAlign="left"
-                fontFamily="Merriweather"
-                fontWeight="700"
-                marginBottom="30px"
+            <Heading
+              fontFamily="Merriweather"
+              as="h2"
+              size="xl"
+              color="brand.title"
+              pb="4"
+            >
+              Register
+            </Heading>
+            <form onSubmit={formik2.handleSubmit}>
+              <Text mt="4" mb="4">
+                Username or email address *
+              </Text>
+              <Input
+                variant="outlined"
+                fullWidth
+                id="email"
+                name="email"
+                label="Email"
+                value={formik2.values.email}
+                onChange={formik2.handleChange}
+                error={formik2.touched.email && Boolean(formik2.errors.email)}
+                helperText={formik2.touched.email && formik2.errors.email}
+                w="90%"
+                border="1px solid #ccc"
+              />
+              <Text mt="4" mb="4">
+                Password *
+              </Text>
+              <Input
+                variant="outlined"
+                fullWidth
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+                value={formik2.values.password}
+                onChange={formik2.handleChange}
+                error={
+                  formik2.touched.password && Boolean(formik2.errors.password)
+                }
+                helperText={formik2.touched.password && formik2.errors.password}
+                w="90%"
+                p="18.5px 14px"
+                border="1px solid #ccc"
+              />
+              <Button
+                bg="brand.blue"
+                type="submit"
+                color="#fff"
+                mt="5"
+                borderRadius="25px"
+                w="100px"
+                p="10px 0"
               >
                 Register
-              </Heading>
-              <form onSubmit={formik2.handleSubmit}>
-                <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                  Username or email address *
-                </Text>
-                <Input
-                  variant="outlined"
-                  fullWidth
-                  id="email"
-                  name="email"
-                  label="Email"
-                  value={formik2.values.email}
-                  onChange={formik2.handleChange}
-                  error={formik2.touched.email && Boolean(formik2.errors.email)}
-                  helperText={formik2.touched.email && formik2.errors.email}
-                  style={styles.input}
-                />
-                <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                  Password *
-                </Text>
-                <Input
-                  variant="outlined"
-                  fullWidth
-                  id="password"
-                  name="password"
-                  label="Password"
-                  type="password"
-                  value={formik2.values.password}
-                  onChange={formik2.handleChange}
-                  error={
-                    formik2.touched.password && Boolean(formik2.errors.password)
-                  }
-                  helperText={
-                    formik2.touched.password && formik2.errors.password
-                  }
-                  style={styles.input}
-                />
-                <Box>
-                  <Button
-                    bg="#1565c0"
-                    type="submit"
-                    color="#fff"
-                    border="none"
-                    sx={{
-                      marginTop: '20px',
-                      borderRadius: '25px',
-                      width: '100px',
-                      padding: '10px 0',
-                    }}
-                  >
-                    Register
-                  </Button>
-                </Box>
-              </form>
-            </Box>
+              </Button>
+            </form>
           </Box>
         </Flex>
-      </Container>
+      </Box>
     </Box>
   )
 }
 export default MyAccount
-
-const styles = {
-  input: {
-    width: '90%',
-    padding: '18.5px 14px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-  },
-}

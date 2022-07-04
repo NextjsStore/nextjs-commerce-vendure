@@ -1,12 +1,12 @@
 import React from 'react'
-import { Container, Box, Center, Flex, Spacer } from '@chakra-ui/react'
+import { Container, Box, Center, Flex, Spacer, Image } from '@chakra-ui/react'
 // import images
 import paymentImages from '../assets/payment.png'
 
 const Copyright = () => {
   return (
     <Box borderTop="1px solid #ccc">
-      <Container w="1200px" m="12px auto" color="#666">
+      <Container maxW="1200px" m="12px auto" color="#666">
         <Flex sx={{ flexGrow: 1 }}>
           <Box item xs={12} sm={6} md={6}>
             Estore - Designed LogoeBay
@@ -16,7 +16,7 @@ const Copyright = () => {
           <Spacer />
           <Box item xs={12} sm={6} md={6}>
             <Box>
-              <img src={paymentImages.src} />
+              <Image src={paymentImages.src} />
             </Box>
           </Box>
         </Flex>

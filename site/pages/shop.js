@@ -9,78 +9,9 @@ import {
   Heading,
   Spacer,
   Text,
-  Grid,
   Divider,
-  Button,
   SimpleGrid,
 } from '@chakra-ui/react'
-
-// const colorHover = '#40c6ff'
-// const styles = {
-//   productCategoryText: {
-//     marginRight: '25px',
-//   },
-//   textCartegory: {
-//     padding: '10px 0px',
-//     borderBottom: '1px solid #ccc',
-//     color: '#676c77',
-//     transition: '0.21s',
-//     '& div.MuiTreeItem-content': {
-//       padding: '0px!important',
-//       '&:hover': {
-//         background: '#fff',
-//       },
-//       '&:focus': {
-//         background: '#fff',
-//       },
-//       '& svg': {
-//         color: '#676c77',
-//       },
-//     },
-//     '&:hover': {
-//       color: '#000',
-//     },
-//   },
-//   titleCartegory: {
-//     marginBottom: '10px',
-//     marginTop: '10px',
-//   },
-//   titleSideBarCategory: {
-//     position: 'relative',
-//     borderBottom: ' 1px solid #ccc',
-//     paddingBottom: '15px',
-//     marginBottom: '20px',
-//     fontFamily: 'Merriweather,sans-serif',
-//     fontWeight: 'bold',
-//     fontSize: '24px',
-//     '&:before': {
-//       position: 'absolute',
-//       content: '""',
-//       width: '60px',
-//       height: '1px',
-//       bottom: '-1px',
-//       backgroundColor: `${colorHover}`,
-//     },
-//   },
-//   categoryText: {
-//     paddingLeft: '0px',
-//     '&:hover': {
-//       backgroundColor: '#fff !important',
-//     },
-//   },
-//   textTile: {
-//     color: 'white',
-//     fontFamily: 'Merriweather',
-//     fontSize: '50px',
-//     fontWeight: 700,
-//   },
-//   titleText: {
-//     color: 'white',
-//     fontFamily: 'Muli',
-//     fontWeight: 400,
-//     fontSize: '14px',
-//   },
-// }
 
 const Shop = (props) => {
   const { products, categories } = props
@@ -92,46 +23,43 @@ const Shop = (props) => {
 
   return (
     <Box>
-      <Box h="240px">
-        <Box>
-          <Box
-            color="#fff"
-            backgroundImage="/assets/banner_page.png"
-            h="200px"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            mb="60px"
-          >
-            <Flex w="1200px" m="0px auto">
-              <Box lineHeight="3">
-                <Heading fontSize="40" variant="h1">
-                  Shop
-                </Heading>
-              </Box>
-              <Spacer />
-              <Box lineHeight="10">
-                <Flex>
-                  <Text component="h6" variant="h6">
-                    Home
-                  </Text>
-                  <Text p="0px 10px"> / </Text>
-                  <Text component="h6" variant="h6">
-                    My account
-                  </Text>
-                </Flex>
-              </Box>
-            </Flex>
-          </Box>
+      <Box>
+        <Box
+          color="#fff"
+          backgroundImage="/assets/banner_page.png"
+          h="200px"
+          mb="6"
+        >
+          <Flex w="1200px" m="0px auto">
+            <Box>
+              <Heading fontSize="40" variant="h1" lineHeight="200px">
+                About
+              </Heading>
+            </Box>
+            <Spacer />
+            <Box lineHeight="200px">
+              <Flex>
+                <Text component="h6" variant="h6">
+                  Home
+                </Text>
+                <Text p="0px 10px"> / </Text>
+                <Text component="h6" variant="h6">
+                  About
+                </Text>
+              </Flex>
+            </Box>
+          </Flex>
         </Box>
       </Box>
-      <Container w="1200px" m="12px auto">
+      <Container maxW="1200px" m="12px auto">
         <Flex>
           <Box w="20%">
             <Heading
-              component="h4"
-              variant="h4"
+              as="h3"
+              size="lg"
+              color="brand.title"
               borderBottom="1px solid #ccc"
-              pb="20"
+              pb="2"
             >
               Product Category
             </Heading>
@@ -143,7 +71,7 @@ const Shop = (props) => {
                         <Text
                           onClick={() => handleSubmit(`${item.slug}`)}
                           borderBottom="1px solid #ccc"
-                          pb="10"
+                          p={[2, 3]}
                         >
                           {item.name}
                         </Text>

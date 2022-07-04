@@ -45,65 +45,58 @@ const CountDown = () => {
   return (
     <Box style={{ display: 'flex', alignItems: 'center' }}>
       <Circle
-        style={styles.circle}
+        flexDirection="column"
+        mr="15"
         size="50px"
-        bg="#fff"
-        color="#666"
         border="1px solid #666"
       >
-        <Text style={styles.value}>{days}</Text>
-        <Text style={styles.label}> days</Text>
+        <Text m="0" fontSize="20" fontWeight="bold" color="#666">
+          {days}
+        </Text>
+        <Text m="0" fontSize="12" color="#444" fontWeight="bold">
+          days
+        </Text>
       </Circle>
       <Circle
-        style={styles.circle}
+        flexDirection="column"
+        mr="15"
         size="50px"
-        bg="#fff"
-        color="#666"
         border="1px solid #666"
       >
-        <Text style={styles.value}>{hours}</Text>
-        <Text style={styles.label}>hours</Text>
+        <Text m="0" fontSize="20" fontWeight="bold" color="#666">
+          {hours}
+        </Text>
+        <Text m="0" fontSize="12" color="#444" fontWeight="bold">
+          hours
+        </Text>
       </Circle>
       <Circle
-        style={styles.circle}
+        flexDirection="column"
+        mr="15"
         size="50px"
-        bg="#fff"
-        color="#666"
         border="1px solid #666"
       >
-        <Text style={styles.value}>{minutes}</Text>
-        <Text style={styles.label}>mins</Text>
+        <Text m="0" fontSize="20" fontWeight="bold" color="#666">
+          {minutes}
+        </Text>
+        <Text m="0" fontSize="12" color="#444" fontWeight="bold">
+          mins
+        </Text>
       </Circle>
       <Circle
-        style={styles.circle}
+        flexDirection="column"
+        mr="15"
         size="50px"
-        bg="#fff"
-        color="#666"
         border="1px solid #666"
       >
-        <Text style={styles.value}>{seconds}</Text>
-        <Text style={styles.label}>secs</Text>
+        <Text m="0" fontSize="20" fontWeight="bold" color="#666">
+          {seconds}
+        </Text>
+        <Text m="0" fontSize="12" color="#444" fontWeight="bold">
+          secs
+        </Text>
       </Circle>
     </Box>
   )
 }
 export default CountDown
-const styles = {
-  circle: {
-    width: 51,
-    height: 51,
-    backgroundColor: '#eee',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    marginRight: 15,
-  },
-  value: { margin: 0, fontSize: 20, fontWeight: 'bold', color: '#666' },
-  label: {
-    margin: 0,
-    fontSize: 12,
-    color: '#444',
-    fontWeight: 'bold',
-  },
-}

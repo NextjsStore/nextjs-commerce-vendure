@@ -2,20 +2,6 @@ import { isEmpty, isArray } from 'lodash'
 import { useState, useRef } from 'react'
 import { Box } from '@chakra-ui/react'
 
-const colorHover = '#40c6ff'
-const styles = {
-  category_meta: {
-    marginBottom: '15px',
-  },
-  category_meta_title: {
-    minWidth: '0px',
-    display: 'inline-block',
-  },
-  category_meta_name: {
-    color: '#676c77',
-  },
-}
-
 const CategoriesCarousel = ({ gallery }) => {
   const activeIndexRef = useRef({ activeIndex: 0 })
   const slideRef = useRef(0)
@@ -43,17 +29,18 @@ const CategoriesCarousel = ({ gallery }) => {
   }
 
   return (
-    <Box styles={styles.category_meta}>
+    <Box mb="15px">
       <Box>
-        <span className={styles.category_meta_title}>Categories:</span>
+        <span minWidth="0px" display="inline-block">
+          Categories:
+        </span>
         {gallery.map((item, index) => {
           const opacity =
             activeIndex === index || 1 === gallery.length
               ? 'opacity-10'
               : 'opacity-0'
           return (
-            <span className={styles.category_meta_name} key={item}>
-              {' '}
+            <span color="#676c77" key={item}>
               {item.name}.
             </span>
           )

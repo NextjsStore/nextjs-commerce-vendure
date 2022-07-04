@@ -1,5 +1,12 @@
 import * as React from 'react'
-import { Box, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
+import {
+  Box,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Flex,
+} from '@chakra-ui/react'
 
 // icon import
 import { AiFillHome, AiFillPushpin } from 'react-icons/ai'
@@ -46,7 +53,12 @@ const MenuListComposition = () => {
   return (
     <Menu>
       <MenuButton
-        style={styles.buttonCategory}
+        fontSize="16px"
+        fontWeight="bold"
+        textTransform="uppercase"
+        height="45px"
+        border="0px"
+        width="270px"
         ref={anchorRef}
         id="composition-button"
         aria-controls={open ? 'composition-menu' : undefined}
@@ -56,42 +68,69 @@ const MenuListComposition = () => {
         bg="#fff"
         _hover={{ bg: '#40c6ff', color: ' #fff' }}
       >
-        <Box>
-          <FaListUl style={styles.list} />
-          ALL CATEGORY
+        <Box display="flex" align-items="center">
+          <Box>
+            <FaListUl fontSize="18px" />
+          </Box>
+          <Box pl="3"> ALL CATEGORY</Box>
         </Box>
       </MenuButton>
-      <MenuList zIndex={15} style={styles.listCategoryHome}>
+      <MenuList zIndex={15} w="270px">
         <MenuItem
-          style={styles.MenuItem}
+          fontSize="14px"
+          textTransform="capitalize"
+          lineHeight=" 45px"
+          h="45px"
+          border="none"
+          pl="4"
           icon={<AiFillHome />}
           _hover={{ bg: 'rgba(64,198,255,1)', color: ' #fff' }}
         >
           Homepage
         </MenuItem>
         <MenuItem
-          style={styles.MenuItem}
+          fontSize="14px"
+          textTransform="capitalize"
+          lineHeight=" 45px"
+          h="45px"
+          border="none"
+          pl="4"
           icon={<AiFillPushpin />}
           _hover={{ bg: 'rgba(64,198,255,1)', color: ' #fff' }}
         >
           Custom Prints
         </MenuItem>
         <MenuItem
-          style={styles.MenuItem}
+          fontSize="14px"
+          textTransform="capitalize"
+          lineHeight=" 45px"
+          h="45px"
+          border="none"
+          pl="4"
           icon={<BsPhone />}
           _hover={{ bg: 'rgba(64,198,255,1)', color: ' #fff' }}
         >
           Free file check
         </MenuItem>
         <MenuItem
-          style={styles.MenuItem}
+          fontSize="14px"
+          textTransform="capitalize"
+          lineHeight=" 45px"
+          h="45px"
+          border="none"
+          pl="4"
           icon={<GrLanguage />}
           _hover={{ bg: 'rgba(64,198,255,1)', color: '#fff' }}
         >
           Graphic Design
         </MenuItem>
         <MenuItem
-          style={styles.MenuItem}
+          fontSize="14px"
+          textTransform="capitalize"
+          lineHeight=" 45px"
+          h="45px"
+          border="none"
+          pl="4"
           icon={<GoCalendar />}
           _hover={{ bg: 'rgba(64,198,255,1)', color: '#fff' }}
         >
@@ -177,36 +216,3 @@ const MenuListComposition = () => {
   )
 }
 export default MenuListComposition
-
-const styles = {
-  buttonCategory: {
-    fontSize: '16px',
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    height: '45px',
-    border: '0px',
-    borderTopLeftRadius: '2px',
-    borderTopRightRadius: '2px',
-    marginTop: 10,
-    paddingRight: '100px',
-    lineHeight: 45,
-  },
-  list: {
-    fontSize: '16px',
-    marginTop: 5,
-    marginRight: 20,
-    marginLeft: 5,
-  },
-  listCategoryHome: {
-    border: 'none',
-    width: '270px',
-  },
-  MenuItem: {
-    fontSize: '14px',
-    textTransform: 'capitalize',
-    lineHeight: ' 45px',
-    height: '45px',
-    border: 'none',
-    paddingLeft: 20,
-  },
-}

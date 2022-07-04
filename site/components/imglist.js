@@ -23,7 +23,7 @@ const NewImageList = () => {
       </Box>
       <Spacer />
       <Box w="75%">
-        <Box pb="20px">
+        <Box pb="5">
           <Flex>
             <Box w="33%">
               <Link href="/product/pro-card-visit-a1">
@@ -32,21 +32,21 @@ const NewImageList = () => {
                 </a>
               </Link>
             </Box>
-            <Box w="21%" ml="20px">
+            <Box w="21%" ml="5">
               <Link href="/product/travel-agency-flyer">
                 <a>
                   <Image src={Image3.src} w="100%" />
                 </a>
               </Link>
             </Box>
-            <Box w="21%" ml="20px">
+            <Box w="21%" ml="5">
               <Link href="/product/travel-agency-flyer">
                 <a>
                   <Image src={Image4.src} w="100%" />
                 </a>
               </Link>
             </Box>
-            <Box w="21%" ml="20px">
+            <Box w="21%" ml="5">
               <Link href="/product/business-card-with-print-option/">
                 <a>
                   <Image src={Image5.src} w="100%" />
@@ -65,7 +65,7 @@ const NewImageList = () => {
               </Link>
             </Box>
             <Spacer />
-            <Box w="33%" ml="20px">
+            <Box w="33%" ml="5">
               <Link href=" /product/poster-with-print-option">
                 <a>
                   <Image src={Image7.src} w="100%" />
@@ -73,7 +73,7 @@ const NewImageList = () => {
               </Link>
             </Box>
             <Spacer />
-            <Box w="21%" ml="20px">
+            <Box w="21%" ml="5">
               <Link href=" /product/color-with-print-option">
                 <a>
                   <Image src={Image8.src} w="100%" />
@@ -81,7 +81,7 @@ const NewImageList = () => {
               </Link>
             </Box>
             <Spacer />
-            <Box w="21%" ml="20px">
+            <Box w="21%" ml="5">
               <Link href="/product/dot-luck">
                 <a>
                   <Image src={Image9.src} w="100%" />

@@ -4,18 +4,18 @@ import HeaderMid from '../../HeaderMid'
 import HeaderCenter from '../../HeaderCenter'
 import Footer from '../../Footer'
 import Copyright from '../../Copyright'
-import { Container } from '@chakra-ui/react'
+import { Container } from '@components/ui'
 
 const Layout = ({ children }) => {
   return (
-    <Container>
+    <>
       <SideBarTop />
       <HeaderMid />
       <HeaderCenter />
       {children}
       <Footer />
       <Copyright />
-    </Container>
+    </>
   )
 }
 export default Layout

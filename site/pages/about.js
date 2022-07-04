@@ -20,25 +20,23 @@ import Image from 'next/image'
 
 const About = () => {
   return (
-    <Container>
+    <>
       <Box align="center">
-        <Box h="240px">
+        <Box>
           <Box
             color="#fff"
             backgroundImage="/assets/banner_page.png"
             h="200px"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            mb="60px"
+            mb="6"
           >
             <Flex w="1200px" m="0px auto">
-              <Box lineHeight="3">
-                <Heading fontSize="40" variant="h1">
+              <Box>
+                <Heading fontSize="40" variant="h1" lineHeight="200px">
                   About
                 </Heading>
               </Box>
               <Spacer />
-              <Box lineHeight="10">
+              <Box lineHeight="200px">
                 <Flex>
                   <Text component="h6" variant="h6">
                     Home
@@ -52,35 +50,20 @@ const About = () => {
             </Flex>
           </Box>
         </Box>
-        <Container w="1200px" m="12px auto">
+        <Container maxW="1200px" m="12px auto">
           <Box>
-            <Heading
-              as="h1"
-              sx={{
-                textAlign: 'center',
-                fontWeight: '700',
-                fontSize: '36',
-                color: '#293544',
-              }}
-            >
+            <Heading as="h2" size="xl" color="brand.title">
               Get to know Multistore
             </Heading>
-            <Text
-              sx={{
-                textAlign: 'center',
-                padding: '0 20%',
-                marginTop: '20px',
-                color: '#676c77',
-              }}
-            >
+            <Text textAlign="center" pl="6" pr="6" mt="5" color="#676c77">
               Multistore vision is to create Indias most reliable and
               frictionless commerce ecosystem that creates life-changing
               experiences for buyers and sellers.
             </Text>
           </Box>
-          <Center pt="30">
+          <Center pt="6">
             <Box w="30%">
-              <Circle size="80px" bg="#40c6ff" color="white">
+              <Circle size="80px" bg="brand.primary" color="white">
                 <MdOutlineInventory2 fontSize="40" />
               </Circle>
               <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
@@ -89,53 +72,42 @@ const About = () => {
               <Text sx={{ fontWeight: '700', color: '#676c77' }}>Products</Text>
             </Box>
             <Box w="30%">
-              <Circle size="80px" bg="#40c6ff" color="white">
+              <Circle size="80px" bg="brand.primary" color="white">
                 <IoMdCart fontSize="40" />
               </Circle>
-              <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
+              <Text fontWeight="700" component="h5" variant="h5">
                 250,000
               </Text>
-              <Text sx={{ fontWeight: '700', color: '#676c77' }}>Sellers</Text>
+              <Text fontWeight="700" color="#676c77">
+                Sellers
+              </Text>
             </Box>
             <Box w="30%">
-              <Circle size="80px" bg="#40c6ff" color="white">
+              <Circle size="80px" bg="brand.primary" color="white">
                 <GoGlobe fontSize="40" />
               </Circle>
-              <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
+              <Text fontWeight="700" component="h5" variant="h5">
                 6000+
               </Text>
-              <Text sx={{ fontWeight: '700', color: '#676c77' }}>Cities</Text>
+              <Text fontWeight="700" color="#676c77">
+                Cities
+              </Text>
             </Box>
           </Center>
-          <Box sx={{ textAlign: 'center', margin: '40px' }}>
-            <Text
-              sx={{
-                margin: '10px',
-                color: '#676c77',
-              }}
-            >
+          <Box m="10" color="#676c77">
+            <Text m="3">
               In February 2010, Kunal Bahl along with Rohit Bansal, started
               Multistore.com Indias largest online marketplace, with the widest
               assortment of 30 million plus products across 800 plus Boxerse
               categories from over 125,000 regional, national, and international
               brands and retailers.
             </Text>
-            <Text
-              sx={{
-                margin: '10px',
-                color: '#676c77',
-              }}
-            >
+            <Text m="3">
               With millions of users and more than 300,000 sellers, Multistore
               is the shopping destination for Internet users across the country,
               delivering to 6000+ cities and towns in India.
             </Text>
-            <Text
-              sx={{
-                margin: '10px',
-                color: '#676c77',
-              }}
-            >
+            <Text m="3">
               In its journey till now, Multistore has partnered with several
               global marquee investors and inBoxiduals such as SoftBank,
               BlackRock, Temasek, Foxconn, Alibaba, eBay Inc., Premji Invest,
@@ -143,48 +115,36 @@ const About = () => {
               others.
             </Text>
           </Box>
-          <Box sx={{ textAlign: 'center', marginTop: '80px' }}>
-            <Heading
-              as="h2"
-              sx={{
-                textAlign: 'center',
-              }}
-              color="#293544"
-              fontSize="36"
-            >
+          <Box mt="6">
+            <Heading as="h2" color="brand.title" fontSize="36">
               Our Team
             </Heading>
-            <Text
-              sx={{
-                padding: '0 20%',
-                marginTop: '20px',
-                color: '#676c77',
-              }}
-            >
+            <Text mt="5" mb="5" color="#676c77">
               Each member of our team is a specialist in his or her field.
               Together, we make sure youre investing where the best returns are,
               while building loyalty across every touchpoint.
             </Text>
           </Box>
-          <Flex pb="400">
-            <Box w="25%" alignItems="center">
-              <Box position="absolute">
+          <Flex pb="20">
+            <Box w="25%">
+              <Box position="relative">
                 <Box>
                   <Image
-                    width={258}
-                    height={298}
+                    width="258"
+                    height="298"
                     src={AboutTeam.src}
                     alt="Philip Demarco"
                   />
                 </Box>
                 <Box
-                  bg="rgb(64,198,255)"
+                  bg="brand.primary"
                   w="80%"
                   position="absolute"
                   left="50%"
                   transform="translate(-50%, -50%)"
                   color="#fff"
-                  lineHeight="1"
+                  pt="2"
+                  pb="2"
                 >
                   <Heading fontSize="16">Philip Demarco</Heading>
                   <Text fontSize="14">Business Analyst</Text>
@@ -209,7 +169,7 @@ const About = () => {
               </Box>
             </Box>
             <Box w="25%">
-              <Box position="absolute">
+              <Box position="relative">
                 <Box>
                   <Box>
                     <Image
@@ -221,13 +181,14 @@ const About = () => {
                     />
                   </Box>
                   <Box
-                    bg="rgb(64,198,255)"
+                    bg="brand.primary"
                     w="80%"
                     position="absolute"
                     left="50%"
                     transform="translate(-50%, -50%)"
                     color="#fff"
-                    lineHeight="1"
+                    pt="2"
+                    pb="2"
                   >
                     <Heading fontSize="16">Philip Demarco</Heading>
                     <Text fontSize="14">Business Analyst</Text>
@@ -253,7 +214,7 @@ const About = () => {
               </Box>
             </Box>
             <Box w="25%">
-              <Box position="absolute">
+              <Box position="relative">
                 <Box>
                   <Box>
                     <Image
@@ -265,13 +226,15 @@ const About = () => {
                     />
                   </Box>
                   <Box
-                    bg="rgb(64,198,255)"
+                    bg="brand.primary"
                     w="80%"
                     position="absolute"
                     left="50%"
                     transform="translate(-50%, -50%)"
                     color="#fff"
                     lineHeight="1"
+                    pt="2"
+                    pb="2"
                   >
                     <Heading fontSize="16">Philip Demarco</Heading>
                     <Text fontSize="14">Business Analyst</Text>
@@ -297,7 +260,7 @@ const About = () => {
               </Box>
             </Box>
             <Box w="25%">
-              <Box position="absolute">
+              <Box position="relative">
                 <Box>
                   <Box>
                     <Image
@@ -316,6 +279,8 @@ const About = () => {
                     transform="translate(-50%, -50%)"
                     color="#fff"
                     lineHeight="1"
+                    pt="2"
+                    pb="2"
                   >
                     <Heading fontSize="16">Philip Demarco</Heading>
                     <Text fontSize="14">Business Analyst</Text>
@@ -343,7 +308,7 @@ const About = () => {
           </Flex>
         </Container>
       </Box>
-    </Container>
+    </>
   )
 }
 export default About

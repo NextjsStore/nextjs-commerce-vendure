@@ -21,7 +21,7 @@ const ListImages = () => {
             </a>
           </Link>
         </Box>
-        <Box mt="30px">
+        <Box mt="6">
           <Link href="/product/softcover-trade-book">
             <a>
               <Image layout="fixed" src={Image2.src} />
@@ -37,7 +37,6 @@ const ListImages = () => {
           </a>
         </Link>
       </Box>
-      <Spacer />
       <Box
         w="33%"
         display="flex"
@@ -47,48 +46,39 @@ const ListImages = () => {
         alignItems="flex-start"
       >
         <Box>
-          <Flex>
-            <Box pb="20px">
-              <Flex>
-                <Box pr="25px">
-                  <Link href="/product/dot-luck">
-                    <a>
-                      <Image layout="fixed" src={Image4.src} />
-                    </a>
-                  </Link>
-                </Box>
-                <Spacer />
-                <Box>
-                  <Link href="/product/sharp-contrast">
-                    <a>
-                      <Image layout="fixed" src={Image5.src} />
-                    </a>
-                  </Link>
-                </Box>
-              </Flex>
+          <Flex pb="5">
+            <Box pr="6">
+              <Link href="/product/dot-luck">
+                <a>
+                  <Image layout="fixed" src={Image4.src} />
+                </a>
+              </Link>
+            </Box>
+            <Box>
+              <Link href="/product/sharp-contrast">
+                <a>
+                  <Image layout="fixed" src={Image5.src} />
+                </a>
+              </Link>
             </Box>
           </Flex>
         </Box>
         <Box>
           <Flex>
+            <Box pr="6">
+              <Link href="/product/web2print">
+                <a>
+                  <Image layout="fixed" src={Image6.src} />
+                </a>
+              </Link>
+            </Box>
+            <Spacer />
             <Box>
-              <Flex>
-                <Box pr="25px">
-                  <Link href="/product/web2print">
-                    <a>
-                      <Image layout="fixed" src={Image6.src} />
-                    </a>
-                  </Link>
-                </Box>
-                <Spacer />
-                <Box>
-                  <Link href="/product/tiny-square-card">
-                    <a>
-                      <Image layout="fixed" src={Image7.src} />
-                    </a>
-                  </Link>
-                </Box>
-              </Flex>
+              <Link href="/product/tiny-square-card">
+                <a>
+                  <Image layout="fixed" src={Image7.src} />
+                </a>
+              </Link>
             </Box>
           </Flex>
         </Box>
