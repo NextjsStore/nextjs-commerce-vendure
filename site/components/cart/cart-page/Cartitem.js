@@ -23,7 +23,7 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
   }
 
   return (
-    <Box skey={item.productId}>
+    <Box>
       {/*Icon close */}
       <th>
         <Text

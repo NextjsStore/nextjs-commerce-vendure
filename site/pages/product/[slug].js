@@ -61,7 +61,7 @@ const Product = (props) => {
           </Flex>
         </Box>
       </Box>
-      {product && collections ? (
+      {product && collections && (
         <Box w="1200px" m="0px auto">
           <Box borderBottom="1px solid #ccc" pb="30px">
             <Flex>
@@ -106,58 +106,55 @@ const Product = (props) => {
               <Center>Related products</Center>
             </Heading>
             <Flex pt="6">
-              {relatedProducts.length
-                ? relatedProducts.map((item) => (
-                    <Box key={item} m="2" border="1px solid #efefef">
-                      <Box>
-                        <Link href={`/product/${item?.slug}`}>
-                          <a>
-                            <Image
-                              src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
-                              alt={item?.name}
-                              loading="lazy"
-                              w="100%"
-                              p="5"
-                            />
-                          </a>
-                        </Link>
-                        <Box centerContent>
-                          <h3>
-                            <Link href={`/product/${item?.slug}`}>
-                              <a>{item.name}</a>
-                            </Link>
-                          </h3>
-                          <Box>
-                            {product.rating && (
-                              <Box mb="10" alignItems="center">
-                                {Array(5)
-                                  .fill('')
-                                  .map((_, i) => (
-                                    <BsFillStarFill
-                                      key={i}
-                                      color={
-                                        i < product.rating
-                                          ? '#81E6D9'
-                                          : 'gray.200'
-                                      }
-                                    />
-                                  ))}
-                              </Box>
-                            )}
-                          </Box>
-                          <h4>
-                            <span>${item.price.value}</span>
-                          </h4>
+              {relatedProducts.length > 0 &&
+                relatedProducts.map((item) => (
+                  <Box key={item} m="2" border="1px solid #efefef">
+                    <Box>
+                      <Link href={`/product/${item?.slug}`}>
+                        <a>
+                          <Image
+                            src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
+                            alt={item?.name}
+                            loading="lazy"
+                            w="100%"
+                            p="5"
+                          />
+                        </a>
+                      </Link>
+                      <Box centerContent>
+                        <h3>
+                          <Link href={`/product/${item?.slug}`}>
+                            <a>{item.name}</a>
+                          </Link>
+                        </h3>
+                        <Box>
+                          {product.rating && (
+                            <Box mb="10" alignItems="center">
+                              {Array(5)
+                                .fill('')
+                                .map((_, i) => (
+                                  <BsFillStarFill
+                                    key={i}
+                                    color={
+                                      i < product.rating
+                                        ? '#81E6D9'
+                                        : 'gray.200'
+                                    }
+                                  />
+                                ))}
+                            </Box>
+                          )}
                         </Box>
+                        <h4>
+                          <span>${item.price.value}</span>
+                        </h4>
                       </Box>
                     </Box>
-                  ))
-                : ''}
+                  </Box>
+                ))}
             </Flex>
           </Box>
         </Box>
-      ) : (
-        ''
       )}
     </Box>
   )
