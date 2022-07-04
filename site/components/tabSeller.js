@@ -16,33 +16,22 @@ const TabSeller = (props) => {
           <span>Best Seller</span>
         </Heading>
       </Center>
-      <Box w="1200px" m="12px auto">
-        <Center>
-          <Flex>
-            <Box>
-              <Button
-                onClick={() => handleSubmit(`SmartPhone`)}
-                style={styles.button}
-              >
-                All Product
-              </Button>
-            </Box>
-            <Box display="flex">
-              {collections.length
-                ? collections.map((item) => (
-                    <Box key={item}>
-                      <Button
-                        onClick={() => handleSubmit(`${item.slug}`)}
-                        style={styles.button}
-                      >
-                        {item.name}
-                      </Button>
-                    </Box>
-                  ))
-                : ''}
-            </Box>
-          </Flex>
-        </Center>
+      <Box>
+        <Box>
+          <Button onClick={() => handleSubmit(`SmartPhone`)}>
+            All Product
+          </Button>
+        </Box>
+        <div>
+          {collections.length > 0 &&
+            collections.map((item) => (
+              <Box key={item}>
+                <Button onClick={() => handleSubmit(item.slug)}>
+                  {item.name}
+                </Button>
+              </Box>
+            ))}
+        </div>
       </Box>
     </Box>
   )

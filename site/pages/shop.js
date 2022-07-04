@@ -126,43 +126,42 @@ const Shop = (props) => {
       </Box>
       <Container w="1200px" m="12px auto">
         <Flex>
-          <Box w="20%">
-            <Heading
+          <Grid item lg={3}>
+            <Box>
+              <Heading
               component="h4"
               variant="h4"
               borderBottom="1px solid #ccc"
               pb="20"
             >
-              Product Category
-            </Heading>
-            {categories.length
-              ? categories.map((item) => (
+                Product Category
+              </Heading>
+            </Box>
+            <div>
+              {categories.length > 0 &&
+                categories.map((item) => (
                   <Box key={item}>
                     <Box disablePadding>
-                      <Box>
-                        <Text
-                          onClick={() => handleSubmit(`${item.slug}`)}
-                          borderBottom="1px solid #ccc"
-                          pb="10"
-                        >
+                      <Box style={styles.categoryText}>
+                        <Button onClick={() => handleSubmit(`${item.slug}`)}>
                           {item.name}
-                        </Text>
+                        </Button>
                       </Box>
                     </Box>
                     <Divider />
                   </Box>
-                ))
-              : ''}
-          </Box>
-          <Box item lg={8} w="80%" pl="20">
-            <Box>
-              <SimpleGrid columns={3}>
-                {products.length
-                  ? products.map((product) => (
-                      <Product key={product.id} product={product} />
-                    ))
-                  : ''}
-              </SimpleGrid>
+                ))}
+            </div>
+          </Grid>
+          <Box item lg={8}>
+            <Box
+              spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
+              columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
+            >
+              {products.length > 0 &&
+                products.map((product) => (
+                  <Product key={product.id} product={product} />
+                ))}
             </Box>
           </Box>
         </Flex>

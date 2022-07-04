@@ -24,35 +24,22 @@ const Tab = (props) => {
           <span style={styles.span}>NEW PRODUCT</span>
         </Heading>
       </Center>
-      <Box w="1200px" m="12px auto">
-        <Center>
-          <Flex>
-            <Box>
-              <Button
-                onClick={() => handleSubmit(`SmartPhone`)}
-                style={styles.button}
-              >
-                All Product
-              </Button>
-            </Box>
-            <Box display="flex">
-              {collections.length
-                ? collections.map((item) => (
-                    <Box key={item}>
-                      <a>
-                        <Button
-                          onClick={() => handleSubmit(`${item.slug}`)}
-                          style={styles.button}
-                        >
-                          {item.name}
-                        </Button>
-                      </a>
-                    </Box>
-                  ))
-                : ''}
-            </Box>
-          </Flex>
-        </Center>
+      <Box>
+        <Box>
+          <Button onClick={() => handleSubmit('')}>All Product</Button>
+        </Box>
+        <div>
+          {collections.length > 0 &&
+            collections.map((item) => (
+              <Box key={item}>
+                <a>
+                  <Button onClick={() => handleSubmit(item.slug)}>
+                    {item.name}
+                  </Button>
+                </a>
+              </Box>
+            ))}
+        </div>
       </Box>
     </Box>
   )
