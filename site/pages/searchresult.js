@@ -1,18 +1,12 @@
-import Container from '@mui/material/Container'
-import { useRouter } from 'next/router'
-import { Grid } from '@mui/material'
 import { makeStyles } from '@material-ui/core/styles'
-import Breadcrumbs from '@mui/material/Breadcrumbs'
 import Banner from '../assets/banner_page.png'
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
-import Product from '../components/product'
 import Search_Collection from '../components/searchcollection'
+import { Box, Container, Flex, Heading, Spacer, Grid } from '@chakra-ui/react'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
 
 const colorHover = '#40c6ff'
-const useStyles_pageShop = makeStyles((theme) => ({
+const styles = {
   pageShop: {
     marginBottom: '60px',
     minHeight: '200px',
@@ -106,7 +100,7 @@ const useStyles_pageShop = makeStyles((theme) => ({
     fontWeight: 400,
     fontSize: '14px',
   },
-}))
+}
 
 export async function getServerSideProps({ preview, locale, locales, query }) {
   const config = { locale, locales }
@@ -173,59 +167,46 @@ const Search_Result = (props) => {
   console.log('searchResult', searchResult)
   // console.log('products', products)
   // console.log('categories-SEARCH', categories)
-  const classes = useStyles_pageShop()
 
   return (
     <Box>
-      <Box className={classes.pageShop}>
-        <Container>
-          <Box className={classes.titlePage}>
-            <Grid item lg={6}>
+      <Box h="240px">
+        <Box>
+          <Box
+            color="#fff"
+            backgroundImage="/assets/banner_page.png"
+            h="200px"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+            mb="60px"
+          >
+            <Flex>
               <Box>
-                <Typography
-                  className={classes.textTile}
-                  component="h3"
-                  variant="h3"
-                >
+                <Heading component="h3" variant="h3">
                   Search
-                </Typography>
+                </Heading>
               </Box>
-            </Grid>
-            <Grid item lg={6}>
-              <Box className={classes.rightTextPage}>
-                <Breadcrumbs sx={{ color: 'white' }} aria-label="breadcrumb">
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Home
-                  </Typography>
-                  <Typography
-                    className={classes.titleText}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Search
-                  </Typography>
-                </Breadcrumbs>
+              <Spacer />
+              <Box>
+                <Heading component="h6" variant="h6">
+                  Home
+                </Heading>
+                <Heading component="h6" variant="h6">
+                  Search
+                </Heading>
               </Box>
-            </Grid>
+            </Flex>
           </Box>
-        </Container>
+        </Box>
       </Box>
       {/********************** */}
       <Container>
-        <Box className={classes.productCategory}>
-          <Grid item lg={3} className={classes.productCategoryText}>
+        <Box>
+          <Grid item lg={3}>
             <Box>
-              <Typography
-                className={classes.titleSideBarCategory}
-                component="h4"
-                variant="h4"
-              >
+              <Heading component="h4" variant="h4">
                 Search Results :
-              </Typography>
+              </Heading>
             </Box>
           </Grid>
           <Grid item lg={9}>
@@ -233,11 +214,10 @@ const Search_Result = (props) => {
               spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
               columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
             >
-              {searchResult.length
-                ? searchResult.map((product) => (
-                    <Search_Collection key={product} product={product} />
-                  ))
-                : ''}
+              {searchResult.length > 0 &&
+                searchResult.map((product) => (
+                  <Search_Collection key={product} product={product} />
+                ))}
             </Grid>
           </Grid>
         </Box>

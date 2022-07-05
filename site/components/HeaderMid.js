@@ -1,21 +1,14 @@
 import React from 'react'
-import { AppProvider } from '@lib/context/AppContext'
 import { BiSearch } from 'react-icons/bi'
 import LogoeBay from '../assets/ebaylogo.png'
 import Link from 'next/link'
 import CartIcon from './cart/CartIcon'
-import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Container, Box, Center, Flex, Spacer, Image } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 
-export const PER_PAGE_FIRST = 9
-export const PER_PAGE_REST = 12
-
 const HeaderMid = (props) => {
-  // console.log('propssssss', props)
   const { categories } = props
-  // console.log('categories-header mid', categories)
   const router = useRouter()
 
   const [searchQuery, setSearchQuery] = useState('')
@@ -51,13 +44,12 @@ const HeaderMid = (props) => {
                 <select onChange={(e) => changeSearchQuery(e)} name="">
                   <option value="">Shop by collection</option>
                   <option value="">Uncategorized</option>
-                  {categories.length
-                    ? categories.map((item) => (
-                        <option key={item} value={item.slug}>
-                          ---{item.name}---
-                        </option>
-                      ))
-                    : ''}
+                  {categories.length > 0 &&
+                    categories.map((item) => (
+                      <option key={item} value={item.slug}>
+                        ---{item.name}---
+                      </option>
+                    ))}
                 </select>
                 <input
                   type="text"

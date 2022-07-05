@@ -64,7 +64,7 @@ const ProductSlug = (props) => {
         </Box>
       </Box>
       <div>
-        {product && collections ? (
+        {product && collections && (
           <div>
             <Container maxWidth="lg">
               <Grid>
@@ -115,54 +115,53 @@ const ProductSlug = (props) => {
                         <h2>Related products</h2>
                       </Container>
                       <Flex>
-                        {relatedProducts.length
-                          ? relatedProducts.map((item) => (
-                              <Box key={item} m="20" border="1px solid #efefef">
-                                <Box>
-                                  <Link href={`/product/${item?.slug}`}>
-                                    <a>
-                                      <Image
-                                        src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
-                                        //srcSet={`${item?.image?.srcSet}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                                        alt={item?.name}
-                                        loading="lazy"
-                                        w="100%"
-                                        p="5"
-                                      />
-                                    </a>
-                                  </Link>
-                                  <Container centerContent>
-                                    <h3>
-                                      <Link href={`/product/${item?.slug}`}>
-                                        <a>{item.name}</a>
-                                      </Link>
-                                    </h3>
-                                    <Box>
-                                      {product.rating && (
-                                        <Box mb="10" alignItems="center">
-                                          {Array(5)
-                                            .fill('')
-                                            .map((_, i) => (
-                                              <StarIcon
-                                                key={i}
-                                                color={
-                                                  i < product.rating
-                                                    ? '#81E6D9'
-                                                    : 'gray.200'
-                                                }
-                                              />
-                                            ))}
-                                        </Box>
-                                      )}
-                                    </Box>
-                                    <h4>
-                                      <span>${item.price.value}</span>
-                                    </h4>
-                                  </Container>
-                                </Box>
+                        {relatedProducts.length > 0 &&
+                          relatedProducts.map((item) => (
+                            <Box key={item} m="20" border="1px solid #efefef">
+                              <Box>
+                                <Link href={`/product/${item?.slug}`}>
+                                  <a>
+                                    <Image
+                                      src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
+                                      //srcSet={`${item?.image?.srcSet}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                      alt={item?.name}
+                                      loading="lazy"
+                                      w="100%"
+                                      p="5"
+                                    />
+                                  </a>
+                                </Link>
+                                <Container centerContent>
+                                  <h3>
+                                    <Link href={`/product/${item?.slug}`}>
+                                      <a>{item.name}</a>
+                                    </Link>
+                                  </h3>
+                                  <Box>
+                                    {product.rating && (
+                                      <Box mb="10" alignItems="center">
+                                        {Array(5)
+                                          .fill('')
+                                          .map((_, i) => (
+                                            <StarIcon
+                                              key={i}
+                                              color={
+                                                i < product.rating
+                                                  ? '#81E6D9'
+                                                  : 'gray.200'
+                                              }
+                                            />
+                                          ))}
+                                      </Box>
+                                    )}
+                                  </Box>
+                                  <h4>
+                                    <span>${item.price.value}</span>
+                                  </h4>
+                                </Container>
                               </Box>
-                            ))
-                          : ''}
+                            </Box>
+                          ))}
                       </Flex>
                     </Container>
                   </Container>
@@ -170,8 +169,6 @@ const ProductSlug = (props) => {
               </Grid>
             </Container>
           </div>
-        ) : (
-          ''
         )}
       </div>
     </>

@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { updateCart2 } from '../../../function'
-import { Container, Box, Text, Table } from '@chakra-ui/react'
+import { Box, Text, Image } from '@chakra-ui/react'
 import { AiOutlineClose } from 'react-icons/ai'
-
 
 const styles = {
   cartelementPrice: {
@@ -38,7 +37,7 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
   }
 
   return (
-    <Box styles={styles.cartitem} key={item.productId}>
+    <Box>
       {/*Icon close */}
       <th styles={styles.cartelement}>
         <Text
@@ -50,7 +49,7 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
       </th>
       {/* image */}
       <th styles={styles.cartelementImg}>
-        <img width="150" src={item.image} />
+        <Image width={266} height={270} src={item.image} alt="" />
       </th>
       {/* image */}
       <th styles={styles.cartelementName}>{item?.name}</th>

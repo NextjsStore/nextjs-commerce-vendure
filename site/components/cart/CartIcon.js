@@ -19,11 +19,7 @@ const CartIcon = () => {
       <a>
         <div>
           <HiOutlineShoppingBag />
-          {parseInt(productsCount) ? (
-            <span>{parseInt(productsCount)}</span>
-          ) : (
-            ''
-          )}
+          {parseInt(productsCount) && <span>{parseInt(productsCount)}</span>}
         </div>
       </a>
     </Link>

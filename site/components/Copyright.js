@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Box, Center, Flex, Spacer } from '@chakra-ui/react'
+import { Container, Box, Center, Flex, Spacer, Image } from '@chakra-ui/react'
 // import images
 import paymentImages from '../assets/payment.png'
 
@@ -18,7 +18,7 @@ const Copyright = () => {
           <Spacer />
           <Box item xs={12} sm={6} md={6}>
             <div>
-              <img src={paymentImages.src} />
+              <Image src={paymentImages.src} alt="" />
             </div>
           </Box>
         </Flex>

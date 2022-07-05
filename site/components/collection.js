@@ -14,7 +14,6 @@ const Collection = (props) => {
               <Image src={product.product.assets[0].source} alt="" />
             </a>
           </Link>
-
           <Box>
             <h3>
               <Link href={`/product/${product.product?.slug}`}>

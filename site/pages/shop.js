@@ -133,20 +133,19 @@ const Shop = (props) => {
               </Text>
             </Box>
             <div>
-              {categories.length
-                ? categories.map((item) => (
-                    <Box key={item}>
-                      <Box disablePadding>
-                        <Box style={styles.categoryText}>
-                          <Button onClick={() => handleSubmit(`${item.slug}`)}>
-                            {item.name}
-                          </Button>
-                        </Box>
+              {categories.length > 0 &&
+                categories.map((item) => (
+                  <Box key={item}>
+                    <Box disablePadding>
+                      <Box style={styles.categoryText}>
+                        <Button onClick={() => handleSubmit(`${item.slug}`)}>
+                          {item.name}
+                        </Button>
                       </Box>
-                      <Divider />
                     </Box>
-                  ))
-                : ''}
+                    <Divider />
+                  </Box>
+                ))}
             </div>
           </Grid>
 
@@ -155,11 +154,10 @@ const Shop = (props) => {
               spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
               columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
             >
-              {products.length
-                ? products.map((product) => (
-                    <Product key={product.id} product={product} />
-                  ))
-                : ''}
+              {products.length > 0 &&
+                products.map((product) => (
+                  <Product key={product.id} product={product} />
+                ))}
             </Box>
           </Box>
         </Flex>

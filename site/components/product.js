@@ -11,7 +11,7 @@ const Product = (props) => {
         <Box align="center">
           <Link href={`/product/${product.slug}`}>
             <a>
-              <Image src={product.images[0].url} w="100%" />
+              <Image src={product.images[0].url} w="100%" alt="" />
             </a>
           </Link>
           <Box>

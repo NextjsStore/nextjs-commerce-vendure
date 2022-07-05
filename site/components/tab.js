@@ -22,17 +22,16 @@ const Tab = (props) => {
           <Button onClick={() => handleSubmit('')}>All Product</Button>
         </Box>
         <div>
-          {collections.length
-            ? collections.map((item) => (
-                <Box key={item}>
-                  <a>
-                    <Button onClick={() => handleSubmit(`${item.slug}`)}>
-                      {item.name}
-                    </Button>
-                  </a>
-                </Box>
-              ))
-            : ''}
+          {collections.length > 0 &&
+            collections.map((item) => (
+              <Box key={item}>
+                <a>
+                  <Button onClick={() => handleSubmit(`${item.slug}`)}>
+                    {item.name}
+                  </Button>
+                </a>
+              </Box>
+            ))}
         </div>
       </Box>
     </Box>

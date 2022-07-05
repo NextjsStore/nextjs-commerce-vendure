@@ -19,14 +19,26 @@ const ListImages = () => {
           <Box>
             <Link href="/product/clean-business-card">
               <a>
-                <Image width={426} height={203} layout="fixed" src={Image1.src} />
+                <Image
+                  width={426}
+                  height={203}
+                  layout="fixed"
+                  src={Image1.src}
+                  alt=""
+                />
               </a>
             </Link>
           </Box>
           <Box>
             <Link href="/product/softcover-trade-book">
               <a>
-                <Image width={426} height={203} layout="fixed" src={Image2.src} />
+                <Image
+                  width={426}
+                  height={203}
+                  layout="fixed"
+                  src={Image2.src}
+                  alt=""
+                />
               </a>
             </Link>
           </Box>
@@ -35,7 +47,13 @@ const ListImages = () => {
         <Box w="33%">
           <Link href=" /shop">
             <a>
-              <Image width={430} height={430} layout="fixed" src={Image3.src} />
+              <Image
+                width={430}
+                height={430}
+                layout="fixed"
+                src={Image3.src}
+                alt=""
+              />
             </a>
           </Link>
         </Box>
@@ -48,7 +66,13 @@ const ListImages = () => {
                   <Box p="4" bg="red.400">
                     <Link href="/product/dot-luck">
                       <a>
-                        <Image  width={201} height={201} layout="fixed" src={Image4.src} />
+                        <Image
+                          width={201}
+                          height={201}
+                          layout="fixed"
+                          src={Image4.src}
+                          alt=""
+                        />
                       </a>
                     </Link>
                   </Box>
@@ -56,7 +80,13 @@ const ListImages = () => {
                   <Box p="4" bg="green.400">
                     <Link href="/product/sharp-contrast">
                       <a>
-                        <Image width={201} height={201} layout="fixed" src={Image5.src} />
+                        <Image
+                          width={201}
+                          height={201}
+                          layout="fixed"
+                          src={Image5.src}
+                          alt=""
+                        />
                       </a>
                     </Link>
                   </Box>
@@ -71,7 +101,13 @@ const ListImages = () => {
                   <Box p="4" bg="red.400">
                     <Link href="/product/web2print">
                       <a>
-                        <Image width={201} height={201} layout="fixed" src={Image6.src} />
+                        <Image
+                          width={201}
+                          height={201}
+                          layout="fixed"
+                          src={Image6.src}
+                          alt=""
+                        />
                       </a>
                     </Link>
                   </Box>
@@ -79,7 +115,13 @@ const ListImages = () => {
                   <Box p="4" bg="green.400">
                     <Link href="/product/tiny-square-card">
                       <a>
-                        <Image width={201} height={201} layout="fixed" src={Image7.src} />
+                        <Image
+                          width={201}
+                          height={201}
+                          layout="fixed"
+                          src={Image7.src}
+                          alt=""
+                        />
                       </a>
                     </Link>
                   </Box>
