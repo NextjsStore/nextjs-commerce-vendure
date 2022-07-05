@@ -3,7 +3,6 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useRouter } from 'next/router'
 import {
-  Center,
   Button,
   Container,
   Box,
@@ -74,161 +73,162 @@ const MyAccount = () => {
 
   return (
     <Box>
-      <Box h="240px">
-        <Box>
-          <Box
-            color="#fff"
-            backgroundImage="/assets/banner_page.png"
-            h="200px"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            mb="60px"
-          >
-            <Flex>
-              <Box>
-                <Heading component="h3" variant="h3">
-                  My account
-                </Heading>
-              </Box>
-              <Spacer />
-              <Box>
-                <Heading component="h6" variant="h6">
+      <Box>
+        <Box color="#fff" backgroundImage="/assets/banner_page.png" h="200px">
+          <Flex w="1200px" m="0px auto">
+            <Box>
+              <Heading fontSize="40" variant="h1" lineHeight="200px">
+                My account
+              </Heading>
+            </Box>
+            <Spacer />
+            <Box lineHeight="200px">
+              <Flex>
+                <Text component="h6" variant="h6">
                   Home
-                </Heading>
-                <Heading component="h6" variant="h6">
+                </Text>
+                <Text p="0px 10px"> / </Text>
+                <Text component="h6" variant="h6">
                   My account
-                </Heading>
-              </Box>
-            </Flex>
-          </Box>
+                </Text>
+              </Flex>
+            </Box>
+          </Flex>
         </Box>
       </Box>
-      <Center>
-        <Container w="50%">
-          <Flex>
-            <Box>
-              <Heading component="h4" variant="h4">
-                Login
-              </Heading>
-              <form onSubmit={formik.handleSubmit}>
-                <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                  Username or email address *
-                </Text>
-                <Input
-                  variant="outlined"
-                  fullWidth
-                  id="email"
-                  name="email"
-                  label="Email"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  error={formik.touched.email && Boolean(formik.errors.email)}
-                  helperText={formik.touched.email && formik.errors.email}
-                />
-                <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                  Password *
-                </Text>
-                <Input
-                  variant="outlined"
-                  fullWidth
-                  id="password"
-                  name="password"
-                  label="Password"
-                  type="password"
-                  value={formik.values.password}
-                  onChange={formik.handleChange}
-                  error={
-                    formik.touched.password && Boolean(formik.errors.password)
-                  }
-                  helperText={formik.touched.password && formik.errors.password}
-                />
-
+      <Box w="1200px" m="60px auto" border="1px solid #ccc">
+        <Flex m="20">
+          <Box w="50%">
+            <Heading
+              fontFamily="Merriweather"
+              as="h2"
+              size="xl"
+              color="brand.title"
+              pb="4"
+            >
+              Login
+            </Heading>
+            <form onSubmit={formik.handleSubmit}>
+              <Text mt="4" mb="4">
+                Username or email address *
+              </Text>
+              <Input
+                variant="outlined"
+                fullWidth
+                id="email"
+                name="email"
+                label="Email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+                w="90%"
+                border="1px solid #ccc"
+              />
+              <Text mt="4" mb="4">
+                Password *
+              </Text>
+              <Input
+                variant="outlined"
+                fullWidth
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.password && Boolean(formik.errors.password)
+                }
+                helperText={formik.touched.password && formik.errors.password}
+                w="90%"
+                border="1px solid #ccc"
+              />
+              <Box>
                 <Button
-                  color="primary"
-                  variant="contained"
+                  bg="brand.blue"
                   type="submit"
-                  sx={{
-                    marginTop: '20px',
-                    borderRadius: '25px',
-                    width: '100px',
-                  }}
+                  color="#fff"
+                  mt="5"
+                  borderRadius="25px"
+                  w="100px"
                 >
                   Login
                 </Button>
-                <Box>
-                  <Checkbox control={<Checkbox defaultChecked />}>
-                    Remember me
-                  </Checkbox>
-                  <Box>
-                    <Text component="span" variant="span">
-                      <a href="#"> Lost your password?</a>
-                    </Text>
-                  </Box>
-                </Box>
-              </form>
-            </Box>
-            <Spacer />
-            <Box>
-              <Box>
-                <Heading component="h4" variant="h4">
-                  Register
-                </Heading>
-                <form onSubmit={formik2.handleSubmit}>
-                  <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                    Username or email address *
-                  </Text>
-                  <Input
-                    variant="outlined"
-                    fullWidth
-                    id="email"
-                    name="email"
-                    label="Email"
-                    value={formik2.values.email}
-                    onChange={formik2.handleChange}
-                    error={
-                      formik2.touched.email && Boolean(formik2.errors.email)
-                    }
-                    helperText={formik2.touched.email && formik2.errors.email}
-                  />
-                  <Text sx={{ marginBottom: '15px', marginTop: '20px' }}>
-                    Password *
-                  </Text>
-                  <Input
-                    variant="outlined"
-                    fullWidth
-                    id="password"
-                    name="password"
-                    label="Password"
-                    type="password"
-                    value={formik2.values.password}
-                    onChange={formik2.handleChange}
-                    error={
-                      formik2.touched.password &&
-                      Boolean(formik2.errors.password)
-                    }
-                    helperText={
-                      formik2.touched.password && formik2.errors.password
-                    }
-                  />
-
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    type="submit"
-                    sx={{
-                      marginTop: '20px',
-                      borderRadius: '25px',
-                      width: '100px',
-                    }}
-                  >
-                    Register
-                  </Button>
-                </form>
               </Box>
-            </Box>
-          </Flex>
-        </Container>
-      </Center>
+              <Box>
+                <Checkbox defaultChecked>Remember me</Checkbox>
+                <Box>
+                  <Text component="span" variant="span">
+                    <a href="#"> Lost your password?</a>
+                  </Text>
+                </Box>
+              </Box>
+            </form>
+          </Box>
+          <Spacer />
+          <Box w="50%">
+            <Heading
+              fontFamily="Merriweather"
+              as="h2"
+              size="xl"
+              color="brand.title"
+              pb="4"
+            >
+              Register
+            </Heading>
+            <form onSubmit={formik2.handleSubmit}>
+              <Text mt="4" mb="4">
+                Username or email address *
+              </Text>
+              <Input
+                variant="outlined"
+                fullWidth
+                id="email"
+                name="email"
+                label="Email"
+                value={formik2.values.email}
+                onChange={formik2.handleChange}
+                error={formik2.touched.email && Boolean(formik2.errors.email)}
+                helperText={formik2.touched.email && formik2.errors.email}
+                w="90%"
+                border="1px solid #ccc"
+              />
+              <Text mt="4" mb="4">
+                Password *
+              </Text>
+              <Input
+                variant="outlined"
+                fullWidth
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+                value={formik2.values.password}
+                onChange={formik2.handleChange}
+                error={
+                  formik2.touched.password && Boolean(formik2.errors.password)
+                }
+                helperText={formik2.touched.password && formik2.errors.password}
+                w="90%"
+                p="18.5px 14px"
+                border="1px solid #ccc"
+              />
+              <Button
+                bg="brand.blue"
+                type="submit"
+                color="#fff"
+                mt="5"
+                borderRadius="25px"
+                w="100px"
+                p="10px 0"
+              >
+                Register
+              </Button>
+            </form>
+          </Box>
+        </Flex>
+      </Box>
     </Box>
   )
 }

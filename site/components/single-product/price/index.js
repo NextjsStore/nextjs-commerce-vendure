@@ -2,28 +2,6 @@ import { isEmpty } from 'lodash'
 
 const colorHover = '#40c6ff'
 
-const styles = {
-  product_price: {
-    fontSize: '20px',
-    color: `${colorHover}`,
-    padding: '0px',
-    margin: '0px',
-    '& span': {
-      '&.regular_price': {
-        textDecoration: 'line-through',
-        marginRight: '15px',
-        color: '#999',
-      },
-      '&:nth-child(2)': {
-        margin: '0px 15px',
-      },
-      '&:nth-child(3)': {
-        display: 'none',
-      },
-    },
-  },
-}
-
 const Price = ({ regularPrice = 0, salesPrice }) => {
   const classes = useStyle_price()
 
@@ -62,17 +40,15 @@ const Price = ({ regularPrice = 0, salesPrice }) => {
   const productMeta = discountPercent(regularPrice, salesPrice)
 
   return (
-    <h6 styles={styles.product_price}>
+    <h6>
       {/* Discounted price */}
-      <span styles={productMeta?.strikeThroughClass}>{regularPrice}</span>
+      <span>{regularPrice}</span>
 
       {/* Regular price */}
-      {productMeta?.discountPercent ? (
-        <span styles={styles.price_sales}>{salesPrice}</span>
-      ) : null}
+      {productMeta?.discountPercent ? <span>{salesPrice}</span> : null}
 
       {/* Discount percent */}
-      <span styles={styles.discount}>{productMeta?.discountPercent}</span>
+      <span>{productMeta?.discountPercent}</span>
     </h6>
   )
 }

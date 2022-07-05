@@ -14,120 +14,100 @@ import {
   Spacer,
   Text,
   Heading,
-  Grid,
+  Circle,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 
 const About = () => {
   return (
-    <Container>
+    <>
       <Box align="center">
         <Box>
-          <Box h="240px">
-            <Box>
-              <Box
-                color="#fff"
-                backgroundImage="/assets/banner_page.png"
-                h="200px"
-                backgroundRepeat="no-repeat"
-                backgroundSize="cover"
-                mb="60px"
-              >
+          <Box
+            color="#fff"
+            backgroundImage="/assets/banner_page.png"
+            h="200px"
+            mb="6"
+          >
+            <Flex w="1200px" m="0px auto">
+              <Box>
+                <Heading fontSize="40" variant="h1" lineHeight="200px">
+                  About
+                </Heading>
+              </Box>
+              <Spacer />
+              <Box lineHeight="200px">
                 <Flex>
-                  <Box>
-                    <Heading component="h3" variant="h3">
-                      About
-                    </Heading>
-                  </Box>
-                  <Spacer />
-                  <Box>
-                    <Heading component="h6" variant="h6">
-                      About
-                    </Heading>
-                    <Heading component="h6" variant="h6">
-                      My account
-                    </Heading>
-                  </Box>
+                  <Text component="h6" variant="h6">
+                    Home
+                  </Text>
+                  <Text p="0px 10px"> / </Text>
+                  <Text component="h6" variant="h6">
+                    About
+                  </Text>
                 </Flex>
               </Box>
-            </Box>
+            </Flex>
           </Box>
         </Box>
-        <Box>
+        <Container maxW="1200px" m="12px auto">
           <Box>
-            <Heading
-              as="h1"
-              sx={{
-                textAlign: 'center',
-              }}
-            >
+            <Heading as="h2" size="xl" color="brand.title">
               Get to know Multistore
             </Heading>
-            <Text
-              sx={{
-                textAlign: 'center',
-                padding: '0 20%',
-                marginTop: '20px',
-                color: '#676c77',
-              }}
-            >
+            <Text textAlign="center" pl="6" pr="6" mt="5" color="#676c77">
               Multistore vision is to create Indias most reliable and
               frictionless commerce ecosystem that creates life-changing
               experiences for buyers and sellers.
             </Text>
           </Box>
-          <Center w="100%">
-            <Box>
-              <MdOutlineInventory2 />
+          <Center pt="6">
+            <Box w="30%">
+              <Circle size="80px" bg="brand.primary" color="white">
+                <MdOutlineInventory2 fontSize="40" />
+              </Circle>
               <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
                 35 Million+
               </Text>
               <Text sx={{ fontWeight: '700', color: '#676c77' }}>Products</Text>
             </Box>
-            <Box>
-              <IoMdCart />
-              <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
+            <Box w="30%">
+              <Circle size="80px" bg="brand.primary" color="white">
+                <IoMdCart fontSize="40" />
+              </Circle>
+              <Text fontWeight="700" component="h5" variant="h5">
                 250,000
               </Text>
-              <Text sx={{ fontWeight: '700', color: '#676c77' }}>Sellers</Text>
+              <Text fontWeight="700" color="#676c77">
+                Sellers
+              </Text>
             </Box>
-            <Box>
-              <GoGlobe />
-              <Text sx={{ fontWeight: '700' }} component="h5" variant="h5">
+            <Box w="30%">
+              <Circle size="80px" bg="brand.primary" color="white">
+                <GoGlobe fontSize="40" />
+              </Circle>
+              <Text fontWeight="700" component="h5" variant="h5">
                 6000+
               </Text>
-              <Text sx={{ fontWeight: '700', color: '#676c77' }}>Cities</Text>
+              <Text fontWeight="700" color="#676c77">
+                Cities
+              </Text>
             </Box>
           </Center>
-          <Box sx={{ textAlign: 'center', margin: '40px' }}>
-            <Text
-              sx={{
-                margin: '10px',
-                color: '#676c77',
-              }}
-            >
+          <Box m="10" color="#676c77">
+            <Text m="3">
               In February 2010, Kunal Bahl along with Rohit Bansal, started
               Multistore.com Indias largest online marketplace, with the widest
               assortment of 30 million plus products across 800 plus Boxerse
               categories from over 125,000 regional, national, and international
               brands and retailers.
             </Text>
-            <Text
-              sx={{
-                margin: '10px',
-                color: '#676c77',
-              }}
-            >
+            <Text m="3">
               With millions of users and more than 300,000 sellers, Multistore
               is the shopping destination for Internet users across the country,
               delivering to 6000+ cities and towns in India.
             </Text>
-            <Text
-              sx={{
-                margin: '10px',
-                color: '#676c77',
-              }}
-            >
+            <Text m="3">
               In its journey till now, Multistore has partnered with several
               global marquee investors and inBoxiduals such as SoftBank,
               BlackRock, Temasek, Foxconn, Alibaba, eBay Inc., Premji Invest,
@@ -135,47 +115,87 @@ const About = () => {
               others.
             </Text>
           </Box>
-          <Box sx={{ textAlign: 'center', marginTop: '80px' }}>
-            <Heading
-              as="h2"
-              sx={{
-                textAlign: 'center',
-              }}
-            >
+          <Box mt="6">
+            <Heading as="h2" color="brand.title" fontSize="36">
               Our Team
             </Heading>
-            <Text
-              sx={{
-                padding: '0 20%',
-                marginTop: '20px',
-                color: '#676c77',
-              }}
-            >
+            <Text mt="5" mb="5" color="#676c77">
               Each member of our team is a specialist in his or her field.
               Together, we make sure youre investing where the best returns are,
               while building loyalty across every touchpoint.
             </Text>
           </Box>
-          <Container sx={{ textAlign: 'center' }}>
-            <Flex>
-              <Box w="20%">
+          <Flex pb="20">
+            <Box w="25%">
+              <Box position="relative">
+                <Box>
+                  <Image
+                    width="258"
+                    height="298"
+                    src={AboutTeam.src}
+                    alt="Philip Demarco"
+                  />
+                </Box>
+                <Box
+                  bg="brand.primary"
+                  w="80%"
+                  position="absolute"
+                  left="50%"
+                  transform="translate(-50%, -50%)"
+                  color="#fff"
+                  pt="2"
+                  pb="2"
+                >
+                  <Heading fontSize="16">Philip Demarco</Heading>
+                  <Text fontSize="14">Business Analyst</Text>
+                </Box>
+              </Box>
+              <Box>
+                <Text display="none">
+                  By testing and launching new partners and internal tech
+                  solutions, he increases both efficiency and performance
+                </Text>
+                <Box>
+                  <a href="https://facebook.com/">
+                    <i className="fa fa-facebook"></i>
+                  </a>
+                  <a href="https://twitter.com/">
+                    <i className="fa fa-twitter"></i>
+                  </a>
+                  <a href="https://google.com/">
+                    <i className="fa fa-google"></i>
+                  </a>
+                </Box>
+              </Box>
+            </Box>
+            <Box w="25%">
+              <Box position="relative">
                 <Box>
                   <Box>
                     <Image
                       width={258}
                       height={298}
                       layout="fixed"
-                      src={AboutTeam.src}
+                      src={AboutTeam_1.src}
                       alt="Philip Demarco"
                     />
                   </Box>
-                  <Box>
-                    <h3>Philip Demarco</h3>
-                    Business Analyst
+                  <Box
+                    bg="brand.primary"
+                    w="80%"
+                    position="absolute"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    color="#fff"
+                    pt="2"
+                    pb="2"
+                  >
+                    <Heading fontSize="16">Philip Demarco</Heading>
+                    <Text fontSize="14">Business Analyst</Text>
                   </Box>
                 </Box>
                 <Box>
-                  <Text>
+                  <Text display="none">
                     By testing and launching new partners and internal tech
                     solutions, he increases both efficiency and performance
                   </Text>
@@ -192,119 +212,103 @@ const About = () => {
                   </Box>
                 </Box>
               </Box>
-              <Box w="20%">
+            </Box>
+            <Box w="25%">
+              <Box position="relative">
                 <Box>
                   <Box>
-                    <Box>
-                      <Image
-                        width={258}
-                        height={298}
-                        layout="fixed"
-                        src={AboutTeam_1.src}
-                        alt="Philip Demarco"
-                      />
-                    </Box>
-                    <Box>
-                      <h3>Philip Demarco</h3>
-                      Business Analyst
-                    </Box>
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
+                      src={AboutTeam_2.src}
+                      alt="Philip Demarco"
+                    />
                   </Box>
+                  <Box
+                    bg="brand.primary"
+                    w="80%"
+                    position="absolute"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    color="#fff"
+                    lineHeight="1"
+                    pt="2"
+                    pb="2"
+                  >
+                    <Heading fontSize="16">Philip Demarco</Heading>
+                    <Text fontSize="14">Business Analyst</Text>
+                  </Box>
+                </Box>
+                <Box>
+                  <Text display="none">
+                    By testing and launching new partners and internal tech
+                    solutions, he increases both efficiency and performance
+                  </Text>
                   <Box>
-                    <Text>
-                      By testing and launching new partners and internal tech
-                      solutions, he increases both efficiency and performance
-                    </Text>
-                    <Box>
-                      <a href="https://facebook.com/">
-                        <i className="fa fa-facebook"></i>
-                      </a>
-                      <a href="https://twitter.com/">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                      <a href="https://google.com/">
-                        <i className="fa fa-google"></i>
-                      </a>
-                    </Box>
+                    <a href="https://facebook.com/">
+                      <i className="fa fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/">
+                      <i className="fa fa-twitter"></i>
+                    </a>
+                    <a href="https://google.com/">
+                      <i className="fa fa-google"></i>
+                    </a>
                   </Box>
                 </Box>
               </Box>
-              <Box w="20%">
+            </Box>
+            <Box w="25%">
+              <Box position="relative">
                 <Box>
                   <Box>
-                    <Box>
-                      <Image
-                        width={258}
-                        height={298}
-                        layout="fixed"
-                        src={AboutTeam_2.src}
-                        alt="Philip Demarco"
-                      />
-                    </Box>
-                    <Box>
-                      <h3>Philip Demarco</h3>
-                      Business Analyst
-                    </Box>
+                    <Image
+                      width={258}
+                      height={298}
+                      layout="fixed"
+                      src={AboutTeam_3.src}
+                      alt="Philip Demarco"
+                    />
                   </Box>
+                  <Box
+                    bg="rgb(64,198,255)"
+                    w="80%"
+                    position="absolute"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    color="#fff"
+                    lineHeight="1"
+                    pt="2"
+                    pb="2"
+                  >
+                    <Heading fontSize="16">Philip Demarco</Heading>
+                    <Text fontSize="14">Business Analyst</Text>
+                  </Box>
+                </Box>
+                <Box>
+                  <Text display="none">
+                    By testing and launching new partners and internal tech
+                    solutions, he increases both efficiency and performance
+                  </Text>
                   <Box>
-                    <Text>
-                      By testing and launching new partners and internal tech
-                      solutions, he increases both efficiency and performance
-                    </Text>
-                    <Box>
-                      <a href="https://facebook.com/">
-                        <i className="fa fa-facebook"></i>
-                      </a>
-                      <a href="https://twitter.com/">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                      <a href="https://google.com/">
-                        <i className="fa fa-google"></i>
-                      </a>
-                    </Box>
+                    <a href="https://facebook.com/">
+                      <i className="fa fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/">
+                      <i className="fa fa-twitter"></i>
+                    </a>
+                    <a href="https://google.com/">
+                      <i className="fa fa-google"></i>
+                    </a>
                   </Box>
                 </Box>
               </Box>
-              <Box w="20%">
-                <Box>
-                  <Box>
-                    <Box>
-                      <Image
-                        width={258}
-                        height={298}
-                        layout="fixed"
-                        src={AboutTeam_3.src}
-                        alt="Philip Demarco"
-                      />
-                    </Box>
-                    <Box>
-                      <h3>Philip Demarco</h3>
-                      Business Analyst
-                    </Box>
-                  </Box>
-                  <Box>
-                    <Text>
-                      By testing and launching new partners and internal tech
-                      solutions, he increases both efficiency and performance
-                    </Text>
-                    <Box>
-                      <a href="https://facebook.com/">
-                        <i className="fa fa-facebook"></i>
-                      </a>
-                      <a href="https://twitter.com/">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                      <a href="https://google.com/">
-                        <i className="fa fa-google"></i>
-                      </a>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
-            </Flex>
-          </Container>
-        </Box>
+            </Box>
+          </Flex>
+        </Container>
       </Box>
-    </Container>
+    </>
   )
 }
 export default About

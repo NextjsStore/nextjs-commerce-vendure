@@ -9,77 +9,9 @@ import {
   Heading,
   Spacer,
   Text,
-  Grid,
   Divider,
-  Button,
+  SimpleGrid,
 } from '@chakra-ui/react'
-
-const colorHover = '#40c6ff'
-const styles = {
-  productCategoryText: {
-    marginRight: '25px',
-  },
-  textCartegory: {
-    padding: '10px 0px',
-    borderBottom: '1px solid #ccc',
-    color: '#676c77',
-    transition: '0.21s',
-    '& div.MuiTreeItem-content': {
-      padding: '0px!important',
-      '&:hover': {
-        background: '#fff',
-      },
-      '&:focus': {
-        background: '#fff',
-      },
-      '& svg': {
-        color: '#676c77',
-      },
-    },
-    '&:hover': {
-      color: '#000',
-    },
-  },
-  titleCartegory: {
-    marginBottom: '10px',
-    marginTop: '10px',
-  },
-  titleSideBarCategory: {
-    position: 'relative',
-    borderBottom: ' 1px solid #ccc',
-    paddingBottom: '15px',
-    marginBottom: '20px',
-    fontFamily: 'Merriweather,sans-serif',
-    fontWeight: 'bold',
-    fontSize: '24px',
-    '&:before': {
-      position: 'absolute',
-      content: '""',
-      width: '60px',
-      height: '1px',
-      bottom: '-1px',
-      backgroundColor: `${colorHover}`,
-    },
-  },
-  categoryText: {
-    paddingLeft: '0px',
-    '&:hover': {
-      backgroundColor: '#fff !important',
-    },
-  },
-  textTile: {
-    color: 'white',
-    fontFamily: 'Merriweather',
-    fontSize: '50px',
-    fontWeight: 700,
-  },
-  titleText: {
-    color: 'white',
-    fontFamily: 'Muli',
-    fontWeight: 400,
-    fontSize: '14px',
-  },
-}
 
 const Shop = (props) => {
   const { products, categories } = props
@@ -91,73 +23,72 @@ const Shop = (props) => {
 
   return (
     <Box>
-      <Box h="240px">
-        <Box>
-          <Box
-            color="#fff"
-            backgroundImage="/assets/banner_page.png"
-            h="200px"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            mb="60px"
-          >
-            <Flex>
-              <Box>
-                <Heading component="h3" variant="h3">
-                  My account
-                </Heading>
-              </Box>
-              <Spacer />
-              <Box>
-                <Heading component="h6" variant="h6">
+      <Box>
+        <Box
+          color="#fff"
+          backgroundImage="/assets/banner_page.png"
+          h="200px"
+          mb="6"
+        >
+          <Flex w="1200px" m="0px auto">
+            <Box>
+              <Heading fontSize="40" variant="h1" lineHeight="200px">
+                About
+              </Heading>
+            </Box>
+            <Spacer />
+            <Box lineHeight="200px">
+              <Flex>
+                <Text component="h6" variant="h6">
                   Home
-                </Heading>
-                <Heading component="h6" variant="h6">
-                  My account
-                </Heading>
-              </Box>
-            </Flex>
-          </Box>
+                </Text>
+                <Text p="0px 10px"> / </Text>
+                <Text component="h6" variant="h6">
+                  About
+                </Text>
+              </Flex>
+            </Box>
+          </Flex>
         </Box>
       </Box>
-      <Container>
+      <Container maxW="1200px" m="12px auto">
         <Flex>
-          <Grid item lg={3}>
-            <Box>
-              <Text
-                style={styles.titleSideBarCategory}
-                component="h4"
-                variant="h4"
-              >
-                Product Category
-              </Text>
-            </Box>
-            <div>
-              {categories.length > 0 &&
+          <Box w="20%">
+            <Heading
+              as="h3"
+              size="lg"
+              color="brand.title"
+              borderBottom="1px solid #ccc"
+              pb="2"
+            >
+              Product Category
+            </Heading>
+            {categories.length > 0 &&
                 categories.map((item) => (
                   <Box key={item}>
                     <Box disablePadding>
-                      <Box style={styles.categoryText}>
-                        <Button onClick={() => handleSubmit(`${item.slug}`)}>
+                      <Box>
+                        <Text
+                          onClick={() => handleSubmit(`${item.slug}`)}
+                          borderBottom="1px solid #ccc"
+                          p={[2, 3]}
+                        >
                           {item.name}
-                        </Button>
+                        </Text>
                       </Box>
                     </Box>
                     <Divider />
                   </Box>
                 ))}
-            </div>
-          </Grid>
-
-          <Box item lg={8}>
-            <Box
-              spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
-              columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
-            >
-              {products.length > 0 &&
-                products.map((product) => (
-                  <Product key={product.id} product={product} />
-                ))}
+          </Box>
+          <Box item lg={8} w="80%" pl="20">
+            <Box>
+              <SimpleGrid columns={3}>
+                {products.length > 0 &&
+                 products.map((product) => (
+                      <Product key={product.id} product={product} />
+                    ))}
+              </SimpleGrid>
             </Box>
           </Box>
         </Flex>

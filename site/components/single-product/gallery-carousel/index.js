@@ -1,28 +1,9 @@
 import { isEmpty, isArray } from 'lodash'
 import { useState, useRef } from 'react'
+import { Flex, Box } from '@chakra-ui/react'
 
 // makestyle
 import Image from 'next/image'
-
-const styles = {
-  thumbnail_detail: {
-    width: '90%',
-    display: 'flex',
-    '& div.img-item': {
-      width: '25%',
-      marginRight: '20px',
-      '& img': {
-        width: '100%',
-      },
-      '&:last-child': {
-        marginRight: '0px',
-      },
-      '@media (max-width:575px)': {
-        marginRight: '10px',
-      },
-    },
-  },
-}
 
 const GalleryCarousel = ({ gallery }) => {
   const activeIndexRef = useRef({ activeIndex: 0 })
@@ -61,14 +42,14 @@ const GalleryCarousel = ({ gallery }) => {
   }
 
   return (
-    <div styles={styles.thumbnail_detail}>
+    <Flex>
       {gallery.map((item, index) => {
         const opacity =
           activeIndex === index || 1 === gallery.length
             ? 'opacity-10'
             : 'opacity-1'
         return (
-          <div key={item?.id} styles={`${opacity - 1} img-item`}>
+          <Box key={item?.id} styles={`${opacity - 1} img-item`} mr="10">
             <Image
               width={113}
               height={113}
@@ -77,7 +58,7 @@ const GalleryCarousel = ({ gallery }) => {
               loading="lazy"
               alt={item?.name ? item?.name : item?.name}
             />
-          </div>
+          </Box>
         )
       })}
       {/* <div className="slider-button">
@@ -88,7 +69,7 @@ const GalleryCarousel = ({ gallery }) => {
                         <svg width="25px" className="inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </button>
                 </div> */}
-    </div>
+    </Flex>
   )
 }
 

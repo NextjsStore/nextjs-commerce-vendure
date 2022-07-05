@@ -4,7 +4,7 @@ import AddToCartButton from '../../components/cart/AddToCartButton'
 import { isEmpty } from 'lodash'
 import GalleryCarousel from '@components/single-product/gallery-carousel'
 import CategoriesCarousel from '@components/single-product/categories-carousel'
-import { StarIcon } from '@chakra-ui/icons'
+import { BsFillStarFill } from 'react-icons/bs'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
 import {
@@ -16,6 +16,7 @@ import {
   Heading,
   Grid,
   Image,
+  Text,
 } from '@chakra-ui/react'
 
 const Product = (props) => {
@@ -31,151 +32,131 @@ const Product = (props) => {
   }
 
   return (
-    <>
+    <Box>
       <Box>
-        <Box h="240px">
-          <Box>
-            <Box
-              color="#fff"
-              backgroundImage="/assets/banner_page.png"
-              h="200px"
-              backgroundRepeat="no-repeat"
-              backgroundSize="cover"
-              mb="60px"
-            >
+        <Box
+          color="#fff"
+          backgroundImage="/assets/banner_page.png"
+          h="200px"
+          mb="6"
+        >
+          <Flex w="1200px" m="0px auto">
+            <Box>
+              <Heading fontSize="40" variant="h1" lineHeight="200px">
+                Shop
+              </Heading>
+            </Box>
+            <Spacer />
+            <Box lineHeight="200px">
               <Flex>
-                <Box>
-                  <Heading component="h3" variant="h3">
-                    About
-                  </Heading>
-                </Box>
-                <Spacer />
-                <Box>
-                  <Heading component="h6" variant="h6">
-                    About
-                  </Heading>
-                  <Heading component="h6" variant="h6">
-                    My account
-                  </Heading>
-                </Box>
+                <Text component="h6" variant="h6">
+                  Home
+                </Text>
+                <Text p="0px 10px"> / </Text>
+                <Text component="h6" variant="h6">
+                  Shop
+                </Text>
               </Flex>
             </Box>
-          </Box>
+          </Flex>
         </Box>
       </Box>
-      <Box>
-        {product && collections ? (
-          <Box>
-            <Container maxWidth="lg">
-              <Grid>
-                <Center>
-                  <Container w="60%" borderBottom="1px solid #ccc" pb="30px">
-                    <Flex>
-                      <Box pr="30">
-                        <Box>
-                          <Image src={product.images[0].url} alt="" w="100%" />
-                          <Box>
-                            <GalleryCarousel gallery={product?.images} />
-                          </Box>
-                        </Box>
-                      </Box>
-                      <Box>
-                        <Box>
-                          <h1>{product.name}</h1>
-                          <h3>${product.price.value}</h3>
-                          <Box
-                            dangerouslySetInnerHTML={{
-                              __html: product.description,
-                            }}
-                          />
-                          {<AddToCartButton product={product} />}
-                          <Box>
-                            <Box>SKU: N/A</Box>
-                            <CategoriesCarousel
-                              gallery={collections.collections}
-                            />
-                          </Box>
-                        </Box>
-                      </Box>
-                    </Flex>
-                  </Container>
-                </Center>
-                <Center>
-                  <Container w="60%">
-                    <Box>
-                      <h2>Detail</h2>
-                      <Box
-                        dangerouslySetInnerHTML={{
-                          __html: product.description,
-                        }}
-                      ></Box>
-                    </Box>
-                    <Container h="100%" m="5" pb="10">
-                      <Container centerContent>
-                        <h2>Related products</h2>
-                      </Container>
-                      <Flex>
-                        {relatedProducts.length
-                          ? relatedProducts.map((item) => (
-                              <Box key={item} m="20" border="1px solid #efefef">
-                                <Box>
-                                  <Link href={`/product/${item?.slug}`}>
-                                    <a>
-                                      <Image
-                                        src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
-                                        //srcSet={`${item?.image?.srcSet}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                                        alt={item?.name}
-                                        loading="lazy"
-                                        w="100%"
-                                        p="5"
-                                      />
-                                    </a>
-                                  </Link>
-                                  <Container centerContent>
-                                    <h3>
-                                      <Link href={`/product/${item?.slug}`}>
-                                        <a>{item.name}</a>
-                                      </Link>
-                                    </h3>
-                                    <Box>
-                                      {product.rating && (
-                                        <Box mb="10" alignItems="center">
-                                          {Array(5)
-                                            .fill('')
-                                            .map((_, i) => (
-                                              <StarIcon
-                                                key={i}
-                                                color={
-                                                  i < product.rating
-                                                    ? '#81E6D9'
-                                                    : 'gray.200'
-                                                }
-                                              />
-                                            ))}
-                                        </Box>
-                                      )}
-                                    </Box>
-                                    <h4>
-                                      <span>${item.price.value}</span>
-                                    </h4>
-                                  </Container>
-                                </Box>
-                              </Box>
-                            ))
-                          : ''}
-                      </Flex>
-                    </Container>
-                    <Box></Box>
-                  </Container>
-                </Center>
-              </Grid>
-            </Container>
+      {product && collections && (
+        <Box w="1200px" m="0px auto">
+          <Box borderBottom="1px solid #ccc" pb="30px">
+            <Flex>
+              <Box pr="30">
+                <Box>
+                  <Image src={product.images[0].url} alt="" w="100%" />
+                  <Box>
+                    <GalleryCarousel gallery={product?.images} />
+                  </Box>
+                </Box>
+              </Box>
+              <Box>
+                <Box>
+                  <Heading>{product.name}</Heading>
+                  <h3>${product.price.value}</h3>
+                  <Box
+                    dangerouslySetInnerHTML={{
+                      __html: product.description,
+                    }}
+                  />
+                  {<AddToCartButton product={product} />}
+                  <Box>
+                    <Box>SKU: N/A</Box>
+                    <CategoriesCarousel gallery={collections.collections} />
+                  </Box>
+                </Box>
+              </Box>
+            </Flex>
           </Box>
-        ) : (
-          ''
-        )}
-      </Box>
-    </>
+          <Box>
+            <Heading pt="4" pb="4">
+              Detail
+            </Heading>
+            <Box
+              dangerouslySetInnerHTML={{
+                __html: product.description,
+              }}
+            ></Box>
+          </Box>
+          <Box h="100%" pt="6" pb="10">
+            <Heading>
+              <Center>Related products</Center>
+            </Heading>
+            <Flex pt="6">
+              {relatedProducts.length > 0 &&
+                relatedProducts.map((item) => (
+                  <Box key={item} m="2" border="1px solid #efefef">
+                    <Box>
+                      <Link href={`/product/${item?.slug}`}>
+                        <a>
+                          <Image
+                            src={`${item?.images[0].url}?w=164&h=164&fit=crop&auto=format`}
+                            alt={item?.name}
+                            loading="lazy"
+                            w="100%"
+                            p="5"
+                          />
+                        </a>
+                      </Link>
+                      <Box centerContent>
+                        <h3>
+                          <Link href={`/product/${item?.slug}`}>
+                            <a>{item.name}</a>
+                          </Link>
+                        </h3>
+                        <Box>
+                          {product.rating && (
+                            <Box mb="10" alignItems="center">
+                              {Array(5)
+                                .fill('')
+                                .map((_, i) => (
+                                  <BsFillStarFill
+                                    key={i}
+                                    color={
+                                      i < product.rating
+                                        ? '#81E6D9'
+                                        : 'gray.200'
+                                    }
+                                  />
+                                ))}
+                            </Box>
+                          )}
+                        </Box>
+                        <h4>
+                          <span>${item.price.value}</span>
+                        </h4>
+                      </Box>
+                    </Box>
+                  </Box>
+                ))}
+            </Flex>
+          </Box>
+        </Box>
+      )}
+    </Box>
   )
 }
 export default Product

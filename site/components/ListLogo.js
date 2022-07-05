@@ -1,12 +1,5 @@
 import * as React from 'react'
-import {
-  Container,
-  Box,
-  Center,
-  Image,
-  Heading,
-  SimpleGrid,
-} from '@chakra-ui/react'
+import { Box, Center, Image, Heading, SimpleGrid } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
 const SHeading = styled(Heading)`
@@ -35,12 +28,35 @@ const Wrapper = ({ children }) => {
 const Logo = (props) => {
   const { brands } = props
   return (
-    <Container>
-      <Box>
-        <Center>
-          <SHeading>OUTLET BRAND STUFF</SHeading>
-        </Center>
-      </Box>
+    <Box pt="50">
+      <Center>
+        <Heading
+          color="brand.title"
+          as="h3"
+          size="lg"
+          fontFamily="Merriweather"
+          _before={{
+            w: '15px',
+            h: '1px',
+            ml: '-6',
+            mt: '5',
+            content: `""`,
+            position: 'absolute',
+            backgroundColor: '#40c6ff',
+          }}
+          _after={{
+            mt: '5',
+            ml: '2',
+            w: '15px',
+            h: '1px',
+            content: `""`,
+            position: 'absolute',
+            backgroundColor: '#40c6ff',
+          }}
+        >
+          OUTLET BRAND STUFF
+        </Heading>
+      </Center>
       <Center>
         <SimpleGrid columns={6}>
           {brands?.map((element) => (
@@ -48,12 +64,12 @@ const Logo = (props) => {
               key={element.id}
               src={element.imageUrl}
               border="1px solid #efefef"
-              m="10"
+              m="6"
             />
           ))}
         </SimpleGrid>
       </Center>
-    </Container>
+    </Box>
   )
 }
 export default Logo
