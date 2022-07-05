@@ -5,7 +5,14 @@ import { MdOutlineLanguage } from 'react-icons/md'
 const SideBarTop = () => {
   return (
     <Box bg="rgb(243,243,243)">
-      <Container maxW="1200px">
+      <Container
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+          '2xl': '1536px',
+        }}
+      >
         <Flex display="flex">
           <Box w="50%" color="rgb(153,153,153)" display="flex" p="10px 0">
             <Box>Call Support Free:1800123456</Box>
@@ -53,10 +60,3 @@ const SideBarTop = () => {
   )
 }
 export default SideBarTop
-
-const styles = {
-  select: {},
-  right: {
-    align: 'right',
-  },
-}

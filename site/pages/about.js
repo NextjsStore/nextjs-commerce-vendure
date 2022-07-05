@@ -29,7 +29,15 @@ const About = () => {
             h="200px"
             mb="6"
           >
-            <Flex w="1200px" m="0px auto">
+            <Flex
+              maxW={{
+                md: '768px',
+                lg: '960px',
+                xl: '1200px',
+                '2xl': '1536px',
+              }}
+              m="0px auto"
+            >
               <Box>
                 <Heading fontSize="40" variant="h1" lineHeight="200px">
                   About
@@ -50,7 +58,15 @@ const About = () => {
             </Flex>
           </Box>
         </Box>
-        <Container maxW="1200px" m="12px auto">
+        <Container
+          maxW={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+            '2xl': '1536px',
+          }}
+          m="12px auto"
+        >
           <Box>
             <Heading as="h2" size="xl" color="brand.title">
               Get to know Multistore

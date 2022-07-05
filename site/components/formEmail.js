@@ -14,7 +14,7 @@ const NameForm = () => {
     <Box
       p={4}
       w="100%"
-      color="#666"
+      color="brand.detail"
       backgroundImage="assets/bg-home1-newleter.jpg"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"

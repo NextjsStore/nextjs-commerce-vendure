@@ -7,6 +7,7 @@ const theme = extendTheme({
       primary: '#40c6ff',
       blue: '#1565c0',
       greySecondary: '#42414d',
+      detail: '#66666',
     },
   },
   fonts: {

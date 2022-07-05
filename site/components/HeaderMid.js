@@ -41,7 +41,15 @@ const HeaderMid = () => {
 
   return (
     <Box borderBottom="1px solid #eee">
-      <Container maxW="1200px" p="20px 0">
+      <Container
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+          '2xl': '1536px',
+        }}
+        p="20px 0"
+      >
         <Flex>
           <Box w="30%">
             <Link href="/">
@@ -80,7 +88,7 @@ const HeaderMid = () => {
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event?.target?.value)}
                 outline="none"
-                color="#666"
+                color="brand.detail"
                 w="100%"
                 border="1px solid #d1d3d4"
                 height="36px"

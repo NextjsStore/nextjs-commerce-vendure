@@ -136,7 +136,16 @@ const Home = (props) => {
         <SwipeableTextMobileStepper />
         <DealsOfDay />
         <Tab key={categories.id} collections={categories} />
-        <SimpleGrid columns={4} w="1200px" m="12px auto">
+        <SimpleGrid
+          columns={{ sm: '1', md: '2', lg: '4' }}
+          w={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+            '2xl': '1536px',
+          }}
+          m="12px auto"
+        >
           {products.length
             ? products.map((product) => (
                 <Product key={product.id} product={product} />
@@ -151,7 +160,16 @@ const Home = (props) => {
 
         <ListImages />
         <TabSeller key={categories.id} collections={categories} />
-        <SimpleGrid columns={4} w="1200px" m="12px auto">
+        <SimpleGrid
+          columns={{ sm: '1', md: '2', lg: '4' }}
+          w={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+            '2xl': '1536px',
+          }}
+          m="12px auto"
+        >
           {productsSeller.length
             ? productsSeller.map((product) => (
                 <ProdutcsSeller key={product.id} product={product} />

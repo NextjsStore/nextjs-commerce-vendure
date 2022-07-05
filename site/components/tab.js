@@ -40,9 +40,17 @@ const Tab = (props) => {
           NEW PRODUCT
         </Heading>
       </Center>
-      <Box w="1200px" m="12px auto">
+      <Box
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+          '2xl': '1536px',
+        }}
+        m="12px auto"
+      >
         <Center>
-          <Flex>
+          <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
             <Box>
               <Button
                 onClick={() => handleSubmit(`SmartPhone`)}
@@ -50,14 +58,14 @@ const Tab = (props) => {
                 bg="#fff"
                 p="10px 20px"
                 mr="5"
-                color="#666"
+                color="brand.detail"
                 _hover={{ bg: 'brand.primary', color: ' white' }}
                 borderRadius="50px"
               >
                 All Product
               </Button>
             </Box>
-            <Box display="flex">
+            <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
               {collections.length
                 ? collections.map((item) => (
                     <Box key={item}>
@@ -68,7 +76,7 @@ const Tab = (props) => {
                           bg="#fff"
                           p="10px 20px"
                           mr="5"
-                          color="#666"
+                          color="brand.detail"
                           _hover={{ bg: 'brand.primary', color: ' white' }}
                           borderRadius="50px"
                         >
@@ -79,7 +87,7 @@ const Tab = (props) => {
                   ))
                 : ''}
             </Box>
-          </Flex>
+          </Box>
         </Center>
       </Box>
     </Box>
