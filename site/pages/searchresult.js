@@ -1,4 +1,3 @@
-import { makeStyles } from '@material-ui/core/styles'
 import Banner from '../assets/banner_page.png'
 import Search_Collection from '../components/searchcollection'
 import { Box, Container, Flex, Heading, Spacer, Grid } from '@chakra-ui/react'
