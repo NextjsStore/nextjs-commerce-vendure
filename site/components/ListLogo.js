@@ -58,7 +58,7 @@ const Logo = (props) => {
         </Heading>
       </Center>
       <Center>
-        <SimpleGrid columns={6}>
+        <SimpleGrid columns={{ sm: '2', md: '3', lg: '6' }}>
           {brands?.map((element) => (
             <Image
               key={element.id}

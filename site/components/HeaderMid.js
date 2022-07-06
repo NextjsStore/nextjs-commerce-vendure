@@ -33,9 +33,16 @@ const HeaderMid = (props) => {
     setSearchQuery(e.target.value)
   }
   return (
-
     <Box borderBottom="1px solid #eee">
-      <Container maxW="1200px" p="20px 0">
+      <Container
+        maxW={{
+          sm: '320px',
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        p="20px 0"
+      >
         <Flex>
           <Box w="30%">
             <Link href="/">
@@ -64,11 +71,11 @@ const HeaderMid = (props) => {
                 <option value="">Shop by collection</option>
                 <option value="">Uncategorized</option>
                 {categories.length > 0 &&
-                    categories.map((item) => (
-                      <option key={item} value={item.slug}>
-                        ---{item.name}---
-                      </option>
-                    ))}
+                  categories.map((item) => (
+                    <option key={item} value={item.slug}>
+                      ---{item.name}---
+                    </option>
+                  ))}
               </Select>
               <Input
                 type="text"
@@ -76,7 +83,7 @@ const HeaderMid = (props) => {
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event?.target?.value)}
                 outline="none"
-                color="#666"
+                color="brand.detail"
                 w="100%"
                 border="1px solid #d1d3d4"
                 height="36px"
@@ -119,6 +126,5 @@ const HeaderMid = (props) => {
     </Box>
   )
 }
-
 
 export default HeaderMid

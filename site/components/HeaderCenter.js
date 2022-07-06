@@ -5,7 +5,14 @@ import ResponsiveAppBar from '../components/ListPages'
 
 const HeaderCenter = () => {
   return (
-    <Container maxW="1200px">
+    <Container
+      maxW={{
+        sm: '320px',
+        md: '768px',
+        lg: '960px',
+        xl: '1200px',
+      }}
+    >
       <Flex>
         <Box w="30%" pt="2">
           <MenuListComposition />

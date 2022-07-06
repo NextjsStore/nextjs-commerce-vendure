@@ -39,9 +39,17 @@ const TabSeller = (props) => {
           Best Seller
         </Heading>
       </Center>
-      <Box w="1200px" m="12px auto">
+      <Box
+        maxW={{
+          sm: '320px',
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="12px auto"
+      >
         <Center>
-          <Flex>
+          <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
             <Box>
               <Button
                 onClick={() => handleSubmit(`SmartPhone`)}
@@ -49,33 +57,33 @@ const TabSeller = (props) => {
                 bg="#fff"
                 p="10px 20px"
                 mr="5"
-                color="#666"
+                color="brand.detail"
                 _hover={{ bg: 'brand.primary', color: ' white' }}
                 borderRadius="50px"
               >
                 All Product
               </Button>
             </Box>
-            <Box display="flex">
+            <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
               {collections.length > 0 &&
-                 collections.map((item) => (
-                    <Box key={item}>
-                      <Button
-                        onClick={() => handleSubmit(`${item.slug}`)}
-                        border="1px solid #ccc"
-                        bg="#fff"
-                        p="10px 20px"
-                        mr="5"
-                        color="#666"
-                        _hover={{ bg: 'brand.primary', color: ' white' }}
-                        borderRadius="50px"
-                      >
-                        {item.name}
-                      </Button>
-                    </Box>
-                  ))}
+                collections.map((item) => (
+                  <Box key={item}>
+                    <Button
+                      onClick={() => handleSubmit(`${item.slug}`)}
+                      border="1px solid #ccc"
+                      bg="#fff"
+                      p="10px 20px"
+                      mr="5"
+                      color="brand.detail"
+                      _hover={{ bg: 'brand.primary', color: ' white' }}
+                      borderRadius="50px"
+                    >
+                      {item.name}
+                    </Button>
+                  </Box>
+                ))}
             </Box>
-          </Flex>
+          </Box>
         </Center>
       </Box>
     </Box>

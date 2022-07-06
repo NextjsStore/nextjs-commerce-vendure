@@ -6,7 +6,16 @@ import paymentImages from '../assets/payment.png'
 const Copyright = () => {
   return (
     <Box borderTop="1px solid #ccc">
-      <Container maxW="1200px" m="12px auto" color="#666">
+      <Container
+        maxW={{
+          sm: '320px',
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="12px auto"
+        color="brand.detail"
+      >
         <Flex sx={{ flexGrow: 1 }}>
           <Box item xs={12} sm={6} md={6}>
             Estore - Designed LogoeBay

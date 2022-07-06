@@ -2,6 +2,7 @@
 import CartItemsContainer from '../components/cart/cart-page/CartItemsContainer'
 import { AppProvider } from '../lib/context/AppContext'
 import { Flex, Heading, Spacer, Box, Container, Center } from '@chakra-ui/react'
+import commerce from '@lib/api/commerce'
 
 const Cart = (props) => {
   return (
@@ -46,3 +47,18 @@ const Cart = (props) => {
 }
 
 export default Cart
+
+export async function getStaticProps({ preview, locale, locales }) {
+  const config = { locale, locales }
+
+  const siteInfoPromise = commerce.getSiteInfo({ config, preview })
+
+  const { categories } = await siteInfoPromise
+
+  return {
+    props: {
+      categories,
+    },
+    revalidate: 86400,
+  }
+}

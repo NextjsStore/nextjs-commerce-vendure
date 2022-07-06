@@ -24,7 +24,7 @@ const Footer = () => {
           <Heading as="h4" size="md" pb="6" fontFamily="Merriweather">
             Contact us
           </Heading>
-          <Box color="#666">
+          <Box color="brand.detail">
             <Box pb="2">
               <Flex>
                 <Box>
@@ -70,7 +70,7 @@ const Footer = () => {
                 <Circle
                   size="40px"
                   bg="#fff"
-                  color="#666"
+                  color="brand.detail"
                   border="1px solid #666"
                 >
                   <Link href="facebook.com/">
@@ -82,7 +82,7 @@ const Footer = () => {
                 <Circle
                   size="40px"
                   bg="#fff"
-                  color="#666"
+                  color="brand.detail"
                   border="1px solid #666"
                   m="3"
                 >
@@ -95,7 +95,7 @@ const Footer = () => {
                 <Circle
                   size="40px"
                   bg="#fff"
-                  color="#666"
+                  color="brand.detail"
                   border="1px solid #666"
                 >
                   <Link href="#">
@@ -107,7 +107,7 @@ const Footer = () => {
                 <Circle
                   size="40px"
                   bg="#fff"
-                  color="#666"
+                  color="brand.detail"
                   border="1px solid #666"
                   m="3"
                 >
@@ -129,7 +129,7 @@ const Footer = () => {
           >
             Information
           </Heading>
-          <Box color="#666">
+          <Box color="brand.detail">
             <Box pb="2">
               <Flex>
                 <Box>
@@ -208,7 +208,7 @@ const Footer = () => {
               My account
             </Heading>
           </Box>
-          <Box color="#666">
+          <Box color="brand.detail">
             <Box pb="2">
               <Flex>
                 <Box>
@@ -245,7 +245,7 @@ const Footer = () => {
           <Heading as="h4" size="md" pb="6" fontFamily="Merriweather">
             Working Time
           </Heading>
-          <Box color="#666">
+          <Box color="brand.detail">
             <Text>Mon to Fri:8:30 am - 6:00 payment</Text>
             <Text>Sat and Sun:10:00 am – 5:00 pm</Text>
           </Box>
@@ -253,7 +253,7 @@ const Footer = () => {
             mt="3"
             p={4}
             w="100%"
-            color="#666"
+            color="brand.detail"
             backgroundImage="/assets/imgWorking.jpg"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"

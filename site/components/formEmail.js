@@ -14,35 +14,49 @@ const NameForm = () => {
     <Box
       p={4}
       w="100%"
-      color="#666"
+      color="brand.detail"
       backgroundImage="assets/bg-home1-newleter.jpg"
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
-      backgroundSize="100%"
-      borderRadius="10"
+      backgroundSize="100% 250px"
     >
-      <Container maxW="1200px">
-        <Center item lg={3} md={4} pt="40" mb="40">
-          <Box w="25%">
+      <Container
+        maxW={{
+          sm: '320px',
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+      >
+        <Center
+          item
+          pt="20"
+          mb="20"
+          display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}
+        >
+          <Box w={{ sm: '100%', md: '25%', lg: '25%', xl: '25%' }}>
             <Heading color="#323232" fontFamily="Merriweather">
               Subscribe to our newsletter
             </Heading>
           </Box>
-          <Box w="75%">
+          <Box
+            w={{ sm: '100%', md: '75%', lg: '75%', xl: '75%' }}
+            display={{ sm: 'flex', md: 'block', lg: 'block', xl: 'block' }}
+          >
             <form>
               <Input
                 id="first-name"
                 placeholder="First name"
                 height="45px"
                 bg="#fff"
-                pl="30px"
-                mr="50px"
-                w="70%"
+                pl="6"
+                pr="6"
+                w={{ sm: '100%', md: '70%', lg: '70%', xl: '70%' }}
               />
               <Button
                 type="submit"
                 color="#fff"
-                width="20%"
+                w="20%"
                 bg="brand.primary"
                 borderRadius="24px"
               >
