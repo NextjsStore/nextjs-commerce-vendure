@@ -3,20 +3,18 @@ import Collection from '@components/collection'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
 import {
-  Center,
   Container,
   Box,
   Flex,
-  Spacer,
   Heading,
-  Grid,
   Text,
+  Spacer,
+  SimpleGrid,
   Button,
 } from '@chakra-ui/react'
 
 const CollectionShop = (props) => {
   const { collections, categories } = props
-  console.log('categories- collection', categories)
 
   const router = useRouter()
   const handleSubmit = (slug) => {
@@ -25,7 +23,7 @@ const CollectionShop = (props) => {
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
-    return <div>Loading...</div>
+    return <Box>Loading...</Box>
   }
 
   return (
@@ -40,32 +38,41 @@ const CollectionShop = (props) => {
             backgroundSize="cover"
             mb="60px"
           >
-            <Flex>
-              <Box>
-                <Heading component="h3" variant="h3">
-                  My account
+            <Flex w="1200px" m="0px auto">
+              <Box lineHeight="3">
+                <Heading fontSize="40" variant="h1">
+                  Shop
                 </Heading>
               </Box>
               <Spacer />
-              <Box>
-                <Heading component="h6" variant="h6">
-                  Home
-                </Heading>
-                <Heading component="h6" variant="h6">
-                  My account
-                </Heading>
+              <Box lineHeight="10">
+                <Flex>
+                  <Text component="h6" variant="h6">
+                    Home
+                  </Text>
+                  <Text p="0px 10px"> / </Text>
+                  <Text component="h6" variant="h6">
+                    My account
+                  </Text>
+                </Flex>
               </Box>
             </Flex>
           </Box>
         </Box>
       </Box>
-      <Container>
-        <Box>
-          <Grid item lg={3}>
+      <Container maxW="1200px" m="12px auto">
+        <Flex>
+          <Box item lg={3} w="20%">
             <Box>
-              <Text component="h4" variant="h4">
+              <Heading
+                as="h3"
+                size="lg"
+                color="brand.title"
+                borderBottom="1px solid #ccc"
+                pb="2"
+              >
                 Product Category
-              </Text>
+              </Heading>
             </Box>
             <div>
               {categories.length > 0 &&
@@ -73,28 +80,25 @@ const CollectionShop = (props) => {
                   <Box key={item}>
                     <Box disablePadding>
                       <Box>
-                        <Button onClick={() => handleSubmit(`${item.slug}`)}>
+                        <Button onClick={() => handleSubmit(item.slug)}>
                           {item.name}
                         </Button>
                       </Box>
                     </Box>
                   </Box>
-                ))}
-            </div>
-          </Grid>
-
-          <Grid item lg={9}>
-            <Grid
-              spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
-              columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
-            >
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+          <Box item lg={8} w="80%" pl="20">
+            <SimpleGrid columns={3}>
               {collections.length > 0 &&
                 collections.map((product) => (
-                  <Collection key={product.id} product={product} />
-                ))}
-            </Grid>
-          </Grid>
-        </Box>
+                    <Collection key={product.id} product={product} />
+                  ))}
+            </SimpleGrid>
+          </Box>
+        </Flex>
       </Container>
     </Box>
   )
@@ -147,7 +151,7 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     data: graphqlQuery,
   })
 
-  const collections = response.data.data.collection.productVariants.items
+  const collections = response.data.data.collection?.productVariants.items
 
   if (!collections) {
     throw new Error(`Product with slug '${params.slug}' not found`)

@@ -3,20 +3,6 @@ import { updateCart2 } from '../../../function'
 import { Box, Text, Image } from '@chakra-ui/react'
 import { AiOutlineClose } from 'react-icons/ai'
 
-const styles = {
-  cartelementPrice: {
-    color: 'rgb(64,198,255)',
-  },
-  cartelementTotal: {
-    color: 'rgb(64,198,255)',
-  },
-  cartqtyinput: {
-    width: '100%',
-    height: '40px',
-    paddingLeft: '10px',
-  },
-}
-
 const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
   const [productCount, setProductCount] = useState(item.qty)
 
@@ -39,26 +25,27 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
   return (
     <Box>
       {/*Icon close */}
-      <th styles={styles.cartelement}>
+      <th>
         <Text
-          styles={styles.cartcloseicon}
           onClick={(event) => handleRemoveProductClick(event, item?.productId)}
         >
           <AiOutlineClose />
         </Text>
       </th>
       {/* image */}
-      <th styles={styles.cartelementImg}>
-        <Image width={266} height={270} src={item.image} alt="" />
+      <th>
+        <img width="150" src={item.image} />
       </th>
       {/* image */}
-      <th styles={styles.cartelementName}>{item?.name}</th>
+      <th>{item?.name}</th>
       {/* PRICE */}
-      <th styles={styles.cartelementPrice}>{'$ ' + item?.price}</th>
+      <th color="rgb(64,198,255)">{'$ ' + item?.price}</th>
       {/* QUANTITY */}
-      <th styles={styles.cartelementInput}>
+      <th>
         <input
-          styles={styles.cartqtyinput}
+          w="100%"
+          h="40px"
+          pl="10px"
           size="small"
           type="number"
           min="1"
@@ -67,7 +54,7 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
         />
       </th>
       {/* Total */}
-      <th styles={styles.cartelementTotal}>{item.totalPrice}</th>
+      <th color="rgb(64,198,255)">{item.totalPrice}</th>
     </Box>
   )
 }

@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Swatch } from '@components/product__'
+import { Swatch } from '@components/product'
 import type { ProductOption } from '@commerce/types/product'
 import { SelectedOptions } from '../helpers'
 

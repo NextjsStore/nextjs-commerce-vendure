@@ -4,32 +4,7 @@ import { useState, useContext } from 'react'
 import { AppContext } from '../../lib/context/AppContext'
 import { addFirstProduct, updateCart } from '../../function'
 import { AppProvider } from '../../lib/context/AppContext'
-
-const colorHover = '#40c6ff'
-
-const styles = {
-  btnviewcart: {
-    margin: '25px',
-  },
-  AddToCartButton: {
-    borderRadius: '20px',
-    backgroundColor: `${colorHover}`,
-    height: '40px',
-    lineHeight: '34px',
-    padding: '0px 30px',
-    color: '#fff',
-    border: 'none',
-    textTransform: 'uppercase',
-    fontSize: '16px',
-    marginTop: '20px',
-    '&:hover': {
-      cursor: 'pointer',
-    },
-    '&:last-child': {
-      marginLeft: '20px',
-    },
-  },
-}
+import { Button } from '@chakra-ui/react'
 
 const AddToCartButton = (props) => {
   const { product } = props
@@ -62,19 +37,40 @@ const AddToCartButton = (props) => {
   return (
     <AppProvider>
       <React.Fragment>
-        <button
-          styles={styles.AddToCartButton}
+        <Button
+          borderRadius="20px"
+          h="40px"
+          lineHeight="34px"
+          p="0px 30px"
+          color="#fff"
+          border="none"
+          bg="#40c6ff"
+          textTransform="uppercase"
+          fontSize="16px"
+          mt="20px"
           variant="contained"
           onClick={handleAddToCartClick}
         >
-          Add To Cart ddd
-        </button>
+          Add To Cart
+        </Button>
         {showViewCart ? (
           <Link href="/cart">
             <a>
-              <button variant="contained" styles={styles.AddToCartButton}>
+              <Button
+                variant="contained"
+                borderRadius="20px"
+                h="40px"
+                lineHeight="34px"
+                p="0px 30px"
+                color="#fff"
+                border="none"
+                bg="#40c6ff"
+                textTransform="uppercase"
+                fontSize="16px"
+                mt="20px"
+              >
                 View Cart
-              </button>
+              </Button>
             </a>
           </Link>
         ) : (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid } from '@mui/material'
+import { Container, Grid, Box, SimpleGrid } from '@chakra-ui/react'
 import SwipeableTextMobileStepper from '../components/slider'
 import Product from '@components/product'
 import ListImages from '@components/ListImages'
@@ -110,97 +110,89 @@ const Home = (props) => {
 
   const brands = [
     {
+      id: 1,
       imageUrl: '/assets/logo1.png',
     },
     {
+      id: 2,
       imageUrl: '/assets/logo2.png',
     },
     {
+      id: 3,
       imageUrl: '/assets/logo3.png',
     },
     {
+      id: 4,
       imageUrl: '/assets/logo4.png',
     },
     {
+      id: 5,
       imageUrl: '/assets/logo5.png',
     },
     {
+      id: 6,
       imageUrl: '/assets/logo6.png',
     },
     {
+      id: 7,
       imageUrl: '/assets/logo5.png',
     },
     {
+      id: 8,
       imageUrl: '/assets/logo6.png',
     },
     {
+      id: 9,
       imageUrl: '/assets/logo5.png',
     },
     {
+      id: 10,
       imageUrl: '/assets/logo6.png',
     },
     {
+      id: 11,
       imageUrl: '/assets/logo5.png',
     },
     {
-      imageUrl: '/assets/logo6.png',
-    },
-    {
-      imageUrl: '/assets/logo5.png',
-    },
-    {
+      id: 12,
       imageUrl: '/assets/logo6.png',
     },
   ]
 
   return (
-    <div>
-      <SwipeableTextMobileStepper />
-
-      <DealsOfDay key={productDeal.id} productsdeal={productDeal} />
-
-      <Container>
+      <Box>
+        <SwipeableTextMobileStepper />
+        <DealsOfDay key={productDeal.id} productsdeal={productDeal} />
         <Tab key={categories.id} collections={categories} />
-        <Grid
-          container
-          spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
-          columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
-        >
-          {products.length > 0 &&
-            products.map((product) => (
-              <Product key={product.id} product={product} />
-            ))}
-        </Grid>
+        <SimpleGrid columns={4} w="1200px" m="12px auto">
+            {products.length > 0 &&
+              products.map((product) => (
+                <Product key={product.id} product={product} />
+              ))}
+        </SimpleGrid>
         {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
-            {products.length ? (
-              products.map(product => <Product key={product.id} product={product} />)
-            ) : ''}
-          </Grid> */}
-      </Container>
 
-      <ListImages />
-      <Container>
+            {products.length ? (
+              products.map(product => <Product key={product.id} product={product} />)
+            ) : ''}
+          </Grid> */}
+        <ListImages />
         <TabSeller key={categories.id} collections={categories} />
-        <Grid
-          container
-          spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }}
-          columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}
-        >
+        <SimpleGrid columns={4} w="1200px" m="12px auto">
           {productsSeller.length > 0 &&
-            productsSeller.map((product) => (
-              <ProdutcsSeller key={product.id} product={product} />
-            ))}
-        </Grid>
+              productsSeller.map((product) => (
+                <ProdutcsSeller key={product.id} product={product} />
+              ))}
+        </SimpleGrid>
         {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
             {products.length ? (
               products.map(product => <Product key={product.id} product={product} />)
             ) : ''}
           </Grid> */}
-      </Container>
-      <ListImgSeller />
-      <Logo brands={brands} />
-      <NameForm />
-    </div>
+        <ListImgSeller />
+        <Logo brands={brands} />
+        <NameForm />
+      </Box>
   )
 }
 export default Home

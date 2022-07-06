@@ -1,6 +1,6 @@
-import CartItemsContainer from '../components/cart/Cart-Page/CartItemsContainer'
 import { Flex, Heading, Spacer, Box, Container, Center } from '@chakra-ui/react'
 import commerce from '@lib/api/commerce'
+import CartItemsContainer from '../components/cart/cart-page/CartItemsContainer'
 
 const Cart = (props) => {
   return (

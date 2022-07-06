@@ -5,25 +5,23 @@ import paymentImages from '../assets/payment.png'
 
 const Copyright = () => {
   return (
-    <Center>
-      <Container maxWidth="lg">
+    <Box borderTop="1px solid #ccc">
+      <Container maxW="1200px" m="12px auto" color="#666">
         <Flex sx={{ flexGrow: 1 }}>
           <Box item xs={12} sm={6} md={6}>
-            <p>
-              Estore - Designed LogoeBay
-              <a href="http://netbasejsc.com/">Netbase JSC</a> . Copyright ©
-              2006 - 2017. All Rights Reserved.
-            </p>
+            Estore - Designed LogoeBay
+            <a href="http://netbasejsc.com/">Netbase JSC</a> . Copyright © 2006
+            - 2017. All Rights Reserved.
           </Box>
           <Spacer />
           <Box item xs={12} sm={6} md={6}>
-            <div>
-              <Image src={paymentImages.src} alt="" />
-            </div>
+            <Box>
+              <Image src={paymentImages.src} />
+            </Box>
           </Box>
         </Flex>
       </Container>
-    </Center>
+    </Box>
   )
 }
 export default Copyright

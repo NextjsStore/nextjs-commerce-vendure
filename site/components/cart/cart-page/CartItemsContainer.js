@@ -4,8 +4,6 @@ import { useContext, useState } from 'react'
 import { AppContext } from '../../../lib/context/AppContext'
 import CartItem from './Cartitem'
 import { removeItemFromCart } from '../../../function'
-// import Modal from '@mui/material/Modal'
-// import TextField from '@material-ui/core/TextField'
 import { useRouter } from 'next/router'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
@@ -20,36 +18,7 @@ import {
   Text,
   List,
   ListItem,
-  TableContainer,
 } from '@chakra-ui/react'
-
-const styles = {
-  wooNextCartWrapper: {
-    display: 'flex',
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
-  },
-  buttonCheckout: {
-    textAlign: 'center',
-    marginTop: '10px',
-    marginBottom: '15px',
-    paddingBottom: '20px',
-  },
-  cartTotal: {
-    background: 'rgb(231, 235, 240)',
-    marginTop: '30px',
-  },
-  tableCart: {
-    paddingRight: '50px',
-  },
-  buttonContinue: {
-    marginTop: '20px',
-  },
-  cartTotalLeft: {
-    paddingTop: '16px',
-  },
-}
 
 const validationSchema = yup.object({
   email: yup
@@ -159,37 +128,37 @@ const CartItemsContainer = () => {
     },
   })
   return (
-    <Container styles={styles.cartMain}>
+    <Container>
       <Center>
         {cart ? (
-          <div styles={styles.wooNextCartWrapper}>
-            <Box styles={styles.tableCart}>
+          <div>
+            <Box pr="50px">
               <Flex styles="table table-hover">
                 <Grid>
                   <Table>
-                    <tr styles={styles.cartheadercontainer}>
-                      <th styles={styles.woo_next_cart_heading}>
+                    <tr>
+                      <th>
                         <Text component="h6" variant="h6">
                           Delete
                         </Text>
                       </th>
-                      <th styles={styles.woo_next_cart_heading}>
+                      <th>
                         <Text component="h6" variant="h6">
                           Product
                         </Text>
                       </th>
-                      <th styles={styles.woo_next_cart_heading} />
-                      <th styles={styles.woo_next_cart_heading}>
+                      <th />
+                      <th>
                         <Text component="h6" variant="h6">
                           Price
                         </Text>
                       </th>
-                      <th styles={styles.woo_next_cart_heading}>
+                      <th>
                         <Text component="h6" variant="h6">
                           Quantity
                         </Text>
                       </th>
-                      <th styles={styles.woo_next_cart_heading}>
+                      <th>
                         <Text component="h6" variant="h6">
                           Total
                         </Text>
@@ -200,13 +169,13 @@ const CartItemsContainer = () => {
                         cart.products.map((item) => (
                           <CartItem
                             key={item.productId}
-                            item={item}
+                            // item={item}
                             handleRemoveProductClick={handleRemoveProductClick}
                             setCart={setCart}
                           />
                         ))}
                     </Table>
-                    <Box styles={styles.buttonContinue}>
+                    <Box pt="20">
                       <Link href="/shop">
                         <a>
                           <Button variant="contained">CONTINUE SHOPPING</Button>
@@ -216,11 +185,11 @@ const CartItemsContainer = () => {
                   </Table>
                 </Grid>
                 <Grid>
-                  <Box styles={styles.cartTotalLeft}>
+                  <Box pt="16px">
                     <Text component="h5" variant="h5">
                       Cart Total
                     </Text>
-                    <Box styles={styles.cartTotal}>
+                    <Box bg="rgb(231, 235, 240)" mt="30px">
                       <List>
                         <Box>
                           <Text>Subtotal:</Text>
@@ -239,7 +208,7 @@ const CartItemsContainer = () => {
                           <Text>${cart.totalProductsPrice}</Text>
                         </ListItem>
                       </List>
-                      <Box styles={styles.buttonCheckout}>
+                      <Box textAlign="center" mt="10px" mb="15px" pb="20px">
                         {/*Proceeed to checkout */}
 
                         <Button variant="contained" onClick={handleOpen}>
@@ -339,7 +308,7 @@ const CartItemsContainer = () => {
             {/* {requestError ? <div style="row woo-next-cart-total-container mt-5"> {requestError} </div> : ''} */}
           </div>
         ) : (
-          <div styles="container mx-auto my-32 px-4 xl:px-0">
+          <div styles=" mx-auto my-32 px-4 xl:px-0">
             <h2 styles="text-2xl mb-5">No items in the cart</h2>
             <Link href="/">
               <a>

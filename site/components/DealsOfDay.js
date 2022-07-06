@@ -14,94 +14,94 @@ import CountDown from './Countdown'
 import Link from 'next/link'
 
 const DealsOfDay = (props) => {
-  const { productsdeal } = props
+  const { productdeal } = props
   return (
-    <Container>
+    <Container pt="10" maxW="1200px" pb="10">
       <Box>
         <Center>
           <Heading
             as="h3"
-            size="2xl"
-            noOfLines={1}
-            align="center"
-            color="#323232"
+            size="lg"
+            pb="6"
+            color="brand.title"
+            fontFamily="Merriweather"
+            _before={{
+              w: '15px',
+              h: '1px',
+              ml: '-6',
+              mt: '5',
+              content: `""`,
+              position: 'absolute',
+              backgroundColor: '#40c6ff',
+            }}
+            _after={{
+              mt: '5',
+              ml: '2',
+              w: '15px',
+              h: '1px',
+              content: `""`,
+              position: 'absolute',
+              backgroundColor: '#40c6ff',
+            }}
           >
-            <span>DEALS OF DAY</span>
+            DEALS OF DAY
           </Heading>
         </Center>
       </Box>
       <Center>
-        <Container w="90%" display="flex">
-          {productsdeal.length > 0 &&
-            productsdeal.map((item) => (
-              <Flex key={item}>
-                <Box>
-                  <Image
+        {productdeal.length > 1 &&
+           productdeal.map((item) => (
+        <Flex key={item}>
+          <Box>
+            <Image
                     width={266}
                     height={270}
                     layout="fixed"
                     src={item.assets[0].source}
                     alt=""
                   />
-                  <Box position="absolute" mt="-250" ml="10">
-                    <Circle size="40px" bg="#40c6ff" color="#fff">
-                      -22%
-                    </Circle>
-                  </Box>
-                </Box>
-                <Box style={{ marginLeft: 30 }}>
-                  <Link href={`/product/${item.slug}`}>
-                    <a>
-                      <Heading
-                        as="h3"
-                        size="2xl"
-                        noOfLines={1}
-                        color="#323232"
-                        raphy
-                      >
-                        {item.name}
-                      </Heading>
-                    </a>
-                  </Link>
-                  <Text
-                    style={{
-                      fontSize: 20,
-                      fontWeight: 'bold',
-                      display: 'flex',
-                    }}
-                  >
-                    <Text style={{ color: 'rgb(64,198,255)', margin: 0 }}>
-                      ${item.variants[0].price / 100}
-                    </Text>
-                  </Text>
-                  <Box
-                    style={{
-                      color: '#666',
-                      width: '500px',
-                      overflow: 'hidden',
-                      textOverFlow: 'ellipsis',
-                      lineHeight: '25px',
-                      height: '95px',
-                      margin: '18px 8px 27px 0px',
-                    }}
-                    dangerouslySetInnerHTML={{
+            <Box position="absolute" mt="-250" ml="10">
+              <Circle size="40px" bg="brand.primary" color="#fff">
+                -22%
+              </Circle>
+            </Box>
+          </Box>
+          <Box ml="6">
+            <Link href={`/product/${item.slug}`}>
+              <Text fontSize="2xl">{item.name}</Text>
+            </Link>
+            <Box fontSize="20" fontWeight="bold" display="flex">
+              <Text
+                color="#999"
+                m="0px 20px 0px 0px"
+                textDecoration="line-through"
+              >
+                ${item.variants[0].price / 100}
+              </Text>
+            </Box>
+            <Box color="#666" m="18px 8px 27px 0px" 
+              dangerouslySetInnerHTML={{
                       __html: item.description,
-                    }}
-                  />
-                  <CountDown />
-                  <Box>
-                    <Link href={`/product/${item.slug}`}>
-                      <a>
-                        <Button sx={{ fontSize: '14px', fontWeight: '600' }}>
-                          SHOP NOW
-                        </Button>
-                      </a>
-                    </Link>
-                  </Box>
-                </Box>
-              </Flex>
-            ))}
-        </Container>
+                    }} />
+            <CountDown />
+            <Box>
+              <Link  href={`/product/${item.slug}`}>
+                <Button
+                  fontSize="14px"
+                  fontWeight="600"
+                  bg="#fff"
+                  border="2px solid #40c6ff"
+                  borderRadius="50px"
+                  mt="6"
+                  color="brand.primary"
+                >
+                  SHOP NOW
+                </Button>
+              </Link>
+            </Box>
+          </Box>
+        </Flex>
+         ))}
       </Center>
     </Container>
   )

@@ -5,20 +5,16 @@ import ResponsiveAppBar from '../components/ListPages'
 
 const HeaderCenter = () => {
   return (
-    <>
-      <Center>
-        <Container w="90%">
-          <Flex>
-            <Box>
-              <MenuListComposition />
-            </Box>
-            <Box>
-              <ResponsiveAppBar />
-            </Box>
-          </Flex>
-        </Container>
-      </Center>
-    </>
+    <Container maxW="1200px">
+      <Flex>
+        <Box w="30%" pt="2">
+          <MenuListComposition />
+        </Box>
+        <Box w="70%">
+          <ResponsiveAppBar />
+        </Box>
+      </Flex>
+    </Container>
   )
 }
 export default HeaderCenter
