@@ -34,7 +34,7 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
       </th>
       {/* image */}
       <th>
-        <img width="150" src={item.image} />
+        <Image width="150" src={item.image} alt="" />
       </th>
       {/* image */}
       <th>{item?.name}</th>

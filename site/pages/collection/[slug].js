@@ -74,28 +74,25 @@ const CollectionShop = (props) => {
                 Product Category
               </Heading>
             </Box>
-            <div>
-              {categories.length > 0 &&
-                categories.map((item) => (
-                  <Box key={item}>
-                    <Box disablePadding>
-                      <Box>
-                        <Button onClick={() => handleSubmit(item.slug)}>
-                          {item.name}
-                        </Button>
-                      </Box>
+            {categories.length > 0 &&
+              categories.map((item) => (
+                <Box key={item}>
+                  <Box disablePadding>
+                    <Box>
+                      <Button onClick={() => handleSubmit(item.slug)}>
+                        {item.name}
+                      </Button>
                     </Box>
                   </Box>
                 </Box>
-              </Box>
-            </Box>
+              ))}
           </Box>
           <Box item lg={8} w="80%" pl="20">
             <SimpleGrid columns={3}>
               {collections.length > 0 &&
                 collections.map((product) => (
-                    <Collection key={product.id} product={product} />
-                  ))}
+                  <Collection key={product.id} product={product} />
+                ))}
             </SimpleGrid>
           </Box>
         </Flex>

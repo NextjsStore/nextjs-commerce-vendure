@@ -50,58 +50,58 @@ const DealsOfDay = (props) => {
       </Box>
       <Center>
         {productsdeal.length > 1 &&
-           productsdeal.map((item) => (
-        <Flex key={item}>
-          <Box>
-            <Image
-                    width={266}
-                    height={270}
-                    layout="fixed"
-                    src={item.assets[0].source}
-                    alt=""
-                  />
-            <Box position="absolute" mt="-250" ml="10">
-              <Circle size="40px" bg="brand.primary" color="#fff">
-                -22%
-              </Circle>
-            </Box>
-          </Box>
-          <Box ml="6">
-            <Link href={`/product/${item.slug}`}>
-              <Text fontSize="2xl">{item.name}</Text>
-            </Link>
-            <Box fontSize="20" fontWeight="bold" display="flex">
-              <Text
-                color="#999"
-                m="0px 20px 0px 0px"
-                textDecoration="line-through"
-              >
-                ${item.variants[0].price / 100}
-              </Text>
-            </Box>
-            <Box color="#666" m="18px 8px 27px 0px" 
-              dangerouslySetInnerHTML={{
-                      __html: item.description,
-                    }} />
-            <CountDown />
-            <Box>
-              <Link  href={`/product/${item.slug}`}>
-                <Button
-                  fontSize="14px"
-                  fontWeight="600"
-                  bg="#fff"
-                  border="2px solid #40c6ff"
-                  borderRadius="50px"
-                  mt="6"
-                  color="brand.primary"
-                >
-                  SHOP NOW
-                </Button>
-              </Link>
-            </Box>
-          </Box>
-        </Flex>
-         ))}
+          productsdeal.map((item) => (
+            <Flex key={item}>
+              <Box>
+                <Image src={item.assets[0].source} alt="" />
+                <Box position="absolute" mt="-250" ml="10">
+                  <Circle size="40px" bg="brand.primary" color="#fff">
+                    -22%
+                  </Circle>
+                </Box>
+              </Box>
+              <Box ml="6">
+                <Link href={`/product/${item.slug}`}>
+                  <Text fontSize="2xl" as="a">
+                    {item.name}
+                  </Text>
+                </Link>
+                <Box fontSize="20" fontWeight="bold" display="flex">
+                  <Text
+                    color="#999"
+                    m="0px 20px 0px 0px"
+                    textDecoration="line-through"
+                  >
+                    ${item.variants[0].price / 100}
+                  </Text>
+                </Box>
+                <Box
+                  color="#666"
+                  m="18px 8px 27px 0px"
+                  dangerouslySetInnerHTML={{
+                    __html: item.description,
+                  }}
+                />
+                <CountDown />
+                <Box>
+                  <Link href={`/product/${item.slug}`}>
+                    <Button
+                      fontSize="14px"
+                      fontWeight="600"
+                      bg="#fff"
+                      border="2px solid #40c6ff"
+                      borderRadius="50px"
+                      mt="6"
+                      color="brand.primary"
+                      as="a"
+                    >
+                      SHOP NOW
+                    </Button>
+                  </Link>
+                </Box>
+              </Box>
+            </Flex>
+          ))}
       </Center>
     </Container>
   )
