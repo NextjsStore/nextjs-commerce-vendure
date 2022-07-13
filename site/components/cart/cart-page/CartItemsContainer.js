@@ -177,9 +177,7 @@ const CartItemsContainer = () => {
                     </Table>
                     <Box pt="20">
                       <Link href="/shop">
-                        <a>
-                          <Button variant="contained">CONTINUE SHOPPING</Button>
-                        </a>
+                          <Button variant="contained" as="a">CONTINUE SHOPPING</Button>
                       </Link>
                     </Box>
                   </Table>
@@ -311,9 +309,7 @@ const CartItemsContainer = () => {
           <div styles=" mx-auto my-32 px-4 xl:px-0">
             <h2 styles="text-2xl mb-5">No items in the cart</h2>
             <Link href="/">
-              <a>
-                <Button variant="contained">Add New Products</Button>
-              </a>
+                <Button variant="contained" as="a">Add New Products</Button>
             </Link>
           </div>
         )}
