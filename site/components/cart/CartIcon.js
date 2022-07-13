@@ -8,7 +8,8 @@ const CartIcon = () => {
   const [cart, setCart] = useContext(AppContext)
   const productsCount =
     null !== cart && Object.keys(cart).length ? cart.totalProductsCount : ''
-
+  const totalPrice =
+    null !== cart && Object.keys(cart).length ? cart.totalProductsPrice : ''
   //console.log('productsCount',productsCount);
   // console.log('totalPrice', totalPrice);
 
@@ -16,12 +17,10 @@ const CartIcon = () => {
       <Link href="/cart">
         <a>
           <HiOutlineShoppingBag />
-          {parseInt(productsCount) ? (
+         {parseInt(productsCount) && (
             <span>{parseInt(productsCount)}</span>
-          ) : (
-            ''
           )}
-          {parseInt(totalPrice) ? <span>{parseInt(totalPrice)}</span> : ''}
+          {parseInt(totalPrice) && <span>{parseInt(totalPrice)}</span>}
         </a>
       </Link>
   )
