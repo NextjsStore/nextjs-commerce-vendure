@@ -20,7 +20,6 @@ import {
 import commerce from '@lib/api/commerce'
 
 const About = (props) => {
-  console.log('props about', props)
   return (
     <>
       <Box align="center">
