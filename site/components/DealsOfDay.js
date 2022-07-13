@@ -14,7 +14,7 @@ import CountDown from './Countdown'
 import Link from 'next/link'
 
 const DealsOfDay = (props) => {
-  const { productdeal } = props
+  const { productsdeal } = props
   return (
     <Container pt="10" maxW="1200px" pb="10">
       <Box>
@@ -49,8 +49,8 @@ const DealsOfDay = (props) => {
         </Center>
       </Box>
       <Center>
-        {productdeal.length > 1 &&
-           productdeal.map((item) => (
+        {productsdeal.length > 1 &&
+           productsdeal.map((item) => (
         <Flex key={item}>
           <Box>
             <Image
