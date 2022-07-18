@@ -65,7 +65,7 @@ const HeaderMid = (props) => {
                 position="relative"
               >
                 <Select
-                  onChange={(e) => changeSearchQuery(e)}
+                  onChange={changeSearchQuery}
                   name=""
                   float="left"
                   h="36px"

@@ -60,6 +60,7 @@ const TabSeller = (props) => {
                 color="brand.detail"
                 _hover={{ bg: 'brand.primary', color: ' white' }}
                 borderRadius="50px"
+                fontWeight="300"
               >
                 All Product
               </Button>
@@ -78,6 +79,7 @@ const TabSeller = (props) => {
                       _hover={{ bg: 'brand.primary', color: ' white' }}
                       borderRadius="50px"
                       w="100%"
+                      fontWeight="300"
                     >
                       {item.name}
                     </Button>

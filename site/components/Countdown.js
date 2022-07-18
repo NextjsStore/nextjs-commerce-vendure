@@ -49,6 +49,7 @@ const CountDown = () => {
         mr="15"
         size="50px"
         border="1px solid #666"
+        lineHeight="1"
       >
         <Text m="0" fontSize="20" fontWeight="bold" color="brand.detail">
           {days}
@@ -62,6 +63,7 @@ const CountDown = () => {
         mr="15"
         size="50px"
         border="1px solid #666"
+        lineHeight="1"
       >
         <Text m="0" fontSize="20" fontWeight="bold" color="brand.detail">
           {hours}
@@ -75,6 +77,7 @@ const CountDown = () => {
         mr="15"
         size="50px"
         border="1px solid #666"
+        lineHeight="1"
       >
         <Text m="0" fontSize="20" fontWeight="bold" color="brand.detail">
           {minutes}
@@ -88,6 +91,7 @@ const CountDown = () => {
         mr="15"
         size="50px"
         border="1px solid #666"
+        lineHeight="1"
       >
         <Text m="0" fontSize="20" fontWeight="bold" color="brand.detail">
           {seconds}
