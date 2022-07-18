@@ -42,7 +42,6 @@ const Tab = (props) => {
       </Center>
       <Box
         maxW={{
-          sm: '320px',
           md: '768px',
           lg: '960px',
           xl: '1200px',
@@ -50,17 +49,17 @@ const Tab = (props) => {
         m="12px auto"
       >
         <Center>
-          <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
-            <Box>
+          <Flex direction={['column', 'column', 'row', 'row']}>
+            <Box pr="5" pt="2">
               <Button
                 onClick={() => handleSubmit('')}
                 border="1px solid #ccc"
                 bg="#fff"
                 p="10px 20px"
-                mr="5"
                 color="brand.detail"
                 _hover={{ bg: 'brand.primary', color: ' white' }}
                 borderRadius="50px"
+                w="100%"
               >
                 All Product
               </Button>
@@ -68,17 +67,17 @@ const Tab = (props) => {
             <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
               {collections.length > 0 &&
                 collections.map((item) => (
-                  <Box key={item}>
+                  <Box key={item} pr="5" pt="2">
                     <a>
                       <Button
                         onClick={() => handleSubmit(`${item.slug}`)}
                         border="1px solid #ccc"
                         bg="#fff"
                         p="10px 20px"
-                        mr="5"
                         color="brand.detail"
                         _hover={{ bg: 'brand.primary', color: ' white' }}
                         borderRadius="50px"
+                        w="100%"
                       >
                         {item.name}
                       </Button>
@@ -86,7 +85,7 @@ const Tab = (props) => {
                   </Box>
                 ))}
             </Box>
-          </Box>
+          </Flex>
         </Center>
       </Box>
     </Box>

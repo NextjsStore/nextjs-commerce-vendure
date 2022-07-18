@@ -18,16 +18,29 @@ import {
 
 const Footer = () => {
   return (
-    <Container maxW="1200px" fontFamily="Merriweather">
-      <Flex>
-        <Box w="25%" color="#323232">
+    <Container
+      maxW={{
+        md: '768px',
+        lg: '960px',
+        xl: '1200px',
+      }}
+      h={{ base: '100%', sm: '100%', md: '350px' }}
+      display="flex"
+      alignItems="flex-end"
+    >
+      <Box display={{ base: 'block', sm: 'block', md: 'flex' }}>
+        <Box
+          w={{ base: '50%', sm: '50%', md: '50%', xl: '25%' }}
+          color="#323232"
+          pr="6"
+        >
           <Heading as="h4" size="md" pb="6" fontFamily="Merriweather">
             Contact us
           </Heading>
-          <Box color="brand.detail">
-            <Box pb="2">
+          <Box color="brand.footer" fontSize="14">
+            <Box pb="4">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <AiFillHome />
                 </Box>
                 <Box pl="2">
@@ -35,17 +48,17 @@ const Footer = () => {
                 </Box>
               </Flex>
             </Box>
-            <Box pb="2">
+            <Box pb="4">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <MdPhone />
                 </Box>
                 <Box pl="2">+1 (2) 345 6789</Box>
               </Flex>
             </Box>
-            <Box pb="2">
+            <Box pb="4">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <MdEmail />
                 </Box>
                 <Box pl="2">
@@ -55,9 +68,9 @@ const Footer = () => {
                 </Box>
               </Flex>
             </Box>
-            <Box pb="2">
+            <Box pb="4">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoGlobe />
                 </Box>
                 <Box pl="2">
@@ -70,11 +83,13 @@ const Footer = () => {
                 <Circle
                   size="40px"
                   bg="#fff"
-                  color="brand.detail"
+                  color="brand.footer"
                   border="1px solid #666"
                 >
                   <Link href="facebook.com/">
-                    <FaFacebookF />
+                    <a>
+                      <FaFacebookF />
+                    </a>
                   </Link>
                 </Circle>
               </HStack>
@@ -82,7 +97,7 @@ const Footer = () => {
                 <Circle
                   size="40px"
                   bg="#fff"
-                  color="brand.detail"
+                  color="brand.footer"
                   border="1px solid #666"
                   m="3"
                 >
@@ -95,7 +110,7 @@ const Footer = () => {
                 <Circle
                   size="40px"
                   bg="#fff"
-                  color="brand.detail"
+                  color="brand.footer"
                   border="1px solid #666"
                 >
                   <Link href="#">
@@ -107,7 +122,7 @@ const Footer = () => {
                 <Circle
                   size="40px"
                   bg="#fff"
-                  color="brand.detail"
+                  color="brand.footer"
                   border="1px solid #666"
                   m="3"
                 >
@@ -119,7 +134,7 @@ const Footer = () => {
             </Flex>
           </Box>
         </Box>
-        <Box w="25%">
+        <Box w={{ base: '50%', sm: '50%', md: '50%', xl: '25%' }} pr="6">
           <Heading
             as="h4"
             size="md"
@@ -129,10 +144,10 @@ const Footer = () => {
           >
             Information
           </Heading>
-          <Box color="brand.detail">
-            <Box pb="2">
+          <Box color="brand.footer" fontSize="14">
+            <Box pb="4">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -142,7 +157,7 @@ const Footer = () => {
             </Box>
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -152,7 +167,7 @@ const Footer = () => {
             </Box>
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -162,7 +177,7 @@ const Footer = () => {
             </Box>
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -172,7 +187,7 @@ const Footer = () => {
             </Box>
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -182,7 +197,7 @@ const Footer = () => {
             </Box>
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -192,7 +207,7 @@ const Footer = () => {
             </Box>
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -202,16 +217,16 @@ const Footer = () => {
             </Box>
           </Box>
         </Box>
-        <Box w="25%">
+        <Box w={{ base: '50%', sm: '50%', md: '50%', xl: '25%' }} pr="6">
           <Box color="#323232">
             <Heading as="h4" size="md" pb="6" fontFamily="Merriweather">
               My account
             </Heading>
           </Box>
-          <Box color="brand.detail">
+          <Box color="brand.footer" fontSize="14">
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -221,7 +236,7 @@ const Footer = () => {
             </Box>
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="2">
@@ -231,7 +246,7 @@ const Footer = () => {
             </Box>
             <Box pb="2">
               <Flex>
-                <Box>
+                <Box pt="1">
                   <GoPrimitiveDot fontSize="10px" />
                 </Box>
                 <Box pl="10px">
@@ -241,11 +256,15 @@ const Footer = () => {
             </Box>
           </Box>
         </Box>
-        <Box w="25%" color="#323232">
+        <Box
+          w={{ base: '50%', sm: '50%', md: '50%', xl: '25%' }}
+          color="#323232"
+          pr="6"
+        >
           <Heading as="h4" size="md" pb="6" fontFamily="Merriweather">
             Working Time
           </Heading>
-          <Box color="brand.detail">
+          <Box color="brand.footer" fontSize="14">
             <Text>Mon to Fri:8:30 am - 6:00 payment</Text>
             <Text>Sat and Sun:10:00 am – 5:00 pm</Text>
           </Box>
@@ -253,14 +272,14 @@ const Footer = () => {
             mt="3"
             p={4}
             w="100%"
-            color="brand.detail"
+            color="brand.footer"
             backgroundImage="/assets/imgWorking.jpg"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="100%"
             borderRadius="10"
           >
-            <Box color="#fff" pt="6" pb="6">
+            <Box color="#fff" pt="6" pb="6" textAlign="center">
               <Center>
                 <MdFavorite size={25} color="red" />
               </Center>
@@ -269,7 +288,7 @@ const Footer = () => {
             </Box>
           </Box>
         </Box>
-      </Flex>
+      </Box>
     </Container>
   )
 }

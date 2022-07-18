@@ -15,11 +15,11 @@ const ProdutcsSeller = (props) => {
       </Link>
 
       <Box>
-        <Heading color="#323232" fontSize="18px" fontWeight="100" pt="4">
+        <Text color="brand.title" fontSize="18px" pt="4" fontWeight="700">
           <Link href={`/product/${product?.slug}`}>
             <a>{product.name}</a>
           </Link>
-        </Heading>
+        </Text>
         {product.rating && (
           <Box mb="10" alignItems="center">
             {Array(5)

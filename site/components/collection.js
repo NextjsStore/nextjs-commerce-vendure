@@ -1,8 +1,7 @@
 import React, { Component, useState } from 'react'
 import Link from 'next/link'
-import { Rating } from './ui'
-import { Box, Image } from '@chakra-ui/react'
-
+import { BsFillStarFill } from 'react-icons/bs'
+import { Box, Image, Text } from '@chakra-ui/react'
 
 const Collection = (props) => {
   const { product } = props
@@ -15,15 +14,26 @@ const Collection = (props) => {
           </a>
         </Link>
         <Box item w="80%" pl="5">
-          <h3>
+          <Text color="brand.title" fontSize="18px" pt="4" fontWeight="700">
             <Link href={`/product/${product.product?.slug}`}>
               <a>{product.product.name}</a>
             </Link>
-          </h3>
-           <Box>
-              <Rating name="read-only" value="0" readOnly />
-           </Box>
-          <h4>${product.product.variants[0].price / 100}</h4>
+          </Text>
+          {product.rating && (
+            <Box mb="10" alignItems="center">
+              {Array(5)
+                .fill('')
+                .map((_, i) => (
+                  <BsFillStarFill
+                    key={i}
+                    color={i < product.rating ? '#81E6D9' : 'gray.200'}
+                  />
+                ))}
+            </Box>
+          )}
+          <Text mt={2} fontSize="xl" align="center" color="brand.primary">
+            ${product.product.variants[0].price / 100}
+          </Text>
           <Box></Box>
         </Box>
       </Box>

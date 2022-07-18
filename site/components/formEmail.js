@@ -22,7 +22,6 @@ const NameForm = () => {
     >
       <Container
         maxW={{
-          sm: '320px',
           md: '768px',
           lg: '960px',
           xl: '1200px',
@@ -50,7 +49,6 @@ const NameForm = () => {
                 height="45px"
                 bg="#fff"
                 pl="6"
-                pr="6"
                 w={{ sm: '100%', md: '70%', lg: '70%', xl: '70%' }}
               />
               <Button

@@ -8,13 +8,13 @@ const Copyright = () => {
     <Box borderTop="1px solid #ccc">
       <Container
         maxW={{
-          sm: '320px',
           md: '768px',
           lg: '960px',
           xl: '1200px',
         }}
         m="12px auto"
-        color="brand.detail"
+        color="brand.footer"
+        fontSize="14"
       >
         <Flex sx={{ flexGrow: 1 }}>
           <Box item xs={12} sm={6} md={6}>

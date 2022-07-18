@@ -21,7 +21,7 @@ const ListPages = () => {
         m="20px 0"
         fonts=" Mulish,sans-serif"
         textTransform=" uppercase"
-        display={{ sm: 'none', md: 'flex' }}
+        display={{ base: 'none', sm: 'none', md: 'flex', lg: 'flex' }}
       >
         <Box>
           <Link href="/">
@@ -49,42 +49,44 @@ const ListPages = () => {
           </Link>
         </Box>
       </Box>
-      <Box display={{ sm: 'block', md: 'none' }}>
-        <Menu>
-          <MenuButton
-            as={IconButton}
-            aria-label="Options"
-            icon={<BsList />}
-            variant="outline"
-          />
-          <MenuList>
-            <MenuItem>
-              <Link href="/">
-                <a>Home</a>
-              </Link>
-            </MenuItem>
-            <MenuItem href="/shop">
-              <Link href="/shop">
-                <a>Shop</a>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/about">
-                <a>About</a>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/contact">
-                <a>Contact</a>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/myaccount">
-                <a>My Account</a>
-              </Link>
-            </MenuItem>
-          </MenuList>
-        </Menu>
+      <Box display={{ base: 'block', sm: 'block', md: 'none', lg: 'none' }}>
+        <Box justifyContent="flex-end" display="flex" pt="1">
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              aria-label="Options"
+              icon={<BsList />}
+              variant="outline"
+            />
+            <MenuList>
+              <MenuItem>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
+              </MenuItem>
+              <MenuItem href="/shop">
+                <Link href="/shop">
+                  <a>Shop</a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/about">
+                  <a>About</a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/contact">
+                  <a>Contact</a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/myaccount">
+                  <a>My Account</a>
+                </Link>
+              </MenuItem>
+            </MenuList>
+          </Menu>
+        </Box>
       </Box>
     </Box>
   )

@@ -41,7 +41,6 @@ const TabSeller = (props) => {
       </Center>
       <Box
         maxW={{
-          sm: '320px',
           md: '768px',
           lg: '960px',
           xl: '1200px',
@@ -49,14 +48,15 @@ const TabSeller = (props) => {
         m="12px auto"
       >
         <Center>
-          <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
-            <Box>
+          <Flex direction={['column', 'column', 'row', 'row']}>
+            <Box pr="5" pt="2">
               <Button
                 onClick={() => handleSubmit(`SmartPhone`)}
                 border="1px solid #ccc"
                 bg="#fff"
                 p="10px 20px"
                 mr="5"
+                w="100%"
                 color="brand.detail"
                 _hover={{ bg: 'brand.primary', color: ' white' }}
                 borderRadius="50px"
@@ -67,7 +67,7 @@ const TabSeller = (props) => {
             <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
               {collections.length > 0 &&
                 collections.map((item) => (
-                  <Box key={item}>
+                  <Box key={item} pr="5" pt="2">
                     <Button
                       onClick={() => handleSubmit(`${item.slug}`)}
                       border="1px solid #ccc"
@@ -77,13 +77,14 @@ const TabSeller = (props) => {
                       color="brand.detail"
                       _hover={{ bg: 'brand.primary', color: ' white' }}
                       borderRadius="50px"
+                      w="100%"
                     >
                       {item.name}
                     </Button>
                   </Box>
                 ))}
             </Box>
-          </Box>
+          </Flex>
         </Center>
       </Box>
     </Box>

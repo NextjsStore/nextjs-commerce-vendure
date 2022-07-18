@@ -19,7 +19,6 @@ const DealsOfDay = (props) => {
     <Container
       pt="10"
       maxW={{
-        sm: '320px',
         md: '768px',
         lg: '960px',
         xl: '1200px',
@@ -29,7 +28,6 @@ const DealsOfDay = (props) => {
       <Box>
         <Center>
           <Heading
-            as="h3"
             size="lg"
             pb="6"
             color="brand.title"
@@ -57,14 +55,14 @@ const DealsOfDay = (props) => {
           </Heading>
         </Center>
       </Box>
-      <Center>
+      <Center position="relative">
         <Box display={{ sm: 'block', md: 'block', lg: 'flex', xl: 'flex' }}>
           {productdeal.length > 1 &&
             productdeal.map((item) => (
               <Box key={item} display={{ sm: 'block', md: 'flex' }}>
                 <Box>
                   <Image src={item.assets[0].source} alt="" />
-                  <Box position="absolute" mt="-250" ml="10">
+                  <Box position="absolute" ml="5" top="5">
                     <Circle size="40px" bg="brand.primary" color="#fff">
                       -22%
                     </Circle>
@@ -72,7 +70,9 @@ const DealsOfDay = (props) => {
                 </Box>
                 <Box ml="6">
                   <Link href={`/product/${item.slug}`}>
-                    <Text fontSize="2xl">{item.name}</Text>
+                    <a>
+                      <Text fontSize="xl">{item.name}</Text>
+                    </a>
                   </Link>
                   <Box fontSize="20" fontWeight="bold" display="flex">
                     <Text

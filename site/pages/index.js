@@ -173,7 +173,6 @@ const Home = (props) => {
             md: '768px',
             lg: '960px',
             xl: '1200px',
-            '2xl': '1536px',
           }}
           m="12px auto"
         >
@@ -197,7 +196,6 @@ const Home = (props) => {
             md: '768px',
             lg: '960px',
             xl: '1200px',
-            '2xl': '1536px',
           }}
           m="12px auto"
         >
