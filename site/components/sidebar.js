@@ -27,9 +27,15 @@ const SideBarTop = () => {
               justifyContent={{ sm: 'center', md: 'flex-end' }}
               alignContent="center"
               flexWrap="wrap"
+              p="10px 0"
             >
               <Box>
-                <Select border="none" bg="brand.background" color="brand.text">
+                <Select
+                  variant="unstyled"
+                  bg="brand.background"
+                  color="brand.text"
+                  border="1px solid transparent"
+                >
                   <option value="option1">USD, $</option>
                   <option value="option2">EUR, €</option>
                 </Select>
@@ -43,7 +49,11 @@ const SideBarTop = () => {
                 >
                   <MdOutlineLanguage color="brand.text" />
                 </Box>
-                <Select border="none" bg="brand.background" color="brand.text">
+                <Select
+                  variant="unstyled"
+                  bg="brand.background"
+                  color="brand.text"
+                >
                   <option value="">English</option>
                   <option value="">Viet Nam</option>
                 </Select>

@@ -13,7 +13,7 @@ import { AiFillHome, AiFillPushpin } from 'react-icons/ai'
 import { BsPhone } from 'react-icons/bs'
 import { GrLanguage } from 'react-icons/gr'
 import { GoCalendar } from 'react-icons/go'
-import { FaListUl } from 'react-icons/fa'
+import { MdFormatListBulleted } from 'react-icons/md'
 
 const MenuListComposition = () => {
   const [open, setOpen] = React.useState(false)
@@ -70,7 +70,7 @@ const MenuListComposition = () => {
       >
         <Box display="flex" align-items="center">
           <Box>
-            <FaListUl fontSize="18px" />
+            <MdFormatListBulleted fontSize="24px" />
           </Box>
           <Box pl="3"> ALL CATEGORY</Box>
         </Box>

@@ -74,6 +74,7 @@ const HeaderMid = (props) => {
                   borderRadius="50px 0px 0px 50px"
                   border="1px solid #d1d3d4"
                   borderRight="none"
+                  color="brand.detail"
                   _focusVisible={{
                     zIndex: '0',
                   }}
