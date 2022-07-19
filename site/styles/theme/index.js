@@ -7,22 +7,15 @@ const theme = extendTheme({
       primary: '#40c6ff',
       blue: '#1565c0',
       greySecondary: '#42414d',
+      detail: '#646464',
+      background: 'rgb(243,243,243)',
+      text: 'rgb(153,153,153)',
+      footer: 'rgb(102,102,102)',
     },
   },
   fonts: {
     heading: `Montserrat, ${base.fonts?.heading}`,
     body: `Inter, ${base.fonts?.body}`,
-  },
-  _after: {
-    after: {
-      mt: '5',
-      ml: '3',
-      w: '15px',
-      h: '1px',
-      content: `""`,
-      position: 'absolute',
-      backgroundColor: '#40c6ff',
-    },
   },
 })
 

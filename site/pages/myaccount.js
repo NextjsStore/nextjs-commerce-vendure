@@ -4,7 +4,6 @@ import * as yup from 'yup'
 import { useRouter } from 'next/router'
 import {
   Button,
-  Container,
   Box,
   Flex,
   Spacer,
@@ -13,6 +12,7 @@ import {
   Checkbox,
   Input,
 } from '@chakra-ui/react'
+import commerce from '@lib/api/commerce'
 
 const validationSchema = yup.object({
   email: yup
@@ -74,11 +74,23 @@ const MyAccount = () => {
   return (
     <Box>
       <Box>
-        <Box color="#fff" backgroundImage="/assets/banner_page.png" h="200px">
-          <Flex w="1200px" m="0px auto">
+        <Box
+          color="#fff"
+          backgroundImage="/assets/banner_page.png"
+          h="200px"
+          mb="6"
+        >
+          <Flex
+            maxW={{
+              md: '768px',
+              lg: '960px',
+              xl: '1200px',
+            }}
+            m="0px auto"
+          >
             <Box>
               <Heading fontSize="40" variant="h1" lineHeight="200px">
-                My account
+                My Account
               </Heading>
             </Box>
             <Spacer />
@@ -89,16 +101,24 @@ const MyAccount = () => {
                 </Text>
                 <Text p="0px 10px"> / </Text>
                 <Text component="h6" variant="h6">
-                  My account
+                  My Account
                 </Text>
               </Flex>
             </Box>
           </Flex>
         </Box>
       </Box>
-      <Box w="1200px" m="60px auto" border="1px solid #ccc">
-        <Flex m="20">
-          <Box w="50%">
+      <Box
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="60px auto"
+        border="1px solid #ccc"
+      >
+        <Flex m="5" direction={['column', 'column', 'row', 'row']}>
+          <Box w={{ sm: '100%', md: '50%' }}>
             <Heading
               fontFamily="Merriweather"
               as="h2"
@@ -152,6 +172,7 @@ const MyAccount = () => {
                   mt="5"
                   borderRadius="25px"
                   w="100px"
+                  mb="5"
                 >
                   Login
                 </Button>
@@ -166,8 +187,7 @@ const MyAccount = () => {
               </Box>
             </form>
           </Box>
-          <Spacer />
-          <Box w="50%">
+          <Box w={{ sm: '100%', md: '50%' }} pt={{ sm: '6', md: '0' }}>
             <Heading
               fontFamily="Merriweather"
               as="h2"
@@ -233,3 +253,17 @@ const MyAccount = () => {
   )
 }
 export default MyAccount
+export async function getStaticProps({ preview, locale, locales }) {
+  const config = { locale, locales }
+
+  const siteInfoPromise = commerce.getSiteInfo({ config, preview })
+
+  const { categories } = await siteInfoPromise
+
+  return {
+    props: {
+      categories,
+    },
+    revalidate: 60,
+  }
+}

@@ -12,8 +12,8 @@ import { Flex, Spacer, Box, Image } from '@chakra-ui/react'
 
 const ListImages = () => {
   return (
-    <Flex pt="50">
-      <Box w="33%">
+    <Box pt="50" display={{ base: 'block', sm: 'block', md: 'flex' }}>
+      <Box w={{ base: '100%', sm: '100%', md: '33%' }}>
         <Box>
           <Link href="/product/clean-business-card">
             <a>
@@ -29,8 +29,7 @@ const ListImages = () => {
           </Link>
         </Box>
       </Box>
-      <Spacer />
-      <Box w="33%">
+      <Box w={{ base: '100%', sm: '100%', md: '33%' }}>
         <Link href=" /shop">
           <a>
             <Image layout="fixed" src={Image3.src} />
@@ -38,7 +37,7 @@ const ListImages = () => {
         </Link>
       </Box>
       <Box
-        w="33%"
+        w={{ base: '100%', sm: '100%', md: '33%' }}
         display="flex"
         flexWrap=" wrap"
         flexDirection="row"
@@ -83,7 +82,7 @@ const ListImages = () => {
           </Flex>
         </Box>
       </Box>
-    </Flex>
+    </Box>
   )
 }
 export default ListImages

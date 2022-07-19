@@ -40,43 +40,52 @@ const Tab = (props) => {
           NEW PRODUCT
         </Heading>
       </Center>
-      <Box w="1200px" m="12px auto">
+      <Box
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="12px auto"
+      >
         <Center>
-          <Flex>
-            <Box>
+          <Flex direction={['column', 'column', 'row', 'row']}>
+            <Box pr="5" pt="2">
               <Button
                 onClick={() => handleSubmit('')}
                 border="1px solid #ccc"
                 bg="#fff"
                 p="10px 20px"
-                mr="5"
-                color="#666"
+                color="brand.detail"
                 _hover={{ bg: 'brand.primary', color: ' white' }}
                 borderRadius="50px"
+                w="100%"
+                fontWeight="300"
               >
                 All Product
               </Button>
             </Box>
-            <Box display="flex">
+            <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
               {collections.length > 0 &&
-                 collections.map((item) => (
-                    <Box key={item}>
-                      <a>
-                        <Button
-                          onClick={() => handleSubmit(`${item.slug}`)}
-                          border="1px solid #ccc"
-                          bg="#fff"
-                          p="10px 20px"
-                          mr="5"
-                          color="#666"
-                          _hover={{ bg: 'brand.primary', color: ' white' }}
-                          borderRadius="50px"
-                        >
-                          {item.name}
-                        </Button>
-                      </a>
-                    </Box>
-                  ))}
+                collections.map((item) => (
+                  <Box key={item} pr="5" pt="2">
+                    <a>
+                      <Button
+                        onClick={() => handleSubmit(`${item.slug}`)}
+                        border="1px solid #ccc"
+                        bg="#fff"
+                        p="10px 20px"
+                        color="brand.detail"
+                        _hover={{ bg: 'brand.primary', color: ' white' }}
+                        borderRadius="50px"
+                        w="100%"
+                        fontWeight="300"
+                      >
+                        {item.name}
+                      </Button>
+                    </a>
+                  </Box>
+                ))}
             </Box>
           </Flex>
         </Center>

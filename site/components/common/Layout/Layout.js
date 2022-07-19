@@ -4,7 +4,6 @@ import HeaderMid from '../../HeaderMid'
 import HeaderCenter from '../../HeaderCenter'
 import Footer from '../../Footer'
 import Copyright from '../../Copyright'
-import { Container } from '@components/ui'
 
 const Layout = ({ children }) => {
   // console.log('children', children)

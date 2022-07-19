@@ -14,6 +14,7 @@ import {
   Stack,
   Circle,
 } from '@chakra-ui/react'
+import commerce from '@lib/api/commerce'
 
 const ContactUS = () => {
   return (
@@ -25,7 +26,14 @@ const ContactUS = () => {
           h="200px"
           mb="6"
         >
-          <Flex w="1200px" m="0px auto">
+          <Flex
+            maxW={{
+              md: '768px',
+              lg: '960px',
+              xl: '1200px',
+            }}
+            m="0px auto"
+          >
             <Box>
               <Heading fontSize="40" variant="h1" lineHeight="200px">
                 Contact
@@ -46,9 +54,19 @@ const ContactUS = () => {
           </Flex>
         </Box>
       </Box>
-      <Container maxW="1200px" m="0px auto">
-        <Flex>
-          <Box w="50%">
+      <Container
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="0px auto"
+      >
+        <Flex direction={['column', 'column', 'row', 'row']}>
+          <Box
+            w={{ sm: '100%', md: '50%' }}
+            pb={{ base: '6', sm: '6', md: '0' }}
+          >
             <Heading
               fontFamily="Merriweather"
               as="h2"
@@ -78,7 +96,12 @@ const ContactUS = () => {
               </Box>
             </Box>
           </Box>
-          <Box w="50%" fontFamily="Merriweather" fontSize="20">
+          <Box
+            w={{ sm: '100%', md: '50%' }}
+            fontFamily="Merriweather"
+            fontSize="20"
+            pt={{ sm: '6', md: '0' }}
+          >
             <Heading
               fontFamily="Merriweather"
               as="h2"
@@ -125,3 +148,18 @@ const ContactUS = () => {
   )
 }
 export default ContactUS
+
+export async function getStaticProps({ preview, locale, locales }) {
+  const config = { locale, locales }
+
+  const siteInfoPromise = commerce.getSiteInfo({ config, preview })
+
+  const { categories } = await siteInfoPromise
+
+  return {
+    props: {
+      categories,
+    },
+    revalidate: 60,
+  }
+}

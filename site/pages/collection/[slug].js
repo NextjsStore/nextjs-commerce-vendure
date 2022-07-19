@@ -12,6 +12,7 @@ import {
   SimpleGrid,
   Button,
 } from '@chakra-ui/react'
+import Link from 'next/link'
 
 const CollectionShop = (props) => {
   const { collections, categories } = props
@@ -29,37 +30,38 @@ const CollectionShop = (props) => {
 
   return (
     <Box>
-      <Box h="240px">
-        <Box>
-          <Box
-            color="#fff"
-            backgroundImage="/assets/banner_page.png"
-            h="200px"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            mb="60px"
-          >
-            <Flex w="1200px" m="0px auto">
-              <Box lineHeight="3">
-                <Heading fontSize="40" variant="h1">
-                  Shop
-                </Heading>
-              </Box>
-              <Spacer />
-              <Box lineHeight="10">
-                <Flex>
-                  <Text component="h6" variant="h6">
-                    Home
-                  </Text>
-                  <Text p="0px 10px"> / </Text>
-                  <Text component="h6" variant="h6">
-                    My account
-                  </Text>
-                </Flex>
-              </Box>
+      <Box
+        color="#fff"
+        backgroundImage="/assets/banner_page.png"
+        h="200px"
+        mb="6"
+      >
+        <Flex
+          maxW={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+          }}
+          m="0px auto"
+        >
+          <Box>
+            <Heading fontSize="40" variant="h1" lineHeight="200px">
+              About
+            </Heading>
+          </Box>
+          <Spacer />
+          <Box lineHeight="200px">
+            <Flex>
+              <Text component="h6" variant="h6">
+                Home
+              </Text>
+              <Text p="0px 10px"> / </Text>
+              <Text component="h6" variant="h6">
+                About
+              </Text>
             </Flex>
           </Box>
-        </Box>
+        </Flex>
       </Box>
       <Container maxW="1200px" m="12px auto">
         <Flex>
@@ -75,33 +77,30 @@ const CollectionShop = (props) => {
                 Product Category
               </Heading>
             </Box>
-            <div>
-              {categories.length > 0 &&
-                categories.map((item) => (
-                  <Box key={item}>
-                    <Box disablePadding>
-                      <Box>
-                        <Button onClick={() => handleSubmit(`${item.slug}`)}>
-                          {item.name}
-                        </Button>
-                      </Box>
+            {categories.length > 0 &&
+              categories.map((item) => (
+                <Box key={item}>
+                  <Box disablePadding>
+                    <Box
+                      as="button"
+                      onClick={() => handleSubmit(`${item.slug}`)}
+                      borderBottom="1px solid #ccc"
+                      p={[2, 3]}
+                      w="100%"
+                      display="flex"
+                    >
+                      {item.name}
                     </Box>
                   </Box>
                 </Box>
-              </Box>
-              <Box disablePadding>
-                <Box>
-                  <Box onClick={() => handleSubmit(`mailing`)}>Mailing</Box>
-                </Box>
-              </Box>
-            </Box>
+              ))}
           </Box>
           <Box item lg={8} w="80%" pl="20">
-            <SimpleGrid columns={3}>
+            <SimpleGrid columns={{ sm: '1', md: '2', lg: '4' }}>
               {collections.length > 0 &&
                 collections.map((product) => (
-                    <Collection key={product.id} product={product} />
-                  ))}
+                  <Collection key={product.id} product={product} />
+                ))}
             </SimpleGrid>
           </Box>
         </Flex>

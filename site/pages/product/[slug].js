@@ -33,36 +33,48 @@ const Product = (props) => {
 
   return (
     <Box>
-      <Box>
-        <Box
-          color="#fff"
-          backgroundImage="/assets/banner_page.png"
-          h="200px"
-          mb="6"
+      <Box
+        color="#fff"
+        backgroundImage="/assets/banner_page.png"
+        h="200px"
+        mb="6"
+      >
+        <Flex
+          maxW={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+          }}
+          m="0px auto"
         >
-          <Flex w="1200px" m="0px auto">
-            <Box>
-              <Heading fontSize="40" variant="h1" lineHeight="200px">
-                Shop
-              </Heading>
-            </Box>
-            <Spacer />
-            <Box lineHeight="200px">
-              <Flex>
-                <Text component="h6" variant="h6">
-                  Home
-                </Text>
-                <Text p="0px 10px"> / </Text>
-                <Text component="h6" variant="h6">
-                  Shop
-                </Text>
-              </Flex>
-            </Box>
-          </Flex>
-        </Box>
+          <Box>
+            <Heading fontSize="40" variant="h1" lineHeight="200px">
+              About
+            </Heading>
+          </Box>
+          <Spacer />
+          <Box lineHeight="200px">
+            <Flex>
+              <Text component="h6" variant="h6">
+                Home
+              </Text>
+              <Text p="0px 10px"> / </Text>
+              <Text component="h6" variant="h6">
+                About
+              </Text>
+            </Flex>
+          </Box>
+        </Flex>
       </Box>
       {product && collections && (
-        <Box w="1200px" m="0px auto">
+        <Box
+          maxW={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+          }}
+          m="0px auto"
+        >
           <Box borderBottom="1px solid #ccc" pb="30px">
             <Flex>
               <Box pr="30">
