@@ -1,6 +1,15 @@
 import { useState } from 'react'
 import { updateCart2 } from '../../../function'
-import { Box, Text, Image } from '@chakra-ui/react'
+import {
+  Container,
+  Box,
+  Text,
+  Table,
+  Image,
+  Tr,
+  Td,
+  Input,
+} from '@chakra-ui/react'
 import { AiOutlineClose } from 'react-icons/ai'
 
 const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
@@ -23,26 +32,26 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
   }
 
   return (
-    <Box>
+    <Tr>
       {/*Icon close */}
-      <th>
+      <Td w=" 20px">
         <Text
           onClick={(event) => handleRemoveProductClick(event, item?.productId)}
         >
           <AiOutlineClose />
         </Text>
-      </th>
+      </Td>
       {/* image */}
-      <th>
-        <Image width="150" src={item.image} alt="" />
-      </th>
+      <Td>
+        <Image w="100%" src={item.image}  alt=""/>
+      </Td>
       {/* image */}
-      <th>{item?.name}</th>
+      <Td>{item?.name}</Td>
       {/* PRICE */}
-      <th color="rgb(64,198,255)">{'$ ' + item?.price}</th>
+      <Td color="rgb(64,198,255)">{'$ ' + item?.price}</Td>
       {/* QUANTITY */}
-      <th>
-        <input
+      <Td>
+        <Input
           w="100%"
           h="40px"
           pl="10px"
@@ -52,10 +61,10 @@ const CartItem = ({ item, setCart, handleRemoveProductClick }) => {
           value={productCount}
           onChange={handleQtyChange}
         />
-      </th>
+      </Td>
       {/* Total */}
-      <th color="rgb(64,198,255)">{item.totalPrice}</th>
-    </Box>
+      <Td color="rgb(64,198,255)">{item.totalPrice}</Td>
+    </Tr>
   )
 }
 

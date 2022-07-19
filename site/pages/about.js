@@ -30,7 +30,14 @@ const About = (props) => {
             h="200px"
             mb="6"
           >
-            <Flex w="1200px" m="0px auto">
+            <Flex
+              maxW={{
+                md: '768px',
+                lg: '960px',
+                xl: '1200px',
+              }}
+              m="0px auto"
+            >
               <Box>
                 <Heading fontSize="40" variant="h1" lineHeight="200px">
                   About
@@ -51,7 +58,14 @@ const About = (props) => {
             </Flex>
           </Box>
         </Box>
-        <Container maxW="1200px" m="12px auto">
+        <Container
+          maxW={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+          }}
+          m="12px auto"
+        >
           <Box>
             <Heading as="h2" size="xl" color="brand.title">
               Get to know Multistore
@@ -126,16 +140,11 @@ const About = (props) => {
               while building loyalty across every touchpoint.
             </Text>
           </Box>
-          <Flex pb="20">
-            <Box w="25%">
+          <Flex pb="20" direction={['column', 'column', 'row', 'row']}>
+            <Box w={{ sm: '100%', md: '25%' }} p="6">
               <Box position="relative">
                 <Box>
-                  <Image
-                    width="258"
-                    height="298"
-                    src={AboutTeam.src}
-                    alt="Philip Demarco"
-                  />
+                  <Image src={AboutTeam.src} alt="Philip Demarco" />
                 </Box>
                 <Box
                   bg="brand.primary"
@@ -169,13 +178,11 @@ const About = (props) => {
                 </Box>
               </Box>
             </Box>
-            <Box w="25%">
+            <Box w={{ sm: '100%', md: '25%' }} p="6">
               <Box position="relative">
                 <Box>
                   <Box>
                     <Image
-                      width={258}
-                      height={298}
                       layout="fixed"
                       src={AboutTeam_1.src}
                       alt="Philip Demarco"
@@ -214,13 +221,11 @@ const About = (props) => {
                 </Box>
               </Box>
             </Box>
-            <Box w="25%">
+            <Box w={{ sm: '100%', md: '25%' }} p="6">
               <Box position="relative">
                 <Box>
                   <Box>
                     <Image
-                      width={258}
-                      height={298}
                       layout="fixed"
                       src={AboutTeam_2.src}
                       alt="Philip Demarco"
@@ -260,13 +265,11 @@ const About = (props) => {
                 </Box>
               </Box>
             </Box>
-            <Box w="25%">
+            <Box w={{ sm: '100%', md: '25%' }} p="6">
               <Box position="relative">
                 <Box>
                   <Box>
                     <Image
-                      width={258}
-                      height={298}
                       layout="fixed"
                       src={AboutTeam_3.src}
                       alt="Philip Demarco"

@@ -6,6 +6,7 @@ import Footer from '../../Footer'
 import Copyright from '../../Copyright'
 import { AppProvider } from '@lib/context/AppContext'
 
+
 const Layout = (props) => {
   const { categories } = props
   return (
