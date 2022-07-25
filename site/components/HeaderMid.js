@@ -38,7 +38,9 @@ const HeaderMid = (props) => {
         <Flex>
           <Box w="30%">
             <Link href="/">
-              <Image src={LogoeBay.src} />
+              <a>
+                <Image src={LogoeBay.src} alt="Logo" />
+              </a>
             </Link>
           </Box>
           <Box w="60%">
@@ -63,11 +65,11 @@ const HeaderMid = (props) => {
                 <option value="">Shop by collection</option>
                 <option value="">Uncategorized</option>
                 {categories.length > 0 &&
-                    categories.map((item) => (
-                      <option key={item} value={item.slug}>
-                        ---{item.name}---
-                      </option>
-                    ))}
+                  categories.map((item) => (
+                    <option key={item} value={item.slug}>
+                      ---{item.name}---
+                    </option>
+                  ))}
               </Select>
               <Input
                 type="text"
@@ -118,6 +120,5 @@ const HeaderMid = (props) => {
     </Box>
   )
 }
-
 
 export default HeaderMid

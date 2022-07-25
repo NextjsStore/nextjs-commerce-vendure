@@ -53,7 +53,7 @@ const Shop = (props) => {
       </Box>
       <Container maxW="1200px" m="12px auto">
         <Flex>
-          <Box w="20%">
+          <Box w="30%">
             <Heading
               as="h3"
               size="lg"
@@ -64,30 +64,30 @@ const Shop = (props) => {
               Product Category
             </Heading>
             {categories.length > 0 &&
-                categories.map((item) => (
-                  <Box key={item}>
-                    <Box disablePadding>
-                      <Box>
-                        <Text
-                          onClick={() => handleSubmit(item.slug)}
-                          borderBottom="1px solid #ccc"
-                          p={[2, 3]}
-                        >
-                          {item.name}
-                        </Text>
-                      </Box>
+              categories.map((item) => (
+                <Box key={item}>
+                  <Box disablePadding>
+                    <Box>
+                      <Text
+                        onClick={() => handleSubmit(item.slug)}
+                        borderBottom="1px solid #ccc"
+                        p={[2, 3]}
+                      >
+                        {item.name}
+                      </Text>
                     </Box>
-                    <Divider />
                   </Box>
-                ))}
+                  <Divider />
+                </Box>
+              ))}
           </Box>
-          <Box item lg={8} w="80%" pl="20">
+          <Box item lg={8} w="90%" pl="20">
             <Box>
               <SimpleGrid columns={3}>
                 {products.length > 0 &&
-                 products.map((product) => (
-                      <Product key={product.id} product={product} />
-                    ))}
+                  products.map((product) => (
+                    <Product key={product.id} product={product} />
+                  ))}
               </SimpleGrid>
             </Box>
           </Box>

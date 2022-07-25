@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import AddToCartButton from '../../components/cart/AddToCartButton'
 import { isEmpty } from 'lodash'
-import GalleryCarousel from '@components/single-product/gallery-carousel'
-import CategoriesCarousel from '@components/single-product/categories-carousel'
+import GalleryCarousel from '@components/single-product/Gallery-Carousel'
+import CategoriesCarousel from '@components/single-product/Categories-Carousel'
 import { BsFillStarFill } from 'react-icons/bs'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
@@ -21,9 +21,6 @@ import {
 
 const ProductSlug = (props) => {
   const { product, relatedProducts, collections } = props
-  //console.log('Getcollection', getcollections)
-
-
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -171,7 +168,9 @@ export async function getStaticProps({ params, locale, locales, preview }) {
     config,
     preview,
   })
-
+  /**
+   * Collection
+   */
   const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
   const headers = {
     'content-type': 'application/json',
