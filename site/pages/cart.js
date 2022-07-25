@@ -1,3 +1,6 @@
+
+import CartItemsContainer from '../components/cart/cart-page/CartItemsContainer'
+
 import {
   Flex,
   Heading,
@@ -8,54 +11,63 @@ import {
   Text,
 } from '@chakra-ui/react'
 import commerce from '@lib/api/commerce'
-import CartItemsContainer from '../components/cart/Cart-Page/CartItemsContainer'
+import { BsBox } from 'react-icons/bs'
 
 const Cart = (props) => {
   return (
     <>
       <Box h="240px">
-        <Box>
-          <Box>
-            <Box
-              color="#fff"
-              backgroundImage="/assets/banner_page.png"
-              h="200px"
-              mb="6"
-            >
-              <Flex w="1200px" m="0px auto">
-                <Box>
-                  <Heading fontSize="40" variant="h1" lineHeight="200px">
-                    Cart
-                  </Heading>
-                </Box>
-                <Spacer />
-                <Box lineHeight="200px">
-                  <Flex>
-                    <Text component="h6" variant="h6">
-                      Home
-                    </Text>
-                    <Text p="0px 10px"> / </Text>
-                    <Text component="h6" variant="h6">
-                      Cart
-                    </Text>
-                  </Flex>
-                </Box>
+        <Box
+          color="#fff"
+          backgroundImage="/assets/banner_page.png"
+          h="200px"
+          mb="6"
+        >
+          <Flex
+            maxW={{
+              md: '768px',
+              lg: '960px',
+              xl: '1200px',
+            }}
+            m="12px auto"
+          >
+            <Box>
+              <Heading fontSize="40" variant="h1" lineHeight="200px">
+                Shop
+              </Heading>
+            </Box>
+            <Spacer />
+            <Box lineHeight="200px">
+              <Flex>
+                <Text component="h6" variant="h6">
+                  Home
+                </Text>
+                <Text p="0px 10px"> / </Text>
+                <Text component="h6" variant="h6">
+                  Shop
+                </Text>
               </Flex>
             </Box>
-          </Box>
+          </Flex>
         </Box>
       </Box>
-      <Center>
-        <Container>
-          <CartItemsContainer />
-          {props.children}
-        </Container>
-      </Center>
+      <Box
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="12px auto"
+      >
+        <CartItemsContainer />
+        {props.children}
+      </Box>
     </>
   )
 }
 
 export default Cart
+
 export async function getStaticProps({ preview, locale, locales }) {
   const config = { locale, locales }
 
@@ -67,6 +79,6 @@ export async function getStaticProps({ preview, locale, locales }) {
     props: {
       categories,
     },
-    revalidate: 60,
+    revalidate: 86400,
   }
 }

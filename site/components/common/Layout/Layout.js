@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 const queryClient = new QueryClient()
 
+
 const Layout = (props) => {
   const { categories } = props
   return (

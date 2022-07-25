@@ -39,34 +39,54 @@ const TabHeader = (props) => {
           NEW PRODUCT
         </Heading>
       </Center>
-      <Box w="1200px" m="12px auto">
+      <Box
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="12px auto"
+      >
         <Center>
+      <Flex direction={['column', 'column', 'row', 'row']}>
           <Tabs variant="soft-rounded" colorScheme="blue">
             <TabList>
               <Tab
                 onClick={() => handleSubmit('')}
                 border="1px solid #ccc"
                 bg="#fff"
-                mr="5"
+                p="10px 20px"
+                color="brand.detail"
+                _hover={{ bg: 'brand.primary', color: ' white' }}
+                borderRadius="50px"
+                w="100%"
+                fontWeight="300"
               >
                 All Product
               </Tab>
+             <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
               {collections.length > 0 &&
                 collections.map((item) => (
                   <Tab
                     key={item}
-                    onClick={() => handleSubmit(item.slug)}
+                    onClick={() => handleSubmit(`${item.slug}`)}
                     border="1px solid #ccc"
                     bg="#fff"
-                    mr="5"
-                    color="#666"
+                    p="10px 20px"
+                    color="brand.detail"
+                    _hover={{ bg: 'brand.primary', color: ' white' }}
+                    borderRadius="50px"
+                    w="100%"
+                    fontWeight="300"
                     _hover={{ bg: 'brand.primary', color: ' white' }}
                   >
                     {item.name}
                   </Tab>
                 ))}
+              </Box>
             </TabList>
           </Tabs>
+        </Flex>
         </Center>
       </Box>
     </Box>

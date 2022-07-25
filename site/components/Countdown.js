@@ -49,11 +49,12 @@ const CountDown = () => {
         mr="15"
         size="50px"
         border="1px solid #666"
+        lineHeight="1"
       >
-        <Text m="0" fontSize="20" fontWeight="bold" color="#666">
+        <Text m="0" fontSize="20" fontWeight="bold" color="brand.detail">
           {days}
         </Text>
-        <Text m="0" fontSize="12" color="#444" fontWeight="bold">
+        <Text m="0" fontSize="12" color="brand.title" fontWeight="bold">
           days
         </Text>
       </Circle>
@@ -62,11 +63,12 @@ const CountDown = () => {
         mr="15"
         size="50px"
         border="1px solid #666"
+        lineHeight="1"
       >
-        <Text m="0" fontSize="20" fontWeight="bold" color="#666">
+        <Text m="0" fontSize="20" fontWeight="bold" color="brand.detail">
           {hours}
         </Text>
-        <Text m="0" fontSize="12" color="#444" fontWeight="bold">
+        <Text m="0" fontSize="12" color="brand.title" fontWeight="bold">
           hours
         </Text>
       </Circle>
@@ -75,11 +77,12 @@ const CountDown = () => {
         mr="15"
         size="50px"
         border="1px solid #666"
+        lineHeight="1"
       >
-        <Text m="0" fontSize="20" fontWeight="bold" color="#666">
+        <Text m="0" fontSize="20" fontWeight="bold" color="brand.detail">
           {minutes}
         </Text>
-        <Text m="0" fontSize="12" color="#444" fontWeight="bold">
+        <Text m="0" fontSize="12" color="brand.title" fontWeight="bold">
           mins
         </Text>
       </Circle>
@@ -88,11 +91,12 @@ const CountDown = () => {
         mr="15"
         size="50px"
         border="1px solid #666"
+        lineHeight="1"
       >
-        <Text m="0" fontSize="20" fontWeight="bold" color="#666">
+        <Text m="0" fontSize="20" fontWeight="bold" color="brand.detail">
           {seconds}
         </Text>
-        <Text m="0" fontSize="12" color="#444" fontWeight="bold">
+        <Text m="0" fontSize="12" color="brand.title" fontWeight="bold">
           secs
         </Text>
       </Circle>

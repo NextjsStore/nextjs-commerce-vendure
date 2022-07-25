@@ -244,7 +244,13 @@ const Home = (props) => {
       <SwipeableTextMobileStepper />
       <DealsOfDay key={productDeal.id} productsdeal={productDeal} />
       <TabHeader key={categories.id} collections={categories} />
-      <SimpleGrid columns={4} w="1200px" m="12px auto">
+      <SimpleGrid columns={{ sm: '1', md: '2', lg: '4' }}
+          w={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+          }}
+          m="12px auto">
         {dataTab.length > 0 &&
           dataTab.map((product) => (
             <Search_Collection key={product.id} product={product} />
@@ -252,14 +258,26 @@ const Home = (props) => {
       </SimpleGrid>
       <ListImages />
       <TabSeller key={categories.id} collections={categories} />
-      <SimpleGrid columns={4} w="1200px" m="12px auto">
+     <SimpleGrid columns={{ sm: '1', md: '2', lg: '4' }}
+          w={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+          }}
+          m="12px auto">
         {!tabSeller &&
           productsSeller.length > 0 &&
           productsSeller.map((product) => (
             <ProdutcsSeller key={product.id} product={product} />
           ))}
       </SimpleGrid>
-      <SimpleGrid columns={4} w="1200px" m="12px auto">
+      <SimpleGrid columns={{ sm: '1', md: '2', lg: '4' }}
+          w={{
+            md: '768px',
+            lg: '960px',
+            xl: '1200px',
+          }}
+          m="12px auto">
         {tabSeller.length > 0 &&
           tabSeller.map((product) => (
             <Search_Collection key={product.id} product={product} />
@@ -269,6 +287,7 @@ const Home = (props) => {
       <Logo brands={brands} />
       <NameForm />
     </Box>
+
   )
 }
 export default Home

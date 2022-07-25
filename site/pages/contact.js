@@ -27,7 +27,14 @@ const ContactUS = (props) => {
           h="200px"
           mb="6"
         >
-          <Flex w="1200px" m="0px auto">
+          <Flex
+            maxW={{
+              md: '768px',
+              lg: '960px',
+              xl: '1200px',
+            }}
+            m="0px auto"
+          >
             <Box>
               <Heading fontSize="40" variant="h1" lineHeight="200px">
                 Contact
@@ -48,9 +55,19 @@ const ContactUS = (props) => {
           </Flex>
         </Box>
       </Box>
-      <Container maxW="1200px" m="0px auto">
-        <Flex>
-          <Box w="50%">
+      <Container
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="0px auto"
+      >
+        <Flex direction={['column', 'column', 'row', 'row']}>
+          <Box
+            w={{ sm: '100%', md: '50%' }}
+            pb={{ base: '6', sm: '6', md: '0' }}
+          >
             <Heading
               fontFamily="Merriweather"
               as="h2"
@@ -80,7 +97,12 @@ const ContactUS = (props) => {
               </Box>
             </Box>
           </Box>
-          <Box w="50%" fontFamily="Merriweather" fontSize="20">
+          <Box
+            w={{ sm: '100%', md: '50%' }}
+            fontFamily="Merriweather"
+            fontSize="20"
+            pt={{ sm: '6', md: '0' }}
+          >
             <Heading
               fontFamily="Merriweather"
               as="h2"

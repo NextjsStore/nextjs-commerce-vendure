@@ -39,9 +39,17 @@ const TabSeller = (props) => {
           BEST SELLER
         </Heading>
       </Center>
-      <Box w="1200px" m="12px auto">
+      <Box
+        maxW={{
+          md: '768px',
+          lg: '960px',
+          xl: '1200px',
+        }}
+        m="12px auto"
+      >
         <Center>
-          <Tabs variant="soft-rounded" colorScheme="blue">
+        <Flex direction={['column', 'column', 'row', 'row']}>
+          <Tabs variant="soft-rounded" colorScheme="blue" pr="5" pt="2">
             <TabList>
               <Tab
                 onClick={() => handleSubmit('')}
@@ -67,6 +75,7 @@ const TabSeller = (props) => {
                 ))}
             </TabList>
           </Tabs>
+          </Flex>
         </Center>
       </Box>
     </Box>
