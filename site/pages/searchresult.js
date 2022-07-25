@@ -1,20 +1,21 @@
 import Banner from '../assets/banner_page.png'
 import Search_Collection from '../components/searchcollection'
-import { Box, Container, Flex, Heading, Spacer, Grid } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Spacer,
+  Grid,
+  SimpleGrid,
+  Text,
+} from '@chakra-ui/react'
 import commerce from '@lib/api/commerce'
 import axios from 'axios'
 
 export async function getServerSideProps({ preview, locale, locales, query }) {
   const config = { locale, locales }
-  const productsPromise = commerce.getAllProducts({
-    variables: { first: 8 },
-    config,
-    preview,
-    ...{ featured: true },
-  })
   const siteInfoPromise = commerce.getSiteInfo({ config, preview })
-
-  const { products } = await productsPromise
   const { categories } = await siteInfoPromise
 
   const endpoint = process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL
@@ -24,7 +25,7 @@ export async function getServerSideProps({ preview, locale, locales, query }) {
 
   const graphqlQuery = {
     operationName: 'fetchAuthor',
-    query: `query fetchAuthor($slug: String) {
+    query: `query fetchAuthor($slug: String!) {
       search(input: {collectionSlug: $slug, take: 12 }) {
         items {
           productName
@@ -43,9 +44,6 @@ export async function getServerSideProps({ preview, locale, locales, query }) {
     }`,
     variables: { slug: query.slug },
   }
-  const collectionSlug = query.slug
-  console.log('collectionSlug', collectionSlug)
-
   const response = await axios({
     url: endpoint,
     method: 'POST',
@@ -56,7 +54,6 @@ export async function getServerSideProps({ preview, locale, locales, query }) {
 
   return {
     props: {
-      products,
       searchResult,
       categories,
     },
@@ -72,57 +69,55 @@ const Search_Result = (props) => {
 
   return (
     <Box>
-      <Box h="240px">
+      <Box>
         <Box>
           <Box
             color="#fff"
             backgroundImage="/assets/banner_page.png"
             h="200px"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            mb="60px"
+            mb="6"
           >
-            <Flex>
+            <Flex w="1200px" m="0px auto">
               <Box>
-                <Heading component="h3" variant="h3">
+                <Heading fontSize="40" variant="h1" lineHeight="200px">
                   Search
                 </Heading>
               </Box>
               <Spacer />
-              <Box>
-                <Heading component="h6" variant="h6">
-                  Home
-                </Heading>
-                <Heading component="h6" variant="h6">
-                  Search
-                </Heading>
+              <Box lineHeight="200px">
+                <Flex>
+                  <Text component="h6" variant="h6">
+                    Home
+                  </Text>
+                  <Text p="0px 10px"> / </Text>
+                  <Text component="h6" variant="h6">
+                    Search
+                  </Text>
+                </Flex>
               </Box>
             </Flex>
           </Box>
         </Box>
       </Box>
       {/********************** */}
-      <Container>
-        <Box>
-          <Grid item lg={3}>
+      <Container maxW="1200px" m="12px auto">
+        <Flex>
+          <Box w="25%">
+            <Heading as="h3" size="lg" color="brand.title" pb="2">
+              Search Results:
+            </Heading>
+          </Box>
+          <Box item lg={8} w="80%" pl="20">
             <Box>
-              <Heading component="h4" variant="h4">
-                Search Results :
-              </Heading>
+              <SimpleGrid columns={3}>
+                {searchResult.length > 0 &&
+                  searchResult.map((product) => (
+                    <Search_Collection key={product} product={product} />
+                  ))}
+              </SimpleGrid>
             </Box>
-          </Grid>
-          <Grid item lg={9}>
-            <Grid
-              spacing={{ sm: 2, md: 2, xs: 3, lg: 3 }}
-              columns={{ xl: 3, sm: 2, md: 3, lg: 3 }}
-            >
-              {searchResult.length > 0 &&
-                searchResult.map((product) => (
-                  <Search_Collection key={product} product={product} />
-                ))}
-            </Grid>
-          </Grid>
-        </Box>
+          </Box>
+        </Flex>
       </Container>
     </Box>
   )

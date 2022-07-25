@@ -3,7 +3,6 @@ import React from 'react'
 import { useState, useContext } from 'react'
 import { AppContext } from '../../lib/context/AppContext'
 import { addFirstProduct, updateCart } from '../../function'
-import { AppProvider } from '../../lib/context/AppContext'
 import { Button } from '@chakra-ui/react'
 
 const AddToCartButton = (props) => {
@@ -35,7 +34,7 @@ const AddToCartButton = (props) => {
   }
 
   return (
-    <AppProvider>
+    <>
       <React.Fragment>
         <Button
           borderRadius="20px"
@@ -53,7 +52,7 @@ const AddToCartButton = (props) => {
         >
           Add To Cart
         </Button>
-        {showViewCart ? (
+        {showViewCart && (
           <Link href="/cart">
             <a>
               <Button
@@ -73,11 +72,9 @@ const AddToCartButton = (props) => {
               </Button>
             </a>
           </Link>
-        ) : (
-          ''
         )}
       </React.Fragment>
-    </AppProvider>
+    </>
   )
 }
 
