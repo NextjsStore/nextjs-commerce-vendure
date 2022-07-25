@@ -57,8 +57,8 @@ const DealsOfDay = (props) => {
       </Box>
       <Center position="relative">
         <Box display={{ sm: 'block', md: 'block', lg: 'flex', xl: 'flex' }}>
-          {productdeal.length > 1 &&
-            productdeal.map((item) => (
+          {productsdeal.length > 1 &&
+            productsdeal.map((item) => (
               <Box key={item} display={{ sm: 'block', md: 'flex' }}>
                 <Box>
                   <Image src={item.assets[0].source} alt="" />
