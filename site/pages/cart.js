@@ -1,6 +1,4 @@
-// import CartItemsContainer from '../components/cart/Cart-Page/CartItemsContainer'
 import CartItemsContainer from '../components/cart/cart-page/CartItemsContainer'
-import { AppProvider } from '../lib/context/AppContext'
 import {
   Flex,
   Heading,
@@ -15,7 +13,7 @@ import { BsBox } from 'react-icons/bs'
 
 const Cart = (props) => {
   return (
-    <AppProvider>
+    <>
       <Box h="240px">
         <Box
           color="#fff"
@@ -62,7 +60,7 @@ const Cart = (props) => {
         <CartItemsContainer />
         {props.children}
       </Box>
-    </AppProvider>
+    </>
   )
 }
 

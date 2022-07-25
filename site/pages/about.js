@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react'
 import commerce from '@lib/api/commerce'
 
-const About = () => {
+const About = (props) => {
   return (
     <>
       <Box align="center">

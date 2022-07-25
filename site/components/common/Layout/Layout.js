@@ -4,21 +4,22 @@ import HeaderMid from '../../HeaderMid'
 import HeaderCenter from '../../HeaderCenter'
 import Footer from '../../Footer'
 import Copyright from '../../Copyright'
+import { AppProvider } from '@lib/context/AppContext'
 
-const Layout = ({ children }) => {
-  // console.log('children', children)
+
+const Layout = (props) => {
+  const { categories } = props
   return (
-    <>
-      <SideBarTop />
-      <HeaderMid
-        key={children.props.categories}
-        categories={children.props.categories}
-      />
-      <HeaderCenter />
-      {children}
-      <Footer />
-      <Copyright />
-    </>
+    <AppProvider>
+      <div>
+        <SideBarTop />
+        <HeaderMid key={categories} categories={categories} />
+        <HeaderCenter />
+        {props.children}
+        <Footer />
+        <Copyright />
+      </div>
+    </AppProvider>
   )
 }
 export default Layout

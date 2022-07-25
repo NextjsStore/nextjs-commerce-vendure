@@ -19,9 +19,10 @@ import {
   Text,
 } from '@chakra-ui/react'
 
-const Product = (props) => {
+const ProductSlug = (props) => {
   const { product, relatedProducts, collections } = props
-  //console.log('Getcollection', collections)
+  //console.log('Getcollection', getcollections)
+
 
   const router = useRouter()
 
@@ -171,7 +172,7 @@ const Product = (props) => {
     </Box>
   )
 }
-export default Product
+export default ProductSlug
 
 export async function getStaticProps({ params, locale, locales, preview }) {
   const config = { locale, locales }

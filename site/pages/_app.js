@@ -7,11 +7,10 @@ import '../styles/theme/styles.css'
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
-      <Layout>
+      <Layout categories={pageProps.categories}>
         <Component {...pageProps} />
       </Layout>
     </ChakraProvider>
   )
 }
-
 export default MyApp

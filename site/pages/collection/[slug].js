@@ -16,7 +16,6 @@ import Link from 'next/link'
 
 const CollectionShop = (props) => {
   const { collections, categories } = props
-  console.log('categories', categories)
 
   const router = useRouter()
   const handleSubmit = (slug) => {
@@ -83,7 +82,7 @@ const CollectionShop = (props) => {
                   <Box disablePadding>
                     <Box
                       as="button"
-                      onClick={() => handleSubmit(`${item.slug}`)}
+                      onClick={() => handleSubmit(item.slug)}
                       borderBottom="1px solid #ccc"
                       p={[2, 3]}
                       w="100%"

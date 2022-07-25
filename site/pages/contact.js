@@ -16,7 +16,8 @@ import {
 } from '@chakra-ui/react'
 import commerce from '@lib/api/commerce'
 
-const ContactUS = () => {
+const ContactUS = (props) => {
+  const { categories } = props
   return (
     <Box pb="20">
       <Box>

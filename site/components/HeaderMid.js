@@ -27,7 +27,7 @@ const HeaderMid = (props) => {
   const handleSubmit = (event, value) => {
     event.preventDefault()
     setShowResultInfo(false)
-    router.push(`/searchresult?collectionSlug=${searchQuery}`)
+    router.push(`/searchresult?slug=${searchQuery}`)
   }
   const changeSearchQuery = (e) => {
     setSearchQuery(e.target.value)

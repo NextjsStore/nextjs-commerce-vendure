@@ -5,7 +5,6 @@ import Product from '@components/product'
 import ListImages from '@components/ListImages'
 import ListImgSeller from '../components/imglist'
 import NameForm from '@components/formEmail'
-import { AppProvider } from '../lib/context/AppContext'
 import DealsOfDay from 'components/DealsOfDay'
 import Tab from '@components/tab'
 import TabSeller from '@components/tabSeller'
@@ -102,7 +101,7 @@ export async function getStaticProps({ preview, locale, locales, params }) {
       brands,
       pages,
     },
-    revalidate: 60,
+    revalidate: 86400,
   }
 }
 
@@ -161,11 +160,10 @@ const Home = (props) => {
   ]
 
   return (
-    <AppProvider>
       <Box>
         <SwipeableTextMobileStepper />
+        <DealsOfDay key={productDeal.id} productsdeal={productDeal} />
 
-        <DealsOfDay key={productDeal.id} productdeal={productDeal} />
         <Tab key={categories.id} collections={categories} />
         <SimpleGrid
           columns={{ sm: '1', md: '2', lg: '4' }}
@@ -187,7 +185,6 @@ const Home = (props) => {
               products.map(product => <Product key={product.id} product={product} />)
             ) : ''}
           </Grid> */}
-
         <ListImages />
         <TabSeller key={categories.id} collections={categories} />
         <SimpleGrid
@@ -205,7 +202,6 @@ const Home = (props) => {
             ))}
         </SimpleGrid>
         {/* <Grid container spacing={{ sm: 2, md: 2, xs: 4, lg: 3 }} columns={{ xs: 4, sm: 6, md: 4, lg: 4 }}>
-
             {products.length ? (
               products.map(product => <Product key={product.id} product={product} />)
             ) : ''}
@@ -214,7 +210,6 @@ const Home = (props) => {
         <Logo brands={brands} />
         <NameForm />
       </Box>
-    </AppProvider>
   )
 }
 export default Home

@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react'
 import Link from 'next/link'
-
 import { BsFillStarFill } from 'react-icons/bs'
 import { Container, Box, Image, Heading, Text } from '@chakra-ui/react'
 const ProdutcsSeller = (props) => {

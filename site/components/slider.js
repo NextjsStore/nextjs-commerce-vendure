@@ -38,7 +38,7 @@ const SwipeableTextMobileStepper = () => {
         {images.map((step, index) => (
           <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
-              <Image component="Image" src={step.imgPath} w="100%" />
+              <Image component="Image" src={step.imgPath} w="100%" alt="" />
             ) : null}
           </div>
         ))}

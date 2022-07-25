@@ -14,7 +14,7 @@ import CountDown from './Countdown'
 import Link from 'next/link'
 
 const DealsOfDay = (props) => {
-  const { productdeal } = props
+  const { productsdeal } = props
   return (
     <Container
       pt="10"

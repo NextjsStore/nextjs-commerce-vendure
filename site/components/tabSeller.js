@@ -51,7 +51,7 @@ const TabSeller = (props) => {
           <Flex direction={['column', 'column', 'row', 'row']}>
             <Box pr="5" pt="2">
               <Button
-                onClick={() => handleSubmit(`SmartPhone`)}
+                onClick={() => handleSubmit(``)}
                 border="1px solid #ccc"
                 bg="#fff"
                 p="10px 20px"
