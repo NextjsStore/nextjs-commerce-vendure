@@ -39,49 +39,6 @@ const validationSchema = yup.object({
 })
 const CartItemsContainer = () => {
   const [cart, setCart] = useContext(AppContext)
-  //console.warn(cart);
-  //const [requestError, setRequestError] = useState(null);
-
-  // Get Cart Data.
-  // const { loading, error, data, refetch } = useQuery(GET_CART, {
-  //     notifyOnNetworkStatusChange: true,
-  //     onCompleted: () => {
-
-  //         // Update cart in the localStorage.
-  //         const updatedCart = getFormattedCart(data);
-  //         localStorage.setItem('woo-next-cart', JSON.stringify(updatedCart));
-
-  //         // Update cart data in React Context.
-  //         setCart(updatedCart);
-  //     }
-  // });
-
-  // Update Cart Mutation.
-  // const [updateCart, { data: updateCartResponse, loading: updateCartProcessing, error: updateCartError }] = useMutation(UPDATE_CART, {
-  //     onCompleted: () => {
-  //         refetch();
-  //     },
-  //     onError: (error) => {
-  //         if (error) {
-  //             const errorMessage = error?.graphQLErrors?.[0]?.message ? error.graphQLErrors[0].message : '';
-  //             setRequestError(errorMessage);
-  //         }
-  //     }
-  // });
-
-  // Update Cart Mutation.
-  // const [clearCart, { data: clearCartRes, loading: clearCartProcessing, error: clearCartError }] = useMutation(CLEAR_CART_MUTATION, {
-  //     onCompleted: () => {
-  //         refetch();
-  //     },
-  //     onError: (error) => {
-  //         if (error) {
-  //             const errorMessage = !isEmpty(error?.graphQLErrors?.[0]) ? error.graphQLErrors[0]?.message : '';
-  //             setRequestError(errorMessage);
-  //         }
-  //     }
-  // });
-
   /*
    * Handle remove product click.
    *
@@ -92,27 +49,8 @@ const CartItemsContainer = () => {
    */
   const handleRemoveProductClick = (event, productId) => {
     const updatedCart = removeItemFromCart(productId)
-
     setCart(updatedCart)
   }
-  // Clear the entire cart.
-  // const handleClearCart = (event) => {
-
-  //     event.stopPropagation();
-
-  //     if (clearCartProcessing) {
-  //         return;
-  //     }
-
-  //     clearCart({
-  //         variables: {
-  //             input: {
-  //                 clientMutationId: v4(),
-  //                 all: true
-  //             }
-  //         },
-  //     });
-  // }
   const router = useRouter()
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
@@ -187,6 +125,7 @@ const CartItemsContainer = () => {
                 <Box pt="6">
                   <Link href="/shop">
                     <Button
+                      as="a"
                       leftIcon={<FaAngleDoubleLeft />}
                       bg="brand.primary"
                       color="#fff"
@@ -266,5 +205,4 @@ const CartItemsContainer = () => {
     </Center>
   )
 }
-
 export default CartItemsContainer

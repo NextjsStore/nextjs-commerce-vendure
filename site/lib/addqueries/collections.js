@@ -1,44 +1,19 @@
-export const getCollections = `query getProduct($slug: String!) {
-    product(slug: $slug) {
+export const getCollections = `query fetchAuthor {
+  products(options: {take: 8 skip:4} ) {
+    items {
       id
       name
-      slug
       description
+      slug
       assets {
-        id
-        preview
-        name
-      }
-      collections {
-        name
-        slug
+        source
       }
       variants {
-        id
-        priceWithTax
         currencyCode
-        options {
-          id
-          name
-          code
-          groupId
-          group {
-            id
-            options {
-              name
-            }
-          }
-        }
-      }
-      optionGroups {
-        id
-        code
+        price
         name
-        options {
-          id
-          name
-        }
       }
     }
+}
   }
   `
