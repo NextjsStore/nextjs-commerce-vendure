@@ -1,6 +1,14 @@
 import * as React from 'react'
 import { useRouter } from 'next/router'
-import { Box, Heading, Center, Tabs, TabList, Tab } from '@chakra-ui/react'
+import {
+  Box,
+  Heading,
+  Center,
+  Tabs,
+  TabList,
+  Tab,
+  Flex,
+} from '@chakra-ui/react'
 
 const TabHeader = (props) => {
   const { collections, products } = props
@@ -48,45 +56,34 @@ const TabHeader = (props) => {
         m="12px auto"
       >
         <Center>
-      <Flex direction={['column', 'column', 'row', 'row']}>
-          <Tabs variant="soft-rounded" colorScheme="blue">
-            <TabList>
-              <Tab
-                onClick={() => handleSubmit('')}
-                border="1px solid #ccc"
-                bg="#fff"
-                p="10px 20px"
-                color="brand.detail"
-                _hover={{ bg: 'brand.primary', color: ' white' }}
-                borderRadius="50px"
-                w="100%"
-                fontWeight="300"
-              >
-                All Product
-              </Tab>
-             <Box display={{ sm: 'block', md: 'flex', lg: 'flex', xl: 'flex' }}>
-              {collections.length > 0 &&
-                collections.map((item) => (
-                  <Tab
-                    key={item}
-                    onClick={() => handleSubmit(`${item.slug}`)}
-                    border="1px solid #ccc"
-                    bg="#fff"
-                    p="10px 20px"
-                    color="brand.detail"
-                    _hover={{ bg: 'brand.primary', color: ' white' }}
-                    borderRadius="50px"
-                    w="100%"
-                    fontWeight="300"
-                    _hover={{ bg: 'brand.primary', color: ' white' }}
-                  >
-                    {item.name}
-                  </Tab>
-                ))}
-              </Box>
-            </TabList>
-          </Tabs>
-        </Flex>
+          <Flex direction={['column', 'column', 'row', 'row']}>
+            <Tabs variant="soft-rounded" colorScheme="blue" pr="5" pt="2">
+              <TabList>
+                <Tab
+                  onClick={() => handleSubmit('')}
+                  border="1px solid #ccc"
+                  bg="#fff"
+                  mr="5"
+                >
+                  All Product
+                </Tab>
+                {collections.length > 0 &&
+                  collections.map((item) => (
+                    <Tab
+                      key={item}
+                      onClick={() => handleSubmit(item.slug)}
+                      border="1px solid #ccc"
+                      bg="#fff"
+                      mr="5"
+                      color="#666"
+                      _hover={{ bg: 'brand.primary', color: ' white' }}
+                    >
+                      {item.name}
+                    </Tab>
+                  ))}
+              </TabList>
+            </Tabs>
+          </Flex>
         </Center>
       </Box>
     </Box>
